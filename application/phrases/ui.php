@@ -2144,6 +2144,23 @@ $phrases = array(
 				'description' => ''
 			)
 		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'ui',
+		'phrase' => 'geloescht',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Gel&ouml;scht',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Deleted',
+				'description' => ''
+			)
+		)
 	)
 );
 
