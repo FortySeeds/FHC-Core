@@ -1054,6 +1054,516 @@ $phrases = array(
 				'description' => '',
 			)
 		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'titelDerArbeit',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Titel',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Title of ',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'plagiatscheckBeschreibung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Der Plagiatscheck wurde durchgeführt und bestätigt, dass der zentrale Inhalt der Arbeit im erforderlichen Ausmaß eigenständig verfasst wurde (vgl. Satzungsteil Studienrechtliche Bestimmungen / Prüfungsordnung, § 18 Abs. 2 und 3).',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The plagiarism check has been carried out and confirms that the central content of the paper has been written independently to the required extent (cf. part of the Statutes on Studies Act Provisions / Examination Regulations, § 18 Para. 2 and 3).',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'plagiatscheckBeschreibungMaster',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Der Plagiatscheck wurde durchgeführt und bestätigt, dass der zentrale Inhalt der Arbeit im erforderlichen Ausmaß eigenständig verfasst wurde (vgl. Satzungsteil Studienrechtliche Bestimmungen / Prüfungsordnung, § 18 Abs. 2 und 3).',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The plagiarism check has been carried out and confirms that the central content of the thesis has been written independently to the required extent (cf. part of the Statutes on Studies Act Provisions / Examination Regulations, § 18 Para. 2 and 3).',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'methodeTextMaster',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Das Vorgehen ist in Bezug auf die fachspezifische Ausrichtung der Arbeit angemessen, anhand der Fachliteratur begründet und korrekt umgesetzt.',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The procedure is appropriate in relation to the subject-specific orientation of the thesis, justified on the basis of the specialist literature and correctly implemented.',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'eigenstaendigkeitTextMaster',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Die Arbeit wurde in selbständiger Arbeitsweise (z.B. eigenständige Lösung der Fragestellungen und aufgetretener Probleme) verfasst.',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The thesis was written in an independent way (e.g. independent solutions to the questions and problems that occurred)',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'strukturTextMaster',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Die Arbeit ist schlüssig strukturiert.',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The thesis is structured coherently.',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'literaturTextMaster',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Quellen und Literatur sind für die wissenschaftliche Auseinandersetzung mit dem Thema der Arbeit relevant, geben den aktuellen Stand der Forschung wieder und decken das Thema ab.',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Sources and literature are relevant for the scientific discussion of the topic of the thesis, reflect the current state of the art and cover the topic.',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'notenschluesselHinweisNullPunkteEinKriterium',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Falls ein Kriterium mit 0 Punkten bewertet wird, ist die {0} insgesamt als negativ zu beurteilen.',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'If a criterion is assessed with 0 points, the {0} is to be assessed as negative overall.',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'projektarbeitsbeurteilungUebersicht',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Projektarbeitsbeurteilungsübersicht',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Projekt Work Assessment Overview',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'abgabedatum',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Abgabe - Datum',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Upload - Date',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'freischaltung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Freischaltung',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Activation',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'resendToken',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Token an Zweit-Begutachter*in senden',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Send token to Second Assessor',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'freischalten',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Freischalten',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Unlock',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'kommissionellePruefungHinweis',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Dies ist eine im Rahmen einer kommissionellen Wiederholungsprüfung vorgelegte Bachelorarbeit. Die Beurteilung erfolgt erst im Anschluss an eine Abstimmung der Mitglieder des Prüfungssenats.',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'This is a Bachelor\'s thesis submitted within the frame of a committee re-sit examination. The assessment only takes place after a vote of the members of the examination commission.',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'kommissionMailSenden',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Infomail an Mitglieder des Prüfungssenats senden',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Send infomail to members of the examination committee',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'kommissionMailGesendet',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Mail an Mitglieder des Prüfungssenats gesendet',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Sent mail to members of the examination committee',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'kommissionMailFehler',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim Senden der Mail an Prüfungssenat',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error when sending mail to commission members',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'zweitbetreuerBewertungFehlt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Absenden erst nach Abschluss der Bewertung durch Zweitbegutachter*in möglich',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Sending only possible after completion of assessment by Second Assessor',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'nichtErfuellt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'nicht erfüllt',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'not fulfilled',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'mindestanforderungErfuellt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Mindestanforderung erfüllt',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'minimum requirement fulfilled',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'inWeitenTeilenErfuellt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'in weiten Teilen erfüllt',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'fulfilled for the most part',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'vollstaendigErfuellt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'vollständig erfüllt',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'fully fulfilled',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'kommissionsmitglieder',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Mitglieder Prüfungssenat',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Members of the examination commission',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'plagiatscheckNichtGesetzt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Plagiatscheck auffällig, negative Beurteilung',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Plagiarism check not passed, negative assessment',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'titelBearbeiten',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Titel bearbeiten',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Edit title',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'titelGespeichert',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Titel gespeichert',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Title saved',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'titelSpeichernFehler',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim Speichern des Titels',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error when saving title',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'plagiatscheckHinweisNegativeBeurteilung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => '(Bei Plagiat wird die Arbeit negativ bewertet.)',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => '(Plagiarism leads to a negative grade.)',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'plagiatscheck',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Plagiatscheck',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Plagiarism check',
+				'description' => ''
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'betreuernote',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Betreuernote',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Assessor grade',
+				'description' => ''
+			)
+		)
 	)
 );
 
