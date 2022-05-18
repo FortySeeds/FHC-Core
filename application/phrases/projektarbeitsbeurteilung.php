@@ -1564,6 +1564,23 @@ $phrases = array(
 				'description' => ''
 			)
 		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'begutachter',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Begutachter*in',
+				'description' => ''
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Assessor',
+				'description' => ''
+			)
+		)
 	)
 );
 
