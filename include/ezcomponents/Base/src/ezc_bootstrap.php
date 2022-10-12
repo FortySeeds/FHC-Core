@@ -32,8 +32,7 @@ else
  *
  * @param string $className  The name of the class that should be loaded.
  */
-function __autoload( $className )
-{
+spl_autoload_register(function ( $className ) {
 	ezcBase::autoload( $className );
-}
+});
 ?>

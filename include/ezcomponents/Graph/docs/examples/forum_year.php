@@ -1,10 +1,9 @@
 <?php
 
 require 'Base/src/base.php';
-function __autoload( $className )
-{
+spl_autoload_register(function ( $className ) {
         ezcBase::autoload( $className );
-}
+});
 
 // Require custom palette
 require dirname( __FILE__ ) . '/ez_green.php';

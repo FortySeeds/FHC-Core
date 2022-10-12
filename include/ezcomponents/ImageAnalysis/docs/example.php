@@ -7,10 +7,9 @@ require_once 'Base/src/base.php';
  * 
  * @param string $className 
  */
-function __autoload( $className )
-{
+spl_autoload_register(function ( $className ) {
     ezcBase::autoload( $className );
-}
+});
 
 // Analyzation of the MIME type is done during creation.
 $image = new ezcImageAnalyzer( dirname( __FILE__ ).'/toby.jpg' );

@@ -14,10 +14,9 @@ require_once 'Base/src/base.php';
  *
  * @param string $className
  */
-function __autoload( $className )
-{
+spl_autoload_register(function ( $className ) {
     ezcBase::autoload( $className );
-}
+});
 
 // Prepare settings for ezcImageConverter
 // Defines the handlers to utilize and auto conversions.
