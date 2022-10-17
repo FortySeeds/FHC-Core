@@ -115,7 +115,7 @@ function getOrtFromKurzbz($ort_kurzbz, $authentifizierung)
  INSERT INTO system.tbl_webservicerecht(berechtigung_kurzbz, methode, attribut) VALUES('soap/ort','getRaeume','reservieren');
  INSERT INTO system.tbl_webservicerecht(berechtigung_kurzbz, methode, attribut) VALUES('soap/ort','getRaeume','stockwerk');
  */
-function getRaeume($raumtyp_kurzbz=null, $authentifizierung)
+function getRaeume($raumtyp_kurzbz, $authentifizierung)
 {
     $user = $authentifizierung->username; 
     $passwort = $authentifizierung->passwort;
@@ -180,7 +180,7 @@ function getRaeume($raumtyp_kurzbz=null, $authentifizierung)
  INSERT INTO system.tbl_webservicerecht(berechtigung_kurzbz, methode, attribut) VALUES('soap/ort','searchRaum','reservieren');
  INSERT INTO system.tbl_webservicerecht(berechtigung_kurzbz, methode, attribut) VALUES('soap/ort','searchRaum','stockwerk');
  */
-function searchRaum($datum, $zeit_von, $zeit_bis, $raumtyp=null, $anzpersonen=null, $reservierung=true, $authentifizierung)
+function searchRaum($datum, $zeit_von, $zeit_bis, $raumtyp, $anzpersonen, $reservierung, $authentifizierung)
 {
 	$user = $authentifizierung->username; 
     $passwort = $authentifizierung->passwort;

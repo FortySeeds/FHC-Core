@@ -133,7 +133,7 @@ function getStudentFromMatrikelnummer($matrikelnummer, $authentifizierung)
  * @param $gruppe
  * @param $authentifizierung
  */
-function getStudentFromStudiengang($studiengang, $semester = null, $verband = null, $gruppe = null, $authentifizierung)
+function getStudentFromStudiengang($studiengang, $semester, $verband, $gruppe, $authentifizierung)
 {
     $recht = new webservicerecht();
     $user = $authentifizierung->username;

@@ -1487,7 +1487,7 @@ function alle_raum_informationen($db,$raumtyp_kurzbz,$ort_kurzbz, $standort_id)
 * @return array Tablle der Rauminformation
 *
 */
-function stundenplan_raum($db,$ort_kurzbz="",$datum="",$stunde_von,$stunde_bis=0,$uid="",$kalenderwoche="",$studiengang_kz="",$semester="",$verband="",$gruppe="")
+function stundenplan_raum($db, $ort_kurzbz, $datum, $stunde_von, $stunde_bis = 0, $uid = "", $kalenderwoche = "", $studiengang_kz = "", $semester = "", $verband = "", $gruppe = "")
 {
 	// Plausib
 	if (!$db)

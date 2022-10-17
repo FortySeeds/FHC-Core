@@ -79,7 +79,7 @@ class PDF extends FPDF
 	 *        $lineheight  Zeilenhoehe
 	 *        $aligns      Array - enthaelt die ausrichtung der Spalten (L=Left,R=Right,C=Center)
 	 */
-	function morepagestable($datas,$lineheight=12,$aligns)
+	function morepagestable($datas, $lineheight, $aligns)
 	{
 	    // some things to set and 'remember'
 	    $l = $this->lMargin;

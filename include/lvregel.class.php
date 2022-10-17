@@ -566,7 +566,7 @@ class lvregel extends basis_db
 	 * @param $regel_obj
 	 * @param $studiensemester_kurzbz
 	 */
-	public function Test($uid, $regel_obj, $studiensemester_kurzbz=null, $retvalglobal)
+	public function Test($uid, $regel_obj, $studiensemester_kurzbz, $retvalglobal)
 	{
 		$regel = $regel_obj[0];
 		$ects=0;

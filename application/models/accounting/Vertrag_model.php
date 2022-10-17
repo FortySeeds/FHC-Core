@@ -29,7 +29,7 @@ class Vertrag_model extends DB_Model
      * @param $vertragstyp_kurzbz
      * @return array|null               On success object. On failure null.
      */
-	public function save($person_id, $mitarbeiter_uid, $lehrveranstaltung_id, $lehreinheit_id, $projektarbeit_id = null, $vertragsstunden, $betrag, $studiensemester_kurzbz)
+	public function save($person_id, $mitarbeiter_uid, $lehrveranstaltung_id, $lehreinheit_id, $projektarbeit_id, $vertragsstunden, $betrag, $studiensemester_kurzbz)
     {
         $person_id = (isset($person_id) && is_numeric($person_id))
             ? $person_id
