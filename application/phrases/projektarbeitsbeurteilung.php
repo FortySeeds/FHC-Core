@@ -1581,6 +1581,142 @@ $phrases = array(
 				'description' => ''
 			)
 		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'senatsvorsitz',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Vorsitz Prüfungssenat',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Assessor', 
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'parbeitDownload',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Download Projektarbeit',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Download thesis',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'betreuerart',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Betreuerart',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Assessor type',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'nebenBegutachter',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Nebenbegutachter*in',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'secondary assessor',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'notenschluesselHinweisGewichtung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Die Punkteanzahl der Kriterien "1 - 5" wird mit 70%; die Punkteanzahl der Kriterien "6 - 10" mit 30% gewichtet.',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The number of points for criteria "1 - 5" is weighted with 70%; the number of points for criteria "6 - 10" is weighted with 30%.',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'gewichtet',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'gewichtete',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'weightened',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'sprache',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Sprache',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'language',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'projektarbeitsbeurteilung',
+		'category' => 'projektarbeitsbeurteilung',
+		'phrase' => 'spracheAendernFehler',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim Ändern der Sprache',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error when changing language',
+				'description' => '',
+			)
+		)
 	)
 );
 

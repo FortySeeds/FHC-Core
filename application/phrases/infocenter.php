@@ -1147,6 +1147,23 @@ However, the placement test result is yet to be entered manually!',
 				'description' => '',
 			)
 		)
+	),
+	array(
+		'app' => 'infocenter',
+		'category' => 'infocenter',
+		'phrase' => 'stammdatenFeldFehlt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Bitte Nachname, Geschlecht und Geburtsdatum ausfüllen.',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Please fill out the last name, gender and date of birth.',
+				'description' => '',
+			)
+		)
 	)
 );
 

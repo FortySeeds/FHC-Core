@@ -391,6 +391,414 @@ $phrases = array(
 				'description' => '',
 			)
 		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'fehlerZustaendigkeiten',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Fehler Zuständigkeiten",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Error Responsibilities",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigerMitarbeiter',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Mitarbeiter",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Employee",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'funktion',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Funktion",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Function",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigkeitZuweisen',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Zuständigkeit zuweisen",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Assign Responsibility",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'fehlerkurzbz',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Fehler Kurzbezeichnung",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Error short name",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'fehlertext',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Fehlertext",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Error text",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'oeKurzbz',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Organisationseinheit Kurzbezeichung",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Organisational Unit Short Name",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'oeBezeichnung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Organisationseinheit",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Organisational Unit",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'funktionKurzbz',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Funktion Kurzbezeichnung",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Function Short Name",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'funktionBeschreibung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Funktion Beschreibung",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Function Description",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'fehlercodeFehlt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Fehlercode fehlt",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Error code missing",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'mitarbeiterUndOeFehlt',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Mitarbeiter oder Organisationseinheit müssen gesetzt sein",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Employee or organisational unit must be set",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'nurOeOderMitarbeiterSetzen',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Mitarbeiter und Organisationseinheit dürfen nicht gleichzeitig gesetzt sein",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Employee and organisational unit cannot be both set",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'ungueltigeMitarbeiterId',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Mitarbeiter person Id ist ungültig",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Employee Id is invalid",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigkeitExistiert',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Zuständigkeit existiert bereits",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Assignment already exists",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'ungueltigeZustaendigkeitenId',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Ungültige Zuständigkeiten Id",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Invalid assignement id",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigkeitGespeichert',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Zuständigkeit gespeichert",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Assignment saved",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigkeitGespeichertFehler',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Fehler beim Speichern der Zuständigkeit",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Error when saving assignment",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigkeitGeloescht',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Zuständigkeit gelöscht",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Assignment deleted",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigkeitGeloeschtFehler',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Fehler beim Löschen der Zuständigkeit",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "Assignment deleted",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'keineAuswahl',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "keine Auswahl",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "no selection",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigePersonen',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "zuständige Personen",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "responsible persons",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zustaendigeOrganisationseinheiten',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "zuständige Organisationseinheiten",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "responsible organisation units",
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'fehlermonitoring',
+		'phrase' => 'zugehoerigkeit',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => "Zugehörigkeit",
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => "belonging",
+				'description' => '',
+			)
+		)
 	)
 );
 

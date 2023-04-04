@@ -1656,21 +1656,137 @@ $phrases = array(
 		'app' => 'core',
 		'category' => 'anrechnung',
 		'phrase' => 'benotungDerLV',
-		'insertvon' => 'system',
 		'phrases' => array(
 			array(
 				'sprache' => 'German',
-				'text' => '     Lehrveranstaltung bereits benotet',
+				'text' => 'Lehrveranstaltung bereits benotet',
 				'description' => '',
-				'insertvon' => 'system'
 			),
 			array(
 				'sprache' => 'English',
-				'text' => 'Course already graded',    
+				'text' => 'Course already graded',
 				'description' => '',
-				'insertvon' => 'system'
 			)
 		)
-	)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'antragStellenWegenHochschulzeugnis',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'eines Hochschulzeugnisses (vgl. § 4 Abs. 8 Satzung „Studienrechtliche Bestimmungen / Prüfungsordnung)',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'a university certificate (see § 4 para. 8, Statute on Studies Act Provisions / Examination Regulations of the UASTW)',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'bisherAngerechneteEcts',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Bisher angerechnete ECTS',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'All previous recognized ECTS',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'anrechnungEctsTooltipText',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anzeige der Summe der bisher angerechneten ECTS. Für Quereinsteiger in ein höheres Semester werden die ECTS der angerechneten Semester berücksichtigt.<br><br>Seit Oktober 2021 gelten Höchstgrenzen für Anrechnungen:<br>max. 60 ECTS für schulische Zeugnisse (anrechenbar sind nur BHS- und AHS-Zeugnisse!)<br>max. 60 ECTS für berufliche Qualifikationen<br>max. 90 ECTS INSGESAMT für schulische und berufliche Qualifikationen',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Sum of previous recognized ECTS. Lateral Entries are considered with ECTS of the recognized semester.<br><br>Maximum ECTS limits are applied since Octobre 2021:<br><br>max. 60 ECTS school qualification (BHS and AHS only)<br>max. 60 ECTS professional qualification<br>max. 90 ECTS OVERALL for school and professional qualification',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'anrechnungEctsTooltipTextBeiUeberschreitung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Seit Oktober 2021 gelten Höchstgrenzen für Anrechnungen:<br>max. 60 ECTS für schulische Zeugnisse (anrechenbar sind nur BHS- und AHS-Zeugnisse!)<br>max. 60 ECTS für berufliche Qualifikationen<br>max. 90 ECTS INSGESAMT für schulische Zeugnisse und berufliche Qualifikationen',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Maximum ECTS limits are applied since Octobre 2021:<br>max. 60 ECTS school qualification (BHS and AHS only)<br>max. 60 ECTS professional qualification<br>max. 90 ECTS OVERALL for school and professional qualification',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'anrechnungEctsTextBeiUeberschreitung',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => '<br>Die Höchstgrenze für Anrechnungen gem. § 12 Abs. 3 Fachhochschulgesetz wird überschritten.<br><b>Bisherige ECTS + ECTS dieser LV: Total: {0} [ Schulisch: {1}  | Beruflich: {2}  ]</b> ',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => '<br>Exceedance of maximum limit for exemption (see § 12 para. 3, Regulations of the UASTW).<br><b>Former ECTS + ECTS of this course: Total: {0} [ School  qualification: {1} | Professional qualification: {2} ]</b> ',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'textUebernehmenOderEigenenBegruendungstext',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Begründungstext aus Liste übernehmen oder eigene Begründung angeben',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Copy reason from list above or write your own reason',
+				'description' => '',
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'anrechnung',
+		'phrase' => 'genehmigungNegativEctsHoechstgrenzeUeberschritten',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anrechnung wird nicht genehmigt aufgrund einer Überschreitung der Höchstgrenzen für Anrechnungen gem. § 12 Abs. 3 Fachhochschulgesetz.',
+				'description' => '',
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Recognition and exemption is rejected because of exceedance of maximum limit for exemption (see § 12 para. 3, Regulations of the UASTW).',
+				'description' => '',
+			)
+		)
+	),
 );
 
