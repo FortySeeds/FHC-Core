@@ -62,6 +62,13 @@
 				</div>
 			</form>
 		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
 	</body>
 
 <?php $this->load->view('templates/FHC-Footer'); ?>

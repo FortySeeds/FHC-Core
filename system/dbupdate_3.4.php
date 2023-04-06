@@ -35,7 +35,7 @@ require_once('dbupdate_3.4/19154_beurteilungsformulare_pruefungssenat.php');
 require_once('dbupdate_3.4/13011_installation_on_multiple_servers.php');
 
 // *** Pruefung und hinzufuegen der neuen Attribute und Tabellen
-echo '<H2>Pruefe Tabellen und Attribute!</H2>';
+echo '<H2>Pruefe Tabellen und Attribute</H2>';
 
 $tabellen=array(
 	"bis.tbl_bisorgform" => array("bisorgform_kurzbz","code","bezeichnung"),
@@ -300,7 +300,7 @@ $tabellen=array(
 	"system.tbl_cronjob"  => array("cronjob_id","server_kurzbz","titel","beschreibung","file","last_execute","aktiv","running","jahr","monat","tag","wochentag","stunde","minute","standalone","reihenfolge","updateamum", "updatevon","insertamum","insertvon","variablen"),
 	"system.tbl_benutzerrolle"  => array("benutzerberechtigung_id","rolle_kurzbz","berechtigung_kurzbz","uid","funktion_kurzbz","oe_kurzbz","art","studiensemester_kurzbz","start","ende","negativ","updateamum", "updatevon","insertamum","insertvon","kostenstelle_id","anmerkung"),
 	"system.tbl_berechtigung"  => array("berechtigung_kurzbz","beschreibung"),
-	"system.tbl_extensions" => array("extension_id","name","version","description","license","url","core_version","dependencies","enabled"),
+	"system.tbl_extensions" => array("extension_id","name","version","description","license","url","core_version","dependencies","enabled","server_kurzbz"),
 	"system.tbl_fehler" => array("fehlercode","fehler_kurzbz","fehlercode_extern","fehlertext","fehlertyp_kurzbz","app"),
 	"system.tbl_fehlertyp" => array("fehlertyp_kurzbz","bezeichnung_mehrsprachig"),
 	"system.tbl_fehler_zustaendigkeiten" => array("fehlerzustaendigkeiten_id","fehlercode","person_id","oe_kurzbz","funktion_kurzbz", "insertamum", "insertvon"),
@@ -375,7 +375,7 @@ if ($errors == 0)
 	echo '<strong>Keine Fehler aufgetreten</strong>';
 }
 
-echo '<H2>Gegenpruefung!</H2>';
+echo '<H2>Gegenpruefung</H2>';
 $error=false;
 $sql_query="SELECT schemaname,tablename FROM pg_catalog.pg_tables WHERE schemaname != 'pg_catalog' AND schemaname != 'information_schema' AND schemaname != 'sync' AND schemaname != 'addon' AND schemaname != 'reports' AND schemaname != 'extension';";
 if (!$result=@$db->db_query($sql_query))

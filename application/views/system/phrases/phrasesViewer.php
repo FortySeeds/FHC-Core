@@ -3,12 +3,12 @@
 		'templates/FHC-Header',
 		array(
 			'title' => 'Phrases Viewer',
-			'jquery' => true,
-			'jqueryui' => true,
-			'bootstrap' => true,
-			'fontawesome' => true,
-			'sbadmintemplate' => true,
-			'tablesorter' => true,
+			'jquery3' => true,
+			'jqueryui1' => true,
+			'bootstrap3' => true,
+			'fontawesome4' => true,
+			'sbadmintemplate3' => true,
+			'tablesorter2' => true,
 			'ajaxlib' => true,
 			'phrases' => array(
 				'ui' => array('bitteEintragWaehlen')
@@ -44,4 +44,3 @@
 </body>
 
 <?php $this->load->view('templates/FHC-Footer'); ?>
-

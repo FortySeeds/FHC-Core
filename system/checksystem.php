@@ -50,9 +50,14 @@ if (php_sapi_name() != 'cli')
 }
 
 echo '<H1>Systemcheck!</H1>';
-echo '<H2>DB-Updates!</H2>';
+
+// ******** Phrasen ************/
+echo '<H2>Phrasen</H2>';
+
+echo '<a href="../index.ci.php/system/phrases/Manager/installFromCore" target="_blank">Hier klicken um neue Phrasen zu installieren</a>';
 
 
+echo '<H2>Datenbank</H2>';
 
 echo '<div>';
 	$dbupdStr = 'dbupdate_'.$fhcomplete_version.'.php';
@@ -63,7 +68,7 @@ echo '<div>';
 echo '</div>';
 
 // ******** filtersupdate ************/
-echo '<H2>Filters time!</H2>';
+echo '<H2>Filter</H2>';
 
 echo '<div>';
 	echo 'filtersupdate.php wird aufgerufen...';
@@ -73,7 +78,7 @@ echo '<div>';
 echo '</div>';
 
 // ******** fehlerupdate ************/
-echo '<H2>Issues time!</H2>';
+echo '<H2>Fehlercodes</H2>';
 
 echo '<div>';
 echo 'fehlerupdate.php wird aufgerufen...';
@@ -81,7 +86,6 @@ echo '</div>';
 echo '<div>';
 require_once('fehlerupdate.php');
 echo '</div>';
-
 
 // ******** Berechtigungen Prüfen ************/
 echo '<h2>Berechtigungen pruefen</h2>';
