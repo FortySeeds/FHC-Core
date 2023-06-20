@@ -44,14 +44,17 @@ define('PAABGABE_PATH','/var/fhcomplete/documents/paabgabe/');
 // Pfad zu den Rauminfos
 define('RAUMINFO_PATH','/var/www/html/build/rauminfos/');
 
+// Pfad zu Applikation
+define('BASE_LOCATION','/');
+
 // URL zu RDF Verzeichnis
-define('XML_ROOT','http://www.fhcomplete.org/build/rdf/');
+define('XML_ROOT','http://www.fhcomplete.org'.BASE_LOCATION.'rdf/');
 // URL zu Application Root
-define('APP_ROOT','http://www.fhcomplete.org/build/');
+define('APP_ROOT','http://www.fhcomplete.org/'.BASE_LOCATION);
 // Pfad zu Document Root
 define('DOC_ROOT','/var/www/html/build/');
 // URL zu Vilesci Root
-define('VILESCI_ROOT','http://www.fhcomplete.org/build/');
+define('VILESCI_ROOT','http://www.fhcomplete.org/');
 
 // Externe Funktionen - Unterordner im Include-Verzeichnis
 define('EXT_FKT_PATH','tw');
@@ -204,6 +207,26 @@ define('TABLE_ID','_id');
 define('TABLE_BEGIN','tbl_');
 define('VIEW_BEGIN','vw_');
 
+/**
+ * Signatur
+ * DEFAULT: https://signatur.example.com/api/sign
+ */
+// Generic URL
+define('SIGNATUR_URL', 'https://signatur.dev.technikum-wien.at/api');
+// Sign API
+define('SIGNATUR_SIGN_API', 'sign');
+// List API
+define('SIGNATUR_LIST_API', 'list');
+// User für Zugriff auf Signaturserver
+define('SIGNATUR_USER', 'fhcomplete');
+// Passwort für Zugriff auf Signaturserver
+define('SIGNATUR_PASSWORD', 'supersecretpassword');
+// Signaturprofil das verwendet werden soll
+define('SIGNATUR_DEFAULT_PROFILE', 'FHC_AMT_GROSS_DE');
+
+// Signaturpruefung im Abgabetool aktivieren
+define('ABGABETOOL_CHECK_SIGNATURE',false);
+
 //Gibt an, ob das Studienbuchblatt im CIS gedruckt werden kann
 define('CIS_DOKUMENTE_STUDIENBUCHLBATT_DRUCKEN',true);
 
@@ -256,4 +279,18 @@ define('CIS_ZEITWUNSCH_GD', false);
 
 // Covid-Status anzeigen
 define('CIS_SHOW_COVID_STATUS', false);
+
+// Docsbox configs
+define('DOCSBOX_SERVER', 'http://docconverter.technikum-wien.at/');
+define('DOCSBOX_PATH_API', 'api/v1/');
+define('DOCSBOX_CONVERSION_TIMEOUT', 30); // seconds
+define('DOCSBOX_WAITING_SLEEP_TIME', 1);
+
+//Vertrag Allin
+define ('DEFAULT_ALLIN_DIENSTVERTRAG',[111]);
+
+//Echter Dienstvertrag
+define ('DEFAULT_ECHTER_DIENSTVERTRAG',[103,111]);
+
+
 ?>

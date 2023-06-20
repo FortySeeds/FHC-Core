@@ -3,11 +3,11 @@ $this->load->view(
 	'templates/FHC-Header',
 	array(
 		'title' => $this->p->t('anrechnung', 'anrechnungenPruefen'),
-		'jquery' => true,
-		'jqueryui' => true,
-		'bootstrap' => true,
-		'fontawesome' => true,
-		'tabulator' => true,
+		'jquery3' => true,
+		'jqueryui1' => true,
+		'bootstrap3' => true,
+		'fontawesome4' => true,
+		'tabulator4' => true,
 		'ajaxlib' => true,
 		'dialoglib' => true,
 		'tablewidget' => true,
@@ -117,7 +117,7 @@ $this->load->view(
         <!-- Tabelle -->
         <div class="row">
             <div class="col-xs-12">
-				<?php $this->load->view('lehre/anrechnung/reviewAnrechnungUebersichtData.php'); ?>
+				<?php $this->load->view('lehre/anrechnung/reviewAnrechnungUebersichtData.php');?>
             </div>
         </div>
         <!-- Empfehlung / Nicht Empfehlung Panel -->
@@ -139,12 +139,8 @@ $this->load->view(
                                 <i class="fa fa-clipboard fa-lg" aria-hidden="true"></i>
                             </span>
                         </li>
-                        <li class="list-group-item">
-                            <span><?php echo $this->p->t('anrechnung', 'empfehlungNegativKenntnisseNichtGleichwertig'); ?></span>
-                            <span class="btn-copyIntoTextarea pull-right" data-toggle="tooltip" data-placement="right"
-                                  title="<?php echo $this->p->t('ui', 'textUebernehmen'); ?>">
-                                <i class="fa fa-clipboard fa-lg" aria-hidden="true"></i>
-                            </span>
+                        <li class="list-group-item disabled">
+                            <?php echo $this->p->t('anrechnung', 'empfehlungNegativKenntnisseNichtGleichwertigWeilHinweis'); ?>
                         </li>
                     </ul>
                     <textarea class="form-control" name="begruendung" id="reviewAnrechnungUebersicht-begruendung"

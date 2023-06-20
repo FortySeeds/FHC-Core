@@ -254,11 +254,11 @@ if (isset($_GET['resend']))
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="../../skin/fhcomplete.css" type="text/css">
 	<link rel="stylesheet" href="../../skin/style.css.php" type="text/css">
-	<link rel="stylesheet" href="../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="../../vendor/twbs/bootstrap3/dist/css/bootstrap.min.css" type="text/css">
 	<?php
 	include('../../include/meta/jquery.php');
 	?>
-	<script type="text/javascript" src="../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../../vendor/twbs/bootstrap3/dist/js/bootstrap.min.js"></script>
 	<title><?php echo $p->t('coodle/terminauswahl'); ?></title>
 	<script type="text/javascript">
 		$(document).ready(function () {
@@ -866,12 +866,12 @@ if (isset($_GET['resend']))
 			echo '<br><br><div class="alert alert-info" style="width: 800px">
 			<span class="glyphicon glyphicon-info-sign"></span>
 			Sie können ihre vorläufigen Terminzusagen in ihr Kalendersystem einbinden.<br>
-			Importieren Sie dazu die .ics-Datei aus folgendem Link in ihren Kalender:<br>
-			<a href="'.APP_ROOT.'cis/public/ical_coodle.php/'.$uid.'" target="_blank">
-			'.APP_ROOT.'cis/public/ical_coodle.php/'.$uid.'
+			Importieren Sie dazu die .ics-Datei des folgenden Links in ihren Kalender:<br>
+			<a href="'.APP_ROOT.'cis/public/ical_coodle.php/cipher_encryption/'.encryptData($uid,LVPLAN_CYPHER_KEY).'" target="_blank">
+			'.APP_ROOT.'cis/public/ical_coodle.php/cipher_encryption/'.encryptData($uid,LVPLAN_CYPHER_KEY).'
 			</a>
 			<br><br>
-			Die Datei enthält ihre Terminzusagen aus <u>allen laufenden Umfragen</u> in anonymisierter Form.
+			Die Datei enthält ihre Terminzusagen aus <b>allen laufenden Umfragen</b>    .
 			</div>';
 		}
 
