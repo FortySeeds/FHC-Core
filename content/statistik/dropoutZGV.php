@@ -141,7 +141,7 @@ if($result_zgv = $db->db_query($qry))
 		//begonnen haben und bisher abgebrochen haben
 		$qry = "
 		SELECT 
-			count(*) anzahl, geschlecht
+			COUNT(*) anzahl, geschlecht
 		FROM 
 			public.tbl_prestudent a
 			JOIN public.tbl_prestudentstatus status USING(prestudent_id)

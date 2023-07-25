@@ -196,7 +196,7 @@ class menu_addon_lehrveranstaltungen extends menu_addon
 				if($genehmigte_sto_vorhanden)
 				{
 					$qry = "SELECT
-								count(*) as anzahl
+								COUNT(*) as anzahl
 							FROM
 								lehre.tbl_studienplan_lehrveranstaltung
 								JOIN lehre.tbl_studienplan USING(studienplan_id)

@@ -705,7 +705,7 @@ if (isset($_GET['excel']))
 				FROM
 				(
 					SELECT
-						count(*) AS anzahl
+						COUNT(*) AS anzahl
 					FROM
 						public.tbl_person JOIN public.tbl_prestudent USING (person_id)
 						JOIN public.tbl_prestudentstatus USING (prestudent_id)
@@ -1265,7 +1265,7 @@ if (isset($_GET['excel']))
 				FROM
 				(
 					SELECT
-						count(*) AS anzahl
+						COUNT(*) AS anzahl
 					FROM
 						public.tbl_person JOIN public.tbl_prestudent USING (person_id)
 						JOIN public.tbl_prestudentstatus USING (prestudent_id)
@@ -1373,7 +1373,7 @@ else
 		$content .= '<br><h2>Aufmerksam durch (PrestudentIn)</h2><br>';
 		$qry = "SELECT beschreibung, COALESCE(a.anzahl,0) as anzahl
 				FROM public.tbl_aufmerksamdurch LEFT JOIN
-					(SELECT aufmerksamdurch_kurzbz, count(*) as anzahl
+					(SELECT aufmerksamdurch_kurzbz, COUNT(*) as anzahl
 					FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING(prestudent_id)
 					WHERE studiensemester_kurzbz='".addslashes($stsem)."' AND studiengang_kz='".addslashes($studiengang_kz)."'
 					GROUP BY aufmerksamdurch_kurzbz) as a USING(aufmerksamdurch_kurzbz)
@@ -1404,7 +1404,7 @@ else
 		$content .= '<br><h2>Berufst&auml;tigkeit</h2><br>';
 		$qry = "SELECT berufstaetigkeit_bez, COALESCE(a.anzahl,0) as anzahl
 				FROM bis.tbl_berufstaetigkeit LEFT JOIN
-					(SELECT berufstaetigkeit_code, count(*) as anzahl
+					(SELECT berufstaetigkeit_code, COUNT(*) as anzahl
 					FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING(prestudent_id)
 					WHERE studiensemester_kurzbz='".addslashes($stsem)."' AND studiengang_kz='".addslashes($studiengang_kz)."'
 					GROUP BY berufstaetigkeit_code) as a USING(berufstaetigkeit_code)
@@ -1821,7 +1821,7 @@ else
 				FROM
 				(
 					SELECT
-						count(*) AS anzahl
+						COUNT(*) AS anzahl
 					FROM
 						public.tbl_person JOIN public.tbl_prestudent USING (person_id)
 						JOIN public.tbl_prestudentstatus USING (prestudent_id)
@@ -2162,7 +2162,7 @@ else
 					FROM
 					(
 						SELECT
-							count(*) AS anzahl
+							COUNT(*) AS anzahl
 						FROM
 							public.tbl_person JOIN public.tbl_prestudent USING (person_id)
 							JOIN public.tbl_prestudentstatus USING (prestudent_id)

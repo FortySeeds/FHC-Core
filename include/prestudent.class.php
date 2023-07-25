@@ -1640,7 +1640,7 @@ class prestudent extends person
 	public function getAnzBewerber($studiensemester_kurzbz, $studiengang_kz=null, $orgform_kurzbz=null, $ausbildungssemester=null)
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING(prestudent_id)
@@ -1687,7 +1687,7 @@ class prestudent extends person
 	public function getAnzInteressenten($studiensemester_kurzbz, $studiengang_kz=null, $orgform_kurzbz=null, $ausbildungssemester=null)
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING(prestudent_id)
@@ -1734,7 +1734,7 @@ class prestudent extends person
 	public function getAnzInteressentenZGV($studiensemester_kurzbz, $studiengang_kz=null, $orgform_kurzbz=null, $ausbildungssemester=null)
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING(prestudent_id)
@@ -2028,7 +2028,7 @@ class prestudent extends person
 	public function getAnzAbbrecher($studiensemester_kurzbz, $studiengang_kz=null, $orgform_kurzbz=null, $ausbildungssemester=null)
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING(prestudent_id)

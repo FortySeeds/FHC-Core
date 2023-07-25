@@ -59,7 +59,7 @@ if($studiensemester_kurzbz != -1)
 
 		$qry_master = "
 		SELECT
-			DISTINCT count(*) as count , studiengang_kz, typ, geschlecht,
+			DISTINCT COUNT(*) as count , studiengang_kz, typ, geschlecht,
 			tbl_studiengang.bezeichnung as bez, tbl_studiengang.kurzbz
 		FROM
 			public.tbl_person JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id)
@@ -203,7 +203,7 @@ if($studiensemester_kurzbz != -1)
 		$rest_w=0;
 
 		//Master-Studiengänge, die noch besucht wurden
-		$qry_bachelor="SELECT DISTINCT count(*)as count, studiengang_kz, typ, geschlecht, bezeichnung as bez, kurzbz FROM
+		$qry_bachelor="SELECT DISTINCT COUNT(*)as count, studiengang_kz, typ, geschlecht, bezeichnung as bez, kurzbz FROM
 		(SELECT DISTINCT ON(public.tbl_person.person_id, studiengang_kz) studiengang_kz,typ,geschlecht,tbl_studiengang.bezeichnung, tbl_studiengang.kurzbz
 		FROM public.tbl_person JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id)
 		JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id)

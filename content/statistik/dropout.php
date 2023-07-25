@@ -127,7 +127,7 @@ foreach($stg->result as $row_stg)
 	//Studienanfaenger
 	$qry = "
 	SELECT 
-		count(*) anzahl, geschlecht
+		COUNT(*) anzahl, geschlecht
 	FROM 
 		public.tbl_prestudent 
 		JOIN public.tbl_prestudentstatus status USING(prestudent_id)
@@ -168,7 +168,7 @@ foreach($stg->result as $row_stg)
 	//begonnen haben und bisher abgebrochen haben
 	$qry = "
 	SELECT 
-		count(*) anzahl, geschlecht
+		COUNT(*) anzahl, geschlecht
 	FROM 
 		public.tbl_prestudent a
 		JOIN public.tbl_prestudentstatus status USING(prestudent_id)

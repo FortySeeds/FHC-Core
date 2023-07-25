@@ -47,7 +47,7 @@ if(trim($typ)=="m")
 	{
 		$summe[(substr(trim($stsem),-4)-$i)] = 0;
 		//Anzahl pro Studiengang
-		$qry = "SELECT DISTINCT count(*)as count, studiengang_kz, typ||kurzbz as stgkurz  
+		$qry = "SELECT DISTINCT COUNT(*)as count, studiengang_kz, typ||kurzbz as stgkurz  
 		FROM public.tbl_person JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id) 
 		JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id) 
 		JOIN public.tbl_studiengang USING(studiengang_kz) 
@@ -113,7 +113,7 @@ if(trim($typ)=="b")
 	{
 		$summe[(substr(trim($stsem),-4)-$i)] = 0;
 		//Anzahl pro Studiengang
-		$qry = "SELECT DISTINCT count(*)as count, studiengang_kz, typ||kurzbz as stgkurz FROM 
+		$qry = "SELECT DISTINCT COUNT(*)as count, studiengang_kz, typ||kurzbz as stgkurz FROM 
 		(SELECT DISTINCT ON(public.tbl_person.person_id, studiengang_kz) studiengang_kz,typ, tbl_studiengang.bezeichnung, tbl_studiengang.kurzbz   
 		FROM public.tbl_person JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id) 
 		JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id) 

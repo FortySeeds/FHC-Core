@@ -208,7 +208,7 @@ class statistik extends basis_db
 	 */
 	public function getAnzahlGruppe($publish = null)
 	{
-		$qry = 'SELECT gruppe, count(*) AS anzahl FROM public.tbl_statistik ';
+		$qry = 'SELECT gruppe, COUNT(*) AS anzahl FROM public.tbl_statistik ';
 
 		if($publish === true)
 		{

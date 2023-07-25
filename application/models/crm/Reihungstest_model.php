@@ -143,7 +143,7 @@ class Reihungstest_model extends DB_Model
 					AS max_plaetze,
 					(
 					SELECT
-						count(*)
+						COUNT(*)
 					FROM
 						public.tbl_rt_person
 					WHERE

@@ -497,7 +497,7 @@ class frage extends basis_db
 			// Bei Levelgleichverteilung die Anzahl der Fragen pro level ermitteln
 			if($gebiet->levelgleichverteilung)
 			{
-				$qry = "SELECT level, count(*) as anzahl FROM testtool.tbl_frage
+				$qry = "SELECT level, COUNT(*) as anzahl FROM testtool.tbl_frage
 						WHERE NOT demo AND gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER)."
 						GROUP BY level
 						ORDER BY level";

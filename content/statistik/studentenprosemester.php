@@ -47,7 +47,7 @@ foreach ($studiengang->result as $row)
 
 $qry = "
 	SELECT stdlvb.studiengang_kz,
-		count(*) AS all,
+		COUNT(*) AS all,
 		(SELECT COUNT(*) FROM public.tbl_studentlehrverband JOIN campus.vw_student ON (student_uid=uid) WHERE tbl_studentlehrverband.studiensemester_kurzbz='".addslashes($stsem)."' AND tbl_studentlehrverband.semester=1 AND tbl_studentlehrverband.studiengang_kz=stdlvb.studiengang_kz AND geschlecht='m') AS s1_m,
 		(SELECT COUNT(*) FROM public.tbl_studentlehrverband JOIN campus.vw_student ON (student_uid=uid) WHERE tbl_studentlehrverband.studiensemester_kurzbz='".addslashes($stsem)."' AND tbl_studentlehrverband.semester=1 AND tbl_studentlehrverband.studiengang_kz=stdlvb.studiengang_kz AND geschlecht='w') AS s1_w,
 		(SELECT COUNT(*) FROM public.tbl_studentlehrverband JOIN campus.vw_student ON (student_uid=uid) WHERE tbl_studentlehrverband.studiensemester_kurzbz='".addslashes($stsem)."' AND tbl_studentlehrverband.semester=2 AND tbl_studentlehrverband.studiengang_kz=stdlvb.studiengang_kz AND geschlecht='m') AS s2_m,

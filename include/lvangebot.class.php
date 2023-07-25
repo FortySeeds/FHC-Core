@@ -397,7 +397,7 @@ class lvangebot extends basis_db
 				{
 					// Gesamtplaetze pruefen
 					$qry = "SELECT 
-								count(*) as anzahl
+								COUNT(*) as anzahl
 							FROM 
 								public.tbl_benutzergruppe 
 							WHERE 

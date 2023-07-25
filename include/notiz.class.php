@@ -519,7 +519,7 @@ class notiz extends basis_db
 	public function getAnzahlNotizen($erledigt=null, $projekt_kurzbz=null, $projektphase_id=null, $projekttask_id=null, $uid=null, $person_id=null, $prestudent_id=null, $bestellung_id=null, $user=null, $lehreinheit_id=null, $anrechnung_id=null)
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					public.tbl_notiz
 					LEFT JOIN public.tbl_notizzuordnung USING(notiz_id)

@@ -135,19 +135,19 @@ $i=0;
 while($stsem_obj->jump($stsem,-1)!= $stsem)
 {
 	$stsem=$stsem_obj->jump($stsem,-1);
-	$qry1="SELECT studiengang_kz, count(*) as anzahl FROM tbl_person 
+	$qry1="SELECT studiengang_kz, COUNT(*) as anzahl FROM tbl_person 
 		JOIN tbl_prestudent using(person_id) 
 		JOIN tbl_prestudentstatus using(prestudent_id)
 		WHERE studiensemester_kurzbz='$stsem' AND status_kurzbz='Absolvent'
 			group by studiengang_kz order by studiengang_kz";
 	
-	$qry2="SELECT studiengang_kz, count(*) as anzahl FROM tbl_person 
+	$qry2="SELECT studiengang_kz, COUNT(*) as anzahl FROM tbl_person 
 		JOIN tbl_prestudent using(person_id) 
 		JOIN tbl_prestudentstatus using(prestudent_id)
 		WHERE studiensemester_kurzbz='$stsem' AND status_kurzbz='Absolvent' AND geschlecht='m'
 			group by studiengang_kz order by studiengang_kz";
 	
-	$qry3="SELECT studiengang_kz, count(*) as anzahl FROM tbl_person 
+	$qry3="SELECT studiengang_kz, COUNT(*) as anzahl FROM tbl_person 
 		JOIN tbl_prestudent using(person_id) 
 		JOIN tbl_prestudentstatus using(prestudent_id)
 		WHERE studiensemester_kurzbz='$stsem' AND status_kurzbz='Absolvent' AND geschlecht='w'

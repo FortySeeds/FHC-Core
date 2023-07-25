@@ -40,7 +40,7 @@
 	$qry = "SELECT 
 				date_part('month', datum) as monat,
 				date_part('year', datum) as jahr,
-				count(*) as anzahl
+				COUNT(*) as anzahl
 			FROM 
 				public.tbl_studiengang 
 				JOIN public.tbl_prestudent USING(studiengang_kz)
@@ -66,7 +66,7 @@
 	$qry = "SELECT 
 				date_part('month', datum) as monat, 
 				date_part('year', datum) as jahr, 
-				count(*) as anzahl 
+				COUNT(*) as anzahl 
 			FROM 
 				public.tbl_studiengang 
 				JOIN public.tbl_prestudent USING(studiengang_kz)
@@ -91,7 +91,7 @@
 	$qry = "SELECT 
 				date_part('month', datum) as monat, 
 				date_part('year', datum) as jahr, 
-				count(*) as anzahl
+				COUNT(*) as anzahl
 			FROM 
 				public.tbl_studiengang 
 				JOIN public.tbl_prestudent USING(studiengang_kz)

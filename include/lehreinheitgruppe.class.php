@@ -369,7 +369,7 @@ class lehreinheitgruppe extends basis_db
 	public function checkVorhanden()
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					lehre.tbl_lehreinheitgruppe
 				WHERE

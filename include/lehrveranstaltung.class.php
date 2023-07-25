@@ -2627,7 +2627,7 @@ class lehrveranstaltung extends basis_db
 	public function isGesperrt($lehrveranstaltung_id)
 	{
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					lehre.tbl_studienplan
 					JOIN lehre.tbl_studienplan_lehrveranstaltung USING(studienplan_id)

@@ -514,7 +514,7 @@ class reihungstest extends basis_db
 	public function getTeilnehmerAnzahl($reihungstest_id)
 	{
 		$qry = 'SELECT
-					count(*) AS anzahl
+					COUNT(*) AS anzahl
 				FROM
 					public.tbl_rt_person
 				WHERE

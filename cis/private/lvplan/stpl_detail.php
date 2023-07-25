@@ -87,7 +87,7 @@ SELECT
 	campus.vw_stundenplan.*, lehrfach.bezeichnung, vw_mitarbeiter.titelpre, 
 	vw_mitarbeiter.titelpost, vw_mitarbeiter.nachname, vw_mitarbeiter.vorname,
 	(SELECT 
-		count(*) 
+		COUNT(*) 
 	 FROM 
 	 	public.tbl_studentlehrverband 
 	 WHERE 
@@ -97,7 +97,7 @@ SELECT
 		AND (gruppe=vw_stundenplan.gruppe OR vw_stundenplan.gruppe is null OR trim(vw_stundenplan.gruppe)='')
 		AND studiensemester_kurzbz=".$db->db_add_param($stsem).") as anzahl_lvb, 
 	(SELECT 
-		count(*) 
+		COUNT(*) 
 	 FROM 
 	 	public.tbl_benutzergruppe 
 	 WHERE 

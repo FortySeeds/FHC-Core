@@ -54,7 +54,7 @@ if(!($erg=$db->db_query($qry)))
 	die($db->db_last_error());
 $anz_lektoren=$db->db_num_rows($erg);
 
-$qry = "SELECT tag,stunde,gewicht+3 AS gewicht, count(*) AS anz FROM campus.tbl_zeitwunsch $fixwhere GROUP BY tag,stunde,gewicht;";
+$qry = "SELECT tag,stunde,gewicht+3 AS gewicht, COUNT(*) AS anz FROM campus.tbl_zeitwunsch $fixwhere GROUP BY tag,stunde,gewicht;";
 if(!($erg=$db->db_query($qry)))
 	die($db->db_last_error());
 

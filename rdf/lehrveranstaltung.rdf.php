@@ -148,7 +148,7 @@ foreach ($lehrveranstaltung->lehrveranstaltungen as $row)
 		// geliefert die genehmigten Studienordnungen zugeordnet sind
 		// Module werden nicht geliefert
 		$qry = "SELECT
-					count(*) as anzahl
+					COUNT(*) as anzahl
 				FROM
 					lehre.tbl_studienplan_lehrveranstaltung
 					JOIN lehre.tbl_studienplan USING(studienplan_id)

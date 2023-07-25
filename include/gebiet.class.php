@@ -390,8 +390,8 @@ class gebiet extends basis_db
 		if($this->zufallfrage && ($this->level_start!='' || $this->levelgleichverteilung))
 		{
 			$qry = "SELECT * FROM (
-						SELECT level, count(*) as anzahl FROM (
-							SELECT level, punkte, count(*) as anzahl FROM (
+						SELECT level, COUNT(*) as anzahl FROM (
+							SELECT level, punkte, COUNT(*) as anzahl FROM (
 								SELECT level, round(sum(punkte)) as punkte
 								FROM testtool.tbl_frage JOIN testtool.tbl_vorschlag USING(frage_id)
 								WHERE punkte>0 AND not demo AND gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER)."
@@ -530,7 +530,7 @@ class gebiet extends basis_db
 						FROM
 						(
 						SELECT
-							level, punkte, count(*) as anz,
+							level, punkte, COUNT(*) as anz,
 							(SELECT COUNT(*) FROM testtool.tbl_frage
 							WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER).") as fragengesamt
 						FROM
@@ -552,7 +552,7 @@ class gebiet extends basis_db
 						FROM
 						(
 						SELECT
-							level, punkte, count(*) as anz,
+							level, punkte, COUNT(*) as anz,
 							(SELECT COUNT(*) FROM testtool.tbl_frage
 							WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER).") as fragengesamt
 						FROM
@@ -695,7 +695,7 @@ class gebiet extends basis_db
 									, (SELECT COUNT(*) FROM testtool.tbl_frage f WHERE f.level = tbl_frage.level AND f.gebiet_id = tbl_frage.gebiet_id)
 									))
 							ELSE
-								COALESCE(maxfragen, count(*))
+								COALESCE(maxfragen, COUNT(*))
 						   END
 						   AS anzahl
 				FROM testtool.tbl_frage

@@ -338,7 +338,7 @@ else
 //anzahl mitarbeiter
 $qry_anzahl_mitarbeiter = "
 	SELECT
-		count(*) as anzahl
+		COUNT(*) as anzahl
 	FROM
 		public.tbl_person
 		JOIN public.tbl_benutzer USING(person_id)
@@ -364,7 +364,7 @@ echo '<br>Mitarbeiter: '.$anzahl_ma;
 //anzahl studenten
 $qry_anzahl_studenten = "
 	SELECT
-		count(*) as anzahl
+		COUNT(*) as anzahl
 	FROM
 		public.tbl_person
 		JOIN public.tbl_benutzer USING(person_id)
@@ -390,7 +390,7 @@ echo '<br>Studenten: '.$anzahl_std;
 //anzahl gesamt
 $qry_anzahl_gesamt = "
 	SELECT
-		count(*) as anzahl
+		COUNT(*) as anzahl
 	FROM
 		public.tbl_person
 		JOIN public.tbl_benutzer USING(person_id)

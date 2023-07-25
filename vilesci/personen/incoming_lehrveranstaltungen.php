@@ -247,7 +247,7 @@ if($method=="lehrveranstaltungen")
 						tbl_lehrveranstaltung.bezeichnung, tbl_lehrveranstaltung.semester, tbl_lehrveranstaltung.sprache,
 						tbl_lehrveranstaltung.bezeichnung_english, tbl_lehrveranstaltung.incoming, tbl_lehrveranstaltung.orgform_kurzbz,
 						(
-						Select count(*)
+						Select COUNT(*)
 						FROM (
 							SELECT
 								person_id
@@ -320,7 +320,7 @@ if($method=="lehrveranstaltungen")
 						tbl_lehrveranstaltung.bezeichnung, tbl_lehrveranstaltung.semester, tbl_lehrveranstaltung.sprache,
 						tbl_lehrveranstaltung.bezeichnung_english, tbl_lehrveranstaltung.incoming, tbl_lehrveranstaltung.orgform_kurzbz,
 						(
-						Select count(*)
+						Select COUNT(*)
 						FROM (
 							SELECT
 								person_id

@@ -1406,7 +1406,7 @@ class content extends basis_db
 						tbl_contentsprache.updateamum, tbl_contentsprache.updatevon, 
 						tbl_contentsprache.insertamum, tbl_contentsprache.insertvon, 
 						menu_open, aktiv, gesperrt_uid, beschreibung, 
-						(SELECT CASE WHEN count(*)>0 THEN true ELSE false END 
+						(SELECT CASE WHEN COUNT(*)>0 THEN true ELSE false END 
 						 FROM campus.tbl_contentgruppe WHERE content_id=tbl_content.content_id) as locked
 					FROM 
 					campus.tbl_content

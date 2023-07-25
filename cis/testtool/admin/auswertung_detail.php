@@ -167,7 +167,7 @@ if(isset($_GET['show']))
 				<td>'.strip_tags($row->text).'</td>';
 			//Anzahl Antworten gesamt
 			$qry = "SELECT 
-						count(*) as anzahl 
+						COUNT(*) as anzahl 
 					FROM 
 						testtool.tbl_pruefling_frage 
 						JOIN testtool.tbl_pruefling USING(pruefling_id)
@@ -177,7 +177,7 @@ if(isset($_GET['show']))
 				$qry.=" AND studiengang_kz='".addslashes($stg_kz)."'";
 			//Anzahl Antworten männlich
 			$qry_m = "SELECT 
-						count(*) as anzahl_m
+						COUNT(*) as anzahl_m
 					FROM 
 						testtool.tbl_pruefling_frage 
 						JOIN testtool.vw_pruefling USING (pruefling_id)
@@ -189,7 +189,7 @@ if(isset($_GET['show']))
 				$qry_m.=" AND studiengang_kz='".addslashes($stg_kz)."'";
 			//Anzahl Antworten weiblich
 			$qry_w = "SELECT 
-						count(*) as anzahl_w 
+						COUNT(*) as anzahl_w 
 					FROM 
 						testtool.tbl_pruefling_frage 
 						JOIN testtool.vw_pruefling USING (pruefling_id)
@@ -203,7 +203,7 @@ if(isset($_GET['show']))
 			//Anzahl Antworten je Vorschlag gesamt
 			$qry_vorschlag = "
 				SELECT 
-					vorschlag_id, nummer, punkte, count(*) as anzahl_vorschlag, ($qry) as anzahl_gesamt, ($qry_m) as anzahl_gesamt_m, ($qry_w) as anzahl_gesamt_w,
+					vorschlag_id, nummer, punkte, COUNT(*) as anzahl_vorschlag, ($qry) as anzahl_gesamt, ($qry_m) as anzahl_gesamt_m, ($qry_w) as anzahl_gesamt_w,
 					(SELECT text FROM testtool.tbl_vorschlag_sprache WHERE vorschlag_id=tbl_vorschlag.vorschlag_id AND sprache='German' LIMIT 1) as text
 				FROM 
 					testtool.tbl_vorschlag 
