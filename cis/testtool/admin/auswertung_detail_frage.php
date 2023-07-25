@@ -62,8 +62,8 @@ if($frage_id!='' && is_numeric($frage_id))
 				tbl_vorschlag_sprache.audio as vorschlag_audio,
 				tbl_vorschlag_sprache.bild as vorschlag_bild,
 				tbl_frage.level,
-				/*(SELECT count(*) FROM testtool.tbl_antwort WHERE vorschlag_id=tbl_vorschlag.vorschlag_id) as anzahl,*/
-				(SELECT count(*) FROM testtool.tbl_pruefling_frage WHERE frage_id='$frage_id') as gesamt_anzahl
+				/*(SELECT COUNT(*) FROM testtool.tbl_antwort WHERE vorschlag_id=tbl_vorschlag.vorschlag_id) as anzahl,*/
+				(SELECT COUNT(*) FROM testtool.tbl_pruefling_frage WHERE frage_id='$frage_id') as gesamt_anzahl
 			FROM 
 				testtool.tbl_frage 
 				JOIN testtool.tbl_frage_sprache USING(frage_id) 

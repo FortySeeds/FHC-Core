@@ -220,7 +220,7 @@ if(isset($_GET['action']) && $_GET['action']=='showreihungstests')
 				insertvon,
 				reihungstest_id,
 				array_to_string(ARRAY(SELECT ort_kurzbz FROM public.tbl_rt_ort WHERE rt_id=tbl_reihungstest.reihungstest_id),',') as orte,
-				(SELECT count(*) FROM public.tbl_rt_person
+				(SELECT COUNT(*) FROM public.tbl_rt_person
 				WHERE rt_id=tbl_reihungstest.reihungstest_id) as anzahl_teilnehmer
 			FROM public.tbl_reihungstest JOIN public.tbl_studiengang USING (studiengang_kz)
 			WHERE datum>=CURRENT_DATE ORDER BY datum";

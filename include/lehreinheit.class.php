@@ -897,7 +897,7 @@ class lehreinheit extends basis_db
 
 		//Pruefen ob schon eine Kreuzerlliste fuer diese Lehreinheit angelegt wurde.
 		//Falls ja dann wird das loeschen verweigert
-		$qry = "SELECT count(*) as anzahl FROM campus.tbl_uebung WHERE lehreinheit_id=".$this->db_add_param($lehreinheit_id, FHC_INTEGER).";";
+		$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_uebung WHERE lehreinheit_id=".$this->db_add_param($lehreinheit_id, FHC_INTEGER).";";
 		if($this->db_query($qry))
 		{
 			if($row = $this->db_fetch_object())

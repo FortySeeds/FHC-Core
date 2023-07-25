@@ -1468,7 +1468,7 @@ if (isset($_REQUEST['reihungstest']) || isset($_POST['rtauswsubmit']))
 				ELSE false
 				END AS qualifikationskurs,
 			(
-				SELECT count(*) AS prio_relativ
+				SELECT COUNT(*) AS prio_relativ
 				FROM (
 					SELECT *,
 						(

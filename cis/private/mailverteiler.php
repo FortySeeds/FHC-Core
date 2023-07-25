@@ -239,7 +239,7 @@ if(!$is_lector)
 		  	//StudentenListe Rausschreiben
 		  	if($row->studiengang_kz!=0) //0 ist für ganzes TW
 		  	{				
-		  		$qry_stud = "SELECT count(*) as anzahl FROM public.tbl_student WHERE studiengang_kz='$row->studiengang_kz' AND student_uid NOT LIKE '_Dummy%'";
+		  		$qry_stud = "SELECT COUNT(*) as anzahl FROM public.tbl_student WHERE studiengang_kz='$row->studiengang_kz' AND student_uid NOT LIKE '_Dummy%'";
 
 				if(!$row_stud=$db->db_fetch_object($db->db_query($qry_stud)))
 					echo $p->t('mailverteiler/fehlerBeimLadenDerStudenten');
@@ -257,7 +257,7 @@ if(!$is_lector)
 		  		{
 		  			if((!is_null($row1->semester)) && !empty($row1->semester) && ($row1->semester != "") && ($row1->semester<=$row->max_semester) && ($row1->semester>'0')) //($row1->semester<'10'))
 		  			{
-		  				$qry_cnt = "SELECT count(*) as anzahl FROM public.tbl_student WHERE studiengang_kz='$row1->studiengang_kz' AND semester='$row1->semester' AND student_uid NOT LIKE '_Dummy%'";
+		  				$qry_cnt = "SELECT COUNT(*) as anzahl FROM public.tbl_student WHERE studiengang_kz='$row1->studiengang_kz' AND semester='$row1->semester' AND student_uid NOT LIKE '_Dummy%'";
 		  				if(trim($row1->verband)!='')
 		  				{
 			  				$qry_cnt .= " AND verband='$row1->verband'";

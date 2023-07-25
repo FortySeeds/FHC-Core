@@ -1062,7 +1062,7 @@ class prestudent extends person
 			return false;
 		}
 
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_prestudent
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_prestudent
 				WHERE person_id=".$this->db_add_param($person_id, FHC_INTEGER)."
 				AND studiengang_kz=".$this->db_add_param($studiengang_kz, FHC_INTEGER);
 
@@ -1120,7 +1120,7 @@ class prestudent extends person
 			return false;
 		}
 
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_prestudent
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_prestudent
 				JOIN public.tbl_prestudentstatus USING (prestudent_id)
 				WHERE person_id=".$this->db_add_param($person_id, FHC_INTEGER)."
 				AND studiengang_kz=".$this->db_add_param($studiengang_kz, FHC_INTEGER);
@@ -2076,7 +2076,7 @@ class prestudent extends person
 	 */
 	public function getAnzStudierende($studiensemester_kurzbz, $studiengang_kz=null, $orgform_kurzbz=null, $ausbildungssemester=null)
 	{
-		$qry = "SELECT count(*) as anzahl FROM (
+		$qry = "SELECT COUNT(*) as anzahl FROM (
 				SELECT
 					distinct on(prestudent_id) prestudent_id
 				FROM
@@ -2308,7 +2308,7 @@ class prestudent extends person
 	 */
 	public function getRelativePriorisierungFromAbsolut($prestudent_id, $priorisierungAbsolut)
 	{
-		$qry = "SELECT count(*) AS prio_relativ
+		$qry = "SELECT COUNT(*) AS prio_relativ
 				FROM (
 					SELECT *,
 						(
@@ -2371,7 +2371,7 @@ class prestudent extends person
  			return false;
  		}
 
- 		$qry = "SELECT count(*) as anzahl FROM public.tbl_prestudent
+ 		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_prestudent
  				JOIN public.tbl_prestudentstatus USING (prestudent_id)
  				JOIN public.tbl_studiengang USING (studiengang_kz)
  				WHERE person_id = ".$this->db_add_param($person_id, FHC_INTEGER)."

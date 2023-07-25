@@ -226,7 +226,7 @@ class Person_model extends DB_Model
 	{
 		$parametersArray = array($person_id, $studiensemester_kurzbz);
 
-		$qry = "SELECT count(*) AS anzahl_bewerber FROM public.tbl_person
+		$qry = "SELECT COUNT(*) AS anzahl_bewerber FROM public.tbl_person
 				JOIN public.tbl_prestudent USING (person_id)
 				JOIN public.tbl_prestudentstatus ON tbl_prestudentstatus.prestudent_id = tbl_prestudent.prestudent_id";
 

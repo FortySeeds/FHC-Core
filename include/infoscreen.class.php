@@ -365,7 +365,7 @@ class infoscreen extends basis_db
 			$qry.="
 					AND CASE WHEN 
 					(
-						SELECT count(exklusiv) FROM campus.tbl_infoscreen_content 
+						SELECT COUNT(exklusiv) FROM campus.tbl_infoscreen_content 
 						WHERE (infoscreen_id=".$this->db_add_param($infoscreen_id, FHC_INTEGER)." OR infoscreen_id is null) 
 						AND (gueltigvon<=now() OR gueltigvon is null) 
 						AND (gueltigbis>=now() OR gueltigbis is null)

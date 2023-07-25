@@ -262,7 +262,7 @@ class stundenplan extends basis_db
 	public function getStunden($lehreinheit_id)
 	{
 
-		$qry = 'SELECT count(*) as stunden FROM (SELECT lehreinheit_id, datum, stunde '
+		$qry = 'SELECT COUNT(*) as stunden FROM (SELECT lehreinheit_id, datum, stunde '
 				. 'FROM lehre.tbl_stundenplan '
 				. 'WHERE lehreinheit_id = ' . $this->db_add_param($lehreinheit_id).' GROUP by lehreinheit_id, datum, stunde) as a';
 

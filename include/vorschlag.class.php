@@ -331,7 +331,7 @@ class vorschlag extends basis_db
 	 */
 	public function delete($vorschlag_id)
 	{
-		$qry = "SELECT count(*) as anzahl FROM testtool.tbl_antwort WHERE vorschlag_id=".$this->db_add_param($vorschlag_id, FHC_INTEGER).";";
+		$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_antwort WHERE vorschlag_id=".$this->db_add_param($vorschlag_id, FHC_INTEGER).";";
 		if($this->db_query($qry))
 		{
 			if($row = $this->db_fetch_object())

@@ -146,7 +146,7 @@ if(isset($_POST['submitfile']))
 					else
 					{
 						//Wenn eine verwendung vorhanden ist, dann ueberspringen
-						$qry = "SELECT count(*) as anzahl FROM bis.tbl_bisverwendung WHERE mitarbeiter_uid='$mitarbeiter_uid'";
+						$qry = "SELECT COUNT(*) as anzahl FROM bis.tbl_bisverwendung WHERE mitarbeiter_uid='$mitarbeiter_uid'";
 						if($result_vw = $db->db_query($qry))
 						{
 							if($row_vw = $db->db_fetch_object($result_vw))

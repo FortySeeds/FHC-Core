@@ -382,7 +382,7 @@ class student extends benutzer
 	 */
 	public function studentlehrverband_exists($student_uid, $studiensemester_kurzbz)
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_studentlehrverband
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_studentlehrverband
 				WHERE student_uid=".$this->db_add_param($student_uid)." AND studiensemester_kurzbz=".$this->db_add_param($studiensemester_kurzbz);
 
 		if($this->db_query($qry))

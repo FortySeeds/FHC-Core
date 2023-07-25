@@ -633,7 +633,7 @@ class lehrveranstaltung extends basis_db
 			return false;
 		}
 
-		$qry='SELECT count(*) as count FROM lehre.tbl_lehrveranstaltung
+		$qry='SELECT COUNT(*) as count FROM lehre.tbl_lehrveranstaltung
 			WHERE studiengang_kz='.$this->db_add_param($studiengang_kz).' AND orgform_kurzbz'.(is_null($orgform_kurzbz)?' is null':"=".$this->db_add_param($orgform_kurzbz));
 
 		$return=array();
@@ -1899,7 +1899,7 @@ class lehrveranstaltung extends basis_db
 			return false;
 		}
 
-		$qry = "SELECT count(*) as anzahl FROM lehre.tbl_lehreinheit
+		$qry = "SELECT COUNT(*) as anzahl FROM lehre.tbl_lehreinheit
 			WHERE lehrveranstaltung_id=".$this->db_add_param($lvid, FHC_INTEGER)."
 			OR lehrfach_id=".$this->db_add_param($lvid, FHC_INTEGER);
 		if($this->db_query($qry))

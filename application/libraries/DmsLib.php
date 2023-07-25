@@ -378,7 +378,7 @@ class DmsLib
 
 		$checkDeleteResult = $db->execReadOnlyQuery(
 			"SELECT filename,
-					(SELECT count(version)
+					(SELECT COUNT(version)
 						FROM campus.tbl_dms_version dv_anzahl
 						WHERE dv_anzahl.dms_id = dv.dms_id) AS anzahl_versionen
 					FROM campus.tbl_dms_version dv

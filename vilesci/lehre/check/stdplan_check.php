@@ -37,7 +37,7 @@ if (!$db = new basis_db())
 
 
 	//Stundenplandaten ermitteln welche mehrfach vorkommen
-	$sql_query="SELECT count(*), datum, stunde, ort_kurzbz, studiengang_kz, semester, verband, gruppe FROM lehre.tbl_stundenplan GROUP BY datum, stunde, ort_kurzbz, studiengang_kz, semester, verband, gruppe HAVING (count(*)>1) ORDER BY datum, stunde, ort_kurzbz LIMIT 20";
+	$sql_query="SELECT COUNT(*), datum, stunde, ort_kurzbz, studiengang_kz, semester, verband, gruppe FROM lehre.tbl_stundenplan GROUP BY datum, stunde, ort_kurzbz, studiengang_kz, semester, verband, gruppe HAVING (count(*)>1) ORDER BY datum, stunde, ort_kurzbz LIMIT 20";
 	//echo $sql_query."<br>";
 
 	$num_rows=0;

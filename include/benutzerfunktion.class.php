@@ -109,7 +109,7 @@ class benutzerfunktion extends basis_db
 	 */
 	public function benutzerfunktion_exists($uid, $benutzerfunktion, $gueltig = false)
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_benutzerfunktion
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_benutzerfunktion
 				WHERE uid=".$this->db_add_param($uid)." AND funktion_kurzbz=".$this->db_add_param($benutzerfunktion);
 		
 		if ($gueltig = TRUE)

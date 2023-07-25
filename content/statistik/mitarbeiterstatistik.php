@@ -51,8 +51,8 @@ if(isset($_GET['details']) && isset($_GET['fachbereich_kurzbz']))
 	
 	echo "<h2>MitarbeiterInnenstatistik (Hauptzuordnung) - ".$fachbereich->bezeichnung.'</h2>';
 	$qry = "SELECT distinct uid, anrede, nachname, vorname, titelpre, titelpost,
-			(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as fix_m,
-			(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as fix_w 
+			(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as fix_m,
+			(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as fix_w 
 			FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) 
 			WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' 
 			AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv 
@@ -95,8 +95,8 @@ if(isset($_GET['details']) && isset($_GET['fachbereich_kurzbz']))
 	echo '</tbody></table>';
 	
 	$qry = "SELECT distinct uid, anrede, nachname, vorname, titelpre, titelpost, 
-			(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as extern_m,
-			(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as extern_w
+			(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as extern_m,
+			(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as extern_w
 			FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) 
 			WHERE oe_kurzbz='".addslashes($fachbereich->oe_kurzbz)."' 
 			AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv
@@ -171,10 +171,10 @@ else
 	
 	$qry = "SELECT 
 				bezeichnung, fachbereich_kurzbz,
-				(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as fix_m,
-				(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as fix_w,
-				(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as extern_m,
-				(SELECT count(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as extern_w
+				(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as fix_m,
+				(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as fix_w,
+				(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='m') a) as extern_m,
+				(SELECT COUNT(*) FROM (SELECT distinct uid FROM public.tbl_benutzerfunktion JOIN campus.vw_mitarbeiter USING(uid) WHERE oe_kurzbz=a.oe_kurzbz AND NOT fixangestellt AND funktion_kurzbz='oezuordnung' AND aktiv AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL) AND geschlecht='w') a) as extern_w
 			FROM public.tbl_fachbereich a WHERE aktiv ORDER BY bezeichnung";
 	
 	if($result = $db->db_query($qry))
@@ -212,10 +212,10 @@ else
 		}
 		
 		$qry = "SELECT 
-					(SELECT count(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND fixangestellt AND geschlecht='m') as fix_m,
-					(SELECT count(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND fixangestellt AND geschlecht='w') as fix_w,
-					(SELECT count(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND NOT fixangestellt AND geschlecht='m') as extern_m,
-					(SELECT count(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND NOT fixangestellt AND geschlecht='w') as extern_w
+					(SELECT COUNT(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND fixangestellt AND geschlecht='m') as fix_m,
+					(SELECT COUNT(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND fixangestellt AND geschlecht='w') as fix_w,
+					(SELECT COUNT(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND NOT fixangestellt AND geschlecht='m') as extern_m,
+					(SELECT COUNT(*) FROM campus.vw_mitarbeiter WHERE uid NOT in(SELECT uid FROM public.tbl_benutzerfunktion WHERE funktion_kurzbz='oezuordnung' AND (datum_bis >= now() OR datum_bis IS NULL) AND (datum_von <= now() OR datum_von IS NULL)) AND aktiv AND NOT fixangestellt AND geschlecht='w') as extern_w
 				";
 		if($result = $db->db_query($qry))
 		{

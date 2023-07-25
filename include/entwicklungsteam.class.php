@@ -264,7 +264,7 @@ class entwicklungsteam extends basis_db
 	 */
 	public function exists($mitarbeiter_uid,$studiengang_kz)
 	{
-		$qry = "SELECT count(*) as anzahl FROM bis.tbl_entwicklungsteam
+		$qry = "SELECT COUNT(*) as anzahl FROM bis.tbl_entwicklungsteam
 				WHERE mitarbeiter_uid=".$this->db_add_param($mitarbeiter_uid)." AND studiengang_kz=".$this->db_add_param($studiengang_kz, FHC_INTEGER).";";
 
 		if($this->db_query($qry))

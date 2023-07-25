@@ -98,7 +98,7 @@ else
 	$qry_order_by = " ORDER BY tbl_prestudent.studiengang_kz, nachname";
 $qry_limit=" LIMIT ".$limit;
 
-$count_qry="SELECT count(*) as count".$qry_from_where;
+$count_qry="SELECT COUNT(*) as count".$qry_from_where;
 $select_qry="SELECT tbl_person.vorname, tbl_person.nachname, tbl_prestudent.prestudent_id, tbl_prestudent.studiengang_kz,
 				get_rolle_prestudent(prestudent_id,null) as laststatus".$qry_from_where.$qry_order_by.$qry_limit;
 

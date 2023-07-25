@@ -155,7 +155,7 @@ foreach($stg->result as $row_stg)
 	$content.= "\n<tr><td colspan='2'><h3>".$row_stg->kuerzel.'</h3></td></tr>';
 	
 	//Anzahl der Lehreinheiten holen
-	$qry = "SELECT count(*) as anzahl, semester 
+	$qry = "SELECT COUNT(*) as anzahl, semester 
 			FROM lehre.tbl_lehrveranstaltung JOIN lehre.tbl_lehreinheit USING(lehrveranstaltung_id)
 			JOIN lehre.tbl_lehrform ON (tbl_lehreinheit.lehrform_kurzbz=tbl_lehrform.lehrform_kurzbz)
 			WHERE studiengang_kz='$row_stg->studiengang_kz' AND studiensemester_kurzbz='$stsem' 
@@ -173,7 +173,7 @@ foreach($stg->result as $row_stg)
 			$content.= $row_sem->semester.'.Semester </td><td>';
 			
 			//Anzahl der verplanten Lehreinheiten holen
-			$qry = "SELECT count(*) as verplant FROM lehre.tbl_lehreinheit JOIN lehre.tbl_lehrveranstaltung USING(lehrveranstaltung_id)
+			$qry = "SELECT COUNT(*) as verplant FROM lehre.tbl_lehreinheit JOIN lehre.tbl_lehrveranstaltung USING(lehrveranstaltung_id)
                     JOIN lehre.tbl_lehrform ON (tbl_lehreinheit.lehrform_kurzbz=tbl_lehrform.lehrform_kurzbz)
 					WHERE studiengang_kz='$row_stg->studiengang_kz' AND studiensemester_kurzbz='$stsem' AND semester='$row_sem->semester' 
 					AND tbl_lehreinheit.lehre AND tbl_lehrform.verplanen
@@ -217,7 +217,7 @@ foreach($stg->result as $row_stg)
 			}
 			
 			//verplante Stunden aus LVPlan holen
-			$qry = "SELECT count(*) as verplant
+			$qry = "SELECT COUNT(*) as verplant
 					FROM (SELECT distinct datum, stunde, tbl_lehreinheit.lehreinheit_id, tbl_".$variable->variable->db_stpl_table.".mitarbeiter_uid
 					FROM 
 						lehre.tbl_lehreinheit 
@@ -260,7 +260,7 @@ foreach($stg->result as $row_stg)
 			{
 				while($row_std = $db->db_fetch_object($result_std))
 				{
-					$qry = "SELECT count(*) as anzahl FROM lehre.tbl_".$variable->variable->db_stpl_table." WHERE lehreinheit_id='$row_std->lehreinheit_id' AND mitarbeiter_uid='$row_std->mitarbeiter_uid'";
+					$qry = "SELECT COUNT(*) as anzahl FROM lehre.tbl_".$variable->variable->db_stpl_table." WHERE lehreinheit_id='$row_std->lehreinheit_id' AND mitarbeiter_uid='$row_std->mitarbeiter_uid'";
 					if($result_o = $db->db_query($qry))
 					{
 						if($row_o = $db->db_fetch_object($result_o))

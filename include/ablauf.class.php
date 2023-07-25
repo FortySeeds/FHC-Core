@@ -595,7 +595,7 @@ class ablauf extends basis_db
 			return false;
 		}
 
-		$qry = "SELECT count(*) FROM testtool.tbl_ablauf
+		$qry = "SELECT COUNT(*) FROM testtool.tbl_ablauf
 				WHERE ablauf_vorgaben_id=".$this->db_add_param($ablauf_vorgaben_id, FHC_INTEGER);
 
 		if($this->db_query($qry))

@@ -154,7 +154,7 @@ class bisverwendung extends basis_db
 			$this->errormsg = 'bisverwendung_id muss eine gueltige Zahl sein';
 			return false;
 		}
-		$qry = "SELECT count(*) as anzahl FROM bis.tbl_bisfunktion WHERE bisverwendung_id=".$this->db_add_param($bisverwendung_id, FHC_INTEGER);
+		$qry = "SELECT COUNT(*) as anzahl FROM bis.tbl_bisfunktion WHERE bisverwendung_id=".$this->db_add_param($bisverwendung_id, FHC_INTEGER);
 		if($this->db_query($qry))
 		{
 			if($row = $this->db_fetch_object())

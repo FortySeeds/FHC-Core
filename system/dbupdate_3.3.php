@@ -4158,7 +4158,7 @@ if(!$result = @$db->db_query('SELECT "IBAN Studiengang", "BIC Studiengang", "Stu
 		  ass.nachname AS "Nachname Studiengangsassistenz",
 		  ass.telefonklappe AS "Durchwahl Studiengangsassistenz",
 		  ass.alias AS "Alias Studiengangsassistenz",
-		  (SELECT count(*)
+		  (SELECT COUNT(*)
 		   FROM (
 					SELECT pss.prestudent_id, pss.person_id, priorisierung,
 						   (
@@ -4687,7 +4687,7 @@ if(!$result = @$db->db_query('SELECT "Orgform DE", "Orgform EN" FROM public.vw_m
 		  ass.nachname AS "Nachname Studiengangsassistenz",
 		  ass.telefonklappe AS "Durchwahl Studiengangsassistenz",
 		  ass.alias AS "Alias Studiengangsassistenz",
-		  (SELECT count(*)
+		  (SELECT COUNT(*)
 		   FROM (
 					SELECT pss.prestudent_id, pss.person_id, priorisierung,
 						   (

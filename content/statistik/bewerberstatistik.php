@@ -255,27 +255,27 @@ if (isset($_GET['excel']))
 	//Bewerberdaten holen
 	$qry = "SELECT studiengang_kz, kurzbz, typ, kurzbzlang, bezeichnung, orgform_kurzbz,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					) AS interessenten,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					) AS interessenten_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					) AS interessenten_w,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL)) AS interessentenzgv,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL)) AS interessentenzgv_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL)) AS interessentenzgv_w,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					AND
 						EXISTS(SELECT
@@ -291,7 +291,7 @@ if (isset($_GET['excel']))
 									AND tbl_studienordnung.studiengang_kz=tbl_prestudent.studiengang_kz
 							)
 				) AS interessentenrtanmeldung,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					AND
 						EXISTS(SELECT
@@ -307,7 +307,7 @@ if (isset($_GET['excel']))
 									AND tbl_studienordnung.studiengang_kz=tbl_prestudent.studiengang_kz
 							)
 				) AS interessentenrtanmeldung_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					AND
 						EXISTS(SELECT
@@ -324,41 +324,41 @@ if (isset($_GET['excel']))
 							)
 				) AS interessentenrtanmeldung_w,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					) AS bewerber,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					) AS bewerber_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					) AS bewerber_w,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					) AS aufgenommener,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					) AS aufgenommener_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					) AS aufgenommener_w,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." ";
 	if (count($ausgeschieden) > 0)
 	{
 		$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')     ";
 	}
 	$qry .= ") AS aufgenommenerber,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' ";
 	if (count($ausgeschieden) > 0)
 	{
 		$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 	}
 	$qry .= ") AS aufgenommenerber_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' ";
 	if (count($ausgeschieden) > 0)
 	{
@@ -366,22 +366,22 @@ if (isset($_GET['excel']))
 	}
 	$qry .= ") AS aufgenommenerber_w,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 					WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1
 				) AS student1sem,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 					WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='m'
 				) AS student1sem_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 					WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='w'
 				) AS student1sem_w,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 					WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3
 				) AS student3sem,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 					WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='m'
 				) AS student3sem_m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(student_uid=uid)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(student_uid=uid)
 					WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='w'
 				) AS student3sem_w
 
@@ -797,20 +797,20 @@ if (isset($_GET['excel']))
 		//Bewerberdaten holen
 		$qry = "SELECT studiengang_kz, kurzbz, typ, kurzbzlang, bezeichnung, orgform_kurzbz,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						) AS interessenten,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'  AND datum<=".$db->db_add_param($datum)."
 						) AS interessenten_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'  AND datum<=".$db->db_add_param($datum)."
 						) AS interessenten_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						AND
 							EXISTS(SELECT
@@ -832,7 +832,7 @@ if (isset($_GET['excel']))
 											)
 								)
 					) AS interessentenrtanmeldung,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 						AND
 							EXISTS(SELECT
@@ -853,7 +853,7 @@ if (isset($_GET['excel']))
 											)
 								)
 					) AS interessentenrtanmeldung_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 						AND
 							EXISTS(SELECT
@@ -874,33 +874,33 @@ if (isset($_GET['excel']))
 											)
 								)
 					) AS interessentenrtanmeldung_w,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						) AS bewerber,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 						) AS bewerber_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 						) AS bewerber_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						) AS aufgenommener,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 						) AS aufgenommener_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 						) AS aufgenommener_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)." ";
 		if (count($ausgeschieden) > 0)
@@ -908,7 +908,7 @@ if (isset($_GET['excel']))
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= ") AS aufgenommenerber,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)." ";
 		if (count($ausgeschieden) > 0)
@@ -916,7 +916,7 @@ if (isset($_GET['excel']))
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= ") AS aufgenommenerber_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)." ";
 		if (count($ausgeschieden) > 0)
@@ -925,27 +925,27 @@ if (isset($_GET['excel']))
 		}
 		$qry .= ") AS aufgenommenerber_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND datum<=".$db->db_add_param($datum)."
 					) AS student1sem,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 					) AS student1sem_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 					) AS student1sem_w,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND datum<=".$db->db_add_param($datum)."
 					) AS student3sem,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 					) AS student3sem_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 					) AS student3sem_w
@@ -1498,27 +1498,27 @@ else
 		//Bewerberdaten holen
 		$qry = "SELECT studiengang_kz, kurzbz, typ, kurzbzlang, bezeichnung, orgform_kurzbz,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						) AS interessenten,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 						) AS interessenten_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 						) AS interessenten_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL)) AS interessentenzgv,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 						AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL)) AS interessentenzgv_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 						AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL)) AS interessentenzgv_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND
 							EXISTS(SELECT
@@ -1534,7 +1534,7 @@ else
 									 	AND tbl_studienordnung.studiengang_kz=tbl_prestudent.studiengang_kz
 								  )
 					) AS interessentenrtanmeldung,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 						AND
 							EXISTS(SELECT
@@ -1550,7 +1550,7 @@ else
 										AND tbl_studienordnung.studiengang_kz=tbl_prestudent.studiengang_kz
 								)
 					) AS interessentenrtanmeldung_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 						AND
 							EXISTS(SELECT
@@ -1567,41 +1567,41 @@ else
 								)
 					) AS interessentenrtanmeldung_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						) AS bewerber,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 						) AS bewerber_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 						) AS bewerber_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						) AS aufgenommener,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 						) AS aufgenommener_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 						) AS aufgenommener_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." ";
 		if (count($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')     ";
 		}
 		$qry .= ") AS aufgenommenerber,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' ";
 		if (count($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= ") AS aufgenommenerber_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' ";
 		if (count($ausgeschieden) > 0)
 		{
@@ -1609,22 +1609,22 @@ else
 		}
 		$qry .= ") AS aufgenommenerber_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 						WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1
 					) AS student1sem,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 						WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='m'
 					) AS student1sem_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 						WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='w'
 					) AS student1sem_w,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 						WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3
 					) AS student3sem,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(uid=student_uid)
 						WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='m'
 					) AS student3sem_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(student_uid=uid)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id) JOIN public.tbl_student USING(prestudent_id) JOIN public.tbl_benutzer ON(student_uid=uid)
 						WHERE tbl_prestudent.studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='w'
 					) AS student3sem_w
 
@@ -1902,20 +1902,20 @@ else
 		//Bewerberdaten holen
 		$qry = "SELECT studiengang_kz, kurzbz, typ, kurzbzlang, bezeichnung, orgform_kurzbz,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						) AS interessenten,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'  AND datum<=".$db->db_add_param($datum)."
 						) AS interessenten_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'  AND datum<=".$db->db_add_param($datum)."
 						) AS interessenten_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						AND
 							EXISTS(SELECT
@@ -1936,7 +1936,7 @@ else
 											)
 								)
 					) AS interessentenrtanmeldung,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 						AND
 							EXISTS(SELECT
@@ -1957,7 +1957,7 @@ else
 											)
 								)
 					) AS interessentenrtanmeldung_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 						AND
 							EXISTS(SELECT
@@ -1979,33 +1979,33 @@ else
 								)
 					) AS interessentenrtanmeldung_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						) AS bewerber,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 						) AS bewerber_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 						) AS bewerber_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)."
 						) AS aufgenommener,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 						) AS aufgenommener_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 						) AS aufgenommener_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)." ";
 		if (count($ausgeschieden) > 0)
@@ -2013,7 +2013,7 @@ else
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= ") AS aufgenommenerber,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)." ";
 		if (count($ausgeschieden) > 0)
@@ -2021,7 +2021,7 @@ else
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= ") AS aufgenommenerber_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)." ";
 		if (count($ausgeschieden) > 0)
@@ -2030,27 +2030,27 @@ else
 		}
 		$qry .= ") AS aufgenommenerber_w,
 
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND datum<=".$db->db_add_param($datum)."
 					) AS student1sem,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 					) AS student1sem_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1 AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 					) AS student1sem_w,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND datum<=".$db->db_add_param($datum)."
 					) AS student3sem,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='m' AND datum<=".$db->db_add_param($datum)."
 					) AS student3sem_m,
-					(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
+					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3 AND geschlecht='w' AND datum<=".$db->db_add_param($datum)."
 					) AS student3sem_w
@@ -2242,14 +2242,14 @@ function generateMischformenQuery($orgform_arr, $stsem, $ausgeschieden, $stgwher
 
 	foreach ($orgform_arr as $row_orgform)
 	{
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS interessenten_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND ((stg.typ<>'m' AND zgv_code IS NOT NULL) OR zgvmas_code IS NOT NULL) AND orgform_kurzbz=".$db->db_add_param($row_orgform).")
 						AS interessentenzgv_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND EXISTS(SELECT
 										1
@@ -2263,30 +2263,30 @@ function generateMischformenQuery($orgform_arr, $stsem, $ausgeschieden, $stgwher
 										AND tbl_reihungstest.studiensemester_kurzbz=tbl_prestudentstatus.studiensemester_kurzbz
 										AND tbl_studienordnung.studiengang_kz=tbl_prestudent.studiengang_kz
 								) AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS interessentenrtanmeldung_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND reihungstest_id IS NOT NULL  AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS interessentenrttermin_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Interessent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND reihungstestangetreten AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS interessentenrtabsolviert_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Bewerber' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS bewerber_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 						AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS aufgenommener_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." ";
 		if (count($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= "AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS aufgenommenerber_".$row_orgform.",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=1
 						AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS student1sem_".$row_orgform.",";
 		$lastChar = ($row_orgform == $lastElement) ? "" : ",";
-		$qry .= " (SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Student' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND ausbildungssemester=3
 						AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS student3sem_".$row_orgform.$lastChar;
 	}

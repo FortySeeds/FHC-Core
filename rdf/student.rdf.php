@@ -68,7 +68,7 @@ function checkfilter($row, $filter2, $buchungstyp = null)
 	if($filter2=='dokumente')
 	{
 		// Alle Personen die noch nicht alle Dokumente gebracht haben
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_dokumentstudiengang WHERE
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_dokumentstudiengang WHERE
 				dokument_kurzbz NOT IN(
 					SELECT dokument_kurzbz FROM tbl_dokumentprestudent WHERE prestudent_id=".$db->db_add_param($row->prestudent_id).")
 				AND studiengang_kz=".$db->db_add_param($row->studiengang_kz);
@@ -98,7 +98,7 @@ function checkfilter($row, $filter2, $buchungstyp = null)
 		$prestudent = new prestudent();
 		$prestudent->getLastStatus($row->prestudent_id);
 
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_konto WHERE
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_konto WHERE
 					studiensemester_kurzbz=".$db->db_add_param($studiensemester_kurzbz)." AND
 					person_id=".$db->db_add_param($row->person_id, FHC_INTEGER)." AND
 					buchungstyp_kurzbz='Studiengebuehr'";
@@ -115,7 +115,7 @@ function checkfilter($row, $filter2, $buchungstyp = null)
 		$prestudent = new prestudent();
 		$prestudent->getLastStatus($row->prestudent_id);
 
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_konto WHERE
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_konto WHERE
 					studiensemester_kurzbz=".$db->db_add_param($studiensemester_kurzbz)." AND
 					person_id=".$db->db_add_param($row->person_id, FHC_INTEGER)." AND
 					buchungstyp_kurzbz=".$db->db_add_param($buchungstyp);
@@ -146,7 +146,7 @@ function checkfilter($row, $filter2, $buchungstyp = null)
 	elseif($filter2=='ausbildungsvertragakzeptiert')
 	{
 		//Alle Personen die den archivierten Ausbildungsvertrag akzeptiert haben
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_akte
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_akte
 				WHERE person_id=".$db->db_add_param($row->person_id, FHC_INTEGER)."
 				AND dokument_kurzbz='Ausbvert' AND archiv=true AND stud_selfservice=true AND akzeptiertamum IS NOT NULL";
 		if($db->db_query($qry))
@@ -163,7 +163,7 @@ function checkfilter($row, $filter2, $buchungstyp = null)
 	elseif ( preg_match('/^stud-statusgrund-([0-9]+)$/', $filter2, $studstatusgrund) )
 	{
 	    // Alle Studenten mit Statusgrund in tbl_prestudentstatus
-	    $qry = "SELECT count(*) AS anzahl FROM public.tbl_prestudentstatus ps JOIN
+	    $qry = "SELECT COUNT(*) AS anzahl FROM public.tbl_prestudentstatus ps JOIN
 				    public.tbl_prestudent p ON p.prestudent_id = ps.prestudent_id AND
 				    ps. studiensemester_kurzbz=".$db->db_add_param($studiensemester_kurzbz)." AND
 				    p. person_id=".$db->db_add_param($row->person_id, FHC_INTEGER)." AND

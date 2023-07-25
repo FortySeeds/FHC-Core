@@ -300,7 +300,7 @@ class lvinfo extends basis_db
 			return false;
 		}
 
-		$qry = "SELECT count(*) as anzahl FROM campus.tbl_lvinfo WHERE lehrveranstaltung_id=".$this->db_add_param($lehrveranstaltung_id, FHC_INTEGER);
+		$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_lvinfo WHERE lehrveranstaltung_id=".$this->db_add_param($lehrveranstaltung_id, FHC_INTEGER);
 		
 		if(!is_null($sprache))
 			$qry .= " AND sprache=".$this->db_add_param($sprache);

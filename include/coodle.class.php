@@ -706,7 +706,7 @@ class coodle extends basis_db
             return false; 
         }
         
-        $qry="SELECT count(*) AS anzahl FROM campus.tbl_coodle_ressource_termin 
+        $qry="SELECT COUNT(*) AS anzahl FROM campus.tbl_coodle_ressource_termin 
             WHERE coodle_termin_id=".$this->db_add_param($termin_id, FHC_INTEGER).';';
          
    		if($result = $this->db_query($qry))

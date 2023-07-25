@@ -457,7 +457,7 @@ class frage extends basis_db
 		if($gebiet->level_start!='')
 		{
 			// Anzahl der bereits vorhandenen Fragen holen
-			$qry = "SELECT count(*) as anzahl FROM testtool.tbl_pruefling_frage JOIN testtool.tbl_frage USING(frage_id)
+			$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_pruefling_frage JOIN testtool.tbl_frage USING(frage_id)
 					WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER)." AND pruefling_id=".$this->db_add_param($pruefling_id, FHC_INTEGER);
 			if($this->db_query($qry))
 			{
@@ -477,7 +477,7 @@ class frage extends basis_db
 			$maxfragen = $gebiet->maxfragen;
 
 			// Wie viele Fragen gibt es in diesem Gebiet
-			$qry = "SELECT count(*) as anzahl FROM testtool.tbl_frage WHERE NOT demo AND gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER);
+			$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_frage WHERE NOT demo AND gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER);
 			if($this->db_query($qry))
 			{
 				if($row = $this->db_fetch_object())

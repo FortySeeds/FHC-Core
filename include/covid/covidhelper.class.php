@@ -174,7 +174,7 @@ EOSQL;
 
 	public function checkIfUdfValuesAreDefined()
 	{
-		$sql = 'SELECT count(name) AS "udfdefined" '
+		$sql = 'SELECT COUNT(name) AS "udfdefined" '
 			 . 'FROM "system"."tbl_udf", jsonb_to_recordset("jsons") AS items(name text) '
 			 . 'WHERE "schema" = \'' . self::DB_SCHEMA . '\' '
 			 . 'AND "table" = \'' . self::DB_TABLE . '\' '

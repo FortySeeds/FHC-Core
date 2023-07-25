@@ -87,7 +87,7 @@ class gruppe extends basis_db
 	 */
 	public function exists($gruppe_kurzbz)
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_gruppe WHERE gruppe_kurzbz=".$this->db_add_param(mb_strtoupper($gruppe_kurzbz));
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_gruppe WHERE gruppe_kurzbz=".$this->db_add_param(mb_strtoupper($gruppe_kurzbz));
 
 		if($this->db_query($qry))
 		{
@@ -215,7 +215,7 @@ class gruppe extends basis_db
 	 */
 	public function countStudenten($gruppe_kurzbz)
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_benutzergruppe
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_benutzergruppe
 				WHERE gruppe_kurzbz=".$this->db_add_param($gruppe_kurzbz);
 
 		if($this->db_query($qry))

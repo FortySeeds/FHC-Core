@@ -54,7 +54,7 @@ $cfgBgcolorTwo='liste1';
 <tr>
 <?php
 	//Reservierungsdaten ermitteln welche mehrfach vorkommen
-	$sql_query="SELECT count(*), datum, stunde, ort_kurzbz FROM campus.tbl_reservierung GROUP BY datum, stunde, ort_kurzbz HAVING (count(*)>1) ORDER BY datum, stunde, ort_kurzbz LIMIT 20";
+	$sql_query="SELECT COUNT(*), datum, stunde, ort_kurzbz FROM campus.tbl_reservierung GROUP BY datum, stunde, ort_kurzbz HAVING (count(*)>1) ORDER BY datum, stunde, ort_kurzbz LIMIT 20";
 	//echo $sql_query."<br>";
 	$num_rows=0;
 	if ($result=$db->db_query($sql_query))

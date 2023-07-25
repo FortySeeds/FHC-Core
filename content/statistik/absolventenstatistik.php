@@ -119,46 +119,46 @@ if ($stsem != '')
 			 ";
 	//Bachelor
 	$qry = "SELECT studiengang_kz, kurzbz, typ, kurzbzlang, bezeichnung, orgform_kurzbz,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					) a) AS gesamt_stg,
 
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_studiengang USING(studiengang_kz)
 	   			 	WHERE status_kurzbz='Absolvent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND typ='b'
 					) a) AS gesamt_alle,
 
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND orgform_kurzbz='BB'
 					) a) AS bb,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND orgform_kurzbz='VZ'
 					) a) AS vz,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					) a) AS w,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					) a) AS m,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id)
 					JOIN bis.tbl_nation on(staatsbuergerschaft=nation_code)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND nation_code='A'
 					) a) AS herkunft_at,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id)
 					JOIN bis.tbl_nation on(staatsbuergerschaft=nation_code)
@@ -166,7 +166,7 @@ if ($stsem != '')
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					AND geschlecht='m' AND eu AND nation_code<>'A'
 					) a) AS herkunft_eu,
-				(SELECT count(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
+				(SELECT COUNT(*) FROM (SELECT distinct prestudent_id FROM public.tbl_prestudent
 					JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id)
 					JOIN bis.tbl_nation on(staatsbuergerschaft=nation_code)
@@ -258,46 +258,46 @@ if ($stsem != '')
 		 ";
 
 	$qry = "SELECT studiengang_kz, kurzbz, typ, kurzbzlang, bezeichnung, orgform_kurzbz,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					) AS gesamt_stg,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_studiengang USING(studiengang_kz)
 	   			 	WHERE status_kurzbz='Absolvent' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND typ='m'
 					) AS gesamt_alle,
 
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND orgform_kurzbz='BB'
 					) AS bb,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND orgform_kurzbz='VZ'
 					) AS vz,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w'
 					) AS w,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m'
 					) AS m,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id) JOIN bis.tbl_nation on(staatsbuergerschaft=nation_code)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND nation_code='A'
 					) AS herkunft_at,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id) JOIN bis.tbl_nation on(staatsbuergerschaft=nation_code)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)."
 					AND geschlecht='m' AND eu AND nation_code<>'A'
 					) AS herkunft_eu,
-				(SELECT count(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
+				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					JOIN public.tbl_person USING(person_id) JOIN bis.tbl_nation on(staatsbuergerschaft=nation_code)
 	   			 	WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Absolvent'
 					AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND NOT eu

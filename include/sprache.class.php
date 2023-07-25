@@ -165,7 +165,7 @@ class sprache extends basis_db
 	public function getAnzahl()
 	{
 		$anzahl = 0;
-		$qry = 'SELECT count(sprache) as anzahl FROM public.tbl_sprache WHERE content = true;';
+		$qry = 'SELECT COUNT(sprache) as anzahl FROM public.tbl_sprache WHERE content = true;';
 
 		if(!$this->db_query($qry))
 		{

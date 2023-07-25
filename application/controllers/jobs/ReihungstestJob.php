@@ -962,7 +962,7 @@ class ReihungstestJob extends JOB_Controller
 					if ($row_ps->studiengang_typ == 'b')
 					{
 						$qryKautionExists = "
-						SELECT count(*) as anzahl
+						SELECT COUNT(*) as anzahl
 						FROM public.tbl_konto
 						WHERE person_id = " . $row_ps->person_id . "
 							AND studiensemester_kurzbz = '" . $row_ps->studiensemester_kurzbz . "'

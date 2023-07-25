@@ -405,7 +405,7 @@ else if($method=="lehrveranstaltungen")
 			$freieplaetze = 0;
 			// Freie Plaetze ermitteln
 			$qry = "	SELECT tbl_lehrveranstaltung.incoming, (
-						SELECT count(*)
+						SELECT COUNT(*)
 						FROM (
 							SELECT person_id
 							FROM campus.vw_student_lehrveranstaltung

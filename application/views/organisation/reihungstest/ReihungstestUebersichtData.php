@@ -39,7 +39,7 @@
 
 				oeffentlich, studiensemester_kurzbz, anmeldefrist,
 
-				(SELECT count(*)
+				(SELECT COUNT(*)
 				 FROM public.tbl_rt_person
 				 WHERE rt_id=tbl_reihungstest.reihungstest_id
 				) as anzahl_angemeldet,

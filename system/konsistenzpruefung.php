@@ -677,7 +677,7 @@ $qry = "SELECT
 			JOIN public.tbl_person USING(person_id)
 		WHERE
 			tbl_student.studiengang_kz<1000 AND tbl_student.studiengang_kz>0
-			AND 1<(SELECT count(*) FROM public.tbl_prestudentstatus WHERE status_kurzbz='Student' AND prestudent_id=tbl_student.prestudent_id)
+			AND 1<(SELECT COUNT(*) FROM public.tbl_prestudentstatus WHERE status_kurzbz='Student' AND prestudent_id=tbl_student.prestudent_id)
 			AND NOT EXISTS(SELECT 1 FROM lehre.tbl_zeugnisnote WHERE student_uid=tbl_student.student_uid)";
 
 if($result = $db->db_query($qry))

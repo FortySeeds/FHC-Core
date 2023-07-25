@@ -63,7 +63,7 @@ class Issue_model extends DB_Model
 	{
 		$params = array($fehlercode);
 		// issue exists for a fehlercode (or fehlercode_extern), person_id, oe_kurzbz, if not verarbeitet yet
-		$qry = 'SELECT count(*) as anzahl_open_issues FROM system.tbl_issue
+		$qry = 'SELECT COUNT(*) as anzahl_open_issues FROM system.tbl_issue
 				WHERE fehlercode = ?
 				AND verarbeitetamum IS NULL';
 

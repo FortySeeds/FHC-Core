@@ -71,7 +71,7 @@ if(trim($typ)=="m")
 			}
 		}
 		//Gesamtanzahl
-		$qry_anzahl="SELECT count(*) as anzahl FROM public.tbl_person 
+		$qry_anzahl="SELECT COUNT(*) as anzahl FROM public.tbl_person 
 		JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id) 
 		JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id) 
 		WHERE studiengang_kz=".$db->db_add_param($studiengang_kz)."  
@@ -137,7 +137,7 @@ if(trim($typ)=="b")
 			}
 		}
 		//Gesamtanzahl
-		$qry_anzahl="SELECT count(*) as anzahl FROM public.tbl_person 
+		$qry_anzahl="SELECT COUNT(*) as anzahl FROM public.tbl_person 
 			JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id) 
 			JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id) 
 			WHERE studiengang_kz=".$db->db_add_param($studiengang_kz)."

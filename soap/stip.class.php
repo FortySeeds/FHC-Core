@@ -568,7 +568,7 @@ class stip extends basis_db
 			if($rowstatus = $this->db_fetch_object($resultstatus))
 			{
 				$qry1="
-					SELECT count(*) AS dipl FROM public.tbl_prestudentstatus
+					SELECT COUNT(*) AS dipl FROM public.tbl_prestudentstatus
 					WHERE
 						prestudent_id=".$this->db_add_param($prestudent_id, FHC_INTEGER)."
 						AND status_kurzbz='Diplomand'";

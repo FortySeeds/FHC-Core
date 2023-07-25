@@ -186,7 +186,7 @@ class content extends basis_db
 			return false;
 		}
 		
-		$qry = "SELECT count(*) as anzahl FROM campus.tbl_contentgruppe WHERE content_id=".$this->db_add_param($content_id, FHC_INTEGER);
+		$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_contentgruppe WHERE content_id=".$this->db_add_param($content_id, FHC_INTEGER);
 		
 		if($result = $this->db_query($qry))
 		{
@@ -504,7 +504,7 @@ class content extends basis_db
 			$this->errormsg = 'ContentID ungueltig';
 			return false;
 		}
-		$qry = "SELECT count(*) as anzahl FROM campus.tbl_contentchild 
+		$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_contentchild 
 				WHERE content_id=".$this->db_add_param($content_id, FHC_INTEGER);
 		
 		if($result = $this->db_query($qry))

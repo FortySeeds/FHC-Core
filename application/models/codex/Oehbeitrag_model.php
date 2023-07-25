@@ -72,7 +72,7 @@ class Oehbeitrag_model extends DB_Model
 	{
 		$params = array($von_studiensemester_kurzbz);
 
-		$allStdSemSpanQry = "SELECT count(studiensemester_kurzbz) as number_assigned FROM public.tbl_studiensemester sem
+		$allStdSemSpanQry = "SELECT COUNT(studiensemester_kurzbz) as number_assigned FROM public.tbl_studiensemester sem
 			WHERE start >= (SELECT start FROM public.tbl_studiensemester WHERE studiensemester_kurzbz = ?)";
 
 		if ($bis_studiensemester_kurzbz != null)

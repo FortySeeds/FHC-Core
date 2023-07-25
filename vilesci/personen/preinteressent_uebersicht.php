@@ -250,7 +250,7 @@ if(isset($_GET['action']))
 				while($row = $db->db_fetch_object($result))
 				{
 					//Nur diejenigen nehmen die noch nicht als Prestudent vorhanden sind
-					$qry = "SELECT count(*) as anzahl FROM public.tbl_preinteressent JOIN public.tbl_prestudent USING(person_id) 
+					$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_preinteressent JOIN public.tbl_prestudent USING(person_id) 
 						WHERE preinteressent_id=".$db->db_add_param($row->preinteressent_id)." 
 						AND studiengang_kz=".$db->db_add_param($row->studiengang_kz);
 

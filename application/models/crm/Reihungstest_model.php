@@ -273,7 +273,7 @@ class Reihungstest_model extends DB_Model
 				ELSE \'Nein\'
 				END AS "qualifikationskurs",
 				(
-					SELECT count(*) AS prio_relativ
+					SELECT COUNT(*) AS prio_relativ
 					FROM (
 						SELECT *,
 							(
@@ -362,7 +362,7 @@ class Reihungstest_model extends DB_Model
 				ELSE \'Nein\'
 				END AS "qualifikationskurs",
 				(
-					SELECT count(*) AS prio_relativ
+					SELECT COUNT(*) AS prio_relativ
 					FROM (
 						SELECT *,
 							(

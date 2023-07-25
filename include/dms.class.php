@@ -703,7 +703,7 @@ class dms extends basis_db
 	 */
 	public function countDocumentsKategorie($kategorie_kurzbz)
 	{
-		$qry = "SELECT count(*) as anzahl FROM campus.tbl_dms WHERE kategorie_kurzbz=".$this->db_add_param($kategorie_kurzbz).";";
+		$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_dms WHERE kategorie_kurzbz=".$this->db_add_param($kategorie_kurzbz).";";
 
 		if($result = $this->db_query($qry))
 		{

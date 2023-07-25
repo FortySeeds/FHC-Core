@@ -386,7 +386,7 @@ class reihungstest extends basis_db
 		$qry = "
 		SELECT *,
 			(
-				SELECT count(*) FROM public.tbl_prestudent
+				SELECT COUNT(*) FROM public.tbl_prestudent
 				WHERE reihungstest_id=a.reihungstest_id
 			) as angemeldete_teilnehmer
 		FROM
@@ -1135,7 +1135,7 @@ class reihungstest extends basis_db
 		$qry = "SELECT
 					distinct a.*,
 					(
-						SELECT count(*) FROM public.tbl_rt_person
+						SELECT COUNT(*) FROM public.tbl_rt_person
 						WHERE rt_id=a.reihungstest_id
 					) as angemeldete_teilnehmer
 				FROM

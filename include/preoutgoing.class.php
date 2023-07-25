@@ -726,7 +726,7 @@ class preoutgoing extends basis_db
 			return false;
 		}
         
-        $qry = "SELECT count(*) as anzahl FROM public.tbl_preoutgoing_firma 
+        $qry = "SELECT COUNT(*) as anzahl FROM public.tbl_preoutgoing_firma 
             WHERE preoutgoing_id =".$this->db_add_param($preoutgoing_id, FHC_INTEGER).';';
         
         if(!$this->db_query($qry))

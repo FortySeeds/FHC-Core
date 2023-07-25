@@ -129,7 +129,7 @@ function draw_row($row)
 	$mitarbeiter = '('.$mitarbeiter.')';
 
 	$anzahl_studenten=0;
-	$qry = "SELECT count(*) as anz FROM campus.vw_student_lehrveranstaltung WHERE lehreinheit_id='".addslashes($row->lehreinheit_id)."'";
+	$qry = "SELECT COUNT(*) as anz FROM campus.vw_student_lehrveranstaltung WHERE lehreinheit_id='".addslashes($row->lehreinheit_id)."'";
 	if($db->db_query($qry))
 		if($row_std = $db->db_fetch_object())
 			$anzahl_studenten = $row_std->anz;

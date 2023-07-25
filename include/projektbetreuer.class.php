@@ -499,7 +499,7 @@ class projektbetreuer extends basis_db
 						if (!$token)
 							return false;
 
-						$qry_tokencheck = "SELECT count(*) AS anzahl
+						$qry_tokencheck = "SELECT COUNT(*) AS anzahl
 							FROM lehre.tbl_projektbetreuer
 							WHERE zugangstoken = " . $this->db_add_param($token);
 

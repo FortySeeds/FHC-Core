@@ -511,7 +511,7 @@ echo "<div id='personendaten' style='display: ".($selection=='personendaten'?'bl
 
 
 $disabled=true;
-$qry = "SELECT count(*) as anzahl FROM (
+$qry = "SELECT COUNT(*) as anzahl FROM (
 		SELECT 1 FROM public.tbl_prestudent WHERE person_id='$person->person_id' UNION 
 		SELECT 1 FROM public.tbl_benutzer WHERE person_id='$person->person_id') as foo";
 if($result = $db->db_query($qry))
@@ -804,7 +804,7 @@ foreach ($zuordnung->result as $row)
 	//Wenn noch nicht freigegeben - Freigabe Button anzeigen
 	if($row->freigabedatum=='')
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_prestudent WHERE person_id='$person->person_id' AND studiengang_kz='$row->studiengang_kz'";
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_prestudent WHERE person_id='$person->person_id' AND studiengang_kz='$row->studiengang_kz'";
 		if($result_check = $db->db_query($qry))
 		{
 			if($row_check = $db->db_fetch_object($result_check))

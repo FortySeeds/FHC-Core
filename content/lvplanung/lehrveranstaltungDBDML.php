@@ -860,7 +860,7 @@ if(!$error)
 		if(!$error)
 		{
 			//Pruefen ob bereits eine Kreuzerlliste vorhanden ist
-			$qry = "SELECT count(*) as anzahl FROM lehre.tbl_lehreinheitgruppe, lehre.tbl_lehreinheit, campus.tbl_uebung WHERE
+			$qry = "SELECT COUNT(*) as anzahl FROM lehre.tbl_lehreinheitgruppe, lehre.tbl_lehreinheit, campus.tbl_uebung WHERE
 					tbl_lehreinheitgruppe.lehreinheitgruppe_id=".$db->db_add_param($_POST['lehreinheitgruppe_id'], FHC_INTEGER)." AND
 					tbl_lehreinheitgruppe.lehreinheit_id=tbl_lehreinheit.lehreinheit_id AND
 					tbl_lehreinheit.lehreinheit_id=tbl_uebung.lehreinheit_id";

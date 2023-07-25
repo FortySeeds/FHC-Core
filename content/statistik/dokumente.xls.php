@@ -97,7 +97,7 @@ if($studiengang_kz!='')
 				FROM 
 					public.tbl_prestudent JOIN public.tbl_prestudentstatus USING(prestudent_id)
 				WHERE 
-					(SELECT count(*) as anzahl FROM public.tbl_dokumentstudiengang 
+					(SELECT COUNT(*) as anzahl FROM public.tbl_dokumentstudiengang 
 					 WHERE 
 					 	dokument_kurzbz NOT IN(	SELECT dokument_kurzbz FROM tbl_dokumentprestudent WHERE 
 					 							prestudent_id=tbl_prestudent.prestudent_id) AND studiengang_kz='".addslashes($studiengang_kz)."')<>0 

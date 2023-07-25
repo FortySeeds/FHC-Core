@@ -463,7 +463,7 @@ class cronjob extends basis_db
 	 */
 	public function isJobRunning()
 	{
-		$qry = 'SELECT count(*) as anzahl FROM system.tbl_cronjob WHERE running=true';
+		$qry = 'SELECT COUNT(*) as anzahl FROM system.tbl_cronjob WHERE running=true';
 
 		if($result = $this->db_query($qry))
 		{

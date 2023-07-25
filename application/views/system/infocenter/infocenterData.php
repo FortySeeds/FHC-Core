@@ -45,7 +45,7 @@
 				 LIMIT 1
 			) AS "LastActionType",
 			(
-				SELECT count(akte_id)
+				SELECT COUNT(akte_id)
 				  FROM public.tbl_akte a
 				 WHERE
 				   a.person_id = p.person_id

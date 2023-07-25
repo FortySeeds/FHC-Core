@@ -331,7 +331,7 @@ class gebiet extends basis_db
 		//Von jedem level muessen mindestens maxfragen vorhanden sein wenn levels aktiv ist
 		if($this->level_start!='')
 		{
-			$qry = "SELECT count(*) as anzahl, level FROM testtool.tbl_frage WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER, false)." GROUP BY level";
+			$qry = "SELECT COUNT(*) as anzahl, level FROM testtool.tbl_frage WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER, false)." GROUP BY level";
 			if($this->db_query($qry))
 			{
 				while($row = $this->db_fetch_object())
@@ -346,7 +346,7 @@ class gebiet extends basis_db
 
 		//Pruefen ob jede Fragen mindestens 2 Vorschlaege hat
 		$qry = "SELECT frage_id, nummer FROM testtool.tbl_frage
-				WHERE (SELECT count(*) as anzahl FROM testtool.tbl_vorschlag WHERE frage_id=tbl_frage.frage_id)<2
+				WHERE (SELECT COUNT(*) as anzahl FROM testtool.tbl_vorschlag WHERE frage_id=tbl_frage.frage_id)<2
 				AND gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER)." AND NOT demo;";
 		if($this->db_query($qry))
 		{
@@ -374,7 +374,7 @@ class gebiet extends basis_db
 		{
 			if($this->maxfragen!='' && $this->maxfragen!=0)
 			{
-				$qry = "SELECT count(*) as anzahl FROM testtool.tbl_frage WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER)." AND not demo AND level is not null GROUP BY level";
+				$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_frage WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER)." AND not demo AND level is not null GROUP BY level";
 				if($this->db_query($qry))
 				{
 					if($this->db_num_rows() > $this->maxfragen)
@@ -531,7 +531,7 @@ class gebiet extends basis_db
 						(
 						SELECT
 							level, punkte, count(*) as anz,
-							(SELECT count(*) FROM testtool.tbl_frage
+							(SELECT COUNT(*) FROM testtool.tbl_frage
 							WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER).") as fragengesamt
 						FROM
 							testtool.tbl_frage
@@ -553,7 +553,7 @@ class gebiet extends basis_db
 						(
 						SELECT
 							level, punkte, count(*) as anz,
-							(SELECT count(*) FROM testtool.tbl_frage
+							(SELECT COUNT(*) FROM testtool.tbl_frage
 							WHERE gebiet_id=".$this->db_add_param($gebiet_id, FHC_INTEGER).") as fragengesamt
 						FROM
 							testtool.tbl_frage
@@ -690,9 +690,9 @@ class gebiet extends basis_db
 					   CASE WHEN levelgleichverteilung
 								THEN
 								ROUND(COALESCE(maxfragen
-											 * ((SELECT count(*) FROM testtool.tbl_frage f WHERE f.level = tbl_frage.level AND f.gebiet_id = tbl_frage.gebiet_id)::decimal)
-											 / (SELECT count(*) FROM testtool.tbl_frage f WHERE f.gebiet_id = tbl_frage.gebiet_id)::decimal
-									, (SELECT count(*) FROM testtool.tbl_frage f WHERE f.level = tbl_frage.level AND f.gebiet_id = tbl_frage.gebiet_id)
+											 * ((SELECT COUNT(*) FROM testtool.tbl_frage f WHERE f.level = tbl_frage.level AND f.gebiet_id = tbl_frage.gebiet_id)::decimal)
+											 / (SELECT COUNT(*) FROM testtool.tbl_frage f WHERE f.gebiet_id = tbl_frage.gebiet_id)::decimal
+									, (SELECT COUNT(*) FROM testtool.tbl_frage f WHERE f.level = tbl_frage.level AND f.gebiet_id = tbl_frage.gebiet_id)
 									))
 							ELSE
 								COALESCE(maxfragen, count(*))

@@ -228,7 +228,7 @@ if(isset($_GET['show']))
 			{
 				while($row_vorschlag = $db->db_fetch_object($result_vorschlag))
 				{
-					$qry_geschlecht = "	SELECT count(*) AS anz_m
+					$qry_geschlecht = "	SELECT COUNT(*) AS anz_m
 										FROM testtool.tbl_vorschlag 
 										JOIN testtool.tbl_antwort USING(vorschlag_id) 
 										JOIN testtool.vw_pruefling USING(pruefling_id) 

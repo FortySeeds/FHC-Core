@@ -546,7 +546,7 @@ class wawi_rechnung extends basis_db
 	 */
 	public function count($bestellung_id)
 	{
-		$qry = "SELECT count(*) as anzahl FROM wawi.tbl_rechnung 
+		$qry = "SELECT COUNT(*) as anzahl FROM wawi.tbl_rechnung 
 		WHERE bestellung_id=".$this->db_add_param($bestellung_id, FHC_INTEGER).';';
 		
 		if($result = $this->db_query($qry))

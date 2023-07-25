@@ -464,7 +464,7 @@ if($result = $db->db_query($qry))
 
 		// Anzahl Studierende in Lehreinheit
 		$anzahlStudierende = 0;
-		$qry_anz_std = "SELECT count(DISTINCT uid) as anzahl FROM campus.vw_student_lehrveranstaltung WHERE lehreinheit_id=".$db->db_add_param($row->lehreinheit_id, FHC_INTEGER);
+		$qry_anz_std = "SELECT COUNT(DISTINCT uid) as anzahl FROM campus.vw_student_lehrveranstaltung WHERE lehreinheit_id=".$db->db_add_param($row->lehreinheit_id, FHC_INTEGER);
 
 		if($result_anz_std = $db->db_query($qry_anz_std))
 		{

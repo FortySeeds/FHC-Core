@@ -1213,7 +1213,7 @@ if(!$error)
 			}
 			else
 			{
-				$qry = "SELECT count(*) as anzahl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
+				$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
 				if($result = $db->db_query($qry))
 				{
 					if($row = $db->db_fetch_object($result))
@@ -1315,7 +1315,7 @@ if(!$error)
 
 		if(isset($_POST['prestudent_id']) && is_numeric($_POST['prestudent_id']))
 		{
-			$qry = "SELECT count(*) as anzahl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
+			$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
 			if($result = $db->db_query($qry))
 			{
 				if($row = $db->db_fetch_object($result))
@@ -1486,7 +1486,7 @@ if(!$error)
 						if($_POST['status_kurzbz']=='Student')
 						{
 							//Die Rolle Student darf nur eingefuegt werden, wenn schon eine Studentenrolle vorhanden ist
-							$qry = "SELECT count(*) as anzahl FROM public.tbl_student WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
+							$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_student WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
 							if($result = $db->db_query($qry))
 							{
 								if($row = $db->db_fetch_object($result))
@@ -1647,7 +1647,7 @@ if(!$error)
 						if($_POST['status_kurzbz']=='Student')
 						{
 							//Die Rolle Student darf nur eingefuegt werden, wenn schon eine Studentenrolle vorhanden ist
-							$qry = "SELECT count(*) as anzahl FROM public.tbl_student WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
+							$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_student WHERE prestudent_id=".$db->db_add_param($_POST['prestudent_id'], FHC_INTEGER);
 							if($result = $db->db_query($qry))
 							{
 								if($row = $db->db_fetch_object($result))
@@ -4378,7 +4378,7 @@ if(!$error)
 			{
 				$projektarbeit = new projektarbeit();
 
-				$qry = "SELECT count(*) as anzahl FROM lehre.tbl_projektbetreuer
+				$qry = "SELECT COUNT(*) as anzahl FROM lehre.tbl_projektbetreuer
 					WHERE projektarbeit_id=".$db->db_add_param($_POST['projektarbeit_id'], FHC_INTEGER);
 
 				if($result = $db->db_query($qry))
@@ -4392,7 +4392,7 @@ if(!$error)
 						}
 						else
 						{
-							$qry = "SELECT count(*) as anzahl FROM campus.tbl_paabgabe
+							$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_paabgabe
 									WHERE projektarbeit_id=".$db->db_add_param($_POST['projektarbeit_id'], FHC_INTEGER).";";
 
 							if($result = $db->db_query($qry))

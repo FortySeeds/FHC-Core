@@ -163,7 +163,7 @@ function getAnzahl($studiengang_kz, $semester, $verband, $gruppe, $gruppe_kurzbz
 	global $db;
 	if($gruppe_kurzbz=='')
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_studentlehrverband 
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_studentlehrverband 
 				WHERE studiensemester_kurzbz='".addslashes($studiensemester_kurzbz)."'
 				AND studiengang_kz='".addslashes($studiengang_kz)."' AND
 				semester='".addslashes($semester)."'";
@@ -175,7 +175,7 @@ function getAnzahl($studiengang_kz, $semester, $verband, $gruppe, $gruppe_kurzbz
 	}
 	else 
 	{
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_benutzergruppe 
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_benutzergruppe 
 				WHERE studiensemester_kurzbz='".addslashes($studiensemester_kurzbz)."'
 				AND gruppe_kurzbz='".addslashes($gruppe_kurzbz)."'";
 	}

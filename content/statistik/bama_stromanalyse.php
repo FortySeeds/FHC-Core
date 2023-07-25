@@ -86,7 +86,7 @@ if($studiensemester_kurzbz != -1)
 		//Anzahl der Studenten ohne Abschluss an der FHTW
 
 		//Anzahl der Studenten im 1.Semester des MasterStg
-		$qry_anzahl="SELECT count(*) as anzahl FROM public.tbl_person
+		$qry_anzahl="SELECT COUNT(*) as anzahl FROM public.tbl_person
 			JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id)
 			JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id)
 			WHERE studiengang_kz=".$db->db_add_param($row_stg->studiengang_kz)."
@@ -98,7 +98,7 @@ if($studiensemester_kurzbz != -1)
 			die($db->db_last_error());
 		$row_anzahl_m=$db->db_fetch_object($result_anzahl);
 
-		$qry_anzahl="SELECT count(*) as anzahl FROM public.tbl_person
+		$qry_anzahl="SELECT COUNT(*) as anzahl FROM public.tbl_person
 			JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id)
 			JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id)
 			WHERE studiengang_kz=".$db->db_add_param($row_stg->studiengang_kz)."
@@ -222,7 +222,7 @@ if($studiensemester_kurzbz != -1)
 
 
 		//Anzahl der Absolventen des Studiengangs
-		$qry_anzahl="SELECT count(*) as anzahl FROM public.tbl_person
+		$qry_anzahl="SELECT COUNT(*) as anzahl FROM public.tbl_person
 			JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id)
 			JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id)
 			WHERE studiengang_kz=".$db->db_add_param($row_stg->studiengang_kz)."
@@ -233,7 +233,7 @@ if($studiensemester_kurzbz != -1)
 		$result_anzahl=$db->db_query($qry_anzahl);
 		$row_anzahl_m=$db->db_fetch_object($result_anzahl);
 
-		$qry_anzahl="SELECT count(*) as anzahl FROM public.tbl_person
+		$qry_anzahl="SELECT COUNT(*) as anzahl FROM public.tbl_person
 			JOIN public.tbl_prestudent ON(public.tbl_person.person_id=public.tbl_prestudent.person_id)
 			JOIN public.tbl_prestudentstatus ON(public.tbl_prestudent.prestudent_id=public.tbl_prestudentstatus.prestudent_id)
 			WHERE studiengang_kz=".$db->db_add_param($row_stg->studiengang_kz)."

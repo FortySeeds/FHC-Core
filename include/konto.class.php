@@ -288,7 +288,7 @@ class konto extends basis_db
 	public function delete($buchungsnr)
 	{
 		//Pruefen ob Verweise auf diese Buchung Vorhanden sind
-		$qry = "SELECT count(*) as anzahl FROM public.tbl_konto WHERE buchungsnr_verweis=".$this->db_add_param($buchungsnr, FHC_INTEGER);
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_konto WHERE buchungsnr_verweis=".$this->db_add_param($buchungsnr, FHC_INTEGER);
 		if($this->db_query($qry))
 		{
 			if($row = $this->db_fetch_object())

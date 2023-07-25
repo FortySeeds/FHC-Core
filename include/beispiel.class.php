@@ -415,7 +415,7 @@ class beispiel extends basis_db
 			$this->errormsg = 'Beispiel_id muss eine gueltige Zahl sein';
 			return false;
 		}
-		$qry = "SELECT count(*) as anzahl FROM campus.tbl_studentbeispiel 
+		$qry = "SELECT COUNT(*) as anzahl FROM campus.tbl_studentbeispiel 
 				WHERE vorbereitet = true and beispiel_id=".$this->db_add_param($beispiel_id, FHC_INTEGER).';';
 
 		if($this->db_query($qry))

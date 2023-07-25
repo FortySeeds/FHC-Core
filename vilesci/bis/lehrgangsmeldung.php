@@ -534,7 +534,7 @@ if($result = $db->db_query($qry))
 			{
 				if($rowstatus = $db->db_fetch_object($resultstatus))
 				{
-					$qry1="SELECT count(*) AS dipl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($row->prestudent_id)." AND status_kurzbz='Diplomand'";
+					$qry1="SELECT COUNT(*) AS dipl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($row->prestudent_id)." AND status_kurzbz='Diplomand'";
 					if($result1 = $db->db_query($qry1))
 					{
 						if($row1 = $db->db_fetch_object($result1))
@@ -595,7 +595,7 @@ if($result = $db->db_query($qry))
 				{
 					if($rowstatus = $db->db_fetch_object($resultstatus))
 					{
-						$qry1="SELECT count(*) AS dipl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($row->prestudent_id)." AND status_kurzbz='Diplomand'";
+						$qry1="SELECT COUNT(*) AS dipl FROM public.tbl_prestudentstatus WHERE prestudent_id=".$db->db_add_param($row->prestudent_id)." AND status_kurzbz='Diplomand'";
 						if($result1 = $db->db_query($qry1))
 						{
 							if($row1 = $db->db_fetch_object($result1))

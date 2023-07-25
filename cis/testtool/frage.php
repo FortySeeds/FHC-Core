@@ -361,7 +361,7 @@ if($levelgebiet)
 {
 	$max = $gebiet->maxfragen;
 	$aktuell=0;
-	$qry = "SELECT count(*) as anzahl FROM testtool.tbl_pruefling_frage JOIN testtool.tbl_frage USING(frage_id)
+	$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_pruefling_frage JOIN testtool.tbl_frage USING(frage_id)
 			WHERE pruefling_id=".$db->db_add_param($_SESSION['pruefling_id'], FHC_INTEGER)."
 			AND gebiet_id=".$db->db_add_param($gebiet_id, FHC_INTEGER);
 
@@ -461,7 +461,7 @@ else
 	{
 		// wenn keine Frage uebergeben wurde und die maximale Fragenanzahl erreicht wurde
 		// dann ist das Gebiet fertig
-		$qry = "SELECT count(*) as anzahl FROM testtool.tbl_pruefling_frage JOIN testtool.tbl_frage USING(frage_id)
+		$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_pruefling_frage JOIN testtool.tbl_frage USING(frage_id)
 				WHERE gebiet_id=".$db->db_add_param($gebiet_id, FHC_INTEGER)." AND pruefling_id=".$db->db_add_param($_SESSION['pruefling_id'], FHC_INTEGER)." AND tbl_pruefling_frage.endtime is not null";
 		$result = $db->db_query($qry);
 		$row = $db->db_fetch_object($result);
@@ -710,7 +710,7 @@ if($frage->frage_id!='')
 			//$frage = new frage();
 			//$nextfrage = $frage->getNextFrage($gebiet_id, $_SESSION['pruefling_id'], $frage_id, $demo);
 
-			$qry = "SELECT count(*) as anzahl FROM testtool.tbl_frage
+			$qry = "SELECT COUNT(*) as anzahl FROM testtool.tbl_frage
 					WHERE tbl_frage.gebiet_id=".$db->db_add_param($gebiet_id, FHC_INTEGER)."
 					AND demo ";
 			if($row = $db->db_fetch_object($db->db_query($qry)))
