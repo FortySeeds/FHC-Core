@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $this->phrasen['testtool/titel']='';
 $this->phrasen['testtool/login']='Login';
 $this->phrasen['testtool/tag']='Day';

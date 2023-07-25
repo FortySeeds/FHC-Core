@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $this->phrasen['notfallbestimmungen/brandschutzbeauftragte']='Brandschutzbeauftragte';
 $this->phrasen['notfallbestimmungen/brandschutzwarte']='Brandschutzwarte';
 $this->phrasen['notfallbestimmungen/rektorat']='Rektorat';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $this->phrasen['feedback/titelFeedback']='Communication - Feedback';
 $this->phrasen['feedback/vielenDankFuerIhrFeedback']='Thank you for your feedback!';
 $this->phrasen['feedback/ihreNachrichtWurdeWeitergeleitet']='-	Your message has been forwarded to the appropriate person responsible';
