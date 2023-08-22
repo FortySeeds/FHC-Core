@@ -145,7 +145,7 @@ $ss = new Studiensemester($studiensemester);
 $zeitsperre = new Zeitsperre();
 $zeitsperre->getVonBis($lektor, $ss->start, $ss->ende, 'ZVerfueg');
 
-$zeitverfuegbarkeit = count($zeitsperre->result) > 0 ? 'Zeit verfügbar' : '';
+$zeitverfuegbarkeit = numberOfElements($zeitsperre->result) > 0 ? 'Zeit verfügbar' : '';
 ?>
 
 <RDF:RDF
@@ -155,7 +155,7 @@ $zeitverfuegbarkeit = count($zeitsperre->result) > 0 ? 'Zeit verfügbar' : '';
 <RDF:Seq about="<?php echo $rdf_url.'alle'; ?>">
 
 <?php
-$anz=count($lva);
+$anz=numberOfElements($lva);
 
 if ($anz>0)
 {
@@ -226,7 +226,7 @@ if ($anz>0)
 		sort($l->stundenblockung);
 		foreach($l->stundenblockung as $sb)
 			$stundenblockung.=$sb.' ';
-		if (count($l->stundenblockung)>1)
+		if (numberOfElements($l->stundenblockung)>1)
 			$stundenblockung.=' ?';
 		// Start KW
 		$start_kw='';
@@ -234,7 +234,7 @@ if ($anz>0)
 		sort($l->start_kw);
 		foreach($l->start_kw as $kw)
 			$start_kw.=$kw.' ';
-		if (count($l->start_kw)>1)
+		if (numberOfElements($l->start_kw)>1)
 			$start_kw.=' ?';
 		// Wochenrythmus
 		$wochenrythmus='';
@@ -242,7 +242,7 @@ if ($anz>0)
 		sort($l->wochenrythmus);
 		foreach($l->wochenrythmus as $wr)
 			$wochenrythmus.=$wr.' ';
-		if (count($l->wochenrythmus)>1)
+		if (numberOfElements($l->wochenrythmus)>1)
 			$wochenrythmus.=' ?';
 		// Lehrfach
 		$lehrfach='';
@@ -250,7 +250,7 @@ if ($anz>0)
 		sort($l->lehrfach);
 		foreach($l->lehrfach as $lf)
 			$lehrfach.=$lf.' ';
-		if (count($l->lehrfach)>1)
+		if (numberOfElements($l->lehrfach)>1)
 			$lehrfach.=' ?';
 		// Lehrform
 		$lehrform='';
@@ -258,7 +258,7 @@ if ($anz>0)
 		sort($l->lehrform);
 		foreach($l->lehrform as $lf)
 			$lehrform.=$lf.' ';
-		if (count($l->lehrform)>1)
+		if (numberOfElements($l->lehrform)>1)
 			$lehrform.=' ?';
 		// Semesterstunden
 		$semesterstunden='';
@@ -266,7 +266,7 @@ if ($anz>0)
 		sort($l->semesterstunden);
 		foreach($l->semesterstunden as $lf)
 			$semesterstunden.=$lf.' ';
-		if (count($l->semesterstunden)>1)
+		if (numberOfElements($l->semesterstunden)>1)
 			$semesterstunden.=' ?';
 
 		// Planstunden
@@ -275,7 +275,7 @@ if ($anz>0)
 		sort($l->planstunden);
 		foreach($l->planstunden as $lf)
 			$planstunden.=$lf.' ';
-		if (count($l->planstunden)>1)
+		if (numberOfElements($l->planstunden)>1)
 			$planstunden.=' ?';
 
 		// Verplant
@@ -284,7 +284,7 @@ if ($anz>0)
 		sort($l->verplant);
 		foreach($l->verplant as $lf)
 			$verplant.=$lf.' ';
-		if (count($l->verplant)>1)
+		if (numberOfElements($l->verplant)>1)
 			$verplant.=' ?';
 		// Offene Stunden
 		$offenestunden='';
@@ -292,7 +292,7 @@ if ($anz>0)
 		sort($l->offenestunden);
 		foreach($l->offenestunden as $os)
 			$offenestunden.=$os.' ';
-		if (count($l->offenestunden)>1)
+		if (numberOfElements($l->offenestunden)>1)
 			$offenestunden.=' ?';
 
 		if($filter!='')

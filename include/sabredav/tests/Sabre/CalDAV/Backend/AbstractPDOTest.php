@@ -48,7 +48,7 @@ abstract class AbstractPDOTest extends \PHPUnit_Framework_TestCase {
         );
 
         $this->assertInternalType('array',$calendars);
-        $this->assertEquals(1,count($calendars));
+        $this->assertEquals(1,numberOfElements($calendars));
 
         foreach($elementCheck as $name=>$value) {
 
@@ -93,7 +93,7 @@ abstract class AbstractPDOTest extends \PHPUnit_Framework_TestCase {
         );
 
         $this->assertInternalType('array',$calendars);
-        $this->assertEquals(1,count($calendars));
+        $this->assertEquals(1,numberOfElements($calendars));
 
         foreach($elementCheck as $name=>$value) {
 
@@ -330,7 +330,7 @@ abstract class AbstractPDOTest extends \PHPUnit_Framework_TestCase {
 
         $data = $backend->getCalendarObjects($returnedId,'random-id');
 
-        $this->assertEquals(1, count($data));
+        $this->assertEquals(1, numberOfElements($data));
         $data = $data[0];
 
         $this->assertEquals($returnedId, $data['calendarid']);

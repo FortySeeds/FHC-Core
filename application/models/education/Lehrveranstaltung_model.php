@@ -99,13 +99,13 @@ class Lehrveranstaltung_model extends DB_Model
 						WHERE tbl_lehrveranstaltung.lehrtyp_kurzbz != 'modul'
 						AND EXISTS (SELECT 1 FROM lehre.tbl_lehreinheit WHERE lehrveranstaltung_id=tbl_lehrveranstaltung.lehrveranstaltung_id AND studiensemester_kurzbz = ?)";
 
-		if (count($ausbildungssemester_arr) > 0)
+		if (numberOfElements($ausbildungssemester_arr) > 0)
 			$query .= " AND tbl_lehrveranstaltung.semester IN (". implode(", ", $ausbildungssemester_arr).")";
 
-		if (count($studiengang_kz_arr) > 0)
+		if (numberOfElements($studiengang_kz_arr) > 0)
 			$query .= " AND tbl_lehrveranstaltung.studiengang_kz IN (". implode(", ", $studiengang_kz_arr).")";
 
-		if (count($lehrveranstaltung_id_arr) > 0)
+		if (numberOfElements($lehrveranstaltung_id_arr) > 0)
 		{
 			$query .= " AND tbl_lehrveranstaltung.lehrveranstaltung_id IN (". implode(', ', $lehrveranstaltung_id_arr).")";
 		}

@@ -319,7 +319,7 @@ END:VTIMEZONE\n".$event."\nEND:VCALENDAR";
 		//$user = $this->getUser();
 		$user = $calendarId;
 		$data = $this->getCalendarData($user,$objectUri);
-		if(count($data)==0)
+		if(numberOfElements($data)==0)
 		{
 			$ret=array("id"=>'',
 			"calendardata"=>'',

@@ -391,7 +391,7 @@ class Client {
         $headerBlob = explode("\r\n\r\n", trim($headerBlob, "\r\n"));
 
         // We only care about the last set of headers
-        $headerBlob = $headerBlob[count($headerBlob)-1];
+        $headerBlob = $headerBlob[numberOfElements($headerBlob)-1];
 
         // Splitting headers
         $headerBlob = explode("\r\n", $headerBlob);
@@ -399,7 +399,7 @@ class Client {
         $headers = array();
         foreach($headerBlob as $header) {
             $parts = explode(':', $header, 2);
-            if (count($parts)==2) {
+            if (numberOfElements($parts)==2) {
                 $headers[strtolower(trim($parts[0]))] = trim($parts[1]);
             }
         }

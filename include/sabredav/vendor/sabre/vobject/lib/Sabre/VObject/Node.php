@@ -99,10 +99,10 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable {
      *
      * @return int
      */
-    public function count() {
+    public function numberOfElements() {
 
         $it = $this->getIterator();
-        return $it->count();
+        return $it->numberOfElements();
 
     }
 

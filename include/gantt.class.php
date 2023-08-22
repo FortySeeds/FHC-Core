@@ -60,7 +60,7 @@ class gantt extends basis_db
         $kw_gesamt = date('W',$timestamp_gesamt);  
 
         // kommt auf Anzahl der Phasen an
-        $height = (count($projektphasen->result)) * 50; 
+        $height = (numberOfElements($projektphasen->result)) * 50; 
         
         if($ansicht == 'kalenderjahr')
         {

@@ -161,7 +161,7 @@ class ezcGraphSvgFont
             $query = "glyph[@unicode=" . self::xpathEscape( $char ) . "]"
         );
 
-        if ( count( $matches ) === 0 )
+        if ( numberOfElements( $matches ) === 0 )
         {
              // Just ignore missing glyphs. The client will still render them
              // using a default font. We try to estimate some width by using a
@@ -207,7 +207,7 @@ class ezcGraphSvgFont
         );
 
         // If we found anything return it
-        if ( count( $pair ) )
+        if ( numberOfElements( $pair ) )
         {
             if ( !in_array( $pair[0], $this->usedKerns ) )
             {

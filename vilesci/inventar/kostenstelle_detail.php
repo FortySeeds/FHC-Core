@@ -194,9 +194,9 @@
 	if ($check!='' && !$oWAWI->kostenstelle($kostenstelle_id,$kostenstelle_search,$user_id,$studiengang_id,$kostenstelle_nr))
 		$errormsg[]=$oWAWI->errormsg;
 
-	if (is_array($oWAWI->result) && count($oWAWI->result)==1)
+	if (is_array($oWAWI->result) && numberOfElements($oWAWI->result)==1)
 		echo output_konstenstelleinformation($oWAWI->result,$debug);
-	else if (is_array($oWAWI->result) && count($oWAWI->result) >1)
+	else if (is_array($oWAWI->result) && numberOfElements($oWAWI->result) >1)
 		echo output_konstenstelle($oWAWI->result,$debug);
 	else
 	{
@@ -207,7 +207,7 @@
 	}
 
 	// Meldungen ausgeben
-	if (is_array($errormsg) && count($errormsg)>0)
+	if (is_array($errormsg) && numberOfElements($errormsg)>0)
 		  echo '<font class="error">'. implode("<br />",$errormsg).'</font>';
 	else if (!is_array($errormsg))
 		  echo '<font class="error"><br />'.$errormsg.'</font>';
@@ -219,13 +219,13 @@
 function output_konstenstelle($resultKonstenstelle=null,$debug=false)
 {
 	$htmlstring='';
-	if (is_null($resultKonstenstelle) || !is_array($resultKonstenstelle) || count($resultKonstenstelle)<1)
+	if (is_null($resultKonstenstelle) || !is_array($resultKonstenstelle) || numberOfElements($resultKonstenstelle)<1)
 		return $htmlstring;
 
 	$htmlstring.='<table  id="t1" class="liste table-autosort:2 table-stripeclass:alternate table-autostripe">
 			<thead>';
-	if (is_array($resultKonstenstelle) && count($resultKonstenstelle)>1)
-		$htmlstring.='<tr><th colspan="10">Bitte eine Kostenstelle aus den '.count($resultKonstenstelle).' gefundenen ausw&auml;hlen</th></tr>';
+	if (is_array($resultKonstenstelle) && numberOfElements($resultKonstenstelle)>1)
+		$htmlstring.='<tr><th colspan="10">Bitte eine Kostenstelle aus den '.numberOfElements($resultKonstenstelle).' gefundenen ausw&auml;hlen</th></tr>';
 	$htmlstring.='<tr class="liste">
 				<th class="table-sortable:default">ID</th>
 				<th class="table-sortable:default">Nr.</th>
@@ -239,7 +239,7 @@ function output_konstenstelle($resultKonstenstelle=null,$debug=false)
 			</thead>
 			';
 
-	for ($pos=0;$pos<count($resultKonstenstelle);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultKonstenstelle);$pos++)
 	{
 		if ($pos%2)
 			$classe='liste1';
@@ -265,13 +265,13 @@ function output_konstenstelle($resultKonstenstelle=null,$debug=false)
 function output_konstenstelleinformation($resultKonstenstelle=null,$debug=false)
 {
 	$htmlstring='';
-	if (is_null($resultKonstenstelle) || !is_array($resultKonstenstelle) || count($resultKonstenstelle)<1)
+	if (is_null($resultKonstenstelle) || !is_array($resultKonstenstelle) || numberOfElements($resultKonstenstelle)<1)
 		return $htmlstring;
 
 	if (!$oWAWI = new wawi())
 	   	die($oWAWI->errormsg . ($debug?' *** File:='.__FILE__.' Line:='.__LINE__:''));
 
-	for ($pos=0;$pos<count($resultKonstenstelle);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultKonstenstelle);$pos++)
 	{
 		if ($pos%2)
 			$classe='liste1';
@@ -333,7 +333,7 @@ function output_konstenstelleinformation($resultKonstenstelle=null,$debug=false)
 			$htmlstring.=$oWAWI->errormsg;
 		$resultKonstenstellebenutzer=$oWAWI->result;
 
-		if (is_null($resultKonstenstellebenutzer) || !is_array($resultKonstenstellebenutzer) || count($resultKonstenstellebenutzer)<1)
+		if (is_null($resultKonstenstellebenutzer) || !is_array($resultKonstenstellebenutzer) || numberOfElements($resultKonstenstellebenutzer)<1)
 			return $htmlstring;
 
 		$htmlstring.='<fieldset><legend>Benutzer - Rechte</legend>';
@@ -348,7 +348,7 @@ function output_konstenstelleinformation($resultKonstenstelle=null,$debug=false)
 							<th>verwalten&nbsp;</th>
 						</tr>
 					<thead>';
-			for ($i=0;$i<count($resultKonstenstellebenutzer);$i++)
+			for ($i=0;$i<numberOfElements($resultKonstenstellebenutzer);$i++)
 			{
 				if ($i%2)
 					$classe='liste1';

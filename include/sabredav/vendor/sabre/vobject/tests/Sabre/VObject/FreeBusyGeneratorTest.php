@@ -208,7 +208,7 @@ ICS;
             unset($expected[$k]);
 
         }
-        if (count($expected)>0) {
+        if (numberOfElements($expected)>0) {
             $this->fail('There were elements in the expected array that were not found in the output: ' . "\n"  . print_r($expected,true) . "\n" . $result->serialize());
 
         }

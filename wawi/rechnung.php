@@ -668,7 +668,7 @@ if($aktion=='update')
 			$selected='';
 
 		$anzahl=0;
-		$anzahl = $rechnung->count($row->bestellung_id);
+		$anzahl = $rechnung->numberOfElements($row->bestellung_id);
 		if(!$row->freigegeben)
 			$class='rechnung_nichtfreigegeben';
 		else
@@ -685,7 +685,7 @@ if($aktion=='update')
 	{
 		$bestell_obj = new wawi_bestellung();
 		$bestell_obj->load($bestellung_id);
-		$anzahl = $rechnung->count($bestellung_id);
+		$anzahl = $rechnung->numberOfElements($bestellung_id);
 		echo '<option value="'.$bestell_obj->bestellung_id.'" selected>'.$bestell_obj->bestell_nr.' ('.$anzahl.')</option>';
 	}
 	echo '</SELECT>

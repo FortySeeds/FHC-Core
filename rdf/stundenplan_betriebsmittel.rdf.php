@@ -49,7 +49,7 @@ if(isset($_REQUEST['stundenplan_ids']) || isset($_REQUEST['stundenplan_betriebsm
 
 		if($betriebsmittel->getBetriebsmittelStundenplan($stundenplan_ids))
 		{
-			if(count($betriebsmittel->result)>0)
+			if(numberOfElements($betriebsmittel->result)>0)
 			{
 				foreach($betriebsmittel->result as $row)
 				{

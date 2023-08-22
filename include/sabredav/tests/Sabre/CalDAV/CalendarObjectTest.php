@@ -23,7 +23,7 @@ class CalendarObjectTest extends \PHPUnit_Framework_TestCase {
         $this->backend = TestUtil::getBackend();
 
         $calendars = $this->backend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(2,count($calendars));
+        $this->assertEquals(2,numberOfElements($calendars));
         $this->calendar = new Calendar($this->backend, $calendars[0]);
 
     }
@@ -117,7 +117,7 @@ class CalendarObjectTest extends \PHPUnit_Framework_TestCase {
         $obj->delete();
 
         $children2 =  $this->calendar->getChildren();
-        $this->assertEquals(count($children)-1, count($children2));
+        $this->assertEquals(numberOfElements($children)-1, numberOfElements($children2));
 
     }
 

@@ -457,7 +457,7 @@ function saveAnmeldung($aktStudiensemester = null, $uid = null)
 
 	$pruefung->getPruefungen($uid, NULL, $lehrveranstaltung->lehrveranstaltung_id);
 	$anmeldung_moeglich = true;
-	$anzahlPruefungen = count($pruefung->result);
+	$anzahlPruefungen = numberOfElements($pruefung->result);
 
 	// Defaulteinstellung für Prüfungstypen - schauen, ob bereits aus KTU-Addon geladen
 	if(!isset($pruefungstyp_kurzbzArray))
@@ -465,7 +465,7 @@ function saveAnmeldung($aktStudiensemester = null, $uid = null)
 
 	if(isset($pruefungstyp_kurzbzArray))
 	{
-		if($anzahlPruefungen < count($pruefungstyp_kurzbzArray))
+		if($anzahlPruefungen < numberOfElements($pruefungstyp_kurzbzArray))
 		{
 			$pruefungstyp_kurzbz = $pruefungstyp_kurzbzArray[$anzahlPruefungen];
 		}
@@ -629,10 +629,10 @@ function saveAnmeldung($aktStudiensemester = null, $uid = null)
 		}
 	}
 
-	if (count($prestudenten) > 0)
+	if (numberOfElements($prestudenten) > 0)
 	{
 		$prestudent_id = "";
-		if (count($prestudenten) != 1)
+		if (numberOfElements($prestudenten) != 1)
 		{
 			foreach ($prestudenten as $ps)
 			{
@@ -1378,7 +1378,7 @@ function getPrestudenten($uid, $aktStudiensemester)
 	$prestudent->getPrestudenten($person->person_id);
 	$result = array();
 
-	if (count($prestudent->result) > 0)
+	if (numberOfElements($prestudent->result) > 0)
 	{
 		foreach ($prestudent->result as $key=>$ps)
 		{

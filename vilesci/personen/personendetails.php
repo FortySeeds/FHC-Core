@@ -235,7 +235,7 @@ echo '</tbody></table>';
 /*
 $preinteressent = new preinteressent();
 $preinteressent->getPreinteressenten($person->person_id);
-if(count($preinteressent->result)>0)
+if(numberOfElements($preinteressent->result)>0)
 {
 	echo '<br><h2>Preinteressent</h2>';
 	echo '<table class="tablesorter" data-sortlist="[[0,0]]">
@@ -306,7 +306,7 @@ if(count($preinteressent->result)>0)
 $preincoming = new preincoming();
 $preincoming->loadFromPerson($person->person_id);
 
-if(count($preincoming->result)>0)
+if(numberOfElements($preincoming->result)>0)
 {
 	echo '<br><h2>Preincoming</h2>';
 	echo '<table class="tablesorter" data-sortlist="[[0,0]]">
@@ -367,7 +367,7 @@ usort($prestudent->result, "sortPrestudents");
 //var_dump($prestudent->result);
 $studiensemester_kurzbz = '';
 $stdsem = '';
-if(count($prestudent->result)>0)
+if(numberOfElements($prestudent->result)>0)
 {
 	echo '<br><h2>Pre-/Studenten</h2>';
 	foreach ($prestudent->result as $row)

@@ -91,7 +91,7 @@ if($stsem!='')
 						<th></th>
 						<th>Anteil an Gesamt</th>
 						<th>Extern</th>
-						<th colspan=".count($orgform_arr).">Studienart</th>
+						<th colspan=".numberOfElements($orgform_arr).">Studienart</th>
 						<th colspan=2>Geschlecht</th>
 						<th colspan=3>Staatsb&uuml;rgerschaft</th>
 					</tr>

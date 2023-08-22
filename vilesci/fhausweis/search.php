@@ -81,7 +81,7 @@ if(isset($_POST['search']))
 	$person = new person();
 	$person->getTab($filter);
 	
-	if(count($person->personen)==1)
+	if(numberOfElements($person->personen)==1)
 	{
 		//wenn nur ein Ergebnis zurueck kommt - gleich anzeigen
 		$person_id=$person->personen[0]->person_id;

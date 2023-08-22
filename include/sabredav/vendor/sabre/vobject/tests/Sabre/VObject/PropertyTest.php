@@ -60,7 +60,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
         $property->parameters[] = new Parameter('paramname','paramvalue');
 
         $this->assertInstanceOf('Sabre\\VObject\\Parameter',$property['paramname']);
-        $this->assertEquals(2,count($property['paramname']));
+        $this->assertEquals(2,numberOfElements($property['paramname']));
 
     }
 
@@ -69,7 +69,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
         $property = new Property('propname','propvalue');
         $property['paramname'] = 'paramvalue';
 
-        $this->assertEquals(1,count($property->parameters));
+        $this->assertEquals(1,numberOfElements($property->parameters));
         $this->assertInstanceOf('Sabre\\VObject\\Parameter', $property->parameters[0]);
         $this->assertEquals('PARAMNAME',$property->parameters[0]->name);
         $this->assertEquals('paramvalue',$property->parameters[0]->value);
@@ -93,7 +93,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
 
         $property[] = $param;
 
-        $this->assertEquals(1,count($property->parameters));
+        $this->assertEquals(1,numberOfElements($property->parameters));
         $this->assertEquals($param, $property->parameters[0]);
 
     }
@@ -128,7 +128,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
         $property->parameters[] = $param;
 
         unset($property['PARAMNAME']);
-        $this->assertEquals(0,count($property->parameters));
+        $this->assertEquals(0,numberOfElements($property->parameters));
 
     }
 
@@ -139,7 +139,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
         $property->parameters[] = $param;
         $property->parameters[] = clone $param;
 
-        $this->assertEquals(2,count($property->parameters));
+        $this->assertEquals(2,numberOfElements($property->parameters));
 
     }
 
@@ -204,7 +204,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
         $property = new Property('propname','propvalue');
         $it = $property->getIterator();
         $this->assertTrue($it instanceof ElementList);
-        $this->assertEquals(1,count($it));
+        $this->assertEquals(1,numberOfElements($it));
 
     }
 
@@ -214,7 +214,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
 
         $property->add('myparam','value');
 
-        $this->assertEquals(1, count($property->parameters));
+        $this->assertEquals(1, numberOfElements($property->parameters));
 
         $this->assertTrue($property->parameters[0] instanceof Parameter);
         $this->assertEquals('MYPARAM',$property->parameters[0]->name);
@@ -228,7 +228,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
 
         $prop->add(new Parameter('MYPARAM','value'));
 
-        $this->assertEquals(1, count($prop->parameters));
+        $this->assertEquals(1, numberOfElements($prop->parameters));
         $this->assertEquals('MYPARAM',$prop['myparam']->name);
 
     }
@@ -240,7 +240,7 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
         $prop->add(new Parameter('MYPARAM', 'value1'));
         $prop->add(new Parameter('MYPARAM', 'value2'));
 
-        $this->assertEquals(2, count($prop->parameters));
+        $this->assertEquals(2, numberOfElements($prop->parameters));
 
         $this->assertEquals('MYPARAM',$prop['MYPARAM']->name);
 
@@ -295,8 +295,8 @@ class PropertyTest extends \PHPUnit_Framework_TestCase {
             'param2' => array('value2', 'value3')
         ));
 
-        $this->assertEquals(1, count($property['PARAM1']));
-        $this->assertEquals(2, count($property['PARAM2']));
+        $this->assertEquals(1, numberOfElements($property['PARAM1']));
+        $this->assertEquals(2, numberOfElements($property['PARAM2']));
 
     }
 

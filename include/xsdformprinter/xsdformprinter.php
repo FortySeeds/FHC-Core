@@ -247,7 +247,7 @@ class XSDFormPrinter
 	 */
 	private function createValidation($fieldid, $patterns)
 	{
-		if(count($patterns)==0)
+		if(numberOfElements($patterns)==0)
 			return false;
 		$functionname = uniqid($this->config['PREFIX'].'FUNC_');
 		$func = 'function '.$functionname.'() {';

@@ -47,13 +47,13 @@ class SupportedReportSetTest extends DAV\AbstractServer {
         $xml->registerXPathNamespace('d','urn:DAV');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:prop\' element');
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:prop\' element');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supported-report-set');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:supported-report-set\' element');
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:supported-report-set\' element');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:status');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:status\' element');
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:status\' element');
 
         $this->assertEquals('HTTP/1.1 200 OK',(string)$data[0],'The status for this property should have been 200');
 
@@ -85,25 +85,25 @@ class SupportedReportSetTest extends DAV\AbstractServer {
         $xml->registerXPathNamespace('x','http://www.rooftopsolutions.nl/testnamespace');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:prop\' element');
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:prop\' element');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supported-report-set');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:supported-report-set\' element');
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:supported-report-set\' element');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supported-report-set/d:supported-report');
-        $this->assertEquals(2,count($data),'We expected 2 \'d:supported-report\' elements');
+        $this->assertEquals(2,numberOfElements($data),'We expected 2 \'d:supported-report\' elements');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supported-report-set/d:supported-report/d:report');
-        $this->assertEquals(2,count($data),'We expected 2 \'d:report\' elements');
+        $this->assertEquals(2,numberOfElements($data),'We expected 2 \'d:report\' elements');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supported-report-set/d:supported-report/d:report/x:myreport');
-        $this->assertEquals(1,count($data),'We expected 1 \'x:myreport\' element. Full body: ' . $this->response->body);
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'x:myreport\' element. Full body: ' . $this->response->body);
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supported-report-set/d:supported-report/d:report/d:anotherreport');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:anotherreport\' element. Full body: ' . $this->response->body);
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:anotherreport\' element. Full body: ' . $this->response->body);
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:status');
-        $this->assertEquals(1,count($data),'We expected 1 \'d:status\' element');
+        $this->assertEquals(1,numberOfElements($data),'We expected 1 \'d:status\' element');
 
         $this->assertEquals('HTTP/1.1 200 OK',(string)$data[0],'The status for this property should have been 200');
 

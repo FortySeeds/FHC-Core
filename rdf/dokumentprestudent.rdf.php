@@ -73,7 +73,7 @@ foreach ($dok->result as $row)
 	$datum=(isset($row->datum))?$date->formatDatum($row->datum, 'd.m.Y'):'';
 	$mitarbeiter = new mitarbeiter($row->mitarbeiter_uid);
 
-	if(count($akte->result) != 0)
+	if(numberOfElements($akte->result) != 0)
 	{
 		foreach($akte->result as $a)
 		{

@@ -117,7 +117,7 @@ class lehrmodus extends basis_db
 	// public function cleanResult()
 	// {
 	// 	$data = array();
-	// 	if(count($this->result)>0)
+	// 	if(numberOfElements($this->result)>0)
 	// 	{
 	// 		foreach ($this->result as $lm)
 	// 		{

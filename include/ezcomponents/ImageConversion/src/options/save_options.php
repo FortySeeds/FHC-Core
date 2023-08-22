@@ -69,7 +69,7 @@ class ezcImageSaveOptions extends ezcBaseOptions
                 }
                 break;
             case "transparencyReplacementColor":
-                if ( ( !is_array( $propertyValue ) || count( $propertyValue ) < 3 || !isset( $propertyValue[0] ) || !isset( $propertyValue[1] ) || !isset( $propertyValue[2] ) ) && $propertyValue !== null )
+                if ( ( !is_array( $propertyValue ) || numberOfElements( $propertyValue ) < 3 || !isset( $propertyValue[0] ) || !isset( $propertyValue[1] ) || !isset( $propertyValue[2] ) ) && $propertyValue !== null )
                 {
                     throw new ezcBaseValueException( $propertyName, $propertyValue, "array(int)" );
                 }

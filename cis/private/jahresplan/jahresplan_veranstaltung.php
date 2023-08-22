@@ -187,7 +187,7 @@
 			die($Jahresplan->errormsg);
 		}
 	// Plausib
-		if (!is_array($veranstaltung) || count($veranstaltung)<1 || !isset($veranstaltung["veranstaltung_id"]))
+		if (!is_array($veranstaltung) || numberOfElements($veranstaltung)<1 || !isset($veranstaltung["veranstaltung_id"]))
 		{
 			$work='new';
 		}
@@ -416,10 +416,10 @@
 					<td><select name="veranstaltungskategorie_kurzbz">
 					<?php
 						// Verarbeitungskategorie - Auswahl.- Selektliste
-					  	if  (is_array($veranstaltungskategorie) || count($veranstaltungskategorie)>0)
+					  	if  (is_array($veranstaltungskategorie) || numberOfElements($veranstaltungskategorie)>0)
 						{
 							reset($veranstaltungskategorie);
-						  	for ($iTmpZehler=0;$iTmpZehler<count($veranstaltungskategorie);$iTmpZehler++)
+						  	for ($iTmpZehler=0;$iTmpZehler<numberOfElements($veranstaltungskategorie);$iTmpZehler++)
 							{
 								// Check Space
 								$veranstaltungskategorie[$iTmpZehler]->veranstaltungskategorie_kurzbz=trim($veranstaltungskategorie[$iTmpZehler]->veranstaltungskategorie_kurzbz);

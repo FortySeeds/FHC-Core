@@ -171,8 +171,8 @@ class ezcGraphDataSetAveragePolynom extends ezcGraphDataSet
         }
 
         // Build transposed and normal Matrix out of coordiantes
-        $a = new ezcGraphMatrix( count( $points ), $this->polynomOrder + 1 );
-        $b = new ezcGraphMatrix( count( $points ), 1 );
+        $a = new ezcGraphMatrix( numberOfElements( $points ), $this->polynomOrder + 1 );
+        $b = new ezcGraphMatrix( numberOfElements( $points ), 1 );
 
         for ( $i = 0; $i <= $this->properties['polynomOrder']; ++$i )
         {
@@ -351,7 +351,7 @@ class ezcGraphDataSetAveragePolynom extends ezcGraphDataSet
      * 
      * @return int
      */
-    public function count()
+    public function numberOfElements()
     {
         return $this->resolution;
     }

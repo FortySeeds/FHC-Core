@@ -113,7 +113,7 @@ if(isset($_POST['zusammenlegen']))
 			$kontakt = new kontakt();
 			$kontakt->load_persKontakttyp($neuzuteilung->person_id, 'email');
 			$mailadresse = '';
-			if(count($kontakt->result)>0)
+			if(numberOfElements($kontakt->result)>0)
 			{
 				if ($kontakt->zustellung == true)
 					$mailadresse = $kontakt->kontakt;
@@ -321,7 +321,7 @@ foreach ($result_arr as $key=>$value)
 		$rt_array[] = $row->rt_id;
 	}
 	$rt_array = array_unique($rt_array);
-	if (count($rt_array)>1)
+	if (numberOfElements($rt_array)>1)
 	{
 		echo '<h3>'.$result_arr[$key]['nachname'].' '.$result_arr[$key]['vorname'].' ('.$key.')</h3>';
 		echo '<form name="form_table" action="reihungstest_zusammenlegung.php?studiensemester_kurzbz='.$db->convert_html_chars($studiensemester_kurzbz).'" method="POST">';

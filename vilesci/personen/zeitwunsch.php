@@ -381,7 +381,7 @@ foreach($zwg_arr as $row)
         </option>';
 }
 // Wenn aktuelles Studiensemester keine Zeitwunschgueltigkeit hat, das naechste aber schon
-if (count($zwg_arr) == 1 && ($zwg_arr[0]->von >= $next_ss->start))
+if (numberOfElements($zwg_arr) == 1 && ($zwg_arr[0]->von >= $next_ss->start))
 {
     // ...aktuelles Studiensemester 'neu anlegen' als Option anzeigen
     $selected = $selected_ss == $akt_ss->studiensemester_kurzbz ? "selected" : '';

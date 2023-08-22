@@ -52,7 +52,7 @@ class Tables extends FHC_Controller
 
 		if (isset($dataset) && is_array($dataset))
 		{
-			$rowNumber = count($dataset);
+			$rowNumber = numberOfElements($dataset);
 		}
 
 		$this->outputJsonSuccess($rowNumber);

@@ -1286,7 +1286,7 @@ class betriebsmittel extends basis_db
 	 */
 	public function getBetriebsmittelStundenplan($stundenplan_ids)
 	{
-		if(count($stundenplan_ids)>0)
+		if(numberOfElements($stundenplan_ids)>0)
 		{
 			$qry = "SELECT
 						tbl_stundenplan_betriebsmittel.stundenplan_betriebsmittel_id, tbl_stundenplan_betriebsmittel.anmerkung,

@@ -39,7 +39,7 @@ class FunctionsTest extends PHPUnit_Framework_TestCase
 	public function testGenerateSemesterList()
 	{
 		$liste = generateSemesterList('WS2013', 3);
-		$this->assertEquals(4,count($liste));		
+		$this->assertEquals(4,numberOfElements($liste));		
 		$this->assertEquals('WS2013',$liste[0]);		
 		$this->assertEquals('SS2014',$liste[1]);		
 		$this->assertEquals('WS2014',$liste[2]);		

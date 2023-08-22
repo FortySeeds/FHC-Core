@@ -248,15 +248,15 @@ class File_Match
         $occurences = 0;
         $file_array = file($filename);
 
-        for ($i=0; $i<count($file_array); $i++) {
+        for ($i=0; $i<numberOfElements($file_array); $i++) {
 
-            if (count($this->ignore_lines) > 0) {
-                for ($j=0; $j<count($this->ignore_lines); $j++) {
+            if (numberOfElements($this->ignore_lines) > 0) {
+                for ($j=0; $j<numberOfElements($this->ignore_lines); $j++) {
                     if (substr($file_array[$i],0,strlen($this->ignore_lines[$j])) == $this->ignore_lines[$j]) continue 2;
                 }
             }
 
-            $occurences += count(explode($this->find, $file_array[$i])) - 1;
+            $occurences += numberOfElements(explode($this->find, $file_array[$i])) - 1;
             $file_array[$i] = str_replace($this->find, $this->replace, $file_array[$i]);
         }
         if ($occurences > 0) $return = array($occurences, implode('', $file_array)); else $return = FALSE;
@@ -283,7 +283,7 @@ class File_Match
         clearstatcache();
 
         $file       = fread($fp = fopen($filename, 'r'), filesize($filename)); fclose($fp);
-        $occurences = count(explode($this->find, $file)) - 1;
+        $occurences = numberOfElements(explode($this->find, $file)) - 1;
         $file       = str_replace($this->find, $this->replace, $file);
 
         if ($occurences > 0) $return = array($occurences, $file); else $return = FALSE;
@@ -332,7 +332,7 @@ class File_Match
 
         $file = fread($fp = fopen($filename, 'r'), filesize($filename)); fclose($fp);
 
-        $occurences = count($matches = split($this->find, $file)) -1;
+        $occurences = numberOfElements($matches = split($this->find, $file)) -1;
         $file       = ereg_replace($this->find, $this->replace, $file);
 
         if ($occurences > 0) $return = array($occurences, $file); else $return = FALSE;
@@ -380,7 +380,7 @@ class File_Match
     function doFiles($ser_func)
     {
         if (!is_array($this->files)) $this->files = explode(',', $this->files);
-        for ($i=0; $i<count($this->files); $i++) {
+        for ($i=0; $i<numberOfElements($this->files); $i++) {
             if ($this->files[$i] == '.' OR $this->files[$i] == '..') continue;
             if (is_dir($this->files[$i]) == TRUE) continue;
             $newfile = $this->$ser_func($this->files[$i]);
@@ -405,7 +405,7 @@ class File_Match
     function doDirectories($ser_func)
     {
         if (!is_array($this->directories)) $this->directories = explode(',', $this->directories);
-        for ($i=0; $i<count($this->directories); $i++) {
+        for ($i=0; $i<numberOfElements($this->directories); $i++) {
             $dh = opendir($this->directories[$i]);
             while ($file = readdir($dh)) {
                 if ($file == '.' OR $file == '..') continue;
@@ -443,7 +443,7 @@ class File_Match
     function doFind()
     {
         if ($this->find != '') {
-            if ((is_array($this->files) AND count($this->files) > 0) OR $this->files != '') $this->doFiles($this->find_function);
+            if ((is_array($this->files) AND numberOfElements($this->files) > 0) OR $this->files != '') $this->doFiles($this->find_function);
             if ($this->directories != '')                                                   $this->doDirectories($this->find_function);
         }
     }

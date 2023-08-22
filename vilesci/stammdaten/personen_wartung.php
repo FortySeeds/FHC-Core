@@ -608,7 +608,7 @@ Zusammengelegt mit Person-ID ".$personToDelete_obj->person_id." am ".date('d.m.Y
 						$ort = $value['ort'];
 					}
 					// Adressen im $adressLoeschArray löschen
-					if (count($adressLoeschArray) > 0)
+					if (numberOfElements($adressLoeschArray) > 0)
 					{
 						foreach ($adressLoeschArray AS $key => $value)
 						{
@@ -697,7 +697,7 @@ Zusammengelegt mit Person-ID ".$personToDelete_obj->person_id." am ".date('d.m.Y
 						$anmerkung = $value['anmerkung'];
 					}
 					// Kontakte im $kontaktLoeschArray löschen
-					if (count($kontaktLoeschArray) > 0)
+					if (numberOfElements($kontaktLoeschArray) > 0)
 					{
 						foreach ($kontaktLoeschArray AS $key => $value)
 						{
@@ -1078,7 +1078,7 @@ Zusammengelegt mit Person-ID ".$personToDelete_obj->person_id." am ".date('d.m.Y
 						//Schauen ob akzeptierte Dokumente vorhanden sind und ggf entfernen
 						$akzeptierteDokumente = new dokument();
 						$akzeptierteDokumente->getPrestudentDokumente($value);
-						if (count($akzeptierteDokumente->result) > 0)
+						if (numberOfElements($akzeptierteDokumente->result) > 0)
 						{
 							foreach ($akzeptierteDokumente->result as $row)
 							{
@@ -1314,21 +1314,21 @@ if ($filter != '' || ($person_id_1 != '' && $person_id_2 != ''))
 	 * <br>';
 	 */
 	$messageOutput = '';
-	if (count($msg_error) > 0)
+	if (numberOfElements($msg_error) > 0)
 	{
 		foreach ($msg_error as $value)
 		{
 			$messageOutput .= '<p class="error">'.$value.'</p>';
 		}
 	}
-	if (count($msg_warning) > 0)
+	if (numberOfElements($msg_warning) > 0)
 	{
 		foreach ($msg_warning as $value)
 		{
 			$messageOutput .= '<p class="warning">'.$value.'</p>';
 		}
 	}
-	if (count($msg_info) > 0)
+	if (numberOfElements($msg_info) > 0)
 	{
 		foreach ($msg_info as $value)
 		{
@@ -1377,7 +1377,7 @@ if ($filter != '' || ($person_id_1 != '' && $person_id_2 != ''))
 		// Prestudent Rollen laden
 		$prestudent = new prestudent();
 		$prestudent->getPrestudenten($l->person_id);
-		if(count($prestudent->result) > 0)
+		if(numberOfElements($prestudent->result) > 0)
 		{
 			foreach ($prestudent->result as $row)
 			{
@@ -1402,7 +1402,7 @@ if ($filter != '' || ($person_id_1 != '' && $person_id_2 != ''))
 		// Benutzer laden
 		$benutzer = new benutzer();
 		$benutzer->getBenutzerFromPerson($l->person_id);
-		if(count($benutzer->result) > 0)
+		if(numberOfElements($benutzer->result) > 0)
 		{
 			foreach ($benutzer->result as $row)
 			{
@@ -1464,7 +1464,7 @@ if ($filter != '' || ($person_id_1 != '' && $person_id_2 != ''))
 		// Prestudent Rollen laden
 		$prestudent = new prestudent();
 		$prestudent->getPrestudenten($l->person_id);
-		if(count($prestudent->result) > 0)
+		if(numberOfElements($prestudent->result) > 0)
 		{
 			foreach ($prestudent->result as $row)
 			{
@@ -1489,7 +1489,7 @@ if ($filter != '' || ($person_id_1 != '' && $person_id_2 != ''))
 		// Benutzer laden
 		$benutzer = new benutzer();
 		$benutzer->getBenutzerFromPerson($l->person_id);
-		if(count($benutzer->result) > 0)
+		if(numberOfElements($benutzer->result) > 0)
 		{
 			foreach ($benutzer->result as $row)
 			{

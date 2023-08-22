@@ -181,7 +181,7 @@ class MessageLib
 			$tmpVariablesArray = getData($messageVarsPerson);
 
 			// Starts from 1 to skip the first element which is person_id
-			for ($i = 1; $i < count($tmpVariablesArray); $i++)
+			for ($i = 1; $i < numberOfElements($tmpVariablesArray); $i++)
 			{
 				$variablesArray['{'.str_replace(' ', '_', strtolower($tmpVariablesArray[$i])).'}'] = $tmpVariablesArray[$i];
 			}
@@ -205,7 +205,7 @@ class MessageLib
 			$tmpVariablesArray = getData($messageVars);
 
 			// Starts from 1 to skip the first element which is person_id
-			for ($i = 1; $i < count($tmpVariablesArray); $i++)
+			for ($i = 1; $i < numberOfElements($tmpVariablesArray); $i++)
 			{
 				$variablesArray['{'.str_replace(' ', '_', strtolower($tmpVariablesArray[$i])).'}'] = $tmpVariablesArray[$i];
 			}
@@ -229,7 +229,7 @@ class MessageLib
 			$tmpVariablesArray = getData($messageVars);
 
 			// Starts from 1 to skip the first element which is uid
-			for ($i = 1; $i < count($tmpVariablesArray); $i++)
+			for ($i = 1; $i < numberOfElements($tmpVariablesArray); $i++)
 			{
 				$variablesArray['{'.str_replace(' ', '_', strtolower($tmpVariablesArray[$i])).'}']
 					= strtoupper($tmpVariablesArray[$i]);

@@ -56,7 +56,7 @@ echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 $addon_obj = new addon();
 if ($addon_obj->loadAddons())
 {
-	if (count($addon_obj->result) > 0)
+	if (numberOfElements($addon_obj->result) > 0)
 	{
 		foreach ($addon_obj->result as $row)
 		{

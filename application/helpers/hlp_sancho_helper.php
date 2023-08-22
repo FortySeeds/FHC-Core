@@ -94,7 +94,7 @@ function _parseMailContent($vorlage_kurzbz, $vorlage_data)
 	if (isSuccess($result))
 	{
 		// If the text and the subject of the template are not empty
-		if (is_array($result->retval) && count($result->retval) > 0 &&
+		if (is_array($result->retval) && numberOfElements($result->retval) > 0 &&
 			!isEmptyString($result->retval[0]->text))
 		{
 			// Parses template text

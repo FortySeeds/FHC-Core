@@ -473,7 +473,7 @@ if (isset($_REQUEST["xmlformat"]) && $_REQUEST["xmlformat"] == "xml")
 
 		// letztes Jahr
 		$qry_prevYear = "
-		SELECT note, count(note)
+		SELECT note, numberOfElements(note)
 		FROM
 			lehre.tbl_zeugnisnote
 		WHERE
@@ -527,7 +527,7 @@ if (isset($_REQUEST["xmlformat"]) && $_REQUEST["xmlformat"] == "xml")
 		$studiensemesterPrev = $studiensemester->getPreviousFrom($lastStatusSemester);
 		$qry_prevYear = "
 		SELECT
-			note, count(note)
+			note, numberOfElements(note)
 		FROM
 			lehre.tbl_zeugnisnote
 		WHERE

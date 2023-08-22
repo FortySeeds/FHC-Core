@@ -58,7 +58,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
         $comp->children[] = $sub;
 
         $emails = $comp->email;
-        $this->assertEquals(3, count($emails));
+        $this->assertEquals(3, numberOfElements($emails));
 
         $email1 = $comp->{"group1.email"};
         $this->assertEquals('EMAIL', $email1[0]->name);
@@ -103,7 +103,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
         $comp->myProp = 'myValue';
         $comp->myProp = 'myValue';
 
-        $this->assertEquals(1,count($comp->children));
+        $this->assertEquals(1,numberOfElements($comp->children));
         $this->assertInstanceOf('Sabre\\VObject\\Property',$comp->MYPROP);
         $this->assertEquals('myValue',$comp->MYPROP->value);
 
@@ -116,7 +116,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
         // Note that 'myProp' is ignored here.
         $comp->myProp = new Component('VEVENT');
 
-        $this->assertEquals(1, count($comp->children));
+        $this->assertEquals(1, numberOfElements($comp->children));
 
         $this->assertEquals('VEVENT',$comp->VEVENT->name);
 
@@ -129,7 +129,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
         $comp->VEVENT = new Component('VEVENT');
         $comp->VEVENT = new Component('VEVENT');
 
-        $this->assertEquals(1, count($comp->children));
+        $this->assertEquals(1, numberOfElements($comp->children));
 
         $this->assertEquals('VEVENT',$comp->VEVENT->name);
 
@@ -149,7 +149,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
 
         $comp->add($event2);
 
-        $this->assertEquals(2,count($comp->children()));
+        $this->assertEquals(2,numberOfElements($comp->children()));
         $this->assertTrue($comp->vevent[1] instanceof Component);
         $this->assertEquals('Event 2', (string)$comp->vevent[1]->summary);
 
@@ -199,7 +199,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
 
         $comp->add('myprop','value');
 
-        $this->assertEquals(1, count($comp->children));
+        $this->assertEquals(1, numberOfElements($comp->children));
 
         $this->assertTrue($comp->children[0] instanceof Property);
         $this->assertEquals('MYPROP',$comp->children[0]->name);
@@ -213,13 +213,13 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
 
         $comp->add('myprop','value',array('param1'=>'value1'));
 
-        $this->assertEquals(1, count($comp->children));
+        $this->assertEquals(1, numberOfElements($comp->children));
 
         $this->assertTrue($comp->children[0] instanceof Property);
         $this->assertEquals('MYPROP',$comp->children[0]->name);
         $this->assertEquals('value',$comp->children[0]->value);
 
-        $this->assertEquals(1, count($comp->children[0]->parameters));
+        $this->assertEquals(1, numberOfElements($comp->children[0]->parameters));
 
         $this->assertTrue($comp->children[0]->parameters[0] instanceof Parameter);
         $this->assertEquals('PARAM1',$comp->children[0]->parameters[0]->name);
@@ -234,7 +234,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
 
         $comp->add(new Component('VEVENT'));
 
-        $this->assertEquals(1, count($comp->children));
+        $this->assertEquals(1, numberOfElements($comp->children));
 
         $this->assertEquals('VEVENT',$comp->VEVENT->name);
 
@@ -247,7 +247,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
         $comp->add(new Component('VEVENT'));
         $comp->add(new Component('VEVENT'));
 
-        $this->assertEquals(2, count($comp->children));
+        $this->assertEquals(2, numberOfElements($comp->children));
 
         $this->assertEquals('VEVENT',$comp->VEVENT->name);
 
@@ -293,7 +293,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
         // Note that 'myProp' is ignored here.
         $comp->myProp = new \StdClass();
 
-        $this->assertEquals(1, count($comp->children));
+        $this->assertEquals(1, numberOfElements($comp->children));
 
         $this->assertEquals('VEVENT',$comp->VEVENT->name);
 
@@ -314,7 +314,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
     function testCount() {
 
         $comp = new Component('VCALENDAR');
-        $this->assertEquals(1,$comp->count());
+        $this->assertEquals(1,$comp->numberOfElements());
 
     }
 
@@ -330,7 +330,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
 
         $r = $comp->children();
         $this->assertTrue($r instanceof ElementList);
-        $this->assertEquals(2,count($r));
+        $this->assertEquals(2,numberOfElements($r));
     }
 
     function testGetComponents() {
@@ -345,7 +345,7 @@ class ComponentTest extends \PHPUnit_Framework_TestCase {
 
         $r = $comp->getComponents();
         $this->assertInternalType('array', $r);
-        $this->assertEquals(1, count($r));
+        $this->assertEquals(1, numberOfElements($r));
         $this->assertEquals('VTODO', $r[0]->name);
     }
 

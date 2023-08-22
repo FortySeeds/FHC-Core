@@ -657,14 +657,14 @@ function check_utf8($str="")
  */
 function array_to_xml($rows,$root='root')
 {
-	if (!count($rows))
+	if (!numberOfElements($rows))
 		return '<'.$root.' />'."\r\n";
 
 	$xml_string='';
 	$xml_string.='<'.$root.'>'."\r\n";
 	reset($rows);
 
-  	for ($i=0;$i<count($rows);$i++)
+  	for ($i=0;$i<numberOfElements($rows);$i++)
 	{
 		$xml_string.='<row>'."\r\n";
 		$row=$rows[$i];
@@ -698,13 +698,13 @@ function array_to_rdf($rows,$root='root',$rdf_uri='rdf')
 {
 	$rdf_server=$_SERVER['SERVER_NAME'];
 	$rdf_string='';
-	if (!count($rows))
+	if (!numberOfElements($rows))
 		return $rdf_string.='<'.strtoupper($rdf_uri).':'.$root.' />'."\r\n";
 
 	$rdf_string.='<'.strtoupper($rdf_uri).':Seq rdf:about="http://'.$rdf_server.'/'.$root.'/liste">'."\r\n";
 
 	reset($rows);
-	for ($i=0;$i<count($rows);$i++)
+	for ($i=0;$i<numberOfElements($rows);$i++)
 	{
 		$rdf_string.='<'.strtoupper($rdf_uri).':li>'."\r\n";
 		$rdf_string.='<'.strtoupper($rdf_uri).':Description id="'.$i.'" about="http://'.$rdf_server.'/liste'.$i.'">'."\r\n";
@@ -1211,17 +1211,21 @@ function hasOnlyAllowedChars($stringToCheck)
 			return true;
 }
 
-/**
- * Wrapper/alias function for the count function
- * It checks if the given parameter is an array or an instance of Countable before calling count
- * In any other case return 0
- */
-function numberOfElements($countable)
+// 
+if (!function_exists('numberOfElements'))
 {
-	// Checks if countable is an array or implements the Countable interface
-	if (is_array($countable) || $countable instanceof Countable) return count($countable);
-
-	return 0; // otherwise returns 0
+	/**
+	 * Wrapper/alias function for the count function
+	 * It checks if the given parameter is an array or an instance of Countable before calling count
+	 * In any other case return 0
+	 */
+	function numberOfElements($countable)
+	{
+		// Checks if countable is an array or implements the Countable interface
+		if (is_array($countable) || $countable instanceof Countable) return count($countable);
+	
+		return 0; // otherwise returns 0
+	}
 }
 
 ?>

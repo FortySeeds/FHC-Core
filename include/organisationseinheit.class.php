@@ -370,7 +370,7 @@ class organisationseinheit extends basis_db
 	 */
 	public function loadArray($kurzbzs, $order=null, $aktiv=true)
 	{
-		if(count($kurzbzs)==0)
+		if(numberOfElements($kurzbzs)==0)
 			return true;
 
 		$kurzbzs = $this->db_implode4SQL($kurzbzs);
@@ -539,7 +539,7 @@ class organisationseinheit extends basis_db
 	 */
 	public function isChild($oe_kurzbz, $child)
 	{
-		if(count(organisationseinheit::$oe_parents_array)<=0)
+		if(numberOfElements(organisationseinheit::$oe_parents_array)<=0)
 		{
 			$this->loadParentsArray();
 		}
@@ -574,7 +574,7 @@ class organisationseinheit extends basis_db
 	public function cleanResult()
 	{
 		$data = array();
-		if(count($this->result)>0)
+		if(numberOfElements($this->result)>0)
 		{
 			foreach($this->result as $oeEinheit)
 			{
@@ -719,7 +719,7 @@ class organisationseinheit extends basis_db
 					organisationseinheittyp_kurzbz,
 					aktiv,
 					lehre,
-					count(tbl_zeitaufzeichnung.zeitaufzeichnung_id)
+					numberOfElements(tbl_zeitaufzeichnung.zeitaufzeichnung_id)
 					FROM campus.tbl_zeitaufzeichnung
 					JOIN public.tbl_organisationseinheit ON(oe_kurzbz IN (oe_kurzbz_1,oe_kurzbz_2))
 					WHERE tbl_zeitaufzeichnung.uid=".$this->db_add_param($user)."
@@ -743,7 +743,7 @@ class organisationseinheit extends basis_db
 
 		$qry .=") oes";
 
-		if (isset($funktion_zuordnungen) && is_array($funktion_zuordnungen) && count($funktion_zuordnungen) > 0)
+		if (isset($funktion_zuordnungen) && is_array($funktion_zuordnungen) && numberOfElements($funktion_zuordnungen) > 0)
 		{
 			$qry .= " WHERE EXISTS (
     					SELECT 1 FROM public.tbl_benutzerfunktion

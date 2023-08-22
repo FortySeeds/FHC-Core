@@ -1,4 +1,4 @@
-<?php if (count($notizenbewerbung) > 0): ?>
+<?php if (numberOfElements($notizenbewerbung) > 0): ?>
 	<br>
 	<div class="row">
 		<div class="col-lg-12">

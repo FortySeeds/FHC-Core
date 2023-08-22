@@ -571,7 +571,7 @@ if($betriebsmittel_id!='' || $anzahl_lock)
 							<td>&nbsp;<label for="betriebsmitteltyp">Betriebsmitteltyp</label>&nbsp;
 								<select id="betriebsmitteltyp" name="betriebsmitteltyp">
 										<?php
-										for ($i=0;$i<count($resultBetriebsmitteltyp) ;$i++)
+										for ($i=0;$i<numberOfElements($resultBetriebsmitteltyp) ;$i++)
 										{
 											if ($resultBetriebsmitteltyp[$i]->betriebsmitteltyp)
 												echo '<option '.($betriebsmitteltyp==$resultBetriebsmitteltyp[$i]->betriebsmitteltyp?' selected="selected" ':'').' value="'.$resultBetriebsmitteltyp[$i]->betriebsmitteltyp.'">'.($resultBetriebsmitteltyp[$i]->beschreibung=='NULL' || empty($resultBetriebsmitteltyp[$i]->beschreibung)?$resultBetriebsmitteltyp[$i]->betriebsmitteltyp:$resultBetriebsmitteltyp[$i]->beschreibung).'&nbsp;('.$resultBetriebsmitteltyp[$i]->typ_code.')</option>';
@@ -582,7 +582,7 @@ if($betriebsmittel_id!='' || $anzahl_lock)
 							<td>&nbsp;<label for="betriebsmittelstatus_kurzbz">Status</label>&nbsp;
 									<select id="betriebsmittelstatus_kurzbz" name="betriebsmittelstatus_kurzbz" >
 										  <?php
-											for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+											for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 											{
 												if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 													echo '<option '.($betriebsmittelstatus_kurzbz==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -882,7 +882,7 @@ if($betriebsmittel_id!='' || $anzahl_lock)
 			</div>
 	</div>
 	<?php
-		if (is_array($errormsg) && count($errormsg)>0)
+		if (is_array($errormsg) && numberOfElements($errormsg)>0)
 			echo '<font class="error">'. implode("<br>",$errormsg).'</font>';
 		elseif (!is_array($errormsg))
 		echo '<font class="error"><br>'.$errormsg.'</font>';
@@ -1361,7 +1361,7 @@ for ($pos=0;$pos<$anzahl;$pos++)
 									<td>&nbsp;<label for="betriebsmitteltyp_array<?php echo $pos; ?>">Betriebsmitteltyp</label>&nbsp;
 										<select id="betriebsmitteltyp_array<?php echo $pos; ?>" name="betriebsmitteltyp_array[]">
 										<?php
-										for ($i=0;$i<count($resultBetriebsmitteltyp) ;$i++)
+										for ($i=0;$i<numberOfElements($resultBetriebsmitteltyp) ;$i++)
 										{
 											if ($resultBetriebsmitteltyp[$i]->betriebsmitteltyp)
 												echo '<option '.($betriebsmitteltyp_array[$pos]==$resultBetriebsmitteltyp[$i]->betriebsmitteltyp?' selected="selected" ':'').' value="'.$resultBetriebsmitteltyp[$i]->betriebsmitteltyp.'">'.($resultBetriebsmitteltyp[$i]->beschreibung=='NULL' || empty($resultBetriebsmitteltyp[$i]->beschreibung)?$resultBetriebsmitteltyp[$i]->betriebsmitteltyp:$resultBetriebsmitteltyp[$i]->beschreibung).'&nbsp;('.$resultBetriebsmitteltyp[$i]->typ_code.')</option>';
@@ -1373,7 +1373,7 @@ for ($pos=0;$pos<$anzahl;$pos++)
 									<td>&nbsp;<label for="betriebsmittelstatus_kurzbz_array<?php echo $pos; ?>">Status</label>&nbsp;
 										<select id="betriebsmittelstatus_kurzbz_array<?php echo $pos; ?>" name="betriebsmittelstatus_kurzbz_array[]" >
 										  <?php
-											for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+											for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 											{
 												if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 													echo '<option '.($betriebsmittelstatus_kurzbz_array[$pos]==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -1642,7 +1642,7 @@ for ($pos=0;$pos<$anzahl;$pos++)
 
 				<?php
 				// Error - Meldungen ausgeben
-				if (is_array($errormsg) && count($errormsg)>0)
+				if (is_array($errormsg) && numberOfElements($errormsg)>0)
 					echo '<font class="error">'. implode("<br>",$errormsg).'</font>';
 				elseif (!is_array($errormsg))
 					echo '<font class="error"><br>'.$errormsg.'</font>';

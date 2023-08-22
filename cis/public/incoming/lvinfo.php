@@ -245,7 +245,7 @@ if (!$db = new basis_db())
 		echo "<tr><td>Studiengang:</td><td>$stg_kurzbz</td></tr>";
 		echo "<tr><td>Semester:</td><td>$sem</td></tr>";
 		echo '<tr><td>&nbsp;</td><td>&nbsp;</td></tr>';
-		if(($anz=count($lehrendearray))>0)
+		if(($anz=numberOfElements($lehrendearray))>0)
 		{
 			echo "<tr valign='top'><td>Lehrbeauftragte(r): </td><td>";
 
@@ -259,7 +259,7 @@ if (!$db = new basis_db())
 			echo '</td></tr>';
 		}
 
-		if(isset($lehrform_kurzbz) && count($lehrform_kurzbz)>0)
+		if(isset($lehrform_kurzbz) && numberOfElements($lehrform_kurzbz)>0)
 		{
 			echo "<tr valign='top'><td>Lehrform:&nbsp;</td><td>";
 			foreach ($lehrform_kurzbz as $lehrform_kurz)
@@ -275,11 +275,11 @@ if (!$db = new basis_db())
 
 		echo '<tr><td>&nbsp;</td><td>&nbsp;</td></tr>';
 		//Fachbereiche und Leiter/Koordinatoren anzeigen
-		if (count($fachbereich['bezeichnung'])>0)
+		if (numberOfElements($fachbereich['bezeichnung'])>0)
 		{
 			echo '<tr><td>Institut:&nbsp;</td><td>';
 			//Fachbereiche durchlaufen
-			for($i=0;$i<count($fachbereich['kurzbz']);$i++)
+			for($i=0;$i<numberOfElements($fachbereich['kurzbz']);$i++)
 			{
 				$help='';
 				echo stripslashes($fachbereich['bezeichnung'][$i]);
@@ -384,7 +384,7 @@ if (!$db = new basis_db())
 	    echo "<tr><td>semester:</td><td>$sem</td></tr>";
 	    echo "<tr><td>&nbsp;</td><td>&nbsp;</td></tr>";
 
-		if(($anz=count($lehrendearray))>0)
+		if(($anz=numberOfElements($lehrendearray))>0)
 	     {
 	     	echo "<tr><td>Lecturer:</td><td>";
 
@@ -398,7 +398,7 @@ if (!$db = new basis_db())
 	     	echo "</td></tr>";
 	     }
 
-		if(isset($lehrform_kurzbz) && count($lehrform_kurzbz)>0)
+		if(isset($lehrform_kurzbz) && numberOfElements($lehrform_kurzbz)>0)
 		{
 			echo "<tr valign='top'><td>Course methods:&nbsp;</td><td>";
 			foreach ($lehrform_kurzbz as $lehrform_kurz)
@@ -415,11 +415,11 @@ if (!$db = new basis_db())
 		echo "<tr><td>&nbsp;</td><td>&nbsp;</td></tr>";
 
 		//Fachbereiche und Leiter/Koordinatoren anzeigen
-		if (count($fachbereich['bezeichnung'])>0)
+		if (numberOfElements($fachbereich['bezeichnung'])>0)
 		{
 			echo '<tr><td>Department:&nbsp;</td><td>';
 			//Fachbereiche durchlaufen
-			for($i=0;$i<count($fachbereich['kurzbz']);$i++)
+			for($i=0;$i<numberOfElements($fachbereich['kurzbz']);$i++)
 			{
 				$help='';
 				echo stripslashes($fachbereich['bezeichnung'][$i]);

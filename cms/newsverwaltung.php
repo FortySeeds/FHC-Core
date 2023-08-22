@@ -348,7 +348,7 @@ if(isset($_POST['save']))
 		$translate = new benutzerfunktion();
 		$translate->getBenutzerFunktionen('translate', $oe_translate);
 
-		if(count($translate->result)==0)
+		if(numberOfElements($translate->result)==0)
 			$translate->getBenutzerFunktionen('translate');
 		$to='';
 		foreach($translate->result as $row)
@@ -560,7 +560,7 @@ if($news->content_id!='')
 
 	//Wenn noch nicht alle Uebersetzungen vorhanden sind,
 	//wird ein Link zum Erstellen der Uebersetzung angezeigt.
-	if(count($vorhandene_sprachen)<count($sprache_obj->result))
+	if(numberOfElements($vorhandene_sprachen)<numberOfElements($sprache_obj->result))
 	{
 
 		echo $p->t('news/uebersetzunganlegen');

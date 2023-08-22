@@ -103,7 +103,7 @@ function kollision($lehreinheit_id, $mitarbeiter_uid, $mitarbeiter_uid_old, $db_
 			$koll_arr[]=$lehrstunde->errormsg;
 		}
 	}
-	if(count($koll_arr)>0)
+	if(numberOfElements($koll_arr)>0)
 		return $koll_arr;
 
 	return false;
@@ -171,7 +171,7 @@ function getStundenproInstitut($mitarbeiter_uid, $studiensemester_kurzbz, $oe_ar
 
 	if(defined('FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE')
 	&& is_array(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE)
-	&& count(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE)>0)
+	&& numberOfElements(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE)>0)
 	{
 		$qry.=" AND tbl_studiengang.oe_kurzbz not in(".$db->db_implode4SQL(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE).")";
 	}
@@ -288,7 +288,7 @@ if(!$error)
 					else
 					{
 						$return = false;
-						$errormsg = "Änderung fehlgeschlagen!\nDie Änderung des Lektors führt zu ".count($koll_arr)." Kollision(en) im LV-Plan. Deaktivieren Sie die Kollisionspruefung oder wenden Sie sich an die LV-Planung!\n";
+						$errormsg = "Änderung fehlgeschlagen!\nDie Änderung des Lektors führt zu ".numberOfElements($koll_arr)." Kollision(en) im LV-Plan. Deaktivieren Sie die Kollisionspruefung oder wenden Sie sich an die LV-Planung!\n";
 						$errormsg.= "zB:".$koll_arr[0];
 						$error = true;
 					}
@@ -356,12 +356,12 @@ if(!$error)
 										studiensemester_kurzbz=".$db->db_add_param($le->studiensemester_kurzbz)." AND
 										bismelden";
 
-							if(count($oe_arr)>0)
+							if(numberOfElements($oe_arr)>0)
 								$qry.=" AND tbl_studiengang.oe_kurzbz in(".$db->db_implode4SQL($oe_arr).")";
 
 							if(defined('FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE')
 							&& is_array(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE)
-							&& count(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE)>0)
+							&& numberOfElements(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE)>0)
 							{
 								$qry.=" AND tbl_studiengang.oe_kurzbz not in(".$db->db_implode4SQL(FAS_LV_LEKTORINNENZUTEILUNG_STUNDEN_IGNORE_OE).")";
 							}
@@ -625,7 +625,7 @@ if(!$error)
 								studiensemester_kurzbz=".$db->db_add_param($le->studiensemester_kurzbz)." AND
 								bismelden";
 
-					if(count($oe_arr)>0)
+					if(numberOfElements($oe_arr)>0)
 						$qry.=" AND tbl_studiengang.oe_kurzbz in(".$db->db_implode4SQL($oe_arr).")";
 
 					if($result_std = $db->db_query($qry))
@@ -1433,7 +1433,7 @@ if(!$error)
 							$legruppe = new lehreinheitgruppe();
 							$legruppe->getLehreinheitgruppe($_POST['lehreinheit_id']);
 
-							if (count($legruppe->lehreinheitgruppe) > 0)
+							if (numberOfElements($legruppe->lehreinheitgruppe) > 0)
 							{
 								foreach ($legruppe->lehreinheitgruppe as $row)
 								{
@@ -1467,7 +1467,7 @@ if(!$error)
 							$lema = new lehreinheitmitarbeiter();
 							$lema->getLehreinheitmitarbeiter($_POST['lehreinheit_id']);
 
-							if (count($lema->lehreinheitmitarbeiter) > 0)
+							if (numberOfElements($lema->lehreinheitmitarbeiter) > 0)
 							{
 								foreach ($lema->lehreinheitmitarbeiter as $row)
 								{

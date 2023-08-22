@@ -115,7 +115,7 @@ cellSeparator (default value: "|")
 			}
 			else if ($oRresult)
 			{
-				for ($i=0;$i<count($oRresult);$i++)
+				for ($i=0;$i<numberOfElements($oRresult);$i++)
 				{
 					array_push($json, array ('oTermin' => $oRresult[$i]->termin,'oTerminAnzeige' => $oRresult[$i]->termin_anzeige ));
 				}

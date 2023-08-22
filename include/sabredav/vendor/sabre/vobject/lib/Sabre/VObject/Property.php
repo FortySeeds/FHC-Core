@@ -288,9 +288,9 @@ class Property extends Node {
                 $result[] = $parameter;
         }
 
-        if (count($result)===0) {
+        if (numberOfElements($result)===0) {
             return null;
-        } elseif (count($result)===1) {
+        } elseif (numberOfElements($result)===1) {
             return $result[0];
         } else {
             $result[0]->setIterator(new ElementList($result));

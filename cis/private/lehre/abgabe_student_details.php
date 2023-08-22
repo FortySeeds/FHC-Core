@@ -350,7 +350,7 @@ if($command=="update" && $error!=true)
 						{
 							// Check if the document is signed
 							$signList = SignatureLib::list(PAABGABE_PATH.$paabgabe_id.'_'.$uid.'.pdf');
-							if (is_array($signList) && count($signList) > 0)
+							if (is_array($signList) && numberOfElements($signList) > 0)
 							{
 								// The document is signed
 							}

@@ -299,7 +299,7 @@ class ezcBaseTest extends ezcTestCase
         ezcBase::addClassRepository( '.' );
         $resultArray = ezcBase::getRepositoryDirectories();
 
-        if ( count( $resultArray ) != 2 ) 
+        if ( numberOfElements( $resultArray ) != 2 ) 
         {
             $this->fail( "Duplicating or missing extra autoload dirs while adding." );
         }
@@ -328,7 +328,7 @@ class ezcBaseTest extends ezcTestCase
         ezcBase::addClassRepository( './Base/tests/test_repository', './Base/tests/test_repository/autoload_files' );
         $resultArray = ezcBase::getRepositoryDirectories();
 
-        if ( count( $resultArray ) != 5 ) 
+        if ( numberOfElements( $resultArray ) != 5 ) 
         {
             $this->fail( "Duplicating or missing extra autoload dirs while adding." );
         }
@@ -396,7 +396,7 @@ class ezcBaseTest extends ezcTestCase
         }
 
         $resultArray = ezcBase::getRepositoryDirectories();
-        self::assertEquals( 7, count( $resultArray ) );
+        self::assertEquals( 7, numberOfElements( $resultArray ) );
 
         self::assertEquals( true, array_key_exists( 'ezc', $resultArray ) );
         self::assertEquals( true, array_key_exists( 'tr', $resultArray ) );

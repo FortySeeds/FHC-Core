@@ -262,7 +262,7 @@ class sprache extends basis_db
 	{
 		$result = '';
 
-		if(!isset(self::$index_arr) || count(self::$index_arr)==0)
+		if(!isset(self::$index_arr) || numberOfElements(self::$index_arr)==0)
 			$this->loadIndexArray();
 
 		foreach(self::$index_arr as $sprache=>$index)
@@ -283,7 +283,7 @@ class sprache extends basis_db
 	{
 		$result = array();
 
-		if(!isset(self::$index_arr) || count(self::$index_arr)==0)
+		if(!isset(self::$index_arr) || numberOfElements(self::$index_arr)==0)
 			$this->getAll();
 
 		foreach(self::$index_arr as $sprache=>$index)

@@ -404,7 +404,7 @@ class pruefling extends basis_db
 				{
 					$excluded_gebiete = unserialize(FAS_REIHUNGSTEST_EXCLUDE_GEBIETE);
 					$exclude_gebiet_id_arr = $excluded_gebiete;
-					if (is_array($exclude_gebiet_id_arr) && count($exclude_gebiet_id_arr) > 0)
+					if (is_array($exclude_gebiet_id_arr) && numberOfElements($exclude_gebiet_id_arr) > 0)
 					{
 						$exclude_gebiet_id_toString = implode(', ', $exclude_gebiet_id_arr);
 						$qry .= "

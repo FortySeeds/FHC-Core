@@ -12,7 +12,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result);
         $this->assertEquals('VCALENDAR', $result->name);
-        $this->assertEquals(0, count($result->children));
+        $this->assertEquals(0, numberOfElements($result->children));
 
     }
 
@@ -24,7 +24,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result);
         $this->assertEquals('VCALENDAR', $result->name);
-        $this->assertEquals(0, count($result->children));
+        $this->assertEquals(0, numberOfElements($result->children));
 
     }
 
@@ -36,7 +36,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result);
         $this->assertEquals('VCALENDAR', $result->name);
-        $this->assertEquals(0, count($result->children));
+        $this->assertEquals(0, numberOfElements($result->children));
 
     }
 
@@ -48,7 +48,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result);
         $this->assertEquals('VCALENDAR', $result->name);
-        $this->assertEquals(0, count($result->children));
+        $this->assertEquals(0, numberOfElements($result->children));
 
     }
 
@@ -130,7 +130,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result);
         $this->assertEquals('VCALENDAR', $result->name);
-        $this->assertEquals(1, count($result->children));
+        $this->assertEquals(1, numberOfElements($result->children));
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result->children[0]);
         $this->assertEquals('PROPNAME', $result->children[0]->name);
         $this->assertEquals('propValue', $result->children[0]->value);
@@ -151,10 +151,10 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result);
         $this->assertEquals('VCALENDAR', $result->name);
-        $this->assertEquals(1, count($result->children));
+        $this->assertEquals(1, numberOfElements($result->children));
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result->children[0]);
         $this->assertEquals('VTIMEZONE', $result->children[0]->name);
-        $this->assertEquals(1, count($result->children[0]->children));
+        $this->assertEquals(1, numberOfElements($result->children[0]->children));
         $this->assertInstanceOf('Sabre\\VObject\\Component', $result->children[0]->children[0]);
         $this->assertEquals('DAYLIGHT', $result->children[0]->children[0]->name);
 
@@ -169,7 +169,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result);
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue', $result->value);
-        $this->assertEquals(1, count($result->parameters));
+        $this->assertEquals(1, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
         $this->assertEquals('paramvalue', $result->parameters[0]->value);
 
@@ -183,7 +183,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result);
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue', $result->value);
-        $this->assertEquals(1, count($result->parameters));
+        $this->assertEquals(1, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
 
         $this->assertNull($result->parameters[0]->value);
@@ -198,7 +198,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result);
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue:anotherrandomstring', $result->value);
-        $this->assertEquals(1, count($result->parameters));
+        $this->assertEquals(1, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
         $this->assertEquals('paramvalue', $result->parameters[0]->value);
 
@@ -212,7 +212,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result);
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue', $result->value);
-        $this->assertEquals(2, count($result->parameters));
+        $this->assertEquals(2, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
         $this->assertEquals('paramvalue', $result->parameters[0]->value);
         $this->assertEquals('PARAMNAME2', $result->parameters[1]->name);
@@ -228,7 +228,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result);
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue', $result->value);
-        $this->assertEquals(1, count($result->parameters));
+        $this->assertEquals(1, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
         $this->assertEquals('paramvalue', $result->parameters[0]->value);
 
@@ -242,7 +242,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue', $result->value);
 
-        $this->assertEquals(1, count($result->parameters));
+        $this->assertEquals(1, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
         $this->assertEquals("paramvalue1\nvalue2\\nvalue3", $result->parameters[0]->value);
 
@@ -256,7 +256,7 @@ class ReaderTest extends \PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Sabre\\VObject\\Property', $result);
         $this->assertEquals('PROPNAME', $result->name);
         $this->assertEquals('propValue', $result->value);
-        $this->assertEquals(1, count($result->parameters));
+        $this->assertEquals(1, numberOfElements($result->parameters));
         $this->assertEquals('PARAMNAME', $result->parameters[0]->name);
         $this->assertEquals('param:value', $result->parameters[0]->value);
 

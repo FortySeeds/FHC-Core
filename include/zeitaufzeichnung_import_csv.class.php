@@ -144,7 +144,7 @@ class zeitaufzeichnung_import_csv extends zeitaufzeichnung_import {
 		$this->current_line = 0;
 		while (($data = fgetcsv($this->fh, 1000, ';', '"')) !== FALSE) {
 			if ((false !== strpos($data[self::USER], '#'))
-				|| count($data) <  self::ANZAHL_PFLICHTFELDER) {
+				|| numberOfElements($data) <  self::ANZAHL_PFLICHTFELDER) {
 				// ignore lines starting with #
 				continue;
 			}
@@ -261,7 +261,7 @@ class zeitaufzeichnung_import_csv extends zeitaufzeichnung_import {
 	 */
 	protected function checkVals($oe_val, $project_val, $phase_val, $service_val) {
 		$failedvals = $this->_checkVals($oe_val, $project_val, $phase_val, $service_val);
-		if( count($failedvals) > 0 )
+		if( numberOfElements($failedvals) > 0 )
 		{
 			throw new Exception($this->p->t("global/fehlerBeimSpeichernDerDaten").': Fehlerhafte Werte  ('.implode(', ', $failedvals).')');
 		}

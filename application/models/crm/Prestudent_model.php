@@ -422,10 +422,10 @@ class Prestudent_model extends DB_Model
 		$bewerberarr = $this->getBewerbungen($person_id, $studiensemester);
 
 		//Prio can be added when prio is null and there is only one prestudent
-		if (count($bewerberarr) === 1 && !isset($prestudent->retval[0]->priorisierung) && $change < 0)
+		if (numberOfElements($bewerberarr) === 1 && !isset($prestudent->retval[0]->priorisierung) && $change < 0)
 			return true;
 
-		if (count($bewerberarr) <= 1)
+		if (numberOfElements($bewerberarr) <= 1)
 			return false;
 
 		if (!isset($prestudent->retval[0]->priorisierung))

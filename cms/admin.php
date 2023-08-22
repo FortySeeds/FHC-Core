@@ -528,11 +528,11 @@ if(!is_null($method))
 				echo $organisationseinheit;
 				$fkt = new benutzerfunktion();
 				$fkt->getBenutzerFunktionen('review', $organisationseinheit);
-				if(count($fkt->result)>0)
+				if(numberOfElements($fkt->result)>0)
 					break;
 			}
 			
-			if(count($fkt->result)==0)
+			if(numberOfElements($fkt->result)==0)
 				$fkt->getBenutzerFunktionen('review');
 			$to='';
 			foreach($fkt->result as $row)
@@ -596,11 +596,11 @@ if(!is_null($method))
 				echo $organisationseinheit;
 				$fkt = new benutzerfunktion();
 				$fkt->getBenutzerFunktionen('translate', $organisationseinheit);
-				if(count($fkt->result)>0)
+				if(numberOfElements($fkt->result)>0)
 					break;
 			}
 			
-			if(count($fkt->result)==0)
+			if(numberOfElements($fkt->result)==0)
 				$fkt->getBenutzerFunktionen('translate');
 			$to='';
 			foreach($fkt->result as $row)
@@ -966,7 +966,7 @@ function drawheader()
 	
 	//Wenn noch nicht alle Uebersetzungen vorhanden sind, 
 	//wird ein Formular zum Erstellen der Uebersetzung angezeigt.
-	if(count($vorhandene_sprachen)!=count($sprache_obj->result))
+	if(numberOfElements($vorhandene_sprachen)!=numberOfElements($sprache_obj->result))
 	{	
 		echo '<form action="'.$_SERVER['PHP_SELF'].'?content_id='.$content_id.'&action='.$action.'&filter='.implode(' ', $filterstr).'&method=add_uebersetzung" method="POST">';
 		echo 'Übersetzung in <SELECT name="sprache">';
@@ -1001,11 +1001,11 @@ function drawmenulink($id, $titel, $oe_kurzbz, $aktiv)
 	$content->loadGruppen($id);
 	$berechtigte = '';
 	
-	if(count($content->result)>0)
+	if(numberOfElements($content->result)>0)
 	{
 		foreach($content->result as $row)
 		{
-			$berechtigte.= $row->gruppe_kurzbz.(count($content->result)>1?', ':'');
+			$berechtigte.= $row->gruppe_kurzbz.(numberOfElements($content->result)>1?', ':'');
 		}
 	}
 	else 
@@ -1249,7 +1249,7 @@ function print_rights()
 	$content = new content();
 	$content->loadGruppen($content_id);
 	
-	if(count($content->result)>0)
+	if(numberOfElements($content->result)>0)
 	{
 		echo 'Die Mitglieder der folgenden Gruppen dürfen die Seite ansehen:<br><br>';
 		echo '

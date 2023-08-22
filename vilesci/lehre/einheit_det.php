@@ -160,7 +160,7 @@ else
 
 	if($gruppe->loadUser($kurzbz))
 	{
-		$num_rows=count($gruppe->result);
+		$num_rows=numberOfElements($gruppe->result);
 		echo "Anzahl: $num_rows";
 		echo '<script>
 		$(document).ready(function()

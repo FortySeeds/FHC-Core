@@ -137,7 +137,7 @@ class PermissionLib
 					if (!isEmptyArray($permissions))
 					{
 						// Loops through the required permissions
-						for ($pCounter = 0; $pCounter < count($permissions); $pCounter++)
+						for ($pCounter = 0; $pCounter < numberOfElements($permissions); $pCounter++)
 						{
 							// Checks if the permission is well formatted
 							if (strpos($permissions[$pCounter], PermissionLib::PERMISSION_SEPARATOR) !== false)
@@ -215,7 +215,7 @@ class PermissionLib
 			}
 
 			// Checks if at least one of the permissions given as parameter belongs to the authenticated user...
-			for ($p = 0; $p < count($requiredPermissions); $p++)
+			for ($p = 0; $p < numberOfElements($requiredPermissions); $p++)
 			{
 				$pt = ''; // by default the permission is alredy present in $requiredPermissions[$p]
 				if ($permissionType != null) // if is it given as parameter

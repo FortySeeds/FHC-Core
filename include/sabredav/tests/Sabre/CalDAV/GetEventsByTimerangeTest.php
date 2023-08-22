@@ -88,7 +88,7 @@ END:VCALENDAR
         $vObject = VObject\Reader::read($body);
 
         // We expect 1 event
-        $this->assertEquals(1, count($vObject->VEVENT), 'We got 0 events instead of 1. Output: ' . $body);
+        $this->assertEquals(1, numberOfElements($vObject->VEVENT), 'We got 0 events instead of 1. Output: ' . $body);
 
     }
 

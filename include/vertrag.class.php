@@ -852,7 +852,7 @@ class vertrag extends basis_db
 	 */
 	public function getVertraege($vertrag_id_arr)
 	{
-		if(count($vertrag_id_arr)==0)
+		if(numberOfElements($vertrag_id_arr)==0)
 		{
 			$this->result = array();
 			return false;

@@ -263,7 +263,7 @@ if (!$uid = get_uid())
 	// Bei einem Ajax Call nun das Script mit der Meldungsausgabe beenden
 	if (!empty($ajax))
 	{
-		if (is_array($errormsg) && count($errormsg)>0)
+		if (is_array($errormsg) && numberOfElements($errormsg)>0)
 			exit(implode(", ",$errormsg));
 		elseif (!is_array($errormsg))
 			exit($errormsg);
@@ -549,7 +549,7 @@ if (!$uid = get_uid())
 								if($oBenutzerberechtigung->isBerechtigt('wawi/inventar', null, 's'))
 									echo '<option '.(empty($oe_kurzbz)?' selected="selected" ':'').' value="">bitte ausw&auml;hlen&nbsp;</option>';
 
-								for ($i=0;$i<count($resultOrganisationseinheit) ;$i++)
+								for ($i=0;$i<numberOfElements($resultOrganisationseinheit) ;$i++)
 								{
 									if ($resultOrganisationseinheit[$i]->oe_kurzbz)
 										echo '<option '.($oe_kurzbz==$resultOrganisationseinheit[$i]->oe_kurzbz?' selected="selected" ':'').' value="'.$resultOrganisationseinheit[$i]->oe_kurzbz.'">'.$resultOrganisationseinheit[$i]->organisationseinheittyp_kurzbz.' '.($resultOrganisationseinheit[$i]->bezeichnung=='NULL' || empty($resultOrganisationseinheit[$i]->bezeichnung)?$resultOrganisationseinheit[$i]->oe_kurzbz:$resultOrganisationseinheit[$i]->bezeichnung).'&nbsp;</option>';
@@ -772,7 +772,7 @@ if (!$uid = get_uid())
 									  	$betriebsmittelstatus_kurzbz_select=trim((!isset($_REQUEST['betriebsmittelstatus_kurzbz'])?'':$betriebsmittelstatus_kurzbz));
 										echo (empty($betriebsmittelstatus_kurzbz_select)?' selected="selected" ':''); ?>  value="">bitte ausw&auml;hlen&nbsp;</option>
 										<?php
-										for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+										for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 										{
 											if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 												echo '<option '.($betriebsmittelstatus_kurzbz_select==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -786,7 +786,7 @@ if (!$uid = get_uid())
 						<option  <?php echo (empty($betriebsmitteltyp)?' selected="selected" ':''); ?>  value="">bitte ausw&auml;hlen&nbsp;</option>
 									<?php
 
-									for ($i=0;$i<count($resultBetriebsmitteltyp) ;$i++)
+									for ($i=0;$i<numberOfElements($resultBetriebsmitteltyp) ;$i++)
 									{
 										if ($resultBetriebsmitteltyp[$i]->betriebsmitteltyp)
 											echo '<option '.($betriebsmitteltyp==$resultBetriebsmitteltyp[$i]->betriebsmitteltyp?' selected="selected" ':'').' value="'.$resultBetriebsmitteltyp[$i]->betriebsmitteltyp.'">'.($resultBetriebsmitteltyp[$i]->beschreibung=='NULL' || empty($resultBetriebsmitteltyp[$i]->beschreibung)?$resultBetriebsmitteltyp[$i]->betriebsmitteltyp:$resultBetriebsmitteltyp[$i]->beschreibung).'&nbsp;('.$resultBetriebsmitteltyp[$i]->typ_code.')</option>';
@@ -887,9 +887,9 @@ if (!$uid = get_uid())
 		</form>
 		';
 	// Inventardatenliste
-	if ( is_array($oBetriebsmittel->result) && count($oBetriebsmittel->result)==1)
+	if ( is_array($oBetriebsmittel->result) && numberOfElements($oBetriebsmittel->result)==1)
 		echo output_inventarposition($debug,$oBetriebsmittel->result,$resultBetriebsmittelstatus,$schreib_recht,$delete_recht,$schreib_recht_administration);
-	else if ( is_array($oBetriebsmittel->result) && count($oBetriebsmittel->result)>1)
+	else if ( is_array($oBetriebsmittel->result) && numberOfElements($oBetriebsmittel->result)>1)
 		echo output_inventar($debug,$oBetriebsmittel->result,$resultBetriebsmittelstatus,$schreib_recht,$delete_recht,$schreib_recht_administration,$default_status_vorhanden);
 	else
 	{
@@ -900,7 +900,7 @@ if (!$uid = get_uid())
 	}
 
 	// Error - Meldungen ausgeben
-	if (is_array($errormsg) && count($errormsg)>0)
+	if (is_array($errormsg) && numberOfElements($errormsg)>0)
 		echo '<font class="error">'. implode("<br>",$errormsg).'</font>';
 	elseif (!is_array($errormsg))
 		echo '<font class="error"><br>'.$errormsg.'</font>';
@@ -919,12 +919,12 @@ function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebs
 	global $datum_obj;
 
 	$htmlstring='';
-	if (is_null($resultBetriebsmittel) || !is_array($resultBetriebsmittel) || count($resultBetriebsmittel)<1)
+	if (is_null($resultBetriebsmittel) || !is_array($resultBetriebsmittel) || numberOfElements($resultBetriebsmittel)<1)
 		return $htmlstring;
 	$htmlstring.='<table  id="t1" class="liste table-autosort:2 table-stripeclass:alternate table-autostripe">
 			<thead>';
-	if (is_array($resultBetriebsmittel) && count($resultBetriebsmittel)>1)
-		$htmlstring.='<tr><th colspan="12">Bitte ein Inventar aus den '.count($resultBetriebsmittel).' gefundenen ausw&auml;hlen</th></tr>';
+	if (is_array($resultBetriebsmittel) && numberOfElements($resultBetriebsmittel)>1)
+		$htmlstring.='<tr><th colspan="12">Bitte ein Inventar aus den '.numberOfElements($resultBetriebsmittel).' gefundenen ausw&auml;hlen</th></tr>';
 	$htmlstring.='<tr>
 				<th class="table-sortable:default" title="Inventarnummer">Inv.nr.</th>
 				<th class="table-sortable:default">Bezeichnung</th>
@@ -942,7 +942,7 @@ function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebs
 			<tbody>
 		';
 
-	for ($pos=0;$pos<count($resultBetriebsmittel);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultBetriebsmittel);$pos++)
 	{
 		if ($pos%2)
 			$classe='liste1';
@@ -991,7 +991,7 @@ function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebs
 
 		//Wenn Rechnungen vorhanden sind, einen Link dazu anzeigen
 		$rechnung = new wawi_rechnung();
-		if($resultBetriebsmittel[$pos]->bestellung_id!='' && $rechnung->count($resultBetriebsmittel[$pos]->bestellung_id)>0)
+		if($resultBetriebsmittel[$pos]->bestellung_id!='' && $rechnung->numberOfElements($resultBetriebsmittel[$pos]->bestellung_id)>0)
 		{
 			$htmlstring.='&nbsp;<a href="../../addons/wawi/vilesci/rechnung.php?method=suche&amp;submit=true&amp;bestellnummer='.$resultBetriebsmittel[$pos]->bestellnr.'" target="_blank" '.$bestellung_ivalid_style.'><img src="../../skin/images/Calculator.png"></a>';
 		}
@@ -1017,7 +1017,7 @@ function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebs
 			{
 				$htmlstring.='<select style="font-size:xx-small;" onchange="set_status(\'list'.$pos.'\',\''.$resultBetriebsmittel[$pos]->betriebsmittelbetriebsmittelstatus_id.'\',\''.$resultBetriebsmittel[$pos]->betriebsmittel_id.'\',\''.$resultBetriebsmittel[$pos]->inventarnummer.'\',\''.$resultBetriebsmittel[$pos]->bestellung_id.'\',\''.$resultBetriebsmittel[$pos]->bestelldetail_id.'\',this.value);" name="betriebsmittelstatus_kurzbz">';
 
-				for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+				for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 				{
 					if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 						$htmlstring.='<option '.($betriebsmittelstatus_kurzbz_select==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -1062,7 +1062,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 		$resBetriebsmittel=$resultBetriebsmittel;
 
 	$htmlstring='';
-	if (is_null($resBetriebsmittel) || ( !is_object($resBetriebsmittel) && !is_array($resBetriebsmittel) ) || count($resBetriebsmittel)<1)
+	if (is_null($resBetriebsmittel) || ( !is_object($resBetriebsmittel) && !is_array($resBetriebsmittel) ) || numberOfElements($resBetriebsmittel)<1)
 		return $htmlstring;
 
 	// Pruefen ob OE vorhanden ist - ansonst suchen ob ein Benutzer vorhanden ist
@@ -1270,7 +1270,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 				else
 				{
 					$htmlstring.='&nbsp;<select onchange="document.sendform2.submit();" name="betriebsmittelstatus_kurzbz">';
-							for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+							for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 							{
 								if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 									$htmlstring.='<option '.(trim($betriebsmittelstatus_kurzbz_select)==trim($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -1384,7 +1384,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 	if (!$oBetriebsmittel_betriebsmittelstatus->load_betriebsmittel_id($resBetriebsmittel->betriebsmittel_id))
 		$htmlstring.='<br>'.$oBetriebsmittel_betriebsmittelstatus->errormsg;
 
-	if (is_array($oBetriebsmittel_betriebsmittelstatus->result) && count($oBetriebsmittel_betriebsmittelstatus->result)>0)
+	if (is_array($oBetriebsmittel_betriebsmittelstatus->result) && numberOfElements($oBetriebsmittel_betriebsmittelstatus->result)>0)
 	{
 		$htmlstring.='<table>';
 		$htmlstring.='<tr>
@@ -1395,7 +1395,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 							<th colspan="2">&Auml;nderung</th>
 						</thead>
 					</tr>';
-		for ($pos=0;$pos<count($oBetriebsmittel_betriebsmittelstatus->result);$pos++)
+		for ($pos=0;$pos<numberOfElements($oBetriebsmittel_betriebsmittelstatus->result);$pos++)
 		{
 			$row=$oBetriebsmittel_betriebsmittelstatus->result[$pos];
 			$oInsertBenutzer = new benutzer($row->insertvon);
@@ -1447,7 +1447,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 	$oBetriebsmittelperson->errormsg='';
 	if (!$oBetriebsmittelperson->getbetriebsmittelpersonen($resBetriebsmittel->betriebsmittel_id))
 		$htmlstring.='<br>'.$oBetriebsmittelperson->errormsg;
-	if (is_array($oBetriebsmittelperson->result) && count($oBetriebsmittelperson->result)>0)
+	if (is_array($oBetriebsmittelperson->result) && numberOfElements($oBetriebsmittelperson->result)>0)
 	{
 		$htmlstring.='<table class="liste">';
 			$htmlstring.='<tr>
@@ -1460,7 +1460,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 							<th colspan="2">&Auml;nderung</th>
 						</thead>
 						</tr>';
-		for ($pos=0;$pos<count($oBetriebsmittelperson->result);$pos++)
+		for ($pos=0;$pos<numberOfElements($oBetriebsmittelperson->result);$pos++)
 		{
 			$row=$oBetriebsmittelperson->result[$pos];
 			if ($pos%2)

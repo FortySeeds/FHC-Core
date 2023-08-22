@@ -207,14 +207,14 @@ function getBankverbindung($oe_kurzbz, $orgform_kurzbz = null)
 	$bic = "";
 	$result = array();
 	$bankverbindung=new bankverbindung();
-	if($bankverbindung->load_oe($oe_kurzbz, $orgform_kurzbz) && count($bankverbindung->result) > 0)
+	if($bankverbindung->load_oe($oe_kurzbz, $orgform_kurzbz) && numberOfElements($bankverbindung->result) > 0)
 	{
 		$result["iban"] = $bankverbindung->result[0]->iban;
 		$result["bic"] = $bankverbindung->result[0]->bic;
 		return $result;
 	}
 	// Nochmal ohne $orgform_kurzbz versuchen
-	elseif($bankverbindung->load_oe($oe_kurzbz) && count($bankverbindung->result) > 0)
+	elseif($bankverbindung->load_oe($oe_kurzbz) && numberOfElements($bankverbindung->result) > 0)
 	{
 		$result["iban"] = $bankverbindung->result[0]->iban;
 		$result["bic"] = $bankverbindung->result[0]->bic;

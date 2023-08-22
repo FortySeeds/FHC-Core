@@ -180,7 +180,7 @@ switch($work)
 		{
 			//Person darf nur entfernt werden, wenn noch kein Termin gewaelt wurde
 			$coodle->getRessourceTermin($coodle_id, $coodle_ressource_id);
-			if (count($coodle->result) == 0)
+			if (numberOfElements($coodle->result) == 0)
 			{
 				if($coodle->deleteRessource($coodle_ressource_id))
 					echo 'true';
@@ -324,7 +324,7 @@ switch($work)
 		$coodle = new coodle();
 		if ($coodle->getTermine($coodle_id))
 		{
-			echo count($coodle->result);
+			echo numberOfElements($coodle->result);
 		}
 		else
 		{

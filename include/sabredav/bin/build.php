@@ -35,7 +35,7 @@ if (!isset($tasks[$currentTask])) {
 $newTaskList = [];
 $oldTaskList = [$currentTask => true];
 
-while(count($oldTaskList)>0) {
+while(numberOfElements($oldTaskList)>0) {
 
     foreach($oldTaskList as $task=>$foo) {
 

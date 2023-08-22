@@ -247,7 +247,7 @@ class FilterWidget extends Widget
 		// Parameter is used to add extra columns to the dataset
 		if (isset($args[FilterWidgetLib::ADDITIONAL_COLUMNS])
 			&& is_array($args[FilterWidgetLib::ADDITIONAL_COLUMNS])
-			&& count($args[FilterWidgetLib::ADDITIONAL_COLUMNS]) > 0)
+			&& numberOfElements($args[FilterWidgetLib::ADDITIONAL_COLUMNS]) > 0)
 		{
 			$this->_additionalColumns = $args[FilterWidgetLib::ADDITIONAL_COLUMNS];
 		}
@@ -255,7 +255,7 @@ class FilterWidget extends Widget
 		// Parameter is used to add use aliases for the columns fo the dataset
 		if (isset($args[FilterWidgetLib::COLUMNS_ALIASES])
 			&& is_array($args[FilterWidgetLib::COLUMNS_ALIASES])
-			&& count($args[FilterWidgetLib::COLUMNS_ALIASES]) > 0)
+			&& numberOfElements($args[FilterWidgetLib::COLUMNS_ALIASES]) > 0)
 		{
 			$this->_columnsAliases = $args[FilterWidgetLib::COLUMNS_ALIASES];
 		}
@@ -349,7 +349,7 @@ class FilterWidget extends Widget
 	private function _checkParameters($args)
 	{
 		// If no options are given to this widget...
-		if (!is_array($args) || (is_array($args) && count($args) == 0))
+		if (!is_array($args) || (is_array($args) && numberOfElements($args) == 0))
 		{
 			show_error('Second parameter of the widget call must be a NOT empty associative array');
 		}
@@ -450,7 +450,7 @@ class FilterWidget extends Widget
 
 						// Set the new dataset and its attributes in the session
 						$this->filterwidgetlib->setSessionElement(FilterWidgetLib::SESSION_METADATA, $this->FiltersModel->getExecutedQueryMetaData());
-						$this->filterwidgetlib->setSessionElement(FilterWidgetLib::SESSION_ROW_NUMBER, count($dataset->retval));
+						$this->filterwidgetlib->setSessionElement(FilterWidgetLib::SESSION_ROW_NUMBER, numberOfElements($dataset->retval));
 						$this->filterwidgetlib->setSessionElement(FilterWidgetLib::SESSION_DATASET, $dataset->retval);
 					}
 				}
@@ -500,7 +500,7 @@ class FilterWidget extends Widget
 							FilterWidgetLib::SESSION_CHECKBOXES => $this->_checkboxes, // the name of the field used to build the checkboxes column
 							FilterWidgetLib::SESSION_FILTERS => $parsedFilterJson->filters, // all the filters used to filter the dataset
 							FilterWidgetLib::SESSION_METADATA => $this->FiltersModel->getExecutedQueryMetaData(), // the metadata of the dataset
-							FilterWidgetLib::SESSION_ROW_NUMBER => count($dataset->retval), // the number of loaded rows by this filter
+							FilterWidgetLib::SESSION_ROW_NUMBER => numberOfElements($dataset->retval), // the number of loaded rows by this filter
 							FilterWidgetLib::SESSION_DATASET => $dataset->retval, // the entire dataset
 							FilterWidgetLib::SESSION_DATASET_RELOAD => false, // if the dataset must be reloaded, not needed the first time
 							FilterWidgetLib::SESSION_DATASET_REPRESENTATION => $this->_datasetRepresentation, // the choosen dataset representation
@@ -539,7 +539,7 @@ class FilterWidget extends Widget
 		if (hasData($rawDataset) && is_array($rawDataset->retval))
 		{
 			// For each row of the data set
-			for ($rowCounter = 0; $rowCounter < count($rawDataset->retval); $rowCounter++)
+			for ($rowCounter = 0; $rowCounter < numberOfElements($rawDataset->retval); $rowCounter++)
 			{
 				// Calls the methods to mark and to format a row
 				// NOTE: keep this order! the markRow function given as parameter is supposing to work

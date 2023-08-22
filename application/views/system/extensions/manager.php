@@ -142,7 +142,7 @@
 									$extension->license,
 									$extension->url,
 									$extension->core_version,
-									count($extension->dependencies) == 0 ? 'None' : json_encode($extension->dependencies),
+									numberOfElements($extension->dependencies) == 0 ? 'None' : json_encode($extension->dependencies),
 									$extension->extension_id,
 									$extension->enabled === true ? 'checked' : '',
 									$extension->extension_id

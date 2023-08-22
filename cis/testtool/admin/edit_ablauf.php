@@ -116,7 +116,7 @@ echo '<table><tr><td>';
 echo '<form id="studiengang_form" action="'.$_SERVER['PHP_SELF'].'" method="GET">';
 echo 'Studiengang: </td><td><SELECT name="stg_kz" onchange="document.getElementById(\'studiengang_form\').submit();"><OPTION value="-1">-- Keine Auswahl --</OPTION>';
 $i=0; $selected='';
-for ($i=0; $i<count($studiengang->result); $i++)
+for ($i=0; $i<numberOfElements($studiengang->result); $i++)
 {
 	if ($stg_kz == $studiengang->result[$i]->studiengang_kz) $selected = 'selected';
 	echo '<OPTION value="'.$studiengang->result[$i]->studiengang_kz.'" '.$selected.' >'.strtoupper($studiengang->result[$i]->typ.$studiengang->result[$i]->kurzbz).' ('.$studiengang->result[$i]->bezeichnung.')</OPTION>';

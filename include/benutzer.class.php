@@ -470,7 +470,7 @@ class benutzer extends person
 	public function cleanResult()
 	{
 		$values = array();
-		if (count($this->result) > 0)
+		if (numberOfElements($this->result) > 0)
 		{
 			foreach ($this->result as $ben)
 			{

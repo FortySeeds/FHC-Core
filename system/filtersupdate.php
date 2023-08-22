@@ -1260,13 +1260,13 @@ $filters = array(
 );
 
 // Loop through the filters array
-for ($filtersCounter = 0; $filtersCounter < count($filters); $filtersCounter++)
+for ($filtersCounter = 0; $filtersCounter < numberOfElements($filters); $filtersCounter++)
 {
 	$filter = $filters[$filtersCounter]; // single filter definition
 
 	// If it's an array and contains the required number of elements
 	// and contains the required fields
-	if (is_array($filter) && count($filter) == 8
+	if (is_array($filter) && numberOfElements($filter) == 8
 		&& isset($filter['app']) && isset($filter['dataset_name'])
 		&& isset($filter['filter_kurzbz']) && isset($filter['description'])
 		&& isset($filter['filter']))

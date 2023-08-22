@@ -245,7 +245,7 @@ class TemporaryFileFilterTest extends AbstractServer {
         $this->assertEquals('/._testput.txt',(string)$data,'href element should have been /._testput.txt');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:resourcetype');
-        $this->assertEquals(1,count($data));
+        $this->assertEquals(1,numberOfElements($data));
 
     }
 

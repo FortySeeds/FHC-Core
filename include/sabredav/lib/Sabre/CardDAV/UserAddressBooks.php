@@ -162,7 +162,7 @@ class UserAddressBooks extends DAV\Collection implements DAV\IExtendedCollection
      */
     public function createExtendedCollection($name, array $resourceType, array $properties) {
 
-        if (!in_array('{'.Plugin::NS_CARDDAV.'}addressbook',$resourceType) || count($resourceType)!==2) {
+        if (!in_array('{'.Plugin::NS_CARDDAV.'}addressbook',$resourceType) || numberOfElements($resourceType)!==2) {
             throw new DAV\Exception\InvalidResourceType('Unknown resourceType for this collection');
         }
         $this->carddavBackend->createAddressBook($this->principalUri, $name, $properties);

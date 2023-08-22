@@ -36,10 +36,10 @@ class OrganisationseinheitLib
 		$select = "";
 		if (is_array($fields))
 		{
-			for ($i = 0; $i < count($fields); $i++)
+			for ($i = 0; $i < numberOfElements($fields); $i++)
 			{
 				$select .= $fields[$i];
-				if ($i != count($fields) - 1)
+				if ($i != numberOfElements($fields) - 1)
 				{
 					$select .= ", ";
 				}
@@ -73,10 +73,10 @@ class OrganisationseinheitLib
 		$select = "";
 		if (is_array($fields))
 		{
-			for ($i = 0; $i < count($fields); $i++)
+			for ($i = 0; $i < numberOfElements($fields); $i++)
 			{
 				$select .= $fields[$i];
-				if ($i != count($fields) - 1)
+				if ($i != numberOfElements($fields) - 1)
 				{
 					$select .= ", ";
 				}

@@ -103,7 +103,7 @@ class menu_addon extends basis_db
 		$sprache = getSprache(); 
 		$p=new phrasen($sprache);
 		
-		if(count($this->items)>0)
+		if(numberOfElements($this->items)>0)
 		{
 			$this->outputItems1($this->items);
 			

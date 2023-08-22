@@ -467,13 +467,13 @@ function AddFont($family, $style='', $file='')
 	include($this->_getfontpath().$file);
 	if(!isset($name))
 		$this->Error('Could not include font definition file');
-	$i=count($this->fonts)+1;
+	$i=numberOfElements($this->fonts)+1;
 	$this->fonts[$fontkey]=array('i'=>$i, 'type'=>$type, 'name'=>$name, 'desc'=>$desc, 'up'=>$up, 'ut'=>$ut, 'cw'=>$cw, 'enc'=>$enc, 'file'=>$file);
 	if($diff)
 	{
 		//Search existing encodings
 		$d=0;
-		$nb=count($this->diffs);
+		$nb=numberOfElements($this->diffs);
 		for($i=1;$i<=$nb;$i++)
 		{
 			if($this->diffs[$i]==$diff)
@@ -542,7 +542,7 @@ function SetFont($family, $style='', $size=0)
 				if(!isset($fpdf_charwidths[$fontkey]))
 					$this->Error('Could not include font metric file');
 			}
-			$i=count($this->fonts)+1;
+			$i=numberOfElements($this->fonts)+1;
 			$name=$this->CoreFonts[$fontkey];
 			$cw=$fpdf_charwidths[$fontkey];
 			$this->fonts[$fontkey]=array('i'=>$i, 'type'=>'core', 'name'=>$name, 'up'=>-100, 'ut'=>50, 'cw'=>$cw);
@@ -574,7 +574,7 @@ function SetFontSize($size)
 function AddLink()
 {
 	//Create a new internal link
-	$n=count($this->links)+1;
+	$n=numberOfElements($this->links)+1;
 	$this->links[$n]=array(0, 0);
 	return $n;
 }
@@ -915,7 +915,7 @@ function Image($file, $x=null, $y=null, $w=0, $h=0, $type='', $link='')
 		if(!method_exists($this,$mtd))
 			$this->Error('Unsupported image type: '.$type);
 		$info=$this->$mtd($file);
-		$info['i']=count($this->images)+1;
+		$info['i']=numberOfElements($this->images)+1;
 		$this->images[$file]=$info;
 	}
 	else
@@ -1192,7 +1192,7 @@ function _dounderline($x, $y, $txt)
 	//Underline text
 	$up=$this->CurrentFont['up'];
 	$ut=$this->CurrentFont['ut'];
-	$w=$this->GetStringWidth($txt)+$this->ws*substr_count($txt,' ');
+	$w=$this->GetStringWidth($txt)+$this->ws*substr_numberOfElements($txt,' ');
 	return sprintf('%.2F %.2F %.2F %.2F re f',$x*$this->k,($this->h-($y-$up/1000*$this->FontSize))*$this->k,$w*$this->k,-$ut/1000*$this->FontSizePt);
 }
 
@@ -1586,7 +1586,7 @@ function _putimages()
 		if(isset($info['trns']) && is_array($info['trns']))
 		{
 			$trns='';
-			for($i=0;$i<count($info['trns']);$i++)
+			for($i=0;$i<numberOfElements($info['trns']);$i++)
 				$trns.=$info['trns'][$i].' '.$info['trns'][$i].' ';
 			$this->_out('/Mask ['.$trns.']');
 		}

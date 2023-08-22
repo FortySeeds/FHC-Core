@@ -239,10 +239,10 @@ if (!$veranstaltungskategorie=$Jahresplan->loadVeranstaltungskategorie())
 				echo '<option '.(empty($veranstaltungskategorie_kurzbz)?' selected="selected" ':'').' value="">'.$p->t("eventkalender/alleKategorien").'</option>';
 				// Init Direktzugriffstabelle der Kategorien fuer Kalender - Key:veranstaltungskategorie_kurzbz
 				// Verarbeitungskategorie - Auswahl.- Selektliste
-			  	if  (is_array($veranstaltungskategorie) || count($veranstaltungskategorie)>0)
+			  	if  (is_array($veranstaltungskategorie) || numberOfElements($veranstaltungskategorie)>0)
 				{
 					reset($veranstaltungskategorie);
-				  	for ($iTmpZehler=0;$iTmpZehler<count($veranstaltungskategorie);$iTmpZehler++)
+				  	for ($iTmpZehler=0;$iTmpZehler<numberOfElements($veranstaltungskategorie);$iTmpZehler++)
 					{
 						// Check Space
 						$veranstaltungskategorie[$iTmpZehler]->veranstaltungskategorie_kurzbz=trim($veranstaltungskategorie[$iTmpZehler]->veranstaltungskategorie_kurzbz);

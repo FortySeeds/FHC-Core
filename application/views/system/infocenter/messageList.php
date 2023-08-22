@@ -1,5 +1,5 @@
 <?php
-$msgExists = count($messages) > 0;
+$msgExists = numberOfElements($messages) > 0;
 $widthColumn = $msgExists === true ? 8 : 12;
 ?>
 <div class="col-lg-<?php echo $widthColumn ?>">

@@ -299,7 +299,7 @@
 					
 						$row_anz->anz=0;
 						if ($result=$student->getStudents($row_anz->studiengang_kz,$row_anz->semester,$row_anz->verband,$row_anz->gruppe,$gruppe, $stsem))
-							$row_anz->anz=count($result);
+							$row_anz->anz=numberOfElements($result);
 								
 
 						if (empty($row_anz->anz))														

@@ -57,7 +57,7 @@ function checkZeilenUmbruch()
 		$lehrveranstaltung_obj = new lehrveranstaltung();
 		$result = $lehrveranstaltung_obj->getLehreinheitenOfLv($lvid, $user, $angezeigtes_stsem);
 
-		if(count($result)>0)
+		if(numberOfElements($result)>0)
 		    $angemeldet = true;
 	}
 
@@ -353,7 +353,7 @@ function checkZeilenUmbruch()
 				{
 					$bngrp = new benutzergruppe();
 					$bngrp->load_uids($row->gruppe_kurzbz, $angezeigtes_stsem);
-					if(isset($bngrp->uids) && count($bngrp->uids) > 0)
+					if(isset($bngrp->uids) && numberOfElements($bngrp->uids) > 0)
 					{
 						if(!$db->db_parse_bool($row->mailgrp))
 						{
@@ -408,7 +408,7 @@ function checkZeilenUmbruch()
 		{
 			$lvangebot = new lvangebot();
 			$gruppen = $lvangebot->AbmeldungMoeglich($lvid, $angezeigtes_stsem, $user);
-			if(count($gruppen)>0)
+			if(numberOfElements($gruppen)>0)
 			{
 				$menu[]=array
 				(
@@ -427,7 +427,7 @@ function checkZeilenUmbruch()
 	$lehretools = new lehre_tools();
 	if($lehretools->getTools($lvid, $angezeigtes_stsem))
 	{
-		if(count($lehretools->result)>0)
+		if(numberOfElements($lehretools->result)>0)
 		{
 			foreach($lehretools->result as $row)
 			{
@@ -480,7 +480,7 @@ if((!defined('CIS_LEHRVERANSTALTUNG_ANRECHNUNG_ANZEIGEN') || CIS_LEHRVERANSTALTU
 	$addon_obj = new addon();
 	if($addon_obj->loadAddons())
 	{
-		if(count($addon_obj->result)>0)
+		if(numberOfElements($addon_obj->result)>0)
 		{
 			foreach($addon_obj->result as $row)
 			{

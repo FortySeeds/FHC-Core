@@ -650,7 +650,7 @@ class ezcGraphSvgDriver extends ezcGraphDriver
             $size = $text['font']->minimalUsedFont;
             $font = $text['font']->name;
 
-            $completeHeight = count( $text['text'] ) * $size + ( count( $text['text'] ) - 1 ) * $this->options->lineSpacing;
+            $completeHeight = numberOfElements( $text['text'] ) * $size + ( numberOfElements( $text['text'] ) - 1 ) * $this->options->lineSpacing;
 
             // Calculate y offset for vertical alignement
             switch ( true )

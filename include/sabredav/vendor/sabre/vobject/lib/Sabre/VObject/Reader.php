@@ -56,7 +56,7 @@ class Reader {
             if (!$line) continue;
 
             if ($line[0]===" " || $line[0]==="\t") {
-                $lines2[count($lines2)-1].=substr($line,1);
+                $lines2[numberOfElements($lines2)-1].=substr($line,1);
             } else {
                 $lines2[] = $line;
             }

@@ -210,7 +210,7 @@ if (isset($_POST['submitbild']))
 	{
 		//Extension herausfiltern
 		$ext = explode('.', $_FILES['bild']['name']);
-		$ext = mb_strtolower($ext[count($ext) - 1]);
+		$ext = mb_strtolower($ext[numberOfElements($ext) - 1]);
 
 		//--check that it's a jpeg or gif or png
 		if ($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $ext == 'jpeg')
@@ -252,7 +252,7 @@ if (isset($_POST['submitaudio']))
 	{
 		//Extension herausfiltern
 		$ext = explode('.', $_FILES['audio']['name']);
-		$ext = mb_strtolower($ext[count($ext) - 1]);
+		$ext = mb_strtolower($ext[numberOfElements($ext) - 1]);
 
 		//--check that it's a mp3
 		if ($ext == 'mp3' || $ext == 'ogg')
@@ -390,7 +390,7 @@ if (isset($_POST['submitvorschlag']))
 	{
 		//Extension herausfiltern
 		$ext = explode('.', $_FILES['bild']['name']);
-		$ext = mb_strtolower($ext[count($ext) - 1]);
+		$ext = mb_strtolower($ext[numberOfElements($ext) - 1]);
 
 		//--check that it's a jpeg or gif or png
 		if ($ext == 'gif' || $ext == 'png' || $ext == 'jpg' || $ext == 'jpeg')
@@ -413,7 +413,7 @@ if (isset($_POST['submitvorschlag']))
 	{
 		//Extension herausfiltern
 		$ext = explode('.', $_FILES['audio']['name']);
-		$ext = mb_strtolower($ext[count($ext) - 1]);
+		$ext = mb_strtolower($ext[numberOfElements($ext) - 1]);
 
 		//--check that it's a jpeg or gif or png
 		if ($ext == 'mp3')
@@ -842,7 +842,7 @@ if (($anzahl !== 0) || ($stg_kz == '-1') && ($stg_kz !== ''))
 	$frage = new frage();
 	$frage->getFragen($gebiet_id, $nummer);
 
-	if (count($frage->result) == 1)
+	if (numberOfElements($frage->result) == 1)
 	{
 		$frage_id = $frage->result[0]->frage_id;
 	}
@@ -997,7 +997,7 @@ if ($frage_id != '')
 			if(isset($fragef1->result[0]))
 			{
 				$vorschlag->getVorschlag($fragef1->result[0]->frage_id, $sprache, false, false);
-				echo "<tr><td>Nummer:</td><td><input type='text' name='nummer' size='3' id='nummer' value='".(count($vorschlag->result) + 1)."' />"; //@Todo: Count ($vorschlag->result) liefert die naechste Nummer nur dann richtig, falls keine Zahl dazwischen fehlt (1,3,4,..). Hier sollte die letzte Nummer ermittelt werden.
+				echo "<tr><td>Nummer:</td><td><input type='text' name='nummer' size='3' id='nummer' value='".(numberOfElements($vorschlag->result) + 1)."' />"; //@Todo: Count ($vorschlag->result) liefert die naechste Nummer nur dann richtig, falls keine Zahl dazwischen fehlt (1,3,4,..). Hier sollte die letzte Nummer ermittelt werden.
 			}
 			else
 				echo "<tr><td>Nummer:</td><td><input type='text' name='nummer' size='3' id='nummer' />";
@@ -1072,7 +1072,7 @@ if ($frage_id != '')
 	$vorschlag->getVorschlag($frage_id, $sprache, false, false);
 	$i = 0;
 	$allevorschlaege = '';
-	if (count($vorschlag->result) > 0)
+	if (numberOfElements($vorschlag->result) > 0)
 	{
 		echo '<form action="'.$_SERVER['PHP_SELF'].'?gebiet_id='.$gebiet_id.'&amp;stg_kz='.$stg_kz.'&amp;nummer='.$nummer.'&amp;frage_id='.$frage->frage_id.'&amp;type=vorschlaegeaktiv&amp;filter='.$filter.'" method="POST">';
 		echo '<table><tr class="liste"><th>Nummer</th><th>Punkte</th><th>Text</th><th>Bild</th><th>Audio</th><th></th><th></th><th>Aktiv</th></tr>';

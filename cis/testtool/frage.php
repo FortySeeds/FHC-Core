@@ -498,7 +498,7 @@ if($frage->frage_id!='')
 		//Nachschauen ob diese Frage bereits angesehen wurde
 		$antwort = new antwort();
 		$antwort->getAntwort($_SESSION['pruefling_id'],$frage_id);
-		if(count($antwort->result)==0)
+		if(numberOfElements($antwort->result)==0)
 		{
 			//wenn diese noch nicht angesehen wurde, dann wird die begintime gesetzt
 			$prueflingfrage = new frage();
@@ -532,9 +532,9 @@ if($frage->frage_id!='')
 			$antwort = new antwort();
 			$antwort->getAntwort($_SESSION['pruefling_id'],$row->frage_id);
 			if($row->frage_id==$frage_id)
-				echo "<a href='#' target='_self'><td style='width:20px; text-align:center; padding:5px; box-shadow: 0px 0px 3px 3px #888888;".(count($antwort->result)!=0?"background-color:lightblue;":"")."'>".($row->nummer<10?" ":"")."$row->nummer</td></a>";
+				echo "<a href='#' target='_self'><td style='width:20px; text-align:center; padding:5px; box-shadow: 0px 0px 3px 3px #888888;".(numberOfElements($antwort->result)!=0?"background-color:lightblue;":"")."'>".($row->nummer<10?" ":"")."$row->nummer</td></a>";
 			else
-				echo " <a href='$PHP_SELF?gebiet_id=$gebiet_id&amp;frage_id=$row->frage_id'><td style='width:20px; text-align:center; padding:5px; box-shadow: 0px 0px 3px 0px #888888;".(count($antwort->result)!=0?"background-color:lightblue;":"")."'>$row->nummer</td></a>";
+				echo " <a href='$PHP_SELF?gebiet_id=$gebiet_id&amp;frage_id=$row->frage_id'><td style='width:20px; text-align:center; padding:5px; box-shadow: 0px 0px 3px 0px #888888;".(numberOfElements($antwort->result)!=0?"background-color:lightblue;":"")."'>$row->nummer</td></a>";
 		}
 		//echo " </tr></table>";
 	}
@@ -626,7 +626,7 @@ if($frage->frage_id!='')
 	$anzahl = 1;
 	$beantwortet = false;
 	$cnt = 0; // counter für foreach-Schleife
-	$len = count($vs->result);
+	$len = numberOfElements($vs->result);
 
 	//Antworten laden falls bereits vorhanden
 	$antwort = new antwort();
@@ -684,7 +684,7 @@ if($frage->frage_id!='')
 
 	//wenn singleresponse und keine Levels und vorschlaege vorhanden sind, dann gibt es auch die
 	//moeglichkeit fuer keine Antwort
-	if(!$gebiet->multipleresponse && !$levelgebiet && count($vs->result)>0)
+	if(!$gebiet->multipleresponse && !$levelgebiet && numberOfElements($vs->result)>0)
 	{
 		echo "<td valign='top' style='padding: 25px;'>";
 		echo '<input type="radio" class="button_style" name="vorschlag_id[]" value="" '.($beantwortet==false?'checked="checked"':'').'/><br /><font color="#acacac">'.$p->t('testtool/keineAntwort').'</font></td>';

@@ -85,7 +85,7 @@ function getOeGanttZeitraum($beginn, $ende)
     $timestampZeitraum_ende = mktime(0,0,0,$split_date_ende[1],$split_date_ende[0], $split_date_ende[2]);
 
     $cw = getCwRange($timestampZeitraum_beginn, $timestampZeitraum_ende);
-    $anzahlKw = count($cw);
+    $anzahlKw = numberOfElements($cw);
     $beginn = $datum->formatDatum($beginn, 'Y-m-d');
     $ende = $datum->formatDatum($ende, 'Y-m-d');
 
@@ -93,7 +93,7 @@ function getOeGanttZeitraum($beginn, $ende)
     if(!$projekt->getProjekteInZeitraum($beginn, $ende, $oe))
         die('Fehler beim laden der Projekte aufgetreten');
 
-    $height = (count($projekt->result)) * 50;
+    $height = (numberOfElements($projekt->result)) * 50;
 
     echo '<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 		<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
@@ -134,7 +134,7 @@ function getOeGanttZeitraum($beginn, $ende)
 				$year_end=date("Y",$timestamp_end);
 
                 $cw_projekt = getCwRange($timestamp_beginn, $timestamp_end);
-                $anzahlKwProjekt = count($cw_projekt);
+                $anzahlKwProjekt = numberOfElements($cw_projekt);
 
                 // Projekt beginnt und endet in aktuellem Zeitraum //stimmt
                 if($timestamp_beginn >= $timestampZeitraum_beginn && $timestamp_end <= $timestampZeitraum_ende)
@@ -147,7 +147,7 @@ function getOeGanttZeitraum($beginn, $ende)
                 if($timestamp_beginn>$timestampZeitraum_beginn && $timestamp_end > $timestampZeitraum_ende)
                 {
                     $cw_help = getCwRange($timestampZeitraum_beginn, $timestamp_beginn);
-                    $cw_help_anzahl = count($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
+                    $cw_help_anzahl = numberOfElements($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
 
                     $x = $startX+($cw_help_anzahl*$widthPerWeek);
                     $width = ($anzahlKw- $cw_help_anzahl)*$widthPerWeek;
@@ -156,7 +156,7 @@ function getOeGanttZeitraum($beginn, $ende)
                 if($timestamp_beginn < $timestampZeitraum_beginn && $timestamp_end < $timestampZeitraum_ende)
                 {
                     $cw_help = getCwRange($timestampZeitraum_beginn, $timestamp_end);
-                    $cw_help_anzahl = count($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
+                    $cw_help_anzahl = numberOfElements($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
 
                     $x = $startX;
                     $width = ($cw_help_anzahl)*$widthPerWeek;
@@ -192,13 +192,13 @@ function getOeGanttZeitraum($beginn, $ende)
                     $year_end=date("Y",$timestamp_end);
 
                     $cw_projekt = getCwRange($timestamp_beginn, $timestamp_end);
-                    $anzahlKwProjekt = count($cw_projekt);
+                    $anzahlKwProjekt = numberOfElements($cw_projekt);
 
                     // Projekt beginnt und endet in aktuellem Zeitraum //stimmt
                     if($timestamp_beginn > $timestampZeitraum_beginn && $timestamp_end < $timestampZeitraum_ende)
                     {
                         $cw_help = getCwRange($timestampZeitraum_beginn, $timestamp_beginn);
-                        $cw_help_anzahl = count($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
+                        $cw_help_anzahl = numberOfElements($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
 
                         $x = $startX+($cw_help_anzahl*$widthPerWeek);
                         $width = $anzahlKwProjekt*$widthPerWeek;
@@ -207,7 +207,7 @@ function getOeGanttZeitraum($beginn, $ende)
                     if($timestamp_beginn>$timestampZeitraum_beginn && $timestamp_end > $timestampZeitraum_ende)
                     {
                         $cw_help = getCwRange($timestampZeitraum_beginn, $timestamp_beginn);
-                        $cw_help_anzahl = count($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
+                        $cw_help_anzahl = numberOfElements($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
 
                         $x = $startX+($cw_help_anzahl*$widthPerWeek);
                         $width = ($anzahlKw- $cw_help_anzahl)*$widthPerWeek;
@@ -216,7 +216,7 @@ function getOeGanttZeitraum($beginn, $ende)
                     if($timestamp_beginn < $timestampZeitraum_beginn && $timestamp_end < $timestampZeitraum_ende && $timestamp_end > $timestampZeitraum_beginn)
                     {
                         $cw_help = getCwRange($timestampZeitraum_beginn, $timestamp_end);
-                        $cw_help_anzahl = count($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
+                        $cw_help_anzahl = numberOfElements($cw_help); // Anzahl der Wochen zwischen Zeitraumbeginn und Projektbeginn
 
                         $x = $startX;
                         $width = ($cw_help_anzahl)*$widthPerWeek;
@@ -280,7 +280,7 @@ function getOeGantt()
 	$kw_gesamt = date('W',$timestamp_gesamt);
 
 	// kommt auf Anzahl der Phasen an
-	$height = (count($projekt->result)) * 50;
+	$height = (numberOfElements($projekt->result)) * 50;
 
 	// Zeichne Kalenderjahr -> beginnend mit KW 1
 	if($ansicht=='kalenderjahr')
@@ -739,7 +739,7 @@ function getProjektGantt()
 	$kw_gesamt = date('W',$timestamp_gesamt);
 
 	// kommt auf Anzahl der Phasen an
-	$height = (count($projektphasen->result)) * 50;
+	$height = (numberOfElements($projektphasen->result)) * 50;
 
 	// Zeichne Kalenderjahr -> beginnend mit KW 1
 	if($ansicht=='kalenderjahr')

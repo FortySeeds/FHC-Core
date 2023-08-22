@@ -187,14 +187,14 @@
 	if ( $check!='' && !$oWAWI->studiengang($studiengang_id,$kurzzeichen,$studiengang_search))
   		$errormsg[]=$oWAWI->errormsg;
 
-	if (is_array($oWAWI->result) && count($oWAWI->result)==1)
+	if (is_array($oWAWI->result) && numberOfElements($oWAWI->result)==1)
 	{
 		$studiengang_id=$oWAWI->result[0]->studiengang_id;
 		if ( $check!='' && !$oWAWI->studiengang_kostenstelle($studiengang_id,$kurzzeichen,$studiengang_search))
   			$errormsg[]=$oWAWI->errormsg;
 		echo output_Studienganginformation($oWAWI->result,$debug);
 	}
-	else if (is_array($oWAWI->result) && count($oWAWI->result) >1)
+	else if (is_array($oWAWI->result) && numberOfElements($oWAWI->result) >1)
 	{
 		echo output_Studiengang($oWAWI->result,$debug);
 	}
@@ -207,7 +207,7 @@
 	}
 
 	// Meldungen ausgeben
-	if (is_array($errormsg) && count($errormsg)>0)
+	if (is_array($errormsg) && numberOfElements($errormsg)>0)
 		  echo '<font class="error">'. implode("<br />",$errormsg).'</font>';
 	else if (!is_array($errormsg))
 		  echo '<font class="error"><br />'.$errormsg.'</font>';
@@ -221,14 +221,14 @@
 function output_Studiengang($resultStudiengang=null,$debug=false)
 {
 	$htmlstring='';
-	if (is_null($resultStudiengang) || !is_array($resultStudiengang) || count($resultStudiengang)<1)
+	if (is_null($resultStudiengang) || !is_array($resultStudiengang) || numberOfElements($resultStudiengang)<1)
 		return $htmlstring;
 
 	$htmlstring.='<table  id="t1" class="liste table-autosort:2 table-stripeclass:alternate table-autostripe">
 			<thead>';
 
-	if (is_array($resultStudiengang) && count($resultStudiengang)>1)
-		$htmlstring.='<tr><th colspan="10">Bitte eine Studiengang aus den '.count($resultStudiengang).' gefundenen ausw&auml;hlen</th></tr>';
+	if (is_array($resultStudiengang) && numberOfElements($resultStudiengang)>1)
+		$htmlstring.='<tr><th colspan="10">Bitte eine Studiengang aus den '.numberOfElements($resultStudiengang).' gefundenen ausw&auml;hlen</th></tr>';
 
 	$htmlstring.='<tr class="liste">
 				<th class="table-sortable:default">Studiengang ID</th>
@@ -240,7 +240,7 @@ function output_Studiengang($resultStudiengang=null,$debug=false)
 			</tr>
 			</thead>
 			';
-	for ($pos=0;$pos<count($resultStudiengang);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultStudiengang);$pos++)
 	{
 		if ($pos%2)
 			$classe='liste1';
@@ -264,7 +264,7 @@ function output_Studiengang($resultStudiengang=null,$debug=false)
 function output_Studienganginformation($resultStudiengang=null,$debug=false)
 {
 	$htmlstring='';
-	if (is_null($resultStudiengang) || !is_array($resultStudiengang) || count($resultStudiengang)<1)
+	if (is_null($resultStudiengang) || !is_array($resultStudiengang) || numberOfElements($resultStudiengang)<1)
 		return $htmlstring;
 	if (!$oWAWI = new wawi())
 	   	die($oWAWI->errormsg . ($debug?' *** File:='.__FILE__.' Line:='.__LINE__:''));
@@ -303,7 +303,7 @@ function output_Studienganginformation($resultStudiengang=null,$debug=false)
 		$htmlstring.=$oWAWI->errormsg;
 	$resultStudiengangbenutzer=$oWAWI->result;
 
-	if (is_array($resultStudiengangbenutzer) && count($resultStudiengangbenutzer)>0)
+	if (is_array($resultStudiengangbenutzer) && numberOfElements($resultStudiengangbenutzer)>0)
 	{
 		$htmlstring.='<br /><!-- studiengang Kurzdetail -->
 				<table class="liste">
@@ -321,7 +321,7 @@ function output_Studienganginformation($resultStudiengang=null,$debug=false)
 					</tr>
 				<thead>';
 
-		for ($i=0;$i<count($resultStudiengangbenutzer);$i++)
+		for ($i=0;$i<numberOfElements($resultStudiengangbenutzer);$i++)
 		{
 			if ($i%2)
 				$classe='liste1';
@@ -376,7 +376,7 @@ function output_Studienganginformation($resultStudiengang=null,$debug=false)
 							<th>Bestellung</th>
 						</tr>
 					<thead>';
-	for ($pos=0;$pos<count($resultStudiengang);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultStudiengang);$pos++)
 	{
 		if ($pos%2)
 			$classe='liste1';
@@ -385,7 +385,7 @@ function output_Studienganginformation($resultStudiengang=null,$debug=false)
 
 		$resultKostenstelle=$oWAWI->kostenstelle($resultStudiengang[$pos]->kostenstelle_kostenstelle_id,null,null,$resultStudiengang[0]->studiengang_id );
 
-		for ($ii=0;$ii<count($resultKostenstelle);$ii++)
+		for ($ii=0;$ii<numberOfElements($resultKostenstelle);$ii++)
 		{
 			$htmlstring.='
 				<tr class="'.$classe.'">

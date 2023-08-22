@@ -49,7 +49,7 @@ $studiengang->getAll(null, false);
 $oRdf->sendHeader();
 $db = new basis_db();
 
-if (count($benutzer->result) > 0)
+if (numberOfElements($benutzer->result) > 0)
 {
 	$i = 0;
 	foreach ($benutzer->result as $row)

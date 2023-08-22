@@ -112,7 +112,7 @@ class ezcGraphDatabaseTest extends ezcTestCase
 
         $this->assertEquals(
             $count,
-            count( $dataSetArray ),
+            numberOfElements( $dataSetArray ),
             'Too few datasets found.'
         );
     }
@@ -157,7 +157,7 @@ class ezcGraphDatabaseTest extends ezcTestCase
 
         $this->assertEquals(
             $count,
-            count( $dataSetArray ),
+            numberOfElements( $dataSetArray ),
             'Too few datasets found.'
         );
     }
@@ -227,7 +227,7 @@ class ezcGraphDatabaseTest extends ezcTestCase
 
         $this->assertEquals(
             $count,
-            count( $dataSetArray ),
+            numberOfElements( $dataSetArray ),
             'Too few datasets found.'
         );
     }
@@ -277,7 +277,7 @@ class ezcGraphDatabaseTest extends ezcTestCase
 
         $this->assertEquals(
             $count,
-            count( $dataSetArray ),
+            numberOfElements( $dataSetArray ),
             'Too few datasets found.'
         );
     }
@@ -364,7 +364,7 @@ class ezcGraphDatabaseTest extends ezcTestCase
         );
 
         $this->assertEquals(
-            count( $dataset ),
+            numberOfElements( $dataset ),
             6,
             'Wrong data set item count returned'
         );

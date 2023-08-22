@@ -184,7 +184,7 @@ if(isset($_REQUEST['xmlformat']) && $_REQUEST['xmlformat']=="xml")
 						
 						//$projektarbeit[$row->lehrveranstaltung_id]['titel'] = breaktext($projektarbeit[$row->lehrveranstaltung_id]['titel'], 40);
 						
-						$anzahl_nl = substr_count($projektarbeit[$row_stud->lehrveranstaltung_id]['titel'],'\n');
+						$anzahl_nl = substr_numberOfElements($projektarbeit[$row_stud->lehrveranstaltung_id]['titel'],'\n');
 						$nl2='';
 						if($projektarbeit[$row_stud->lehrveranstaltung_id]['themenbereich']!='')
 						{

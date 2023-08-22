@@ -100,7 +100,7 @@ if($lehreinheit_id)
 
 		echo '<h1>'.$p->t('anwesenheitsliste/anwesenheit').' - '.$db->convert_html_chars($benutzer->titelpre.' '.$benutzer->vorname.' '.$benutzer->nachname.' '.$benutzer->titelpost).'</h1>';
 
-		if(!count($alle_semester))
+		if(!numberOfElements($alle_semester))
 		{
 			echo $p->t('anwesenheitsliste/keineEintraegeGefunden');
 		}

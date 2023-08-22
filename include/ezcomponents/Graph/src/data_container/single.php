@@ -28,7 +28,7 @@ class ezcGraphChartSingleDataContainer extends ezcGraphChartDataContainer
      */
     protected function addDataSet( $name, ezcGraphDataSet $dataSet )
     {
-        if ( count( $this->data ) >= 1 &&
+        if ( numberOfElements( $this->data ) >= 1 &&
              !isset( $this->data[$name] ) )
         {
             throw new ezcGraphTooManyDataSetsExceptions( $name );

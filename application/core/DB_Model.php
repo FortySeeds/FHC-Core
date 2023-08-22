@@ -292,7 +292,7 @@ class DB_Model extends CI_Model
 
 		// Generates the select clause based on the columns of each table
 		$select = '';
-		for ($t = 0; $t < count($tables); $t++)
+		for ($t = 0; $t < numberOfElements($tables); $t++)
 		{
 			// Get the schema if it is specified
 			$schemaAndTable = $this->getSchemaAndTable($tables[$t]);
@@ -308,18 +308,18 @@ class DB_Model extends CI_Model
 				$fields = $lstColumns->retval;
 			}
 
-			for ($f = 0; $f < count($fields); $f++)
+			for ($f = 0; $f < numberOfElements($fields); $f++)
 			{
 				// To avoid overwriting of the properties within the object returned by CI
 				// will be given an alias to every column, that will be composed with the following schema
 				// <table name>.<column name> AS <table_name>_<column name>
 				$select .= $tables[$t].'.'.$fields[$f]->column_name.' AS '.$tables[$t].'_'.$fields[$f]->column_name;
-				if ($f < count($fields) - 1) $select .= ', ';
+				if ($f < numberOfElements($fields) - 1) $select .= ', ';
 			}
 
-			if ($t < count($tables) - 1) $select .= ', ';
+			if ($t < numberOfElements($tables) - 1) $select .= ', ';
 
-			$tableColumnsCountArray[$t] = count($fields);
+			$tableColumnsCountArray[$t] = numberOfElements($fields);
 		}
 
 		// Adds the select clause
@@ -342,7 +342,7 @@ class DB_Model extends CI_Model
 			$returnArrayCounter = 0;	// Array counter
 
 			// Iterates the array that contains data from DB
-			for ($i = 0; $i < count($resultArray); $i++)
+			for ($i = 0; $i < numberOfElements($resultArray); $i++)
 			{
 				// Converts an object properties to an associative array
 				$objectVars = get_object_vars($resultArray[$i]);
@@ -351,7 +351,7 @@ class DB_Model extends CI_Model
 				$objTmpArray = array();
 				$tableColumnsCountArrayOffset = 0; // Columns offset
 				// Gets all the data of a single table from the returned record, and creates an object filled with these data
-				for ($f = 0; $f < count($tableColumnsCountArray); $f++)
+				for ($f = 0; $f < numberOfElements($tableColumnsCountArray); $f++)
 				{
 					$objTmpArray[$f] = new stdClass(); // Object that will represent a data set of a table
 
@@ -366,7 +366,7 @@ class DB_Model extends CI_Model
 				// Object that represents data of the main table
 				$mainTableObj = $objTmpArray[0];
 				// Fill $returnArray with all data from mainTable, and for each element will link the data from the side tables
-				for ($t = 1; $t < count($tables); $t++)
+				for ($t = 1; $t < numberOfElements($tables); $t++)
 				{
 					// Object that represents data of the side table
 					$sideTableObj = $objTmpArray[$t];
@@ -379,7 +379,7 @@ class DB_Model extends CI_Model
 					// If the side table has data. If it was used a left join all the properties could be null
 					// NOTE: Keep this way to be compatible with a php version older than 5.5
 					$tmpFilteredArray = array_filter(get_object_vars($sideTableObj));
-					if (isset($tmpFilteredArray) && count($tmpFilteredArray) > 0)
+					if (isset($tmpFilteredArray) && numberOfElements($tmpFilteredArray) > 0)
 					{
 						if (($k = $this->_findMainTable($mainTableObj, $returnArray)) === false)
 						{
@@ -527,7 +527,7 @@ class DB_Model extends CI_Model
 	{
 		if (!isset($fields)
 			|| (!is_array($fields) && !is_string($fields))
-			|| (is_array($fields) && count($fields) == 0)
+			|| (is_array($fields) && numberOfElements($fields) == 0)
 			|| (is_string($fields) && $fields == ''))
 		{
 			return error('The fields parameter is not valid', EXIT_MODEL);
@@ -798,7 +798,7 @@ class DB_Model extends CI_Model
 		if (!isEmptyString($query))
 		{
 			// If there are parameters to bind to the query
-			if (is_array($parametersArray) && count($parametersArray) > 0)
+			if (is_array($parametersArray) && numberOfElements($parametersArray) > 0)
 			{
 				$resultDB = $this->db->query($query, $parametersArray);
 			}
@@ -861,7 +861,7 @@ class DB_Model extends CI_Model
 	 */
 	private function _arrayCombine($idexes, $values)
 	{
-		if (count($idexes) != count($values)) return null;
+		if (numberOfElements($idexes) != numberOfElements($values)) return null;
 
 		return array_combine($idexes, $values);
 	}
@@ -997,7 +997,7 @@ class DB_Model extends CI_Model
 	 */
 	private function _findMainTable($mainTableObj, $mainTableArray)
 	{
-		for ($i = 0; $i < count($mainTableArray); $i++)
+		for ($i = 0; $i < numberOfElements($mainTableArray); $i++)
 		{
 			if ($mainTableObj->{$this->pk} == $mainTableArray[$i]->{$this->pk})
 			{
@@ -1062,7 +1062,7 @@ class DB_Model extends CI_Model
 		$result = $this->db->get_where($this->dbTable, $tmpId);
 
 		// If was a success and there are data
-		if ($result && count($result->result()) == 1)
+		if ($result && numberOfElements($result->result()) == 1)
 		{
 			// Get the UDF column and decode it from JSON
 			$jsonValues = json_decode($result->result()[0]->{UDFLib::COLUMN_NAME});

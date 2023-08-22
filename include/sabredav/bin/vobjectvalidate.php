@@ -74,7 +74,7 @@ HELP
 
 }
 
-if (count($posArgs) < 1) {
+if (numberOfElements($posArgs) < 1) {
     help();
     die();
 }
@@ -120,7 +120,7 @@ foreach($objects as $child) {
 
     $warnings = $child->validate($options);
 
-    if (!count($warnings)) {
+    if (!numberOfElements($warnings)) {
         fwrite(STDERR, "[GOOD NEWS] No warnings!\n");
     } else {
         foreach($warnings as $warn) {

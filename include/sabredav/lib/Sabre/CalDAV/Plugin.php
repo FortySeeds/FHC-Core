@@ -1208,7 +1208,7 @@ class Plugin extends DAV\ServerPlugin {
             )
         );
 
-        if (!count($result)) {
+        if (!numberOfElements($result)) {
             return array(
                 'request-status' => '3.7;Could not find principal',
                 'href' => 'mailto:' . $email,

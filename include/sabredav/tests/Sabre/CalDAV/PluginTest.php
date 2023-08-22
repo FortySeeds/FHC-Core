@@ -344,7 +344,7 @@ END:VCALENDAR';
         $this->assertEquals('HTTP/1.1 201 Created', $this->response->status,'Invalid response code received. Full response body: ' .$this->response->body);
 
         $calendars = $this->caldavBackend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(3, count($calendars));
+        $this->assertEquals(3, numberOfElements($calendars));
 
         $newCalendar = null;
         foreach($calendars as $calendar) {
@@ -393,7 +393,7 @@ END:VCALENDAR';
         $this->assertEquals('HTTP/1.1 201 Created', $this->response->status,'Invalid response code received. Full response body: ' .$this->response->body);
 
         $calendars = $this->caldavBackend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(3, count($calendars));
+        $this->assertEquals(3, numberOfElements($calendars));
 
         $newCalendar = null;
         foreach($calendars as $calendar) {
@@ -577,7 +577,7 @@ END:VCALENDAR';
             $xpath = is_int($v1)?$v2:$v1;
 
             $result = $xml->xpath($xpath);
-            $this->assertEquals(1,count($result));
+            $this->assertEquals(1,numberOfElements($result));
 
             if (!is_int($v1)) $this->assertEquals($v2,(string)$result[0]);
 
@@ -639,7 +639,7 @@ END:VCALENDAR';
             $xpath = is_int($v1)?$v2:$v1;
 
             $result = $xml->xpath($xpath);
-            $this->assertEquals(1,count($result));
+            $this->assertEquals(1,numberOfElements($result));
 
             if (!is_int($v1)) $this->assertEquals($v2,(string)$result[0]);
 
@@ -704,7 +704,7 @@ END:VCALENDAR';
             $xpath = is_int($v1)?$v2:$v1;
 
             $result = $xml->xpath($xpath);
-            $this->assertEquals(1,count($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . count($result) . '. Full result: ' . $this->response->body);
+            $this->assertEquals(1,numberOfElements($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . numberOfElements($result) . '. Full result: ' . $this->response->body);
 
             if (!is_int($v1)) $this->assertEquals($v2,(string)$result[0]);
 
@@ -762,7 +762,7 @@ END:VCALENDAR';
             $xpath = is_int($v1)?$v2:$v1;
 
             $result = $xml->xpath($xpath);
-            $this->assertEquals(1,count($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . count($result) . '. Full result: ' . $this->response->body);
+            $this->assertEquals(1,numberOfElements($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . numberOfElements($result) . '. Full result: ' . $this->response->body);
 
             if (!is_int($v1)) $this->assertEquals($v2,(string)$result[0]);
 
@@ -852,7 +852,7 @@ END:VCALENDAR';
             $xpath = is_int($v1)?$v2:$v1;
 
             $result = $xml->xpath($xpath);
-            $this->assertEquals(1,count($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . count($result) . '. Full result: ' . $this->response->body);
+            $this->assertEquals(1,numberOfElements($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . numberOfElements($result) . '. Full result: ' . $this->response->body);
 
             if (!is_int($v1)) $this->assertEquals($v2,(string)$result[0]);
 
@@ -911,7 +911,7 @@ END:VCALENDAR';
             $xpath = is_int($v1)?$v2:$v1;
 
             $result = $xml->xpath($xpath);
-            $this->assertEquals(1,count($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . count($result) . '. Full result: ' . $this->response->body);
+            $this->assertEquals(1,numberOfElements($result), 'We expected 1 ' . $xpath . ' elements. We\'ve found ' . numberOfElements($result) . '. Full result: ' . $this->response->body);
 
             if (!is_int($v1)) $this->assertEquals($v2,(string)$result[0]);
 
@@ -938,7 +938,7 @@ END:VCALENDAR';
         $this->assertFalse($r);
 
         $calendars = $this->caldavBackend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(3, count($calendars));
+        $this->assertEquals(3, numberOfElements($calendars));
 
         $newCalendar = null;
         foreach($calendars as $calendar) {

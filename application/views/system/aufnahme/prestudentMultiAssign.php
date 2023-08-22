@@ -135,7 +135,7 @@
 							</thead>
 							<tbody>
 				<?php
-						for ($i = 0; $i < count($users); $i++)
+						for ($i = 0; $i < numberOfElements($users); $i++)
 						{
 							$user = $users[$i];
 				?>

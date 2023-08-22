@@ -96,7 +96,7 @@ if (isset($_REQUEST['autocomplete']) && $_REQUEST['autocomplete'] == 'oe_kurzbz'
 			$oe->result[] = new organisationseinheit($row->oe_kurzbz);
 	}
 
-	if(is_array($oe->result) && count($oe->result) > 0)
+	if(is_array($oe->result) && numberOfElements($oe->result) > 0)
 	{
 		$resultArray = array();
 		foreach($oe->result as $row)

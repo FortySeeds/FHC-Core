@@ -126,21 +126,21 @@ if($dontloadcontent)
 
 if($stg_kz=='')
 {
-	$qry = "SELECT datum, stunde, student_uid, count(student_uid) AS anzahl
+	$qry = "SELECT datum, stunde, student_uid, COUNT(student_uid) AS anzahl
 			FROM lehre.vw_".$db_stpl_table."_student_unr
 			WHERE datum>=".$db->db_add_param($beginn)." AND datum<=".$db->db_add_param($ende)."
 			GROUP BY datum, stunde, student_uid
-			HAVING count(student_uid)>1
+			HAVING COUNT(student_uid)>1
 			ORDER BY datum, stunde, student_uid LIMIT 30; 
 		   ";
 }
 else 
 {
-	$qry = "SELECT datum, stunde, student_uid, count(student_uid) AS anzahl
+	$qry = "SELECT datum, stunde, student_uid, COUNT(student_uid) AS anzahl
 			FROM lehre.vw_".$db_stpl_table."_student_unr JOIN public.tbl_student USING(student_uid)
 			WHERE datum>=".$db->db_add_param($beginn)." AND datum<=".$db->db_add_param($ende)." AND studiengang_kz=".$db->db_add_param($stg_kz)."
 			GROUP BY datum, stunde, student_uid
-			HAVING count(student_uid)>1
+			HAVING COUNT(student_uid)>1
 			ORDER BY datum, stunde, student_uid LIMIT 30; 
 		   ";
 }

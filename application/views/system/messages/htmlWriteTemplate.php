@@ -83,7 +83,7 @@
 								</label>
 
 								<?php
-                                    $size = count($variables) > 19 ? 19 : count($variables);
+                                    $size = numberOfElements($variables) > 19 ? 19 : numberOfElements($variables);
 									echo $this->widgetlib->widget(
 										'MultipleDropdown_widget',
 										array('elements' => success($variables)),
@@ -105,7 +105,7 @@
                                 </label>
 								
 								<?php
-								$size = count($user_fields) > 5 ? 5 : count($user_fields);
+								$size = numberOfElements($user_fields) > 5 ? 5 : numberOfElements($user_fields);
 								echo $this->widgetlib->widget(
 									'MultipleDropdown_widget',
 									array('elements' => success($user_fields)),

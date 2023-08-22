@@ -80,7 +80,7 @@ END:VCALENDAR
 
         $vObject = VObject\Reader::read($body);
 
-        $this->assertEquals(2, count($vObject->VEVENT));
+        $this->assertEquals(2, numberOfElements($vObject->VEVENT));
 
         // check if DTSTARTs and DTENDs are correct
         foreach ($vObject->VEVENT as $vevent) {

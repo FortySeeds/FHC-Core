@@ -346,21 +346,21 @@ if (isset($_GET['excel']))
 
 				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." ";
-	if (count($ausgeschieden) > 0)
+	if (numberOfElements($ausgeschieden) > 0)
 	{
 		$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')     ";
 	}
 	$qry .= ") AS aufgenommenerber,
 				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' ";
-	if (count($ausgeschieden) > 0)
+	if (numberOfElements($ausgeschieden) > 0)
 	{
 		$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 	}
 	$qry .= ") AS aufgenommenerber_m,
 				(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 					WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' ";
-	if (count($ausgeschieden) > 0)
+	if (numberOfElements($ausgeschieden) > 0)
 	{
 		$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 	}
@@ -623,7 +623,7 @@ if (isset($_GET['excel']))
 				$worksheet->write(++$zeile, $i, "Studiengang", $format_bold);
 				$maxlength[$i] = 15;
 
-				$noOrgformen = count($orgform_arr);
+				$noOrgformen = numberOfElements($orgform_arr);
 				$i++;//um 1 erhöhen wegen erster spalte (Studiengang)
 				foreach ($studenttypes as $heading)
 				{
@@ -636,7 +636,7 @@ if (isset($_GET['excel']))
 				$i = 0;
 				$worksheet->write(++$zeile, $i, "", $format_bold);
 				$maxlength[$i] = 0;
-				$noStudenttypes = count($studenttypes);
+				$noStudenttypes = numberOfElements($studenttypes);
 				$sumarr = array();
 				for ($j = 0; $j < $noStudenttypes; $j++)
 				{
@@ -701,7 +701,7 @@ if (isset($_GET['excel']))
 		$worksheet->mergeCells($zeile, $i, $zeile, $i + 1);
 
 		$qry = "SELECT
-					count(anzahl) AS anzahlpers,anzahl AS anzahlstg
+					numberOfElements(anzahl) AS anzahlpers,anzahl AS anzahlstg
 				FROM
 				(
 					SELECT
@@ -903,7 +903,7 @@ if (isset($_GET['excel']))
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -911,7 +911,7 @@ if (isset($_GET['excel']))
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -919,7 +919,7 @@ if (isset($_GET['excel']))
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -1261,7 +1261,7 @@ if (isset($_GET['excel']))
 		$worksheet2->mergeCells($zeile, $i, $zeile, $i + 1);
 
 		$qry = "SELECT
-					count(anzahl) AS anzahlpers,anzahl AS anzahlstg
+					numberOfElements(anzahl) AS anzahlpers,anzahl AS anzahlstg
 				FROM
 				(
 					SELECT
@@ -1589,21 +1589,21 @@ else
 
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')     ";
 		}
 		$qry .= ") AS aufgenommenerber,
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
 		$qry .= ") AS aufgenommenerber_m,
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -1739,8 +1739,8 @@ else
 		//Aufsplittungen für Mischformen holen
 		$qry = generateMischformenQuery($orgform_arr, $stsem, $ausgeschieden, $stgwhere, $db);
 
-		$noOrgformen = count($orgform_arr);
-		$noStudenttypes = count($studenttypes);
+		$noOrgformen = numberOfElements($orgform_arr);
+		$noStudenttypes = numberOfElements($studenttypes);
 		if ($result = $db->db_query($qry))
 		{
 			if ($db->db_num_rows($result) > 0)
@@ -1817,7 +1817,7 @@ else
 		//Verteilung
 		$content .= '<br><h2>Verteilung '.$stsem.'</h2><br>';
 		$qry = "SELECT
-					count(anzahl) AS anzahlpers,anzahl AS anzahlstg
+					numberOfElements(anzahl) AS anzahlpers,anzahl AS anzahlstg
 				FROM
 				(
 					SELECT
@@ -2008,7 +2008,7 @@ else
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND datum<=".$db->db_add_param($datum)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -2016,7 +2016,7 @@ else
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='m' AND datum<=".$db->db_add_param($datum)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -2024,7 +2024,7 @@ else
 					(SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id) JOIN public.tbl_person USING(person_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener'
 						AND studiensemester_kurzbz=".$db->db_add_param($stsem)." AND geschlecht='w' AND datum<=".$db->db_add_param($datum)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}
@@ -2158,7 +2158,7 @@ else
 			//Verteilung
 			$content .= '<br><h2>Verteilung '.$stsem.'</h2><br>';
 			$qry = "SELECT
-						count(anzahl) AS anzahlpers,anzahl AS anzahlstg
+						numberOfElements(anzahl) AS anzahlpers,anzahl AS anzahlstg
 					FROM
 					(
 						SELECT
@@ -2277,7 +2277,7 @@ function generateMischformenQuery($orgform_arr, $stsem, $ausgeschieden, $stgwher
 						AND orgform_kurzbz=".$db->db_add_param($row_orgform).") AS aufgenommener_".$row_orgform.",";
 		$qry .= " (SELECT COUNT(*) FROM public.tbl_prestudent JOIN public.tbl_prestudentstatus USING (prestudent_id)
 						WHERE studiengang_kz=stg.studiengang_kz AND status_kurzbz='Aufgenommener' AND studiensemester_kurzbz=".$db->db_add_param($stsem)." ";
-		if (count($ausgeschieden) > 0)
+		if (numberOfElements($ausgeschieden) > 0)
 		{
 			$qry .= "AND (prestudent_id) NOT IN ('".implode("','", $ausgeschieden)."')  ";
 		}

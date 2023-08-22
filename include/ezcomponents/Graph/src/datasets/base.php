@@ -238,7 +238,7 @@ abstract class ezcGraphDataSet implements ArrayAccess, Iterator, Countable
     public function next()
     {
         $keys = array_keys( $this->data );
-        if ( ++$this->current >= count( $keys ) )
+        if ( ++$this->current >= numberOfElements( $keys ) )
         {
             return false;
         }

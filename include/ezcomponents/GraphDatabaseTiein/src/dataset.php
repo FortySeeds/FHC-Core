@@ -76,7 +76,7 @@ class ezcGraphDatabaseDataSet extends ezcGraphDataSet
             {
                 ++$count;
 
-                switch ( count( $row ) )
+                switch ( numberOfElements( $row ) )
                 {
                     case 1:
                         $this->data[] = $row[0];
@@ -130,9 +130,9 @@ class ezcGraphDatabaseDataSet extends ezcGraphDataSet
      * 
      * @return int
      */
-    public function count()
+    public function numberOfElements()
     {
-        return count( $this->data );
+        return numberOfElements( $this->data );
     }
 }
 

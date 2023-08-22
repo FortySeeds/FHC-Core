@@ -532,7 +532,7 @@ if($result = $db->db_query($qry))
 
 			$benutzer = new benutzer();
 			$benutzer->getBenutzerFromPerson($row->person_id, false);
-			if (count($benutzer->result) > 0)
+			if (numberOfElements($benutzer->result) > 0)
 			{
 				foreach ($benutzer->result AS $bn)
 				{

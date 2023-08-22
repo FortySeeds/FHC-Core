@@ -93,7 +93,7 @@ END:VCALENDAR
         $vObject = VObject\Reader::read($body);
 
         // We only expect 3 events
-        $this->assertEquals(3, count($vObject->VEVENT),'We got 6 events instead of 3. Output: ' . $body);
+        $this->assertEquals(3, numberOfElements($vObject->VEVENT),'We got 6 events instead of 3. Output: ' . $body);
 
         // TZID should be gone
         $this->assertFalse(isset($vObject->VEVENT->DTSTART['TZID']));

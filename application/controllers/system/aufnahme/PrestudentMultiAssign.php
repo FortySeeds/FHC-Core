@@ -86,7 +86,7 @@ class PrestudentMultiAssign extends Auth_Controller
         if (isset($stufe)
 			&& isset($prestudentIdArray)
 			&& is_array($prestudentIdArray)
-			&& count($prestudentIdArray) > 0)
+			&& numberOfElements($prestudentIdArray) > 0)
         {
 			$result = $this->PrestudentstatusModel->updateStufe($prestudentIdArray, $stufe);
 
@@ -126,7 +126,7 @@ class PrestudentMultiAssign extends Auth_Controller
         if (isset($aufnahmegruppe)
 			&& isset($prestudentIdArray)
 			&& is_array($prestudentIdArray)
-			&& count($prestudentIdArray) > 0)
+			&& numberOfElements($prestudentIdArray) > 0)
         {
 			$result = $this->PrestudentModel->updateAufnahmegruppe($prestudentIdArray, $aufnahmegruppe);
 

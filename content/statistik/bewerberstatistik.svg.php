@@ -122,7 +122,7 @@
 	
 	//Keys fuer alle Monate anlegen damit keine Luecken vorhanden sind
 	$firstkey = $keys[0];
-	$lastkey = $keys[count($keys)-1];
+	$lastkey = $keys[numberOfElements($keys)-1];
 	$year = mb_substr($firstkey,0,4);
 	$month = mb_substr($firstkey, 4);
 	$lastyear = mb_substr($lastkey, 0, 4);

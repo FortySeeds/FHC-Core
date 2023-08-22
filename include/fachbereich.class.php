@@ -96,7 +96,7 @@ class fachbereich extends basis_db
 	 */
 	public function loadArray($kurzbzs, $order=null, $aktiv=true)
 	{
-		if(count($kurzbzs)==0)
+		if(numberOfElements($kurzbzs)==0)
 			return true;
 
 		$qry = 'SELECT * FROM public.tbl_fachbereich WHERE fachbereich_kurzbz in('.$this->implode4SQL($kurzbzs).')';

@@ -153,11 +153,11 @@ else
 	$descr='';
 	$sequenz='';
 	$lastOE=null;
-	for ($i=0;$i<count($projekt_obj->result);$i++)
+	for ($i=0;$i<numberOfElements($projekt_obj->result);$i++)
 	{
 		$currentOE=$projekt_obj->result[$i]->oe_kurzbz;
 		//echo $currentOE;
-		$nextOE=(($i<count($projekt_obj->result)-1)?$projekt_obj->result[$i+1]->oe_kurzbz:null);
+		$nextOE=(($i<numberOfElements($projekt_obj->result)-1)?$projekt_obj->result[$i+1]->oe_kurzbz:null);
 		//echo $nextOE;
 		$projekt=$projekt_obj->result[$i];
 		// Bin ich schon in der naechsten OE? Oder vielleicht in der ersten?
@@ -207,7 +207,7 @@ else
 
 		$projektphase_obj->getProjektphasen($projekt->projekt_kurzbz);
 		$tmpStr='';
-		for ($j=0;$j<count($projektphase_obj->result);$j++)
+		for ($j=0;$j<numberOfElements($projektphase_obj->result);$j++)
 		{
 			$projektphase=$projektphase_obj->result[$j];
 

@@ -1143,7 +1143,7 @@ class reihungstest extends basis_db
 					JOIN public.tbl_rt_studienplan USING(reihungstest_id)
 				WHERE studienplan_id IN(".$this->db_implode4Sql($studienplan_arr).")";
 
-		if (!is_null($include_ids) && is_array($include_ids) && count($include_ids) > 0)
+		if (!is_null($include_ids) && is_array($include_ids) && numberOfElements($include_ids) > 0)
 		{
 			$qry .= " OR reihungstest_id in(".$this->db_implode4SQL($include_ids).")";
 		}

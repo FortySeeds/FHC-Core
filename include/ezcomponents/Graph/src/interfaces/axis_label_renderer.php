@@ -374,7 +374,7 @@ abstract class ezcGraphAxisLabelRenderer extends ezcBaseOptions
             }
         }
 
-        if ( count( $cuttingPoints ) < 2 )
+        if ( numberOfElements( $cuttingPoints ) < 2 )
         {
             // This should not happpen
             return false;

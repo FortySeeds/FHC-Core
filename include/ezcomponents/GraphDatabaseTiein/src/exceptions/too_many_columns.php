@@ -25,7 +25,7 @@ class ezcGraphDatabaseTooManyColumnsException extends ezcGraphDatabaseException
      */
     public function __construct( $row )
     {
-        $columnCount = count( $row );
+        $columnCount = numberOfElements( $row );
         parent::__construct( "'{$columnCount}' columns are too many in a result." );
     }
 }

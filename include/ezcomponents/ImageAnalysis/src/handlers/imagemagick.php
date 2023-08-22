@@ -281,7 +281,7 @@ class ezcImageAnalyzerImagemagickHandler extends ezcImageAnalyzerHandler
         }
 
         // Unset last (empty) element
-        unset( $rawDataArr[count( $rawDataArr ) - 1] );
+        unset( $rawDataArr[numberOfElements( $rawDataArr ) - 1] );
 
         if ( sizeof( $rawDataArr ) > 1 )
         {

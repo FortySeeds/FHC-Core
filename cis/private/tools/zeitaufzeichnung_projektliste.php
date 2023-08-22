@@ -110,7 +110,7 @@ usort($ztaufdata, function ($ztaufa, $ztaufb)
 );
 
 //fill projectlines with data
-for ($i = 0; $i < count($ztaufdata); $i++)
+for ($i = 0; $i < numberOfElements($ztaufdata); $i++)
 {
 	$ztaufrow = $ztaufdata[$i];
 
@@ -137,9 +137,9 @@ for ($i = 0; $i < count($ztaufdata); $i++)
 		if ($ztaufrow->aktivitaet_kurzbz == $activitiesToSubtract[0])
 		{
 			$prevpause = null;
-			if (count($allpauseranges) > 0)
+			if (numberOfElements($allpauseranges) > 0)
 			{
-				$prevpause = $allpauseranges[count($allpauseranges) - 1];
+				$prevpause = $allpauseranges[numberOfElements($allpauseranges) - 1];
 			}
 
 			//first pause or no overlap to previous pause - add pauserange
@@ -153,7 +153,7 @@ for ($i = 0; $i < count($ztaufdata); $i++)
 			//pause overlap - change pause ende
 			elseif ($prevpause->ende > $ztaufrow->start)
 			{
-				$allpauseranges[count($allpauseranges) - 1]->ende = $ztaufrow->ende;
+				$allpauseranges[numberOfElements($allpauseranges) - 1]->ende = $ztaufrow->ende;
 			}
 		}
 	}
@@ -201,14 +201,14 @@ for ($i = 0; $i < count($ztaufdata); $i++)
 				$lastende = $ztaufrow->ende;
 
 				$alleZeiten =& $currproj->alleZeiten;
-				$index = count($alleZeiten);
+				$index = numberOfElements($alleZeiten);
 				$alleZeiten[$index - 1]->ende = $ztaufrow->ende;
 
 				//check if overlap in projektphase, change ende accordingly
 				if (isset($ztaufrow->projektphase_id))
 				{
 					$projektphaseAlleZeiten =& $currproj->projektphasen[$ztaufrow->projektphase_id]->alleZeiten;
-					$projektphaselastendeidx = count($projektphaseAlleZeiten);
+					$projektphaselastendeidx = numberOfElements($projektphaseAlleZeiten);
 					$projektphaselastende =& $projektphaseAlleZeiten[$projektphaselastendeidx - 1];
 					if ($ztaufrow->start < $projektphaselastende && $ztaufrow->ende > $projektphaselastende)
 						$projektphaselastende->ende = $ztaufrow->ende;
@@ -557,7 +557,7 @@ $format_cell_centered_alllines->setAlign('center');
 $format_cell_centered_alllines->setVAlign('vcenter');
 
 //define column widths
-$nrProjects = count($projektnames);
+$nrProjects = numberOfElements($projektnames);
 $totalwidth = 150;
 $daywidth = 4;
 $totalworktimewidth = 13;
@@ -599,7 +599,7 @@ foreach ($projektnames as $projektname)
 	$worksheet->setColumn(2, 2, $totalworktimewidth);
 
 	//calculate number of columns of projekt with phases
-	$nrPhases = isset($projektphasenames[$projektname]) ? count($projektphasenames[$projektname]) : 0;
+	$nrPhases = isset($projektphasenames[$projektname]) ? numberOfElements($projektphasenames[$projektname]) : 0;
 
 	//get taetigkeiten column width -
 	//minimum is wordlength, maximum restwidth after subraction of projektphase minimum width
@@ -699,7 +699,7 @@ foreach ($projektnames as $projektname)
 	if (isset($projektphasenames[$projektname]))
 	{
 		$phasenames = $projektphasenames[$projektname];
-		$phasenameslength = count($phasenames);
+		$phasenameslength = numberOfElements($phasenames);
 	}
 	else
 	{
@@ -769,7 +769,7 @@ foreach ($projektnames as $projektname)
 			{
 				//write empty cells until end of table
 				$worksheet->write($zeile, $spalte, '', $format_cell_centered_leftrightline);
-				$toskip = count($projektphasenames[$projektname]);
+				$toskip = numberOfElements($projektphasenames[$projektname]);
 				for ($i = 0; $i <= $toskip; $i++)
 				{
 					if ($i == 0)

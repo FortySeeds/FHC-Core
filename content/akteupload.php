@@ -94,7 +94,7 @@ if(isset($_POST['submitbild']))
 	{
 		//Extension herausfiltern
 		$ext = explode('.',$_FILES['file']['name']);
-		$ext = mb_strtolower($ext[count($ext)-1]);
+		$ext = mb_strtolower($ext[numberOfElements($ext)-1]);
 
 		$filename = $_FILES['file']['tmp_name'];
 
@@ -107,7 +107,7 @@ if(isset($_POST['submitbild']))
 
 		if($akte->getAkten($_GET['person_id'], 'Lichtbil'))
 		{
-			if(count($akte->result)>0)
+			if(numberOfElements($akte->result)>0)
 			{
 				$akte = $akte->result[0];
 				$akte->new = false;

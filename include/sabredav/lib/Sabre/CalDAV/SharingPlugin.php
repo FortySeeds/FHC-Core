@@ -191,7 +191,7 @@ class SharingPlugin extends DAV\ServerPlugin {
 
         if ($node instanceof IShareableCalendar) {
             if (isset($properties[200]['{DAV:}resourcetype'])) {
-                if (count($node->getShares())>0) {
+                if (numberOfElements($node->getShares())>0) {
                     $properties[200]['{DAV:}resourcetype']->add(
                         '{' . Plugin::NS_CALENDARSERVER . '}shared-owner'
                     );

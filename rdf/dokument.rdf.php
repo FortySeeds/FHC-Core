@@ -86,7 +86,7 @@ foreach ($dok->result as $row)
 	$onlinebewerbung = ($row->onlinebewerbung)?'ja':'nein';
 	$pflicht = ($row->pflicht)?'ja':'nein';
 	// Wenn Akten vorhanden anzeigen
-	if(count($akte->result) != 0)
+	if(numberOfElements($akte->result) != 0)
 	{
 
 		foreach($akte->result as $a)

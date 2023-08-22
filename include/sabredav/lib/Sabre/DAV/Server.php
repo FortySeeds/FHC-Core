@@ -1482,7 +1482,7 @@ class Server {
         // If the propertyNames array is empty, it means all properties are requested.
         // We shouldn't actually return everything we know though, and only return a
         // sensible list.
-        $allProperties = count($propertyNames)==0;
+        $allProperties = numberOfElements($propertyNames)==0;
 
         foreach($nodes as $myPath=>$node) {
 
@@ -1521,7 +1521,7 @@ class Server {
             // node as it is inaccessible.
             if ($result===false) continue;
 
-            if (count($currentPropertyNames) > 0) {
+            if (numberOfElements($currentPropertyNames) > 0) {
 
                 if ($node instanceof IProperties) {
                     $nodeProperties = $node->getProperties($currentPropertyNames);
@@ -1730,7 +1730,7 @@ class Server {
         } else {
 
             // No special resourcetypes are supported
-            if (count($resourceType)>1) {
+            if (numberOfElements($resourceType)>1) {
                 throw new Exception\InvalidResourceType('The {DAV:}resourcetype you specified is not supported here.');
             }
 
@@ -1739,7 +1739,7 @@ class Server {
             $exception = null;
             $errorResult = null;
 
-            if (count($properties)>0) {
+            if (numberOfElements($properties)>0) {
 
                 try {
 
@@ -1825,7 +1825,7 @@ class Server {
 
         // If the node is not an instance of Sabre\DAV\IProperties, every
         // property is 403 Forbidden
-        if (!$hasError && count($remainingProperties) && !($node instanceof IProperties)) {
+        if (!$hasError && numberOfElements($remainingProperties) && !($node instanceof IProperties)) {
             $hasError = true;
             foreach($properties as $propertyName=> $value) {
                 $result[403][$propertyName] = null;
@@ -1836,7 +1836,7 @@ class Server {
         // Only if there were no errors we may attempt to update the resource
         if (!$hasError) {
 
-            if (count($remainingProperties)>0) {
+            if (numberOfElements($remainingProperties)>0) {
 
                 $updateResult = $node->updateProperties($remainingProperties);
 
@@ -1883,7 +1883,7 @@ class Server {
         // Removing empty array values
         foreach($result as $status=>$props) {
 
-            if (count($props)===0) unset($result[$status]);
+            if (numberOfElements($props)===0) unset($result[$status]);
 
         }
         $result['href'] = $uri;

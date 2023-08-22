@@ -184,7 +184,7 @@ if (isset($_POST["submit"]))
 	}
 
 	// Checks if a file was uploaded
-	if (!$errorOccurred && (!isset($_FILES) || !is_array($_FILES) || count($_FILES) == 0))
+	if (!$errorOccurred && (!isset($_FILES) || !is_array($_FILES) || numberOfElements($_FILES) == 0))
 	{
 		lAddToLogArray($L_ERROR, $L_LN_NOT_AVAILABLE, "No files have been uploaded");
 	}
@@ -241,7 +241,7 @@ if (!$errorOccurred && $dataPosted)
 		if ($fileRow != null && $fileRow !== false)
 		{
 			// Checks if the row has the right amount of columns
-			if (is_array($fileRow) && count($fileRow) == $L_CSV_N_COLS)
+			if (is_array($fileRow) && numberOfElements($fileRow) == $L_CSV_N_COLS)
 			{
 				// Checks if character encoding is UTF-8
 				if (mb_detect_encoding(implode(";", $fileRow), "UTF-8", true))

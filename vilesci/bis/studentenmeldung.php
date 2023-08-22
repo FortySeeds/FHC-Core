@@ -1691,7 +1691,7 @@ function GenerateXMLStudentBlock($row)
 				$zweck_code_arr = array();
 
 				// Es muss immer mindestens 1 Aufenthaltszweck geben
-				if (count($bisio_zweck->result) == 0)
+				if (numberOfElements($bisio_zweck->result) == 0)
 				{
 					$error_log_io .= (!empty($error_log_io) ? ', ' : ''). "Es muss mindestens ein Aufenthaltszweck eingetragen sein";
 				}
@@ -1699,14 +1699,14 @@ function GenerateXMLStudentBlock($row)
 				if ($aktstatus == 'Incoming')
 				{
 					// ...max 1 Aufenthaltszweck
-					if (count($bisio_zweck->result) > 1)
+					if (numberOfElements($bisio_zweck->result) > 1)
 					{
-						$error_log_io .= (!empty($error_log_io) ? ', ' : ''). "Es sind". count($bisio_zweck->result).
+						$error_log_io .= (!empty($error_log_io) ? ', ' : ''). "Es sind". numberOfElements($bisio_zweck->result).
 							" Aufenthaltszwecke eingetragen (max. 1 Zweck für Incomings)";
 					}
 
 					//...nur Zweck 1, 2 oder 3 erlaubt
-					if (count($bisio_zweck->result) == 1 &&
+					if (numberOfElements($bisio_zweck->result) == 1 &&
 						empty(array_intersect(array(1, 2, 3), array_column($bisio_zweck->result, 'zweck_code'))))
 					{
 						$error_log_io .= (!empty($error_log_io) ? ', ' : ''). "Aufenthaltszweckcode ist ".
@@ -1739,7 +1739,7 @@ function GenerateXMLStudentBlock($row)
 					$bisio_foerderung->getFoerderungen($rowio->bisio_id);
 
 					// ... mindestens 1 Aufenthaltfoerderung melden, wenn Auslandsaufenthalt >= 29 Tage
-					if ((!$bisio_foerderung->result || count($bisio_foerderung->result) == 0) && $adauer >= 29)
+					if ((!$bisio_foerderung->result || numberOfElements($bisio_foerderung->result) == 0) && $adauer >= 29)
 					{
 						$error_log_io .= (!empty($error_log_io) ? ', ' : '') .
 							"Keine Aufenthaltsfoerderung angegeben (bei Outgoings >= 29 Tage Monat im Ausland muss mind. 1 gemeldet werden)";

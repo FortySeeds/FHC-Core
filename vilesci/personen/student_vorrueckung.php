@@ -740,7 +740,7 @@ function getCorrectedStudienplan($studiensemester_kurzbz, $ausbildungssemester, 
 				$studienplan->orgform_kurzbz
 			);
 
-			if ($ret === true && count($stp_neu->result) == 1)
+			if ($ret === true && numberOfElements($stp_neu->result) == 1)
 			{
 				// Es wurde ein eindeutiger neue Studienplan gefunden
 				return $stp_neu->result[0]->studienplan_id;

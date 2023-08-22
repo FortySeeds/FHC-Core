@@ -38,7 +38,7 @@ class ezcGraphTools
 
         $elements = $chart->renderer->getElementReferences();
 
-        if ( !count( $elements ) )
+        if ( !numberOfElements( $elements ) )
         {
             throw new ezcGraphToolsNotRenderedException( $chart );
         }

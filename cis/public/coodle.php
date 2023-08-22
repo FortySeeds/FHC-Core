@@ -1054,7 +1054,7 @@ CLASS:PUBLIC
 END:VEVENT
 END:VCALENDAR";
 
-	if (count($coodle_ressource->result) > 0)
+	if (numberOfElements($coodle_ressource->result) > 0)
 	{
 		$mailMessageError = '';
 		$mailMessageSuccess = '<div class="alert alert-success">';

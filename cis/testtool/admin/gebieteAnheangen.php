@@ -105,7 +105,7 @@ echo '<form id="studiengang_form" action="'.$_SERVER['PHP_SELF'].'" method="GET"
 echo 'Studiengang: </td><td><SELECT name="stg_kz" onchange="document.getElementById(\'studiengang_form\').submit();"><OPTION value="-1">-- Keine Auswahl --</OPTION>';
 $i = 0;
 $selected = '';
-$result_count = count($studiengang->result);
+$result_count = numberOfElements($studiengang->result);
 for ($i = 0; $i < $result_count; $i++)
 {
 	if ($stg_kz == $studiengang->result[$i]->studiengang_kz) $selected = 'selected';
@@ -389,7 +389,7 @@ if ($stg_kz != -1)
 	drawStudienplanDropdown($stg_kz, $db, "studienplan");
 	echo '</td>';
 	// Ablauf-Vorgaben können nur beim ersten Eintrag gespeichert werden. Ansonsten werden sie über EDIT geändert.
-	if (count($gebieteangehaengt) == 0)
+	if (numberOfElements($gebieteangehaengt) == 0)
 	{
 		echo '<td><select name="sprache">';
 		foreach ($sprache->result as $row)

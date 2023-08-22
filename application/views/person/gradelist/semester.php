@@ -30,7 +30,7 @@
 			>
 			<div class="panel-body">
 				<?php
-				if (is_array($lvs) && count($lvs) > 0):
+				if (is_array($lvs) && numberOfElements($lvs) > 0):
 
 				echo '<h4>Lehrveranstaltungen laut Studienplan '.$semesterdata['studienplan_bezeichnung'].'</h4>';
 				?>
@@ -94,7 +94,7 @@
 				</table>
 				<?php
 			endif;
-			if (isset($lvs_nonstpl) && count($lvs_nonstpl) > 0):
+			if (isset($lvs_nonstpl) && numberOfElements($lvs_nonstpl) > 0):
 				?>
 				<h2><?php echo $this->p->t('lehre','nichtstudienplanrelevanteKurse'); ?></h2>
 				<table id="<?php echo $tableid;?>_nonstpl" class="gradetable">

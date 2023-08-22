@@ -92,7 +92,7 @@ if($rechte->isBerechtigt('admin', 0) || $rechte->isBerechtigt('mitarbeiter', 0))
 else
 {
 	$oe = $rechte->getOEkurzbz('assistenz');
-	if(count($oe)>0)
+	if(numberOfElements($oe)>0)
 	{
 		$where = " AND EXISTS (
 			SELECT * FROM

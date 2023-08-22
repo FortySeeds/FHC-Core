@@ -87,7 +87,7 @@ if($rechte->isBerechtigt('basis/ampeluebersicht'))
 }
 
 array_unique($oes);
-if(count($oes)==0)
+if(numberOfElements($oes)==0)
 	die($p->t('global/keineBerechtigungFuerDieseSeite'));
 
 if(!$organisationseinheit->loadArray($oes,'organisationseinheittyp_kurzbz, bezeichnung'))

@@ -316,7 +316,7 @@ class ezcBaseFile
             array_unshift( $base, $basePart );
         }
 
-        $result = str_repeat( '..' . DIRECTORY_SEPARATOR, count( $base ) );
+        $result = str_repeat( '..' . DIRECTORY_SEPARATOR, numberOfElements( $base ) );
         $result .= join( DIRECTORY_SEPARATOR, $path );
 
         return $result;

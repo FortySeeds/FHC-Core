@@ -336,7 +336,7 @@ class FilterWidgetLib
 			$where = ''; // starts building the SQL where clause
 
 			// Loops through the given applied filters
-			for ($filtersCounter = 0; $filtersCounter < count($filters); $filtersCounter++)
+			for ($filtersCounter = 0; $filtersCounter < numberOfElements($filters); $filtersCounter++)
 			{
 				$filterDefinition = $filters[$filtersCounter]; // definition of one filter
 
@@ -415,7 +415,7 @@ class FilterWidgetLib
 		$sortSelectedFields = false;
 
 		// Checks the parameter selectedFields
-		if (isset($selectedFields) && is_array($selectedFields) && count($selectedFields) > 0)
+		if (isset($selectedFields) && is_array($selectedFields) && numberOfElements($selectedFields) > 0)
 		{
 			// Retrieves all the used fields by the current filter
 			$fields = $this->getSessionElement(self::SESSION_FIELDS);
@@ -548,7 +548,7 @@ class FilterWidgetLib
 			if (!array_diff($appliedFilters, $fields))
 			{
 				$filters = array(); // starts building the new applied filters list
-				for ($i = 0; $i < count($appliedFilters); $i++) // loops through the given applied filters
+				for ($i = 0; $i < numberOfElements($appliedFilters); $i++) // loops through the given applied filters
 				{
 					$filterDefinition = new stdClass(); // new applied filter definition
 
@@ -667,7 +667,7 @@ class FilterWidgetLib
 		// Generates the "column" property
 		$jsonDeifinition->columns = array();
 		$selectedFields = $this->getSessionElement(self::SESSION_SELECTED_FIELDS); // retrieved the selected fields
-		for ($i = 0; $i < count($selectedFields); $i++)
+		for ($i = 0; $i < numberOfElements($selectedFields); $i++)
 		{
 			// Each element is an object with a property called "name"
 			$jsonDeifinition->columns[$i] = new stdClass();
@@ -800,7 +800,7 @@ class FilterWidgetLib
 				}
 
 				// If personal filters are present then add the menu entry for them
-				if (count($childrenPersonalArray) > 0)
+				if (numberOfElements($childrenPersonalArray) > 0)
 				{
 					$childrenArray[self::NAV_MENU_CUSTOM_FILTER_KEY] = $this->_ci->navigationlib->oneLevel(
 							self::NAV_MENU_CUSTOM_FILTER_NAME,		// description
@@ -983,7 +983,7 @@ class FilterWidgetLib
 	{
 		$pos = false;
 
-		for($i = 0; $i < count($filters); $i++)
+		for($i = 0; $i < numberOfElements($filters); $i++)
 		{
 			if ($filters[$i]->name == $filterName)
 			{

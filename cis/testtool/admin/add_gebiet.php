@@ -98,7 +98,7 @@ echo '<a href="index.php?stg_kz='.$stg_kz.'" class="Item">Zurück zur Admin Seit
 echo "Studiengang: <SELECT name='studiengang' id='studiengang' onchange='window.location.href=this.value'><OPTION value='-1'>-- Keine Auswahl --</OPTION>";
 $i = 0;
 $selected = '';
-$result_count = count($studiengang->result);
+$result_count = numberOfElements($studiengang->result);
 for ($i = 0; $i < $result_count; $i++)
 {
 	if ($stg_kz == $studiengang->result[$i]->studiengang_kz)

@@ -54,7 +54,7 @@ echo '
 
 $descr='';
 $sequenz='';
-for ($i=0;$i<count($projekt_obj->result);$i++)
+for ($i=0;$i<numberOfElements($projekt_obj->result);$i++)
 {
 	$projekt=$projekt_obj->result[$i];
 	$descr.='<RDF:Description RDF:about="'.$rdf_url.$projekt->projekt_kurzbz.'" >

@@ -23,7 +23,7 @@ class CORE_INOUT_0002 implements IIssueResolvedChecker
 
 		if (hasData($bisiozweckRes))
 		{
-			if (count(getData($bisiozweckRes)) <= 1) // resolved if one bisio Zweck
+			if (numberOfElements(getData($bisiozweckRes)) <= 1) // resolved if one bisio Zweck
 				return success(true);
 			else
 				return success(false); // otherwise not resolved

@@ -2107,7 +2107,7 @@ else if($method == 'files')
 
 	$akte->getAkten($person->person_id);
 
-	if(count($akte->result)>0)
+	if(numberOfElements($akte->result)>0)
 	{
 		echo '<center>'.$message.'</center>';
 		echo '<center><table class="tablesorter" style="width: unset;" align="center" border="0">

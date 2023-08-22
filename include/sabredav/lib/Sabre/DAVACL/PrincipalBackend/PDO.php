@@ -397,7 +397,7 @@ class PDO extends AbstractBackend {
     public function setGroupMemberSet($principal, array $members) {
 
         // Grabbing the list of principal id's.
-        $stmt = $this->pdo->prepare('SELECT id, uri FROM '.$this->tableName.' WHERE uri IN (? ' . str_repeat(', ? ', count($members)) . ');');
+        $stmt = $this->pdo->prepare('SELECT id, uri FROM '.$this->tableName.' WHERE uri IN (? ' . str_repeat(', ? ', numberOfElements($members)) . ');');
         $stmt->execute(array_merge(array($principal), $members));
 
         $memberIds = array();

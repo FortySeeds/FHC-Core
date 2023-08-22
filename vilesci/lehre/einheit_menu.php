@@ -315,7 +315,7 @@ else if (isset($_GET['type']) && $_GET['type']=='delete')
 else
 {
 	printDropDown();
-	if ($studiengang_kz != '' || count($searchItems) > 0)
+	if ($studiengang_kz != '' || numberOfElements($searchItems) > 0)
 		getUebersicht();
 }
 
@@ -411,7 +411,7 @@ function doSave()
 		$gruppemanager_uids = isset($_POST['gruppemanager']) && is_array($_POST['gruppemanager']) ? $_POST['gruppemanager'] : array();
 
 		// Prüfung: generierte Gruppen haben keine Manager
-		if (count($gruppemanager_uids) > 0 && $e->generiert === true)
+		if (numberOfElements($gruppemanager_uids) > 0 && $e->generiert === true)
 		{
 			echo "<span class='error'>Generierte Gruppen dürfen keine Administratoren haben!</span>";
 			return;
@@ -668,7 +668,7 @@ function getUebersicht()
 
 	$gruppe=new gruppe();
 	// Wenn $searchstring gesetz ist, nach gruppe suchen, sonst gruppe mit $studiengang_kz un $semester laden
-	if (count($searchItems) > 0)
+	if (numberOfElements($searchItems) > 0)
 	{
 		$gruppe->searchGruppen($searchItems, null, null);
 	}

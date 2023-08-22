@@ -167,7 +167,7 @@ class PrincipalPropertySearchTest extends \PHPUnit_Framework_TestCase {
             $count = 1;
             if (!is_int($v1)) $count = $v2;
 
-            $this->assertEquals($count,count($result), 'we expected ' . $count . ' appearances of ' . $xpath . ' . We found ' . count($result) . '. Full response body: ' . $server->httpResponse->body);
+            $this->assertEquals($count,numberOfElements($result), 'we expected ' . $count . ' appearances of ' . $xpath . ' . We found ' . numberOfElements($result) . '. Full response body: ' . $server->httpResponse->body);
 
         }
 
@@ -225,7 +225,7 @@ class PrincipalPropertySearchTest extends \PHPUnit_Framework_TestCase {
             $count = 1;
             if (!is_int($v1)) $count = $v2;
 
-            $this->assertEquals($count,count($result), 'we expected ' . $count . ' appearances of ' . $xpath . ' . We found ' . count($result) . '. Full response body: ' . $server->httpResponse->body);
+            $this->assertEquals($count,numberOfElements($result), 'we expected ' . $count . ' appearances of ' . $xpath . ' . We found ' . numberOfElements($result) . '. Full response body: ' . $server->httpResponse->body);
 
         }
 

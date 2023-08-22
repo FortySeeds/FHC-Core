@@ -1410,7 +1410,7 @@ class dvb extends basis_db
 			if (ErrorHandler::isSuccess($result) && ErrorHandler::hasData($result)
 				&& isset($result->retval->data)
 				&& is_array($result->retval->data)
-				&& count($result->retval->data)>0)
+				&& numberOfElements($result->retval->data)>0)
 			{
 				foreach($result->retval->data as $row)
 				{
@@ -1431,7 +1431,7 @@ class dvb extends basis_db
 									mb_strtolower($row->vorname) == mb_strtolower($person->vorname.' '.$person->vornamen)
 									)
 								&& $row->matrikelnummer != ''
-								&& count($result->retval->data) == 1
+								&& numberOfElements($result->retval->data) == 1
 								)
 							{
 								$this->debug('Uebereinstimmung gefunden');

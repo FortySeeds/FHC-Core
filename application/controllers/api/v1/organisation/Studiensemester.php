@@ -228,7 +228,7 @@ class Studiensemester extends API_Controller
 		{
 			$result = $this->StudiensemesterModel->load($studiensemester_kurzbz);
 
-			if (is_array($result->retval) && count($result->retval) > 0)
+			if (is_array($result->retval) && numberOfElements($result->retval) > 0)
 			{
 				$studiensemester = $result->retval[0];
 

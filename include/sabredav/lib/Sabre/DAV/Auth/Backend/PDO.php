@@ -56,7 +56,7 @@ class PDO extends AbstractDigest {
         $stmt->execute(array($username));
         $result = $stmt->fetchAll();
 
-        if (!count($result)) return;
+        if (!numberOfElements($result)) return;
 
         return $result[0]['digesta1'];
 

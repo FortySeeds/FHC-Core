@@ -144,7 +144,7 @@ class Prestudentstatus_model extends DB_Model
 			return $lastStatus;
 		}
 
-		if (count($lastStatus->retval) > 0)
+		if (numberOfElements($lastStatus->retval) > 0)
 		{
 			$lastStatus = $lastStatus->retval[0];
 
@@ -179,7 +179,7 @@ class Prestudentstatus_model extends DB_Model
 			return $lastStatus;
 		}
 
-		if (count($lastStatus->retval) > 0)
+		if (numberOfElements($lastStatus->retval) > 0)
 		{
 			$lastStatus = $lastStatus->retval[0];
 

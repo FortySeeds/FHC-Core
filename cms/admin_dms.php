@@ -388,7 +388,7 @@ function print_rights($kategorie_kurzbz)
 	$dms = new dms();
 	$dms->loadGruppenForKategorie($kategorie_kurzbz);
 	$gruppen_array = array();
-	if (count($dms->result) > 0)
+	if (numberOfElements($dms->result) > 0)
 	{
 		echo 'Die Mitglieder der folgenden Gruppen dürfen die Seite ansehen:<br><br>';
 		echo '
@@ -490,14 +490,14 @@ function drawKategorieMenue($rows)
 		// Suchen, ob eine Sperre fuer diese Kategorie vorhanden ist
 		$groups = $dms->getLockGroups($row->kategorie_kurzbz);
 		$locked = '';
-		if (count($groups) > 0)
+		if (numberOfElements($groups) > 0)
 		{
 			$locked = '<img src="../skin/images/login.gif" height="12px" title="Zugriff nur für Mitglieder folgender Gruppen:';
 			foreach ($groups as $group)
 				$locked .= " $group ";
 			$locked .= '"/>';
 		}
-		if (count($dms->result) > 0)
+		if (numberOfElements($dms->result) > 0)
 		{
 
 			echo '

@@ -217,7 +217,7 @@ foreach($uid_arr as $uid)
 		$stg_typ=new studiengang();
 		$lv=new lehrveranstaltung();
 		$lv->load_lva_student($student->uid);
-		if(count($lv->lehrveranstaltungen)>0)
+		if(numberOfElements($lv->lehrveranstaltungen)>0)
 		{
 			$lv_studiengang_kz=$lv->lehrveranstaltungen[0]->studiengang_kz;
 			$lv_studiengang=new studiengang();

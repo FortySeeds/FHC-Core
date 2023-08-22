@@ -81,7 +81,7 @@ END:VTIMEZONE\n";
 $umfragen = new coodle();
 $umfragen->getCoodleFromUser($uid);
 $i = 0;
-if (count($umfragen->result) > 0)
+if (numberOfElements($umfragen->result) > 0)
 {
 	//echo "BEGIN:VEVENT";
 }

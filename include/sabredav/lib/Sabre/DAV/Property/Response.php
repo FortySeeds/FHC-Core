@@ -98,7 +98,7 @@ class Response extends DAV\Property implements IHref {
             if ($httpStatus=='href') continue;
 
             // If there are no properties in this group, we can also just carry on
-            if (!count($propertyGroup)) continue;
+            if (!numberOfElements($propertyGroup)) continue;
 
             $xpropstat = $document->createElement('d:propstat');
             $xresponse->appendChild($xpropstat);
@@ -123,7 +123,7 @@ class Response extends DAV\Property implements IHref {
                 } else {
 
                     if (!isset($nsList[$propName[1]])) {
-                        $nsList[$propName[1]] = 'x' . count($nsList);
+                        $nsList[$propName[1]] = 'x' . numberOfElements($nsList);
                     }
 
                     // If the namespace was defined in the top-level xml namespaces, it means

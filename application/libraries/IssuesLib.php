@@ -240,7 +240,7 @@ class IssuesLib
 			$fehlertext = $fehlertextVorlage;
 			if (!isEmptyArray($fehlertext_params))
 			{
-				if (count($fehlertext_params) != substr_count($fehlertextVorlage, '%s'))
+				if (numberOfElements($fehlertext_params) != substr_count($fehlertextVorlage, '%s'))
 					return error('Wrong number of parameters for Fehlertext, fehler_kurzbz ' . $fehlercode);
 
 				$fehlertext = vsprintf($fehlertextVorlage, $fehlertext_params);

@@ -76,7 +76,7 @@ class CardTest extends \PHPUnit_Framework_TestCase {
     function testDelete() {
 
         $this->card->delete();
-        $this->assertEquals(1, count($this->backend->cards['foo']));
+        $this->assertEquals(1, numberOfElements($this->backend->cards['foo']));
 
     }
 

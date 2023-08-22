@@ -477,7 +477,7 @@ class lehrstunde extends basis_db
 			elseif($type=='student')
 			{
 				$sql_query.=" AND (";
-				if(is_array($verbaende) && count($verbaende)>0)
+				if(is_array($verbaende) && numberOfElements($verbaende)>0)
 				{
 					foreach($verbaende as $row_verbaende)
 					{
@@ -1030,7 +1030,7 @@ class lehrstunde extends basis_db
 				{
 					$found=true;
 					//gleicher Eintrag gefunden
-					$grpidx = count($result[$key]->gruppen);
+					$grpidx = numberOfElements($result[$key]->gruppen);
 					$result[$key]->gruppen[$grpidx]->studiengang_kz=$row_lehrstunde->studiengang_kz;
 					$result[$key]->gruppen[$grpidx]->sem=$row_lehrstunde->sem;
 					$result[$key]->gruppen[$grpidx]->ver=$row_lehrstunde->ver;

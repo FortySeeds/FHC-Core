@@ -170,7 +170,7 @@ if($lehrveranstaltung_id==null && $filter==null && $mitarbeiter_uid==null)
 			$stge=array_merge($stge, $bb->getStgKz('assistenz'));
 			$ma=$mitarbeiter->getMitarbeiterStg($lektor,$fixangestellt,$stge, 'lkt', 'typ, stg_kurzbz, nachname, vorname, vw_mitarbeiter.kurzbz');
 			$laststg=-1;
-			if(count($ma)>0)
+			if(numberOfElements($ma)>0)
 			{
 				foreach ($ma as $mitarbeiter)
 				{

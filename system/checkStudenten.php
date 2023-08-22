@@ -410,7 +410,7 @@ if ($result = $db->db_query($qry_student))
 		if (!$prestudentSecond->getPrestudentRolle($student->prestudent_id, null, null, 'Datum DESC, insertamum DESC'))
 			$text .= "ERROR:".$prestudentSecond->errormsg;
 
-		$anzahl_stati = count($prestudentFirst->result);
+		$anzahl_stati = numberOfElements($prestudentFirst->result);
 		for ($i = 0; $i < $anzahl_stati; $i++)
 		{
 			if ($prestudentFirst->result[$i]->studiensemester_kurzbz

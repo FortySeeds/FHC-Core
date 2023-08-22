@@ -557,7 +557,7 @@ class ezcImageConversionConverterTest extends ezcImageConversionTestCase
 
         $this->assertEquals(
             1,
-            count( $transformations )
+            numberOfElements( $transformations )
         );
         
         $this->converter->removeTransformation( 'foo' );
@@ -565,7 +565,7 @@ class ezcImageConversionConverterTest extends ezcImageConversionTestCase
         $transformations = $this->readAttribute( $this->converter, "transformations" );
         $this->assertEquals(
             0,
-            count( $transformations )
+            numberOfElements( $transformations )
         );
     }
 

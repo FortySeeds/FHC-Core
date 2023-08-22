@@ -71,7 +71,7 @@
 				exit($sFirma->errormsg."\n");
 			
 			$result=array();
-			for ($i=0;$i<count($sFirma->result);$i++)
+			for ($i=0;$i<numberOfElements($sFirma->result);$i++)
 			{
 				$standort = new standort();
 				$standort->load_firma($sFirma->result[$i]->firma_id);
@@ -100,7 +100,7 @@
 				exit($tags->errormsg."\n");
 			
 			$result=array();
-			for ($i=0;$i<count($tags->result);$i++)
+			for ($i=0;$i<numberOfElements($tags->result);$i++)
 			{
 				$item['tag']=$tags->result[$i]->tag;
 				$result[]=$item;
@@ -119,7 +119,7 @@
 			if (!$tags->getAll())
 				exit($tags->errormsg."\n");
 			$result=array();
-			for ($i=0;$i<count($tags->result);$i++)
+			for ($i=0;$i<numberOfElements($tags->result);$i++)
 			{
 				$item['tag']=$tags->result[$i]->tag;
 				$result[]=$item;

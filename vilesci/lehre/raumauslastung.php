@@ -166,7 +166,7 @@ while ($row=$db->db_fetch_object($result))
 	$cfgColorGreenToRed[10]='#ff1f00';
 
 	$cfgColorRedToGreen = array_reverse($cfgColorGreenToRed);
-	$anz_colors=count($cfgColorRedToGreen)-1;
+	$anz_colors=numberOfElements($cfgColorRedToGreen)-1;
 
 	foreach ($raum AS $ort)
 	{

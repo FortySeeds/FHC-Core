@@ -102,7 +102,7 @@ class SharingPluginTest extends \Sabre\DAVServerTest {
             'href' => 'calendars/user1/cal1',
         ), $result);
 
-        $this->assertEquals(0, count($this->caldavBackend->getShares(1)));
+        $this->assertEquals(0, numberOfElements($this->caldavBackend->getShares(1)));
 
     }
 

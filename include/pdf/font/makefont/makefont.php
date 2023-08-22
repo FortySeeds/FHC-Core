@@ -52,7 +52,7 @@ function ReadAFM($file, &$map)
 	foreach($a as $l)
 	{
 		$e=explode(' ',rtrim($l));
-		if(count($e)<2)
+		if(numberOfElements($e)<2)
 			continue;
 		$code=$e[0];
 		$param=$e[1];

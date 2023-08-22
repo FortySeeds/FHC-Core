@@ -281,7 +281,7 @@ if(isset($_GET['searchstr']))
 	if ($benutzeraktiv == '')
 		$benutzer->search($searchItems,"",null);
 
-	if(count($benutzer->result)!=0)
+	if(numberOfElements($benutzer->result)!=0)
 	{
 		$htmlstr .= "<table id='t1' class='tablesorter'><thead><tr>\n";
 		$htmlstr .= "<th>Nachname</th><th>Vorname</th><th>UID</th><th>Aktiv</th><th>Aktion</th>";
@@ -303,7 +303,7 @@ if(isset($_GET['searchstr']))
 					$htmlstr .= "		<td>".$row->vorname."</td>\n";
 					$htmlstr .= "		<td>".$row->uid."</td>\n";
 					$htmlstr .= "		<td>".($aktiv->bnaktiv?"Ja":"Nein")."</td>\n";
-					$htmlstr .= "		<td><a href='benutzerberechtigung_details.php?uid=".$row->uid."' target='vilesci_detail'>".(count($benutzerrolle->berechtigungen)!=0?"Rechte bearbeiten":"Rechte vergeben")."</a></td>\n";
+					$htmlstr .= "		<td><a href='benutzerberechtigung_details.php?uid=".$row->uid."' target='vilesci_detail'>".(numberOfElements($benutzerrolle->berechtigungen)!=0?"Rechte bearbeiten":"Rechte vergeben")."</a></td>\n";
 					$htmlstr .= "	</tr>\n";
 				}
 			}
@@ -319,7 +319,7 @@ if(isset($_GET['searchstr']))
 				$htmlstr .= "		<td>".$row->vorname."</td>\n";
 				$htmlstr .= "		<td>".$row->uid."</td>\n";
 				$htmlstr .= "		<td>".($aktiv->bnaktiv?"Ja":"Nein")."</td>\n";
-				$htmlstr .= "		<td><a href='benutzerberechtigung_details.php?uid=".$row->uid."' target='vilesci_detail'>".(count($benutzerrolle->berechtigungen)!=0?"Rechte bearbeiten":"Rechte vergeben")."</a></td>\n";
+				$htmlstr .= "		<td><a href='benutzerberechtigung_details.php?uid=".$row->uid."' target='vilesci_detail'>".(numberOfElements($benutzerrolle->berechtigungen)!=0?"Rechte bearbeiten":"Rechte vergeben")."</a></td>\n";
 				$htmlstr .= "	</tr>\n";
 			}
 			elseif ($benutzerart == '')
@@ -334,7 +334,7 @@ if(isset($_GET['searchstr']))
 				$htmlstr .= "		<td>".$row->vorname."</td>\n";
 				$htmlstr .= "		<td>".$row->uid."</td>\n";
 				$htmlstr .= "		<td>".($aktiv->bnaktiv?"Ja":"Nein")."</td>\n";
-				$htmlstr .= "		<td><a href='benutzerberechtigung_details.php?uid=".$row->uid."' target='vilesci_detail'>".(count($benutzerrolle->berechtigungen)!=0?"Rechte bearbeiten":"Rechte vergeben")."</a></td>\n";
+				$htmlstr .= "		<td><a href='benutzerberechtigung_details.php?uid=".$row->uid."' target='vilesci_detail'>".(numberOfElements($benutzerrolle->berechtigungen)!=0?"Rechte bearbeiten":"Rechte vergeben")."</a></td>\n";
 				$htmlstr .= "	</tr>\n";
 			}
 		}
@@ -357,7 +357,7 @@ if($berechtigung_kurzbz != '')
 	{ 
 		$berechtigungen->getBenutzerFromBerechtigung($berechtigung_kurzbz);
 	
-		if(isset($berechtigungen->result) && count($berechtigungen->result) != 0)
+		if(isset($berechtigungen->result) && numberOfElements($berechtigungen->result) != 0)
 		{
 			$htmlstr .= "<h3>".$berechtigung_kurzbz."</h3>\n";
 			$htmlstr .= "<table id='t2' class='tablesorter'><thead><tr>\n";
@@ -422,7 +422,7 @@ if($berechtigung_kurzbz != '')
 		$berechtigungen_array = array(); 
 		$berechtigungen->getBenutzerFromBerechtigung($berechtigung_kurzbz); 
 
-		if (isset($berechtigungen->result) && count($berechtigungen->result) != 0) 
+		if (isset($berechtigungen->result) && numberOfElements($berechtigungen->result) != 0) 
 		{ 
 			foreach ($berechtigungen->result as $row) 
 			{ 
@@ -482,8 +482,8 @@ if($berechtigung_kurzbz != '')
 			}, $berechtigungen_array);
 
 			$htmlstr .= "<h3>".$berechtigung_kurzbz."</h3>\n";
-			$htmlstr .= "<div style='font-size: 9pt'>".count($berechtigungen_array)." Einträge</div>";
-			$htmlstr .= "<div style='font-size: 9pt'>".count(array_unique($berechtigungen_array_uids))." UIDs</div>";
+			$htmlstr .= "<div style='font-size: 9pt'>".numberOfElements($berechtigungen_array)." Einträge</div>";
+			$htmlstr .= "<div style='font-size: 9pt'>".numberOfElements(array_unique($berechtigungen_array_uids))." UIDs</div>";
 			$htmlstr .= "<table id='t4' class='tablesorter'><thead><tr>\n"; 
 			$htmlstr .= "	<th>Nachname</th> 
 							<th>Vorname</th> 
@@ -547,13 +547,13 @@ if($rolle_kurzbz != '')
 	$rollen = new benutzerberechtigung();
 	$rollen->getBenutzerFromRolle($rolle_kurzbz);
 
-	if(isset($rollen->result) && count($rollen->result) != 0)
+	if(isset($rollen->result) && numberOfElements($rollen->result) != 0)
 	{
 		// Anzahl uniquer UIDs ermitteln
 		$berechtigungen_array_uids = sizeof(array_column($rollen->result, null, 'uid'));
 
 		$htmlstr .= "<h3>".$berechtigung_kurzbz."</h3>\n";
-		$htmlstr .= "<div style='font-size: 9pt'>".count($rollen->result)." Einträge</div>";
+		$htmlstr .= "<div style='font-size: 9pt'>".numberOfElements($rollen->result)." Einträge</div>";
 		$htmlstr .= "<div style='font-size: 9pt'>".$berechtigungen_array_uids." UIDs</div>";
 		$htmlstr .= "<table id='t3' class='tablesorter'><thead><tr>\n";
 		$htmlstr .= "	<th>Rolle</th>

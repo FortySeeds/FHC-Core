@@ -46,7 +46,7 @@ abstract class Document extends Component {
     public function __construct() {
 
         $args = func_get_args();
-        if (count($args)===0 || is_array($args[0])) {
+        if (numberOfElements($args)===0 || is_array($args[0])) {
             array_unshift($args, static::$defaultName);
             call_user_func_array(array('parent', '__construct'), $args);
         } else {

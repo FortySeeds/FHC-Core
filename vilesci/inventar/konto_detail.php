@@ -167,9 +167,9 @@
 	if ($check!='' && !$oWAWI->konto($konto,$kontonr,$konto_search))
 		$errormsg[]=$oWAWI->errormsg;
 	// Check ob Daten gefunden
-	if (is_array($oWAWI->result) && count($oWAWI->result)==1)
+	if (is_array($oWAWI->result) && numberOfElements($oWAWI->result)==1)
 		echo output_konteninformation($oWAWI->result,$debug);
-	else if (is_array($oWAWI->result) && count($oWAWI->result)>1)
+	else if (is_array($oWAWI->result) && numberOfElements($oWAWI->result)>1)
 		echo output_konten($oWAWI->result,$debug);
 	else
 	{
@@ -180,7 +180,7 @@
 	}
 
 	// Error - Meldungen ausgeben
-	if (is_array($errormsg) && count($errormsg)>0)
+	if (is_array($errormsg) && numberOfElements($errormsg)>0)
 		echo implode("<br />",$errormsg);
 	elseif (!is_array($errormsg))
 		echo "<br />",$errormsg;
@@ -192,13 +192,13 @@
 function output_konten($resultKonto=null,$debug=false)
 {
 	$htmlstring='';
-	if (is_null($resultKonto) || !is_array($resultKonto) || count($resultKonto)<1)
+	if (is_null($resultKonto) || !is_array($resultKonto) || numberOfElements($resultKonto)<1)
 		return $htmlstring;
 
 	$htmlstring.='<table  id="t1" class="liste table-autosort:2 table-stripeclass:alternate table-autostripe">
 			<thead>';
-	if (is_array($resultKonto) && count($resultKonto)>1)
-		$htmlstring.='<tr><th colspan="10">Bitte eine Bestellnummer aus den '.count($resultKonto).' gefundenen ausw&auml;hlen</th></tr>';
+	if (is_array($resultKonto) && numberOfElements($resultKonto)>1)
+		$htmlstring.='<tr><th colspan="10">Bitte eine Bestellnummer aus den '.numberOfElements($resultKonto).' gefundenen ausw&auml;hlen</th></tr>';
 	$htmlstring.='<tr class="liste">
 				<th class="table-sortable:default">Konto</th>
 				<th class="table-sortable:default">Kontonnr.</th>
@@ -207,7 +207,7 @@ function output_konten($resultKonto=null,$debug=false)
 			</tr>
 			</thead>
 			';
-	for ($pos=0;$pos<count($resultKonto);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultKonto);$pos++)
 	{
 			if ($pos%2)
 				$classe='liste1';
@@ -229,10 +229,10 @@ function output_konten($resultKonto=null,$debug=false)
 function output_konteninformation($resultKonto=null,$debug=false)
 {
 	$htmlstring='';
-	if (is_null($resultKonto) || !is_array($resultKonto) || count($resultKonto)<1)
+	if (is_null($resultKonto) || !is_array($resultKonto) || numberOfElements($resultKonto)<1)
   		return $htmlstring;
 
-	for ($pos=0;$pos<count($resultKonto);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultKonto);$pos++)
 	{
 			$htmlstring.='<!-- Konto Kurzdetail -->
 				<table class="liste"> ';

@@ -106,7 +106,7 @@ $lastws = $stsem_obj->getBeforePrevious();
 //**** aktive mitarbeiter und bismelden mit keiner verwendung
 $qryall='
 	SELECT
-		uid, nachname, vorname, count(bisverwendung_id)
+		uid, nachname, vorname, COUNT(bisverwendung_id)
 	FROM
 		campus.vw_mitarbeiter
 		LEFT OUTER JOIN bis.tbl_bisverwendung ON (uid=mitarbeiter_uid)
@@ -116,7 +116,7 @@ $qryall='
 		AND (ende>now() OR ende IS NULL)
 	GROUP BY
 		uid, nachname, vorname
-	HAVING count(bisverwendung_id)=0
+	HAVING COUNT(bisverwendung_id)=0
 	ORDER by nachname, vorname;';
 if($resultall = $db->db_query($qryall))
 {
@@ -224,7 +224,7 @@ if($resultall = $db->db_query($qryall))
 //**** aktive fixe mitarbeiter mit keiner aktuellen verwendung
 $qryall = '
 	SELECT
-		uid, nachname, vorname, count(bisverwendung_id)
+		uid, nachname, vorname, COUNT(bisverwendung_id)
 	FROM
 		campus.vw_mitarbeiter
 		LEFT OUTER JOIN bis.tbl_bisverwendung ON (uid=mitarbeiter_uid)
@@ -592,13 +592,13 @@ if($resultall = $db->db_query($qryall))
 //**** inaktive mitarbeiter und bismelden ohne verwendung
 $qryall='
 	SELECT
-		uid, nachname, vorname, count(bisverwendung_id)
+		uid, nachname, vorname, COUNT(bisverwendung_id)
 	FROM
 		campus.vw_mitarbeiter
 		LEFT OUTER JOIN bis.tbl_bisverwendung ON (uid=mitarbeiter_uid)
 	WHERE bismelden
 	GROUP BY uid, nachname, vorname
-	HAVING count(bisverwendung_id)=0
+	HAVING COUNT(bisverwendung_id)=0
 	ORDER by nachname, vorname;';
 if($resultall = $db->db_query($qryall))
 {

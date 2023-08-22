@@ -259,7 +259,7 @@ class ezcGraphLineChart extends ezcGraphChart
                 }
 
                 $step = reset( $steps );
-                if ( count( $step->childs ) )
+                if ( numberOfElements( $step->childs ) )
                 {
                     // Keep this for BC reasons
                     $barCount = ( $xAxis->getMajorStepCount() + 1 ) * ( $xAxis->getMinorStepCount() - 1 );
@@ -521,7 +521,7 @@ class ezcGraphLineChart extends ezcGraphChart
      */
     protected function renderElements( $width, $height )
     {
-        if ( !count( $this->data ) )
+        if ( !numberOfElements( $this->data ) )
         {
             throw new ezcGraphNoDataException();
         }

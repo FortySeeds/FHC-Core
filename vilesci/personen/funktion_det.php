@@ -150,7 +150,7 @@ if ($type == 'editsavemultiple')
 	$uids = explode(", ", $_POST['uids']);
 	$bn_funktion_ids = explode(", ", $_POST['bn_funktion_ids']);
 
-	for ($i=0; $i<count($uids); $i++) {
+	for ($i=0; $i<numberOfElements($uids); $i++) {
 		$funktion = new benutzerfunktion ();
 		$funktion->uid = $uids[$i];
 		$funktion->funktion_kurzbz = $_POST ['kurzbz'];
@@ -434,7 +434,7 @@ echo '</SELECT>';
 					$names = array();
 					$uids = array();
 					$bn_funktion_ids = array();
-					for ($i=0; $i<count($checkAktion); $i++) {
+					for ($i=0; $i<numberOfElements($checkAktion); $i++) {
 						$checkAktion[$i] = explode("-", $checkAktion[$i]);
 						array_push($names, $checkAktion[$i][0]);
 						array_push($uids, $checkAktion[$i][1]);
@@ -455,7 +455,7 @@ echo '</SELECT>';
 				// mehrere Funktionen aufeinmal loeschen
 				$checkAktion = $_POST['checkAktion'];
 				$bn_funktion_ids = array();
-				for ($i=0; $i<count($checkAktion); $i++) {
+				for ($i=0; $i<numberOfElements($checkAktion); $i++) {
 					$checkAktion[$i] = explode("-", $checkAktion[$i]);
 					array_push($bn_funktion_ids, $checkAktion[$i][2]);
 				}

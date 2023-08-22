@@ -356,7 +356,7 @@ function typeWrite(span){
 	if ($is_popup)
 	{
 	//sancho message if mandatory ampeln exist
-		if (count($user_ampel_arr) > 0)
+		if (numberOfElements($user_ampel_arr) > 0)
 		{
 			echo '
 				<div>

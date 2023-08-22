@@ -49,7 +49,7 @@ $fb = $rechte->getFbKz();
 
 $qry = "SELECT * FROM public.tbl_fachbereich";
 
-if(count($fb)>0)
+if(numberOfElements($fb)>0)
 {
 	$in='';
 	foreach($fb as $fbbz)

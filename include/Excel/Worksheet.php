@@ -493,7 +493,7 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
     */
     function close($sheetnames)
     {
-        $num_sheets = count($sheetnames);
+        $num_sheets = numberOfElements($sheetnames);
 
         /***********************************************
         * Prepend in reverse order!!
@@ -569,12 +569,12 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
 
         // Prepend the EXTERNCOUNT of external references.
         if ($this->_BIFF_version == 0x0500) {
-            $this->_storeExterncount($num_sheets);
+            $this->_storeExternnumberOfElements($num_sheets);
         }
 
         // Prepend the COLINFO records if they exist
         if (!empty($this->_colinfo)) {
-            $colcount = count($this->_colinfo);
+            $colcount = numberOfElements($this->_colinfo);
             for ($i = 0; $i < $colcount; $i++) {
                 $this->_storeColinfo($this->_colinfo[$i]);
             }
@@ -2386,14 +2386,14 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
     function _storeMergedCells()
     {
         // if there are no merged cell ranges set, return
-        if (count($this->_merged_ranges) == 0) {
+        if (numberOfElements($this->_merged_ranges) == 0) {
             return;
         }
         $record   = 0x00E5;
-        $length   = 2 + count($this->_merged_ranges) * 8;
+        $length   = 2 + numberOfElements($this->_merged_ranges) * 8;
 
         $header   = pack('vv', $record, $length);
-        $data     = pack('v',  count($this->_merged_ranges));
+        $data     = pack('v',  numberOfElements($this->_merged_ranges));
         foreach ($this->_merged_ranges as $range) {
             $data .= pack('vvvv', $range[0], $range[2], $range[1], $range[3]);
         }
@@ -2413,7 +2413,7 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
     * @access private
     * @param integer $count The number of external sheet references in this worksheet
     */
-    function _storeExterncount($count)
+    function _storeExternnumberOfElements($count)
     {
         $record = 0x0016;          // Record identifier
         $length = 0x0002;          // Number of bytes to follow
@@ -2475,7 +2475,7 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
         $x       = $panes[1];
         $rwTop   = $panes[2];
         $colLeft = $panes[3];
-        if (count($panes) > 4) { // if Active pane was received
+        if (numberOfElements($panes) > 4) { // if Active pane was received
             $pnnAct = $panes[4];
         } else {
             $pnnAct = null;
@@ -2879,10 +2879,10 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
 
         // Calculate the maximum column outline level. The equivalent calculation
         // for the row outline level is carried out in setRow().
-        $colcount = count($this->_colinfo);
+        $colcount = numberOfElements($this->_colinfo);
         for ($i = 0; $i < $colcount; $i++) {
            // Skip cols without outline level info.
-           if (count($col_level) >= 6) {
+           if (numberOfElements($col_level) >= 6) {
               $col_level = max($this->_colinfo[$i][5], $col_level);
            }
         }
@@ -2968,7 +2968,7 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
         }
 
         $record  = 0x001b;               // Record identifier
-        $cbrk    = count($breaks);       // Number of page breaks
+        $cbrk    = numberOfElements($breaks);       // Number of page breaks
         if ($this->_BIFF_version == 0x0600) {
             $length  = 2 + 6*$cbrk;      // Bytes to follow
         } else {
@@ -3014,7 +3014,7 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
         }
 
         $record  = 0x001a;               // Record identifier
-        $cbrk    = count($breaks);       // Number of page breaks
+        $cbrk    = numberOfElements($breaks);       // Number of page breaks
         if ($this->_BIFF_version == 0x0600) {
             $length  = 2 + 6*$cbrk;      // Bytes to follow
         } else {
@@ -3491,7 +3491,7 @@ class Spreadsheet_Excel_Writer_Worksheet extends Spreadsheet_Excel_Writer_BIFFwr
 
         $header      = pack('vv', $record, $length);
         $data        = pack('vVVVV', $grbit, $horPos, $verPos, $objId,
-                                     count($this->_dv));
+                                     numberOfElements($this->_dv));
         $this->_append($header.$data);
 
         $record = 0x01be;              // Record identifier

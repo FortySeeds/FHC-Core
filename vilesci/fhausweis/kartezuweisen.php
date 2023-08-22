@@ -85,7 +85,7 @@ if(isset($_GET['data']))
 {
 	$users = explode(';',$_GET['data']);
 }
-if(count($_POST)>700)
+if(numberOfElements($_POST)>700)
 {
 	printWarning();
 }
@@ -151,7 +151,7 @@ if(isset($_POST['save']) && $users!='')
 }
 if($users!='')
 {
-	if(count($users)>500)
+	if(numberOfElements($users)>500)
 	{
 		printWarning();
 	}

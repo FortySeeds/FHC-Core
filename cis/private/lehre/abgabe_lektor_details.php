@@ -166,7 +166,7 @@ if(in_array($betreuerart, array('Erstbegutachter', 'Senatsvorsitz')))
 		}
 
 		// Mail mit Token an Zweitbegutachter senden
-		if (count($zweitbetreuerArr) > 0 && $paIsCurrent >= 1 && isset($_GET['zweitbegutachtertoken']) && isset($_GET['zweitbetreuer_person_id']))
+		if (numberOfElements($zweitbetreuerArr) > 0 && $paIsCurrent >= 1 && isset($_GET['zweitbegutachtertoken']) && isset($_GET['zweitbetreuer_person_id']))
 		{
 			$qry_std="SELECT * FROM campus.vw_benutzer where uid=".$db->db_add_param($uid);
 			if(!$result_std=$db->db_query($qry_std))
@@ -705,7 +705,7 @@ while ($row=@$db->db_fetch_object($result))
 			{
 				// Check if the document is signed
 				$signList = SignatureLib::list(PAABGABE_PATH.$row->paabgabe_id.'_'.$uid.'.pdf');
-				if (is_array($signList) && count($signList) > 0)
+				if (is_array($signList) && numberOfElements($signList) > 0)
 				{
 					$signaturVorhanden = true;
 					// The document is signed

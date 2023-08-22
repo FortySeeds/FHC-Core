@@ -38,7 +38,7 @@ class Organisationseinheit_model extends DB_Model
 
 		$parametersArray = array();
 
-		if (is_array($typ) && count($typ) > 0)
+		if (is_array($typ) && numberOfElements($typ) > 0)
 		{
 			$parametersArray[] = $typ;
 			$qry .= ' WHERE organisationseinheittyp_kurzbz IN ?';

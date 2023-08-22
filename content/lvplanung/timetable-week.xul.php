@@ -499,7 +499,7 @@ elseif ($aktion=='lva_multi_set')
 			$error_msg.="Fatal Error: Ende Datum ist nicht gesetzt ($semester_aktuell)!";
 
 		$ende=mktime(0,0,1,substr($ende,5,2),substr($ende,8,2),substr($ende,0,4));
-		$anz_lvas=count($lva_id);
+		$anz_lvas=numberOfElements($lva_id);
 		// Arrays intitialisieren
 		$wochenrythmus=array();
 		$verplant=array();
@@ -534,7 +534,7 @@ elseif ($aktion=='lva_multi_set')
 		// Offene Stunden
 		$os=$offenestunden[0];
 		$offenestunden=array_unique($offenestunden);
-		if (count($offenestunden)==1)
+		if (numberOfElements($offenestunden)==1)
 			$offenestunden=$os;
 		else
 			$error_msg.='Offene Stunden sind nicht eindeutig!';
@@ -542,14 +542,14 @@ elseif ($aktion=='lva_multi_set')
 		//Blockung
 		$blk=$block[0];
 		$block=array_unique($block);
-		if (count($block)==1)
+		if (numberOfElements($block)==1)
 			$block=$blk;
 		else
 			$error_msg.='Blockung ist nicht eindeutig!';
 		//Wochenrythmus
 		$wr=$wochenrythmus[0];
 		$wochenrythmus=array_unique($wochenrythmus);
-		if (count($wochenrythmus)==1)
+		if (numberOfElements($wochenrythmus)==1)
 			$wochenrythmus=$wr;
 		else
 			$error_msg.='Wochenrhythmus ist nicht eindeutig!';
@@ -609,7 +609,7 @@ elseif ($aktion=='lva_stpl_del_multi' || $aktion=='lva_stpl_del_single')
 			}
 			else
 				$ende=date('Y-m-d',jump_week($datum,1));
-			$anz_lvas=count($lva_id);
+			$anz_lvas=numberOfElements($lva_id);
 			$sql_query_lvaid='';
 			$sql_query='DELETE FROM lehre.'.TABLE_BEGIN.$db_stpl_table.' WHERE (';
 			for ($i=0;$i<$anz_lvas;$i++)

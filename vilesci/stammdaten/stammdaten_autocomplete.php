@@ -104,7 +104,7 @@ cellSeparator (default value: "|")
 			{
 				exit(' |'.$db->errormsg."\n");
 			}
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 				echo html_entity_decode($oRresult[$i]->gemeinde).'|'.html_entity_decode($nation)."\n";
 			break;
 
@@ -135,7 +135,7 @@ cellSeparator (default value: "|")
 			{
 					exit(' |'.$db->errormsg."\n");
 			}
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 				echo html_entity_decode($oRresult[$i]->plz)."\n";
 			break;
 
@@ -166,7 +166,7 @@ cellSeparator (default value: "|")
 			{
 					exit(' |'.$db->errormsg."\n");
 			}
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 				echo html_entity_decode($oRresult[$i]->ort).'|'.html_entity_decode($oRresult[$i]->plz)."\n";
 			break;
 
@@ -206,7 +206,7 @@ cellSeparator (default value: "|")
 				if (!$oRresult=$db->SQL($pArt,$pDistinct,$pFields,$pTable,$pWhere,$pOrder,$pLimit,$pSql))
 					exit(' |'.$db->errormsg."\n");
 			}
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 				echo html_entity_decode($oRresult[$i]->position).'|'.html_entity_decode($oRresult[$i]->funktion_kurzbz)	."\n";
 			break;
 
@@ -256,7 +256,7 @@ cellSeparator (default value: "|")
 			}
 			else if ($oRresult)
 			{
-				for ($i=0;$i<count($oRresult);$i++)
+				for ($i=0;$i<numberOfElements($oRresult);$i++)
 				{
 					array_push($json, array ('oFirma_id' => $oRresult[$i]->firma_id,'oName' => $oRresult[$i]->name ));
 				}
@@ -287,7 +287,7 @@ cellSeparator (default value: "|")
 			if(is_array($result))
 			{
                             $json=array();
-                            for ($i=0;$i<count($result);$i++)
+                            for ($i=0;$i<numberOfElements($result);$i++)
                             {
                                 $item['tag']=$result[$i]->tag;
                                 $json[]=$item;
@@ -359,7 +359,7 @@ cellSeparator (default value: "|")
 				exit(' |'.$db->errormsg."\n");
 
 			$json=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
                             $item['anrede']=trim($oRresult[$i]->anrede);
                             $item['titelpre']=$oRresult[$i]->titelpre?html_entity_decode($oRresult[$i]->titelpre).' ':'';
@@ -441,7 +441,7 @@ cellSeparator (default value: "|")
 				exit(' |'.$db->errormsg."\n");
 
 
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				echo html_entity_decode($oRresult[$i]->uid).'|'
 									.trim($oRresult[$i]->uid).'&nbsp;'

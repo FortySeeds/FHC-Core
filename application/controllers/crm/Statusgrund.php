@@ -131,7 +131,7 @@ class Statusgrund extends Auth_Controller
 		$beschreibung = $this->input->post("beschreibung");
 		$statusgrund_kurzbz = $this->input->post("statusgrund_kurzbz");
 
-		for ($i = 0; $i < count($bezeichnung_mehrsprachig); $i++)
+		for ($i = 0; $i < numberOfElements($bezeichnung_mehrsprachig); $i++)
 		{
 			if ($i == 0) $tmp = "{";
 
@@ -141,7 +141,7 @@ class Statusgrund extends Auth_Controller
 			}
 
 			$bezeichnung_mehrsprachig[$i] = str_replace(",", "|", $bezeichnung_mehrsprachig[$i]);
-			if ($i < count($bezeichnung_mehrsprachig) - 1)
+			if ($i < numberOfElements($bezeichnung_mehrsprachig) - 1)
 			{
 				$tmp .= $bezeichnung_mehrsprachig[$i] . ",";
 			}
@@ -150,10 +150,10 @@ class Statusgrund extends Auth_Controller
 				$tmp .= $bezeichnung_mehrsprachig[$i];
 			}
 
-			if ($i == count($bezeichnung_mehrsprachig) - 1) $bezeichnung_mehrsprachig = $tmp . "}";
+			if ($i == numberOfElements($bezeichnung_mehrsprachig) - 1) $bezeichnung_mehrsprachig = $tmp . "}";
 		}
 
-		for ($i = 0; $i < count($beschreibung); $i++)
+		for ($i = 0; $i < numberOfElements($beschreibung); $i++)
 		{
 			if ($i == 0) $tmp = "{";
 
@@ -163,7 +163,7 @@ class Statusgrund extends Auth_Controller
 			}
 
 			$beschreibung[$i] = str_replace(",", "|", $beschreibung[$i]);
-			if ($i < count($beschreibung) - 1)
+			if ($i < numberOfElements($beschreibung) - 1)
 			{
 				$tmp .= $beschreibung[$i] . ",";
 			}
@@ -172,7 +172,7 @@ class Statusgrund extends Auth_Controller
 				$tmp .= $beschreibung[$i];
 			}
 
-			if ($i == count($beschreibung) - 1) $beschreibung = $tmp . "}";
+			if ($i == numberOfElements($beschreibung) - 1) $beschreibung = $tmp . "}";
 		}
 
 		$data = array(
@@ -200,7 +200,7 @@ class Statusgrund extends Auth_Controller
 		$status_kurzbz = $this->input->post("status_kurzbz");
 		$statusgrund_kurzbz = $this->input->post("statusgrund_kurzbz");
 
-		for ($i = 0; $i < count($bezeichnung_mehrsprachig); $i++)
+		for ($i = 0; $i < numberOfElements($bezeichnung_mehrsprachig); $i++)
 		{
 			if ($i == 0) $tmp = "{";
 
@@ -210,7 +210,7 @@ class Statusgrund extends Auth_Controller
 			}
 
 			$bezeichnung_mehrsprachig[$i] = str_replace(",", "|", $bezeichnung_mehrsprachig[$i]);
-			if ($i < count($bezeichnung_mehrsprachig) - 1)
+			if ($i < numberOfElements($bezeichnung_mehrsprachig) - 1)
 			{
 				$tmp .= $bezeichnung_mehrsprachig[$i] . ",";
 			}
@@ -219,10 +219,10 @@ class Statusgrund extends Auth_Controller
 				$tmp .= $bezeichnung_mehrsprachig[$i];
 			}
 
-			if ($i == count($bezeichnung_mehrsprachig) - 1) $bezeichnung_mehrsprachig = $tmp . "}";
+			if ($i == numberOfElements($bezeichnung_mehrsprachig) - 1) $bezeichnung_mehrsprachig = $tmp . "}";
 		}
 
-		for ($i = 0; $i < count($beschreibung); $i++)
+		for ($i = 0; $i < numberOfElements($beschreibung); $i++)
 		{
 			if ($i == 0) $tmp = "{";
 
@@ -232,7 +232,7 @@ class Statusgrund extends Auth_Controller
 			}
 
 			$beschreibung[$i] = str_replace(",", "|", $beschreibung[$i]);
-			if ($i < count($beschreibung) - 1)
+			if ($i < numberOfElements($beschreibung) - 1)
 			{
 				$tmp .= $beschreibung[$i] . ",";
 			}
@@ -241,7 +241,7 @@ class Statusgrund extends Auth_Controller
 				$tmp .= $beschreibung[$i];
 			}
 
-			if ($i == count($beschreibung) - 1) $beschreibung = $tmp . "}";
+			if ($i == numberOfElements($beschreibung) - 1) $beschreibung = $tmp . "}";
 		}
 
 		$data = array(
@@ -269,7 +269,7 @@ class Statusgrund extends Auth_Controller
 		$bezeichnung_mehrsprachig = $this->input->post("bezeichnung_mehrsprachig");
 		$beschreibung = $this->input->post("beschreibung");
 
-		for ($i = 0; $i < count($bezeichnung_mehrsprachig); $i++)
+		for ($i = 0; $i < numberOfElements($bezeichnung_mehrsprachig); $i++)
 		{
 			if ($i == 0) $tmp = "{";
 
@@ -279,7 +279,7 @@ class Statusgrund extends Auth_Controller
 			}
 
 			$bezeichnung_mehrsprachig[$i] = str_replace(",", "|", $bezeichnung_mehrsprachig[$i]);
-			if ($i < count($bezeichnung_mehrsprachig) - 1)
+			if ($i < numberOfElements($bezeichnung_mehrsprachig) - 1)
 			{
 				$tmp .= $bezeichnung_mehrsprachig[$i] . ",";
 			}
@@ -288,7 +288,7 @@ class Statusgrund extends Auth_Controller
 				$tmp .= $bezeichnung_mehrsprachig[$i];
 			}
 
-			if ($i == count($bezeichnung_mehrsprachig) - 1) $bezeichnung_mehrsprachig = $tmp . "}";
+			if ($i == numberOfElements($bezeichnung_mehrsprachig) - 1) $bezeichnung_mehrsprachig = $tmp . "}";
 		}
 
 		$data = array(

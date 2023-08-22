@@ -202,7 +202,7 @@ echo '			<script type="text/javascript" src="../../../vendor/components/jqueryui
 
 	$konto = new konto();
 	$konto->getBuchungen($benutzer->person_id);
-	if(count($konto->result)>0)
+	if(numberOfElements($konto->result)>0)
 	{
 		echo '<br><br><table class="tablesorter" id="t1"><thead>';
 		echo '<tr>';

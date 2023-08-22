@@ -31,7 +31,7 @@ class PersonLock_model extends DB_Model
 
 		if ($result->error) return $result;
 
-		if (count($result->retval) > 0)
+		if (numberOfElements($result->retval) > 0)
 			return success($result->retval);
 		else
 			return success(null);

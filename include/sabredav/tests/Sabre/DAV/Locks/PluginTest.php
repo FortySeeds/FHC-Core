@@ -120,7 +120,7 @@ class PluginTest extends DAV\AbstractServer {
 
         foreach($elements as $elem) {
             $data = $xml->xpath($elem);
-            $this->assertEquals(1,count($data),'We expected 1 match for the xpath expression "' . $elem . '". ' . count($data) . ' were found. Full response body: ' . $this->response->body);
+            $this->assertEquals(1,numberOfElements($data),'We expected 1 match for the xpath expression "' . $elem . '". ' . numberOfElements($data) . ' were found. Full response body: ' . $this->response->body);
         }
 
         $depth = $xml->xpath('/d:prop/d:lockdiscovery/d:activelock/d:depth');
@@ -434,7 +434,7 @@ class PluginTest extends DAV\AbstractServer {
         $lockToken = $this->server->httpResponse->headers['Lock-Token'];
 
         $locks = $this->locksPlugin->getLocks('test.txt');
-        $this->assertEquals(1,count($locks));
+        $this->assertEquals(1,numberOfElements($locks));
         $this->assertEquals('Evert',$locks[0]->owner);
 
 

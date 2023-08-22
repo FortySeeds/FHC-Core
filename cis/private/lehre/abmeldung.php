@@ -53,7 +53,7 @@ $stsem = $_GET['stsem'];
 
 $lvangebot = new lvangebot();
 $gruppen = $lvangebot->AbmeldungMoeglich($lvid, $stsem, $user);
-if(count($gruppen)>0)
+if(numberOfElements($gruppen)>0)
 {
 	if(isset($_POST['gruppe']))
 	{

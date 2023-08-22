@@ -123,7 +123,7 @@ class UDF extends API_Controller
 	{
 		if (hasData($result))
 		{
-			for($i = 0; $i < count($result->retval); $i++)
+			for($i = 0; $i < numberOfElements($result->retval); $i++)
 			{
 				$obj = $result->retval[$i];
 				$obj->jsons = json_decode($obj->jsons);

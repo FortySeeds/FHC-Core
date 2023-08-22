@@ -239,7 +239,7 @@ class File_CSV
 
             if (!$in_quote && ($c == $conf['sep'] || $c == "\n" || $c == "\r") && $prev != '') {
                 // More fields than expected
-                if (($c == $conf['sep']) && ((count($ret) + 1) == $f)) {
+                if (($c == $conf['sep']) && ((numberOfElements($ret) + 1) == $f)) {
                     // Seek the pointer into linebreak character.
                     while (true) {
                         $c = fgetc($fp);
@@ -260,8 +260,8 @@ class File_CSV
 
                     // Pair the array elements to fields count.
                     return array_merge($ret,
-                                       array_fill(count($ret),
-                                                 ($f - 1) - (count($ret) - 1),
+                                       array_fill(numberOfElements($ret),
+                                                 ($f - 1) - (numberOfElements($ret) - 1),
                                                  '')
                     );
                 }
@@ -276,7 +276,7 @@ class File_CSV
                 }
 
                 $ret[] = File_CSV::unquote($buff, $quote);
-                if (count($ret) == $f) {
+                if (numberOfElements($ret) == $f) {
                     return $ret;
                 }
                 $buff = '';
@@ -309,14 +309,14 @@ class File_CSV
         $fields = $conf['fields'] == 1 ? array($line) : explode($conf['sep'], $line);
 
         if ($conf['quote']) {
-            $last =& $fields[count($fields) - 1];
+            $last =& $fields[numberOfElements($fields) - 1];
             // Fallback to read the line with readQuoted when guess
             // that the simple explode won't work right
             if (($last{strlen($last) - 1} == "\n"
                 && $last{0} == $conf['quote']
                 && $last{strlen(rtrim($last)) - 1} != $conf['quote'])
                 ||
-                (count($fields) != $conf['fields'])
+                (numberOfElements($fields) != $conf['fields'])
                 // XXX perhaps there is a separator inside a quoted field
                 //preg_match("|{$conf['quote']}.*{$conf['sep']}.*{$conf['quote']}|U", $line)
                 )
@@ -331,8 +331,8 @@ class File_CSV
             }
         }
 
-        if (count($fields) != $conf['fields']) {
-            File_CSV::raiseError("Read wrong fields number count: '". count($fields) .
+        if (numberOfElements($fields) != $conf['fields']) {
+            File_CSV::raiseError("Read wrong fields number count: '". numberOfElements($fields) .
                                   "' expected ".$conf['fields']);
             return true;
         }
@@ -373,19 +373,19 @@ class File_CSV
         if (!$fp = File_CSV::getPointer($file, $conf, FILE_MODE_WRITE)) {
             return false;
         }
-        if (count($fields) != $conf['fields']) {
-            File_CSV::raiseError("Wrong fields number count: '". count($fields) .
+        if (numberOfElements($fields) != $conf['fields']) {
+            File_CSV::raiseError("Wrong fields number count: '". numberOfElements($fields) .
                                   "' expected ".$conf['fields']);
             return true;
         }
         $write = '';
-        for ($i = 0; $i < count($fields); $i++) {
+        for ($i = 0; $i < numberOfElements($fields); $i++) {
             if (!is_numeric($fields[$i]) && $conf['quote']) {
                 $write .= $conf['quote'] . $fields[$i] . $conf['quote'];
             } else {
                 $write .= $fields[$i];
             }
-            if ($i < (count($fields) - 1)) {
+            if ($i < (numberOfElements($fields) - 1)) {
                 $write .= $conf['sep'];
             } else {
                 $write .= $conf['crlf'];
@@ -425,7 +425,7 @@ class File_CSV
         // for each separator in each line
 
         $lines = file($file);
-        if (count($lines) > 10) {
+        if (numberOfElements($lines) > 10) {
             $lines = array_slice($lines, 0, 10);
         }
 
@@ -435,7 +435,7 @@ class File_CSV
 
         foreach ($lines as $line) {
             foreach ($seps as $sep) {
-                $matches[$sep][] = substr_count($line, $sep);
+                $matches[$sep][] = substr_numberOfElements($line, $sep);
             }
         }
 
@@ -465,7 +465,7 @@ class File_CSV
         // Test if there are fields with quotes arround in the first 5 lines
         $quotes = '"\'';
         $quote  = null;
-        if (count($lines) > 5) {
+        if (numberOfElements($lines) > 5) {
             $lines = array_slice($lines, 0, 5);
         }
 

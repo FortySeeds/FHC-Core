@@ -122,7 +122,7 @@ else
 	{
 		// wenn im nahegelegensten/aktuellen Studiensemester eine Lehreinheit angelegt ist dann diese anzeigen
 		$lehreinheit = new lehreinheit();
-		if($lehreinheit->load_lehreinheiten($lvid, $stsem->getNearest()) && count($lehreinheit->lehreinheiten)>0)
+		if($lehreinheit->load_lehreinheiten($lvid, $stsem->getNearest()) && numberOfElements($lehreinheit->lehreinheiten)>0)
 		{
 			$lehreinheit_found=false;
 			foreach($lehreinheit->lehreinheiten as $row_lehreinheit)

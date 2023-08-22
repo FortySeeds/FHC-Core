@@ -336,19 +336,19 @@ class ezcGraphRenderer3d
         );
 
         $pieChartHeight = min(
-            $radius * 2 + $radius / max( 1, count ( $this->pieSegmentLabels[0] ), count( $this->pieSegmentLabels[1] ) ) * 4,
+            $radius * 2 + $radius / max( 1, count ( $this->pieSegmentLabels[0] ), numberOfElements( $this->pieSegmentLabels[1] ) ) * 4,
             $boundings->height
         );
         $pieChartYPosition = $boundings->y0 + ( ( $boundings->height ) - $pieChartHeight ) / 2;
 
         // Calculate maximum height of labels
         $labelHeight = min(
-            ( count( $this->pieSegmentLabels[0] )
-                ? $pieChartHeight / count( $this->pieSegmentLabels[0] )
+            ( numberOfElements( $this->pieSegmentLabels[0] )
+                ? $pieChartHeight / numberOfElements( $this->pieSegmentLabels[0] )
                 : $pieChartHeight
             ),
-            ( count( $this->pieSegmentLabels[1] )
-                ? $pieChartHeight / count( $this->pieSegmentLabels[1] )
+            ( numberOfElements( $this->pieSegmentLabels[1] )
+                ? $pieChartHeight / numberOfElements( $this->pieSegmentLabels[1] )
                 : $pieChartHeight
             ),
             ( $pieChartHeight ) * $this->options->maxLabelHeight
@@ -359,7 +359,7 @@ class ezcGraphRenderer3d
         foreach ( $this->pieSegmentLabels as $side => $labelPart )
         {
             $minHeight = $pieChartYPosition;
-            $toShare = $pieChartHeight - count( $labelPart ) * $labelHeight;
+            $toShare = $pieChartHeight - numberOfElements( $labelPart ) * $labelHeight;
 
             // Sort to draw topmost label first
             ksort( $labelPart );
@@ -533,7 +533,7 @@ class ezcGraphRenderer3d
             {
                 $center += $point->y;
             }
-            $center = (int) ( $center / count( $polygonPoints ) );
+            $center = (int) ( $center / numberOfElements( $polygonPoints ) );
 
             $zBuffer[$center][] = array(
                 'method' => 'drawPolygon',
@@ -576,7 +576,7 @@ class ezcGraphRenderer3d
             {
                 $center += $point->y;
             }
-            $center = (int) ( $center / count( $polygonPoints ) );
+            $center = (int) ( $center / numberOfElements( $polygonPoints ) );
 
             $zBuffer[$center][] = array(
                 'method' => 'drawPolygon',
@@ -1315,7 +1315,7 @@ class ezcGraphRenderer3d
      */
     protected function finishBars()
     {
-        if ( !count( $this->barPostProcessing ) )
+        if ( !numberOfElements( $this->barPostProcessing ) )
         {
             return true;
         }
@@ -1632,13 +1632,13 @@ class ezcGraphRenderer3d
         {
             $labelWidth = $boundings->x1 - $boundings->x0;
             $labelHeight = min( 
-                ( $boundings->y1 - $boundings->y0 ) / count( $labels ) - $legend->spacing, 
+                ( $boundings->y1 - $boundings->y0 ) / numberOfElements( $labels ) - $legend->spacing, 
                 $legend->symbolSize + 2 * $legend->padding
             );
         }
         else
         {
-            $labelWidth = ( $boundings->x1 - $boundings->x0 ) / count( $labels ) - $legend->spacing;
+            $labelWidth = ( $boundings->x1 - $boundings->x0 ) / numberOfElements( $labels ) - $legend->spacing;
             $labelHeight = min(
                 $boundings->height,
                 $legend->symbolSize + 2 * $legend->padding

@@ -66,7 +66,7 @@ $stg_assistenz = $rechte->getStgKz('assistenz');
 $stgs = array_merge($stg_admin, $stg_assistenz);
 sort($stgs);
 //Wenn keine Berechtigung vorhanden ist beenden
-if(count($stgs)==0)
+if(numberOfElements($stgs)==0)
 	die('Sie haben keine Studiengangsberechtigung');
 
 //alle Studiengaenge holen fuer die eine berechtigung vorhanden ist

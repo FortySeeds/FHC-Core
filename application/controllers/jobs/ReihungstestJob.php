@@ -236,7 +236,7 @@ class ReihungstestJob extends JOB_Controller
 		$mailcontent = '';
 		$applicants_list = '';
 
-		if (count($applicants_after_anmeldefrist_arr) > 0)
+		if (numberOfElements($applicants_after_anmeldefrist_arr) > 0)
 		{
 			foreach ($applicants_after_anmeldefrist_arr as $applicant)
 			{
@@ -553,7 +553,7 @@ class ReihungstestJob extends JOB_Controller
 		$base_link = base_url('vilesci/stammdaten/auswertung_fhtw.php');
 
 		$i = 0; // loop counter
-		$len = count($result_arr);
+		$len = numberOfElements($result_arr);
 
 		// Loop trough list of new applicants
 		foreach($result_arr as $result)
@@ -1027,7 +1027,7 @@ class ReihungstestJob extends JOB_Controller
 				foreach ($orgform AS $art=>$value)
 				{
 					// Orgform nur dazu schreiben, wenn es mehr als Eine gibt
-					if (count($orgform) > 1)
+					if (numberOfElements($orgform) > 1)
 					{
 						$mailcontent .= '<p style="font-family: verdana, sans-serif;"><b>Orgform '.$art.'</b></p>';
 					}

@@ -53,16 +53,16 @@ class ezcBaseFileRemoveRecursiveTest extends ezcTestCase
 
     public function testRecursive1()
     {
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
         ezcBaseFile::removeRecursive( $this->tempDir . '/dir1' );
-        self::assertEquals( 9, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 9, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
         ezcBaseFile::removeRecursive( $this->tempDir . '/dir2' );
-        self::assertEquals( 4, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 4, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
     }
 
     public function testRecursive2()
     {
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
         try
         {
             ezcBaseFile::removeRecursive( $this->tempDir . '/dir3' );
@@ -71,12 +71,12 @@ class ezcBaseFileRemoveRecursiveTest extends ezcTestCase
         {
             self::assertEquals( "The directory file '{$this->tempDir}/dir3' could not be found.", $e->getMessage() );
         }
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
     }
 
     public function testRecursive3()
     {
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
         try
         {
             ezcBaseFile::removeRecursive( $this->tempDir . '/dir4' );
@@ -85,12 +85,12 @@ class ezcBaseFileRemoveRecursiveTest extends ezcTestCase
         {
             self::assertEquals( "The file '{$this->tempDir}/dir5' can not be opened for reading.", $e->getMessage() );
         }
-        self::assertEquals( 10, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 10, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
     }
 
     public function testRecursive4()
     {
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
         try
         {
             ezcBaseFile::removeRecursive( $this->tempDir . '/dir5' );
@@ -99,12 +99,12 @@ class ezcBaseFileRemoveRecursiveTest extends ezcTestCase
         {
             self::assertEquals( "The file '{$this->tempDir}/dir5' can not be opened for reading.", $e->getMessage() );
         }
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
     }
 
     public function testRecursive5()
     {
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
         try
         {
             ezcBaseFile::removeRecursive( $this->tempDir . '/dir6' );
@@ -120,7 +120,7 @@ class ezcBaseFileRemoveRecursiveTest extends ezcTestCase
                 )
             );
         }
-        self::assertEquals( 12, count( ezcBaseFile::findRecursive( $this->tempDir ) ) );
+        self::assertEquals( 12, numberOfElements( ezcBaseFile::findRecursive( $this->tempDir ) ) );
     }
 
     public static function suite()

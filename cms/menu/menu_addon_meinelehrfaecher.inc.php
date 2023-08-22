@@ -110,7 +110,7 @@ class menu_addon_meinelvkompatibel extends menu_addon
 								);
 							}
 						}
-						if(count($stsementry)>0)
+						if(numberOfElements($stsementry)>0)
 						{
 							$this->items[] = array('title'=>$stsem,
 									'target'=>'',
@@ -194,7 +194,7 @@ class menu_addon_meinelvkompatibel extends menu_addon
 								);
 							}
 						}
-						if(count($stsementry)>0)
+						if(numberOfElements($stsementry)>0)
 						{
 							$this->items[] = array('title'=>$stsem,
 									'target'=>'',

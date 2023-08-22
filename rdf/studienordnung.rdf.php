@@ -335,7 +335,7 @@ function printLehrveranstaltungTree($tree)
 		}
 
 		// Darunterliegende LVs/Module
-		if(isset($lv->childs) && count($lv->childs)>0)
+		if(isset($lv->childs) && numberOfElements($lv->childs)>0)
 		{
 			echo '<lehrveranstaltungen>';
 			printLehrveranstaltungTree($lv->childs);

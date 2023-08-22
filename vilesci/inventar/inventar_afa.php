@@ -155,7 +155,7 @@
 	}
 	if (!empty($ajax))
 	{
-		if (is_array($errormsg) && count($errormsg)>0)
+		if (is_array($errormsg) && numberOfElements($errormsg)>0)
 			exit(implode(", ",$errormsg));
 		elseif (!is_array($errormsg))
 			exit($errormsg);
@@ -452,7 +452,7 @@
 					<select id="oe_kurzbz" name="oe_kurzbz" >
 						<option  <?php echo (empty($oe_kurzbz)?' selected="selected" ':''); ?>  value="">bitte ausw&auml;hlen&nbsp;</option>
 						<?php
-						for ($i=0;$i<count($resultOrganisationseinheit) ;$i++)
+						for ($i=0;$i<numberOfElements($resultOrganisationseinheit) ;$i++)
 						{
 							if ($resultOrganisationseinheit[$i]->oe_kurzbz)
 								echo '<option '.($oe_kurzbz==$resultOrganisationseinheit[$i]->oe_kurzbz?' selected="selected" ':'').' value="'.$resultOrganisationseinheit[$i]->oe_kurzbz.'">'.($resultOrganisationseinheit[$i]->bezeichnung=='NULL' || empty($resultOrganisationseinheit[$i]->bezeichnung)?$resultOrganisationseinheit[$i]->oe_kurzbz:$resultOrganisationseinheit[$i]->bezeichnung).'&nbsp;</option>';
@@ -625,7 +625,7 @@
 								  	$betriebsmittelstatus_kurzbz_select=trim((!isset($_REQUEST['betriebsmittelstatus_kurzbz'])?$default_status_vorhanden:$betriebsmittelstatus_kurzbz));
 									echo (empty($betriebsmittelstatus_kurzbz_select)?' selected="selected" ':''); ?>  value="">bitte ausw&auml;hlen&nbsp;</option>
 									<?php
-									for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+									for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 									{
 										if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 											echo '<option '.($betriebsmittelstatus_kurzbz_select==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -638,7 +638,7 @@
 						<option  <?php echo (empty($betriebsmitteltyp)?' selected="selected" ':''); ?>  value="">bitte ausw&auml;hlen&nbsp;</option>
 									<?php
 
-									for ($i=0;$i<count($resultBetriebsmitteltyp) ;$i++)
+									for ($i=0;$i<numberOfElements($resultBetriebsmitteltyp) ;$i++)
 									{
 										if ($resultBetriebsmitteltyp[$i]->betriebsmitteltyp)
 											echo '<option '.($betriebsmitteltyp==$resultBetriebsmitteltyp[$i]->betriebsmitteltyp?' selected="selected" ':'').' value="'.$resultBetriebsmitteltyp[$i]->betriebsmitteltyp.'">'.($resultBetriebsmitteltyp[$i]->beschreibung=='NULL' || empty($resultBetriebsmitteltyp[$i]->beschreibung)?$resultBetriebsmitteltyp[$i]->betriebsmitteltyp:$resultBetriebsmitteltyp[$i]->beschreibung).'&nbsp;</option>';
@@ -709,11 +709,11 @@
 		$errormsg[]=$oBetriebsmittel->errormsg;
 
 	// Ausgabe
-	if (is_array($oBetriebsmittel->result) && count($oBetriebsmittel->result)==1)
+	if (is_array($oBetriebsmittel->result) && numberOfElements($oBetriebsmittel->result)==1)
 	{
 		echo output_inventarposition($debug,$oBetriebsmittel->result,$resultBetriebsmittelstatus,$schreib_recht);
 	}
-	else if (is_array($oBetriebsmittel->result) && count($oBetriebsmittel->result)>1)
+	else if (is_array($oBetriebsmittel->result) && numberOfElements($oBetriebsmittel->result)>1)
 	{
 		echo output_inventar($debug,$oBetriebsmittel->result,$resultBetriebsmittelstatus,$schreib_recht);
 	}
@@ -726,7 +726,7 @@
 	}
 
 	// Error - Meldungen ausgeben
-	if (is_array($errormsg) && count($errormsg)>0)
+	if (is_array($errormsg) && numberOfElements($errormsg)>0)
 		echo '<font class="error">'. implode("<br />",$errormsg).'</font>';
 	elseif (!is_array($errormsg))
 		echo '<font class="error"><br />'.$errormsg.'</font>';
@@ -738,13 +738,13 @@
 function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebsmittelstatus=array(),$schreib_recht=false)
 {
 	$htmlstring='';
-	if (is_null($resultBetriebsmittel) || !is_array($resultBetriebsmittel) || count($resultBetriebsmittel)<1)
+	if (is_null($resultBetriebsmittel) || !is_array($resultBetriebsmittel) || numberOfElements($resultBetriebsmittel)<1)
 		return $htmlstring;
 
 	$htmlstring.='<table  id="t1" class="liste table-autosort:2 table-stripeclass:alternate table-autostripe">
 			<thead>';
-	if (is_array($resultBetriebsmittel) && count($resultBetriebsmittel)>1)
-		$htmlstring.='<tr><th colspan="12">Bitte ein Inventar aus den '.count($resultBetriebsmittel).' gefundenen ausw&auml;hlen</th></tr>';
+	if (is_array($resultBetriebsmittel) && numberOfElements($resultBetriebsmittel)>1)
+		$htmlstring.='<tr><th colspan="12">Bitte ein Inventar aus den '.numberOfElements($resultBetriebsmittel).' gefundenen ausw&auml;hlen</th></tr>';
 	$htmlstring.='<tr>
 				<th class="table-sortable:default">Inv.nr.</th>
 				<th class="table-sortable:default">Standort</th>
@@ -758,7 +758,7 @@ function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebs
 			</thead>
 		';
 
-	for ($pos=0;$pos<count($resultBetriebsmittel);$pos++)
+	for ($pos=0;$pos<numberOfElements($resultBetriebsmittel);$pos++)
 	{
 
 		if ($pos%2)
@@ -800,7 +800,7 @@ function output_inventar($debug=false,$resultBetriebsmittel=null,$resultBetriebs
 		else
 		{
 			$htmlstring.='<select style="font-size:xx-small;" onchange="set_status(\'list'.$pos.'\',\''.$resultBetriebsmittel[$pos]->betriebsmittelbetriebsmittelstatus_id.'\',\''.$resultBetriebsmittel[$pos]->betriebsmittel_id.'\',\''.$resultBetriebsmittel[$pos]->inventarnummer.'\',\''.$resultBetriebsmittel[$pos]->bestellung_id.'\',\''.$resultBetriebsmittel[$pos]->bestelldetail_id.'\',this.value);" name="betriebsmittelstatus_kurzbz">';
-			for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+			for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 			{
 				if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 					$htmlstring.='<option '.($betriebsmittelstatus_kurzbz_select==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -829,7 +829,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 		$resBetriebsmittel=$resultBetriebsmittel;
 
 	$htmlstring='';
-	if (is_null($resBetriebsmittel) || ( !is_object($resBetriebsmittel) && !is_array($resBetriebsmittel) ) || count($resBetriebsmittel)<1)
+	if (is_null($resBetriebsmittel) || ( !is_object($resBetriebsmittel) && !is_array($resBetriebsmittel) ) || numberOfElements($resBetriebsmittel)<1)
 		return $htmlstring;
 
 	// Organisation - Inventarverwalter
@@ -971,7 +971,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 	else
 	{
 		$htmlstring.='&nbsp;<select onchange="document.sendform2.submit();" name="betriebsmittelstatus_kurzbz">';
-				for ($i=0;$i<count($resultBetriebsmittelstatus) ;$i++)
+				for ($i=0;$i<numberOfElements($resultBetriebsmittelstatus) ;$i++)
 				{
 					if ($resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz)
 						$htmlstring.='<option '.($betriebsmittelstatus_kurzbz_select==$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz?' selected="selected" ':'').' value="'.$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz.'">'.($resultBetriebsmittelstatus[$i]->beschreibung=='NULL' || empty($resultBetriebsmittelstatus[$i]->beschreibung)?$resultBetriebsmittelstatus[$i]->betriebsmittelstatus_kurzbz:$resultBetriebsmittelstatus[$i]->beschreibung).'&nbsp;</option>';
@@ -1023,7 +1023,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 	if (!$oBetriebsmittel_betriebsmittelstatus->load_betriebsmittel_id($resBetriebsmittel->betriebsmittel_id))
 		$htmlstring.='<br />'.$oBetriebsmittel_betriebsmittelstatus->errormsg;
 
-	if (is_array($oBetriebsmittel_betriebsmittelstatus->result) && count($oBetriebsmittel_betriebsmittelstatus->result)>0)
+	if (is_array($oBetriebsmittel_betriebsmittelstatus->result) && numberOfElements($oBetriebsmittel_betriebsmittelstatus->result)>0)
 	{
 		$htmlstring.='<table>';
 		$htmlstring.='<tr>
@@ -1034,7 +1034,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 							<th colspan="2">&Auml;nderung</th>
 						</thead>
 					</tr>';
-		for ($pos=0;$pos<count($oBetriebsmittel_betriebsmittelstatus->result);$pos++)
+		for ($pos=0;$pos<numberOfElements($oBetriebsmittel_betriebsmittelstatus->result);$pos++)
 		{
 			$row=$oBetriebsmittel_betriebsmittelstatus->result[$pos];
 			$oInsertBenutzer = new benutzer($row->insertvon);
@@ -1069,7 +1069,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 	if (!$oBetriebsmittelperson->getbetriebsmittelpersonen($resBetriebsmittel->betriebsmittel_id))
 		  $htmlstring.='<br />'.$oBetriebsmittelperson->errormsg;
 
-	if (is_array($oBetriebsmittelperson->result) && count($oBetriebsmittelperson->result)>0)
+	if (is_array($oBetriebsmittelperson->result) && numberOfElements($oBetriebsmittelperson->result)>0)
 	{
 		$htmlstring.='<fieldset><legend>Ausgabehistorie</legend>';
 		asort($oBetriebsmittelperson->result);
@@ -1083,7 +1083,7 @@ function output_inventarposition($debug=false,$resultBetriebsmittel=null,$result
 							<td colspan="2">&Auml;nderung</td>
 						</thead>
 						</tr>';
-		for ($pos=0;$pos<count($oBetriebsmittelperson->result);$pos++)
+		for ($pos=0;$pos<numberOfElements($oBetriebsmittelperson->result);$pos++)
 		{
 			$row=$oBetriebsmittelperson->result[$pos];
 			if ($pos%2)

@@ -205,7 +205,7 @@ foreach ($mitarbeiter_arr as $mitarbeiter)
 
 	// Hauptberufcode
 	// -----------------------------------------------------------------------------------------------------------------
-	$is_hauptberuflich = $bisverwendung_arr[count($bisverwendung_arr) - 1]->hauptberuflich;
+	$is_hauptberuflich = $bisverwendung_arr[numberOfElements($bisverwendung_arr) - 1]->hauptberuflich;
 
 	// wenn Hauptberuf / Nebenberuf im gleichen Jahr - laengere Dauer melden (Ueberwiegenheitprinzip)
 	if (has_hauptberufchange($bisverwendung_arr))		// nebenberuflich
@@ -220,7 +220,7 @@ foreach ($mitarbeiter_arr as $mitarbeiter)
 	 */
 	$person_obj->hauptberufcode = ($is_hauptberuflich == true)
 		? NULL
-		: $bisverwendung_arr[count($bisverwendung_arr) - 1]->hauptberufcode;
+		: $bisverwendung_arr[numberOfElements($bisverwendung_arr) - 1]->hauptberufcode;
 
 
 	// *****************************************************************************************************************
@@ -1057,7 +1057,7 @@ function _outputHTML($person_arr)
 	';
 
 	echo "<h2>Meldedaten</h2>";
-	echo "Anzahl der gemeldeten Personen: ".count($person_arr);
+	echo "Anzahl der gemeldeten Personen: ".numberOfElements($person_arr);
 
 	echo '
 	<table id="t1">
@@ -1098,7 +1098,7 @@ function _outputHTML($person_arr)
 
 		echo '<td style="vertical-align: top">';
 
-		if (count($person->verwendung_arr) > 0)
+		if (numberOfElements($person->verwendung_arr) > 0)
 		{
 			echo '
 				<table>
@@ -1132,7 +1132,7 @@ function _outputHTML($person_arr)
 
 		echo '<td style="vertical-align: top">';
 
-		if (count($person->funktion_arr) > 0)
+		if (numberOfElements($person->funktion_arr) > 0)
 		{
 			echo '
 				<table>
@@ -1251,7 +1251,7 @@ function outputPlausibilitaetschecks($person_arr)
 			$msg[] = 'Habilitation fehlt ';
 		}
 
-		if (isset($row->verwendung_arr) && is_array($row->verwendung_arr) && count($row->verwendung_arr) > 0)
+		if (isset($row->verwendung_arr) && is_array($row->verwendung_arr) && numberOfElements($row->verwendung_arr) > 0)
 		{
 			$jvzaesumme = 0;
 			foreach ($row->verwendung_arr as $verwendung)
@@ -1281,7 +1281,7 @@ function outputPlausibilitaetschecks($person_arr)
 			}
 		}
 
-		if (isset($row->lehre_arr) && is_array($row->lehre_arr) && count($row->lehre_arr) > 0)
+		if (isset($row->lehre_arr) && is_array($row->lehre_arr) && numberOfElements($row->lehre_arr) > 0)
 		{
 			foreach ($row->lehre_arr as $lehre)
 			{
@@ -1304,7 +1304,7 @@ function outputPlausibilitaetschecks($person_arr)
 			}
 		}
 
-		if (count($msg) > 0)
+		if (numberOfElements($msg) > 0)
 		{
 			echo "Fehler bei ".$row->vorname.' '.$row->nachname.' : '.implode($msg,', ');
 			echo "\n<br/>";
@@ -1362,7 +1362,7 @@ function has_hauptberufchange($bisverwendung_arr)
 		$hauptberuflich_arr[] = $row->hauptberuflich;
 	}
 
-	if(count(array_unique($hauptberuflich_arr))>1)
+	if(numberOfElements(array_unique($hauptberuflich_arr))>1)
 		return true;
 	else
 		return false;

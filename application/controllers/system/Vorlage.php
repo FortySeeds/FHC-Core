@@ -85,7 +85,7 @@ class Vorlage extends Auth_Controller
 		if ($vorlage->error)
 			show_error(getError($vorlage));
 
-		if (count($vorlage->retval) != 1)
+		if (numberOfElements($vorlage->retval) != 1)
 			show_error('Nachricht nicht vorhanden! ID: '.$vorlage_kurzbz);
 
 		$data = array (

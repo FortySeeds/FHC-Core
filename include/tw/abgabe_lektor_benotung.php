@@ -904,7 +904,7 @@ else
 					document.getElementById("note").value=ergebnis.toFixed(0);';
 				}
 			echo '}
-			function txtcount(field, countfield, maxlimit)
+			function txtnumberOfElements(field, countfield, maxlimit)
 			{
 				if(field.value.length>maxlimit)
 				{
@@ -980,7 +980,7 @@ else
 			$weight1='0.6';
 		}
 		$htmlstr .= '<td width="30%"><textarea name="qualitaet" value="'.$db->convert_html_chars($qualitaet).'" cols="50" rows="10" 
-		onKeyDown="txtcount(this.form.qualitaet,this.form.remLen,500);" onKeyUp="txtcount(this.form.qualitaet,this.form.remLen,500);"></textarea>
+		onKeyDown="txtnumberOfElements(this.form.qualitaet,this.form.remLen,500);" onKeyUp="txtnumberOfElements(this.form.qualitaet,this.form.remLen,500);"></textarea>
 		<br>Buchstaben noch zur Verf&uuml;gung<input readonly disabled type=text name=remLen size=3 maxlength=3 value="500" style="text-align:right"> </td>
 		<td width="10%" align="center"><input type="hidden" name="weight" id="weight1" value="'.$db->convert_html_chars($weight1).'">
 		<input type="text" name="punkte1" value="'.$db->convert_html_chars($punkte1).'" size="5" maxlength="5" id="punkte1" onkeyup="berechne()" style="text-align:right"></td>';
@@ -1001,7 +1001,7 @@ else
 			Abbildungen<br>
 			Sprache: ben&ouml;tigte &Uuml;berarbeitungen seitens der Betreuerin / des Betreuers</td>
 			<td width="30%"><textarea name="form" value="'.$db->convert_html_chars($form).'" cols="50" rows="10" 
-			onKeyDown="txtcount(this.form.form,this.form.remLen2,500);" onKeyUp="txtcount(this.form.form,this.form.remLen2,500);"></textarea>
+			onKeyDown="txtnumberOfElements(this.form.form,this.form.remLen2,500);" onKeyUp="txtnumberOfElements(this.form.form,this.form.remLen2,500);"></textarea>
 			<br>Buchstaben noch zur Verf&uuml;gung<input readonly disabled type=text name=remLen2 size=3 maxlength=3 value="500" style="text-align:right"></td>';
 			$weight2='0.2';
 		}
@@ -1013,7 +1013,7 @@ else
 			Abbildungen<br>
 			Sprache</td>
 			<td width="30%"><textarea name="form" value="'.$db->convert_html_chars($form).'" cols="50" rows="10"
-			onKeyDown="txtcount(this.form.form,this.form.remLen2,500);" onKeyUp="txtcount(this.form.form,this.form.remLen2,500);"></textarea>
+			onKeyDown="txtnumberOfElements(this.form.form,this.form.remLen2,500);" onKeyUp="txtnumberOfElements(this.form.form,this.form.remLen2,500);"></textarea>
 			<br>Buchstaben noch zur Verf&uuml;gung<input readonly disabled type=text name=remLen2 size=3 maxlength=3 value="500" style="text-align:right"></td>';
 			$weight2='0.4';
 		}
@@ -1035,7 +1035,7 @@ else
 			Intelligente Darstellung des relevanten Stands der Technik und des Firmenumfelds<br>
 			Aufdecken und Darstellen von gr&ouml;&szlig;eren (z.B. wirtschaftlichen und sozialen) Zusammenh&auml;ngen und entsprechende Diskussion</td>
 			<td width="30%"><textarea name="hintergrund" value="'.$db->convert_html_chars($hintergrund).'" cols="50" rows="10" 
-			onKeyDown="txtcount(this.form.hintergrund,this.form.remLen3,500);" onKeyUp="txtcount(this.form.hintergrund,this.form.remLen3,500);"></textarea>
+			onKeyDown="txtnumberOfElements(this.form.hintergrund,this.form.remLen3,500);" onKeyUp="txtnumberOfElements(this.form.hintergrund,this.form.remLen3,500);"></textarea>
 			<br>Buchstaben noch zur Verf&uuml;gung<input readonly disabled type=text name=remLen3 size=3 maxlength=3 value="500" style="text-align:right"></td>
 			<td width="10%" align="center"><input type="hidden" name="weight" id="weight3" value="0.25">
 			<input  type="text" name="punkte3" value="'.$db->convert_html_chars($punkte3).'" size="5" maxlength="5" id="punkte3" style="text-align:right" onkeyup="berechne()"></td>

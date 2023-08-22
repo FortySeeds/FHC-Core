@@ -243,7 +243,7 @@ function NotePruefungAnlegen($studiensemester_kurzbz, $student_uid, $lehrveranst
 		$benutzerfunktion->getBenutzerFunktionByUid($student_uid, 'awbefreit', $stsem_obj->start, $stsem_obj->ende);
 
 		$anwesenheitsbefreit=false;
-		if(count($benutzerfunktion->result)>0)
+		if(numberOfElements($benutzerfunktion->result)>0)
 			$anwesenheitsbefreit=true;
 
 		$gesamtnote_punkte = defined('CIS_GESAMTNOTE_PUNKTE') && CIS_GESAMTNOTE_PUNKTE;
@@ -483,7 +483,7 @@ function checkStatusaenderung(
 
 		// Prüfungen den Prestudentstatus betreffend
 		// Über alle gespeicherten Status gehen und Statusabfolge prüfen
-		for ($i = 0; $i < count($statusArr); $i++)
+		for ($i = 0; $i < numberOfElements($statusArr); $i++)
 		{
 			$curr_status = $statusArr[$i];
 			$curr_status_kurzbz = $curr_status->status_kurzbz;
@@ -659,7 +659,7 @@ if(!$error)
 							$prestudentobj = new prestudent();
 							$prestudentobj->getPrestudentRolle($student->prestudent_id, null, $semester_aktuell);
 
-							if(count($prestudentobj->result)>0)
+							if(numberOfElements($prestudentobj->result)>0)
 							{
 								if($student_lvb->studentlehrverband_exists($_POST['uid'], $semester_aktuell))
 									$student_lvb->new = false;
@@ -964,7 +964,7 @@ if(!$error)
 								$sem=$prestd->ausbildungssemester;
 
 							$hlp->getPrestudentRolle($prestudent_id, $_POST['status_kurzbz'], $studiensemester, "datum, insertamum", $sem);
-							if(count($hlp->result)>0)
+							if(numberOfElements($hlp->result)>0)
 							{
 								$errormsg .= "\n$prestd->vorname $prestd->nachname: Diese Rolle ist bereits vorhanden";
 								$anzahl_fehler++;
@@ -1039,7 +1039,7 @@ if(!$error)
 											$kontakt->load_persKontakttyp($prestd->person_id, 'email');
 
 											// Wenn zumindest eine Email Adresse gefunden wurde
-											if(count($kontakt->result)>0)
+											if(numberOfElements($kontakt->result)>0)
 											{
 												$email = "Sehr geehrter Frau/Herr ".$prestd->vorname." ".$prestd->nachname.",<br><br> ";
 
@@ -1768,12 +1768,12 @@ if(!$error)
 										$hlp = new prestudent();
 										$hlp->getPrestudentRolle($prestudent_id, 'Bewerber',null,'datum DESC, insertamum DESC');
 
-										if(count($hlp->result)>0)
+										if(numberOfElements($hlp->result)>0)
 										{
 											$aufgenommener = new prestudent();
 											$aufgenommener ->getPrestudentRolle($prestudent_id, 'Aufgenommener', null,'datum DESC, insertamum DESC');
 
-											if(count($aufgenommener->result)>0)
+											if(numberOfElements($aufgenommener->result)>0)
 											{
 												if($hlp->result[0]->studiensemester_kurzbz==$aufgenommener->result[0]->studiensemester_kurzbz
 												   && $hlp->result[0]->ausbildungssemester==$aufgenommener->result[0]->ausbildungssemester)
@@ -1781,7 +1781,7 @@ if(!$error)
 													//pruefen ob schon eine Studentenrolle Existiert
 													$hlp1 = new prestudent();
 													$hlp1->getPrestudentRolle($prestudent_id, 'Student', $aufgenommener->result[0]->studiensemester_kurzbz);
-													if(count($hlp1->result)>0)
+													if(numberOfElements($hlp1->result)>0)
 													{
 														$return = false;
 														$errormsg .= "\n$prestd->vorname $prestd->nachname: Diese Person ist bereits Student";
@@ -2512,14 +2512,14 @@ if(!$error)
 		{
 			$return = true;
 			$zusatz = "\n";
-			if (count($exists) > 10)
+			if (numberOfElements($exists) > 10)
 			{
 				$zusatz .= "und ";
 				$persons = implode("\n- ", array_slice($exists, 0, 10));
-				if (count($exists) === 11)
+				if (numberOfElements($exists) === 11)
 					$zusatz .= "einer weiteren Person.";
 				else
-					$zusatz .= (count($exists) - 10) . " weiteren Personen.";
+					$zusatz .= (numberOfElements($exists) - 10) . " weiteren Personen.";
 			}
 			else
 				$persons = implode("\n- ", $exists);
@@ -2949,7 +2949,7 @@ if(!$error)
 					//Nachschauen ob dieses Betriebsmittel schon existiert
 					if($resultBM)
 					{
-						if(count($bm->result)>0)
+						if(numberOfElements($bm->result)>0)
 						{
 							//Wenn die Nummer gleich bleibt dann die alte ID verwenden da es
 							//unterschiedliche Schluessel gibt die die gleiche nummer haben ?!?
@@ -4985,7 +4985,7 @@ if(!$error)
 
 						if(!$error)
 						{
-							if(count(array_keys($gesamtpunkte_arr))>0)
+							if(numberOfElements(array_keys($gesamtpunkte_arr))>0)
 							{
 								$studiensemester = new studiensemester();
 								$stsem = $studiensemester->getYoungestFromArray(array_keys($gesamtpunkte_arr));

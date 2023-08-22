@@ -1444,7 +1444,7 @@ class InfoCenter extends Auth_Controller
 		$filtersSent = $this->FiltersModel->getFilterList('infocenter', 'overview', '%InfoCenterSentApplication%');
 		if (hasData($filtersSent))
 		{
-			for ($filtersCounter = 0; $filtersCounter < count($filtersSent->retval); $filtersCounter++)
+			for ($filtersCounter = 0; $filtersCounter < numberOfElements($filtersSent->retval); $filtersCounter++)
 			{
 				$filter = $filtersSent->retval[$filtersCounter];
 
@@ -1455,7 +1455,7 @@ class InfoCenter extends Auth_Controller
 		$filtersNotSent = $this->FiltersModel->getFilterList('infocenter', 'overview', '%InfoCenterNotSentApplication%');
 		if (hasData($filtersNotSent))
 		{
-			for ($filtersCounter = 0; $filtersCounter < count($filtersNotSent->retval); $filtersCounter++)
+			for ($filtersCounter = 0; $filtersCounter < numberOfElements($filtersNotSent->retval); $filtersCounter++)
 			{
 				$filter = $filtersNotSent->retval[$filtersCounter];
 
@@ -1466,7 +1466,7 @@ class InfoCenter extends Auth_Controller
 		$customFilters = $this->FiltersModel->getCustomFiltersList('infocenter', 'overview', $this->_uid);
 		if (hasData($customFilters))
 		{
-			for ($filtersCounter = 0; $filtersCounter < count($customFilters->retval); $filtersCounter++)
+			for ($filtersCounter = 0; $filtersCounter < numberOfElements($customFilters->retval); $filtersCounter++)
 			{
 				$filter = $customFilters->retval[$filtersCounter];
 
@@ -1505,7 +1505,7 @@ class InfoCenter extends Auth_Controller
 		$this->_fillFilters($listFiltersSent, $filtersArray['abgeschickt']);
 		$this->_fillFilters($listFiltersNotSent, $filtersArray['nichtabgeschickt']);
 
-		if (count($listCustomFilters) > 0)
+		if (numberOfElements($listCustomFilters) > 0)
 		{
 			$filtersArray['personal'] = $this->navigationlib->oneLevel(
 				'Personal filters',	// description

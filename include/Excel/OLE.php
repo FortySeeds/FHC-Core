@@ -175,7 +175,7 @@ class OLE extends PEAR
                                          OLE::OLE2LocalDate($time_2nd),
                                          ($start_block[''] + 1) * $big_block_size, array());
             // give it a size
-            $this->_list[count($this->_list) - 1]->Size = $size[''];
+            $this->_list[numberOfElements($this->_list) - 1]->Size = $size[''];
             // check if the PPS tree (starting from root) is complete
             if ($this->_ppsTreeComplete(0)) {
                 break;
@@ -253,7 +253,7 @@ class OLE extends PEAR
     */
     function ppsTotal()
     {
-        return count($this->_list);
+        return numberOfElements($this->_list);
     }
 
     /**

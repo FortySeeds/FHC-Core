@@ -279,7 +279,7 @@ class ezcGraphNumericDataSet extends ezcGraphDataSet
      * 
      * @return int
      */
-    public function count()
+    public function numberOfElements()
     {
         return $this->resolution + 1;
     }

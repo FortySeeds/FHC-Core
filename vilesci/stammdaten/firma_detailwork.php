@@ -601,7 +601,7 @@ function eingabeOrganisationseinheit($firma_id,$firma_organisationseinheit_id,$o
 		$htmlstr.="<tr class='liste". ($i%2) ."'>\n";
 		$i++;
 		$htmlstr.= "<td><SELECT name='oe_kurzbz'>";
-		for ($ii=0;$ii<count($organisationseinheit_obj->result);$ii++)
+		for ($ii=0;$ii<numberOfElements($organisationseinheit_obj->result);$ii++)
 		{
 			if($organisationseinheit_obj->result[$ii]->aktiv==false)
 				$class='class="inactive"';
@@ -631,7 +631,7 @@ function eingabeOrganisationseinheit($firma_id,$firma_organisationseinheit_id,$o
 		$htmlstr.="<tr class='liste". ($i%2) ."'>\n";
 		$i++;
 		$htmlstr.= "<td><SELECT name='oe_kurzbz'>";
-		for ($ii=0;$ii<count($organisationseinheit_obj->result);$ii++)
+		for ($ii=0;$ii<numberOfElements($organisationseinheit_obj->result);$ii++)
 		{
 			$htmlstr.= "<OPTION value='".$organisationseinheit_obj->result[$ii]->oe_kurzbz."' ".($organisationseinheit_obj->result[$ii]->oe_kurzbz==''?' selected ':'')." >".$organisationseinheit_obj->result[$ii]->bezeichnung."</OPTION>";
 		}
@@ -830,7 +830,7 @@ function eingabeKontakt($firma_id,$standort_id,$adresse_id,$kontakt_id,$adressty
 
 	$htmlstr.="<td>Typ: </td>";
 	$htmlstr.= "<td><SELECT name='kontakttyp'>";
-	for ($i=0;$i<count($kontakttyp_obj->result);$i++)
+	for ($i=0;$i<numberOfElements($kontakttyp_obj->result);$i++)
 	{
 		$htmlstr.= "<OPTION value='".$kontakttyp_obj->result[$i]->kontakttyp."' ".($kontakt_obj->kontakttyp==$kontakttyp_obj->result[$i]->kontakttyp?' selected ':'')." >".$kontakttyp_obj->result[$i]->beschreibung."</OPTION>";
 	}
@@ -974,7 +974,7 @@ function getlistPersonenfunktionen($firma_id,$standort_id,$personfunktionstandor
 	$funktionen=array();
 	if ($funktion_obj->getAll())
 	{
-		for ($i=0;$i<count($funktion_obj->result);$i++)
+		for ($i=0;$i<numberOfElements($funktion_obj->result);$i++)
 			$funktionen[$funktion_obj->result[$i]->funktion_kurzbz]=$funktion_obj->result[$i]->beschreibung;
 	}
 
@@ -1063,7 +1063,7 @@ function eingabePersonenfunktionen($firma_id,$standort_id,$personfunktionstandor
 	$htmlstr.="<td>Funktion: </td>";
 
 	$htmlstr.= "<td><SELECT id='funktion_kurzbz' name='funktion_kurzbz'>";
-	for ($i=0;$i<count($funktion_obj->result);$i++)
+	for ($i=0;$i<numberOfElements($funktion_obj->result);$i++)
 	{
 		if ($funktion_obj->result[$i]->aktiv || $standort_obj->funktion_kurzbz==$funktion_obj->result[$i]->funktion_kurzbz)
 			$htmlstr.= "<OPTION value='".$funktion_obj->result[$i]->funktion_kurzbz."' ".($standort_obj->funktion_kurzbz==$funktion_obj->result[$i]->funktion_kurzbz?' selected ':'')." >".$funktion_obj->result[$i]->beschreibung."</OPTION>";

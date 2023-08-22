@@ -127,7 +127,7 @@ if (isset($_GET['archivdokument']))
 					else
 						$errorText .= $student_obj->nachname." ".$student_obj->vorname." (".$value.") hat kein Dokument '".$dokument->bezeichnung."' im Archiv\n";
 				}
-				if (count($allDocs) == 0)
+				if (numberOfElements($allDocs) == 0)
 				{
 					rmdir($tmpDir);
 					die('Bei keinem der gewählten Studierenden ist einen Bescheid vorhanden');
@@ -377,7 +377,7 @@ else
 			$vorlagestudiengang->getAktuelleVorlage($xsl_stg_kz, $xsl, $version);
 		}
 		// Wenn Berechtigung direkt beim der Vorlage angegeben ist
-		if (count($vorlagestudiengang->berechtigung)>0)
+		if (numberOfElements($vorlagestudiengang->berechtigung)>0)
 		{
 			$allowed = false;
 			foreach($vorlagestudiengang->berechtigung as $berechtigung_kurzbz)

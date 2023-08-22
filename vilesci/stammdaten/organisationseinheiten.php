@@ -253,10 +253,10 @@ function mysort($a, $b)
 {
 	if(is_array($a) && is_array($b))
 	{
-		if(count($a)==count($b))
+		if(numberOfElements($a)==numberOfElements($b))
 			return 0;
 
-		if(count($a)>count($b))
+		if(numberOfElements($a)>numberOfElements($b))
 			return -1;
 		else
 			return 1;
@@ -329,7 +329,7 @@ function display($arr)
 	$sort = false;
 	foreach ($arr as $row)
 	{
-		if(count($row)>0)
+		if(numberOfElements($row)>0)
 			$sort=true;
 	}
 	if($sort)
@@ -356,7 +356,7 @@ function display($arr)
 		else
 			$aktivstyle='color:grey;';
 
-		if(is_array($val) && count($val)>0)
+		if(is_array($val) && numberOfElements($val)>0)
 			echo '<td valign="top"><div style="background-color: #b1b1b1; padding: 0px; margin:0px"><br><span style="font-weight: bold;">';
 		else
 		{
@@ -387,7 +387,7 @@ function display($arr)
 		}
 		$leitung = array_unique($leitung);
 		$title = $obj->organisationseinheittyp_kurzbz.' - '.$obj->bezeichnung;
-		if (count($leitung) > 0)
+		if (numberOfElements($leitung) > 0)
 		{
 			$bezeichnung .= ' <span style="color: green">L</span>';
 			$title .= "\nLeitung(en): ".implode(',',$leitung); // Keep double-quotes to display linebreak in title-attribute
@@ -408,7 +408,7 @@ function display($arr)
 		echo $bezeichnung;
 		echo '</a>';
 		//echo '</span>';
-		if(is_array($val) && count($val)>0)
+		if(is_array($val) && numberOfElements($val)>0)
 		{
 			echo '</span><br><br>';
 

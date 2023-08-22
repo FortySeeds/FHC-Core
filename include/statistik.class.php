@@ -639,7 +639,7 @@ class statistik extends basis_db
 		preg_match_all($check, $value, $result);
 		$result = $result[0];
 		$vars = array();
-		for($i=0;$i<count($result);$i++)
+		for($i=0;$i<numberOfElements($result);$i++)
 		{
 			// $user wird automatisch ersetzt und daher auch nicht geliefert
 			if($result[$i]!='$user')

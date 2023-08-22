@@ -246,7 +246,7 @@ if(!$rechte->isBerechtigt('lehre/lehrveranstaltung', $oe_studiengang, 'suid'))
 echo '<h3>Kompatible Lehrveranstaltungen - '.$lv->bezeichnung.'</h3>';
 $kompatibleLvs = $lv->loadLVkompatibel($lehrveranstaltung_id);
 //var_dump($kompatibleLvs);
-if(count($kompatibleLvs)>0)
+if(numberOfElements($kompatibleLvs)>0)
 {
 	echo '<table style="width: auto;" class="tablesorter" id="t1">
 	<thead>

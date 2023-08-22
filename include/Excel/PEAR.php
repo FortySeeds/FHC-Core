@@ -421,7 +421,7 @@ class PEAR
             }
 
             // clean up empty arrays
-            if (0 == count($this->_expected_errors[$key])) {
+            if (0 == numberOfElements($this->_expected_errors[$key])) {
                 unset($this->_expected_errors[$key]);
             }
         }
@@ -444,7 +444,7 @@ class PEAR
     {
         $deleted = false;
 
-        if ((is_array($error_code) && (0 != count($error_code)))) {
+        if ((is_array($error_code) && (0 != numberOfElements($error_code)))) {
             // $error_code is a non-empty array here;
             // we walk through it trying to unset all
             // values

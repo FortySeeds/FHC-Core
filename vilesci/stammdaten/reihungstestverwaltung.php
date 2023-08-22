@@ -545,8 +545,8 @@ if(isset($_GET['excel']))
 
 					$worksheet->write($zeile,++$col,'', $format_border);
 
-					if(count($weitere_zuteilungen)>2)
-						$worksheet->setRow($zeile, count($weitere_zuteilungen)*14);
+					if(numberOfElements($weitere_zuteilungen)>2)
+						$worksheet->setRow($zeile, numberOfElements($weitere_zuteilungen)*14);
 					else
 						$worksheet->setRow($zeile, 35);
 
@@ -774,8 +774,8 @@ if(isset($_GET['excel']))
 
 					$worksheet->write($zeile,++$col,'', $format_border);
 
-					if(count($weitere_zuteilungen)>2)
-							$worksheet->setRow($zeile, count($weitere_zuteilungen)*14);
+					if(numberOfElements($weitere_zuteilungen)>2)
+							$worksheet->setRow($zeile, numberOfElements($weitere_zuteilungen)*14);
 					else
 							$worksheet->setRow($zeile, 35);
 
@@ -1809,7 +1809,7 @@ if(isset($_GET['type']) && $_GET['type']=='verteilen')
 
 					$anz_zugeteilte = new Reihungstest();
 					$anz_zugeteilte->getPersonReihungstestOrt($reihungstest_id, $ort->ort_kurzbz);
-					$anz_zugeteilte = count($anz_zugeteilte->result);
+					$anz_zugeteilte = numberOfElements($anz_zugeteilte->result);
 
 					$anteil = round(($orte_array[$ort->ort_kurzbz] * $multiplikator))-$anz_zugeteilte;
 
@@ -1907,7 +1907,7 @@ if(isset($_GET['type']) && $_GET['type']=='auffuellen')
 
 				$anz_zugeteilte = new Reihungstest();
 				$anz_zugeteilte->getPersonReihungstestOrt($reihungstest_id, $ort->ort_kurzbz);
-				$anz_zugeteilte = count($anz_zugeteilte->result);
+				$anz_zugeteilte = numberOfElements($anz_zugeteilte->result);
 
 				if ($orte_array[$ort->ort_kurzbz] == 0 || ($orte_array[$ort->ort_kurzbz]-$anz_zugeteilte)<=0)
 					continue;
@@ -2014,13 +2014,13 @@ if(isset($_POST['delete_ort']))
 		$delete_ort = new reihungstest();
 		$delete_ort->getPersonReihungstestOrt($_POST['reihungstest_id'], $_POST['delete_ort']);
 
-		if (count($delete_ort->result) == 0)
+		if (numberOfElements($delete_ort->result) == 0)
 		{
 			if (!$delete_ort->deleteOrtReihungstest($_POST['reihungstest_id'], $_POST['delete_ort']))
 				$messageError .= '<p>Fehler beim löschen der Raumzuordnung: '.$db->convert_html_chars($reihungstest->errormsg).'</p>';
 		}
 		else
-			$messageError .= '<p>Dem Raum '.$_POST['delete_ort'].' sind noch '.count($delete_ort->result).' Personen zugeteilt. Bitte entfernen Sie zuerst diese Zuteilungen</p>';
+			$messageError .= '<p>Dem Raum '.$_POST['delete_ort'].' sind noch '.numberOfElements($delete_ort->result).' Personen zugeteilt. Bitte entfernen Sie zuerst diese Zuteilungen</p>';
 
 		$reihungstest_id = $_POST['reihungstest_id'];
 		$studiensemester_kurzbz = $_POST['studiensemester_kurzbz'];
@@ -2557,7 +2557,7 @@ $studienplaene_list = implode(',', array_keys($studienplaene_arr));
 						$anzahl_teilnehmer = new reihungstest();
 						$anzahl_teilnehmer = $anzahl_teilnehmer->getTeilnehmerAnzahl($reihungstest_id);
 
-						if (isset($orte) && count($orte->result) == 0 && isset($studienplaene) && count($studienplaene->result) == 0 && $anzahl_teilnehmer == 0 && $reihungstest_id != '')
+						if (isset($orte) && numberOfElements($orte->result) == 0 && isset($studienplaene) && numberOfElements($studienplaene->result) == 0 && $anzahl_teilnehmer == 0 && $reihungstest_id != '')
 							echo '<button type="submit" name="deleteReihungstest" onclick="return confirm (\'Diesen Reihungstesttermin löschen?\')">Termin löschen</button>';
 						else
 							echo '<button type="submit" name="" disabled="disabled" title="Entfernen Sie zuerst alle Raumzuteilungen, Studienpläne und TeilnehmerInnen">Termin löschen</button>';

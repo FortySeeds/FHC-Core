@@ -83,7 +83,7 @@
 			$reservierung_id=explode('|',$reservierung_id);
 			if (is_array($reservierung_id))
 			{
-				for ($updRes=0;$updRes<count($reservierung_id);$updRes++)
+				for ($updRes=0;$updRes<numberOfElements($reservierung_id);$updRes++)
 				{
 					$Jahresplan->veranstaltung_id=$veranstaltung_id_zuordnen;			
 					$Jahresplan->reservierung_id=$reservierung_id[$updRes];
@@ -196,9 +196,9 @@
 	$reservierungierung=array();
 	if ($reservierungierung=$Jahresplan->loadReservierung())
 	{
-		if ((is_array($reservierungierung) || is_object($reservierungierung)) && count($reservierungierung)>0)
+		if ((is_array($reservierungierung) || is_object($reservierungierung)) && numberOfElements($reservierungierung)>0)
 		{
-			for ($iTmpZehler=0;$iTmpZehler<count($reservierungierung);$iTmpZehler++)
+			for ($iTmpZehler=0;$iTmpZehler<numberOfElements($reservierungierung);$iTmpZehler++)
 			{				
 				$key='';
 				$key.=$reservierungierung[$iTmpZehler]->ort_kurzbz;
@@ -235,7 +235,7 @@
 
 	$lastkey=null;		
 	$alleReservierung_id=null;		
-	for ($iTmpZehler=0;$iTmpZehler<count($reservierungierung);$iTmpZehler++)
+	for ($iTmpZehler=0;$iTmpZehler<numberOfElements($reservierungierung);$iTmpZehler++)
 	{			
 			$userNAME=$reservierungierung[$iTmpZehler]->uid;
 			$pers = new benutzer($userNAME); // Lesen Person - Benutzerdaten

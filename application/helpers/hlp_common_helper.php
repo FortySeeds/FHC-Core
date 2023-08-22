@@ -185,7 +185,7 @@ function isEmptyString($string)
  */
 function isEmptyArray($array)
 {
-	return ($array == null) || ($array != null && !is_array($array) || (is_array($array) && count($array) == 0));
+	return ($array == null) || ($array != null && !is_array($array) || (is_array($array) && numberOfElements($array) == 0));
 }
 
 /**
@@ -403,5 +403,22 @@ function findResource($path, $resource, $subdir = false, $extraDir = null)
 	}
 
 	return null;
+}
+
+// 
+if (!function_exists('numberOfElements'))
+{
+	/**
+	 * Wrapper/alias function for the count function
+	 * It checks if the given parameter is an array or an instance of Countable before calling count
+	 * In any other case return 0
+	 */
+	function numberOfElements($countable)
+	{
+		// Checks if countable is an array or implements the Countable interface
+		if (is_array($countable) || $countable instanceof Countable) return count($countable);
+	
+		return 0; // otherwise returns 0
+	}
 }
 

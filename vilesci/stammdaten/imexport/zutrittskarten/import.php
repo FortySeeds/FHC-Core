@@ -25,14 +25,14 @@
 	{
 		//Extension herausfiltern
    	$ext = explode('.',$_FILES['datei']['name']);
-    $ext = mb_strtolower($ext[count($ext)-1]);
+    $ext = mb_strtolower($ext[numberOfElements($ext)-1]);
     //--check if csv or txt
     if ($ext=='csv' || $ext=='txt')
     {
 			$filename = $_FILES['datei']['tmp_name'];
 			//File oeffnen
 			$fp = file($filename);
-			$anz=count($fp);
+			$anz=numberOfElements($fp);
 			for ($i=1;$i<$anz;$i++)
 			{
 				echo $fp[$i].'<br>';

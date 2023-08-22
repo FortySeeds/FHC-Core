@@ -235,7 +235,7 @@ class ezcGraphGdDriver extends ezcGraphDriver
         $drawColor = $this->allocate( $color );
 
         // Create point array
-        $pointCount = count( $points );
+        $pointCount = numberOfElements( $points );
         $pointArray = array();
         for ( $i = 0; $i < $pointCount; ++$i )
         {
@@ -518,7 +518,7 @@ class ezcGraphGdDriver extends ezcGraphDriver
         {
             $size = $text['font']->minimalUsedFont;
 
-            $completeHeight = count( $text['text'] ) * $size + ( count( $text['text'] ) - 1 ) * $this->options->lineSpacing;
+            $completeHeight = numberOfElements( $text['text'] ) * $size + ( numberOfElements( $text['text'] ) - 1 ) * $this->options->lineSpacing;
 
             // Calculate y offset for vertical alignement
             switch ( true )

@@ -263,7 +263,7 @@ if(isset($_REQUEST['btn_submitStudent']))
 		</thead>
 		<tbody>';
 
-	if (count($studentenArray) > 0)
+	if (numberOfElements($studentenArray) > 0)
 	{
 		foreach($studentenArray as $stud)
 		{
@@ -383,7 +383,7 @@ if(isset($_REQUEST['btn_submitStudent']))
 		</table>
 		<table>
 			<tr>
-				<td>Anzahl: '.count($mails).'</td>
+				<td>Anzahl: '.numberOfElements($mails).'</td>
 			</tr>
 			<tr>
 				<td>
@@ -394,7 +394,7 @@ if(isset($_REQUEST['btn_submitStudent']))
 			</tr>
 		</table>
 		</form>';
-	if(count($mails)>500)
+	if(numberOfElements($mails)>500)
 	{
 		printWarning();
 	}
@@ -525,7 +525,7 @@ if(isset($_REQUEST['btn_submitMitarbeiter']))
 		</table>
 		<table>
 			<tr>
-				<td>Anzahl: '.count($mails).'</td>
+				<td>Anzahl: '.numberOfElements($mails).'</td>
 			</tr>
 			<tr>
 				<td>
@@ -536,7 +536,7 @@ if(isset($_REQUEST['btn_submitMitarbeiter']))
 			</tr>
 		</table>
 		</form>';
-	if(count($mails)>500)
+	if(numberOfElements($mails)>500)
 	{
 		printWarning();
 	}

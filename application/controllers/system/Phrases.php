@@ -104,7 +104,7 @@ class Phrases extends Auth_Controller
 		if ($phrase->error)
 			show_error(getError($phrase));
 
-		if (count($phrase->retval) != 1)
+		if (numberOfElements($phrase->retval) != 1)
 			show_error('Phrase nicht vorhanden! ID: '.$phrase_id);
 
 		$data = array(

@@ -40,7 +40,7 @@ foreach ($studiengang->result as $stg)
 	$preinteressent = new preinteressent();
 	$preinteressent->loadFreigegebene($stg->studiengang_kz);
 	
-	if(count($preinteressent->result)>0)
+	if(numberOfElements($preinteressent->result)>0)
 	{
 		$message="Dies ist eine automatische Mail!\n\n";
 		$message.="Die folgenden Preinteressenten wurden zur Übernahme, für den Studiengang $stg->kuerzel, freigegeben aber noch nicht übernommen:\n\n";

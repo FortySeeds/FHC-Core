@@ -427,7 +427,7 @@ class lvregel extends basis_db
 	{
 		$data = array();
 
-		if(count($this->result)>0)
+		if(numberOfElements($this->result)>0)
 		{
 			foreach($this->result as $row)
 			{
@@ -728,7 +728,7 @@ class lvregel extends basis_db
 		}
 
 		// Subregeln dieser LVRegel pruefen
-		if(isset($regel_obj['childs']) && count($regel_obj['childs'])>0)
+		if(isset($regel_obj['childs']) && numberOfElements($regel_obj['childs'])>0)
 		{
 			$this->debug('<br> == <b>Subregel:'.$regel->lvregel_id.'</b> Start ==',2);
 			list($testval,$ects_tmp) = $this->TestRegeln($uid, $regel_obj['childs'],null, $retval);

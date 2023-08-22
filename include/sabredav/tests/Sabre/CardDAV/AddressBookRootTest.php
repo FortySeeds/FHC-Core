@@ -22,7 +22,7 @@ class AddressBookRootTest extends \PHPUnit_Framework_TestCase {
         $root = new AddressBookRoot($pBackend, $cBackend);
 
         $children = $root->getChildren();
-        $this->assertEquals(3, count($children));
+        $this->assertEquals(3, numberOfElements($children));
 
         $this->assertInstanceOf('Sabre\\CardDAV\\UserAddressBooks', $children[0]);
         $this->assertEquals('user1', $children[0]->getName());

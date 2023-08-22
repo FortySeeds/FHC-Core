@@ -131,13 +131,13 @@ abstract class JQW_Controller extends JOB_Controller
 	{
 		// If not valid arrays of properties and values arrays are not of the same size then exit
 		if (isEmptyArray($jobs) || isEmptyArray($properties) || isEmptyArray($values)) return;
-		if (count($properties) != count($values)) return;
+		if (numberOfElements($properties) != numberOfElements($values)) return;
 	
 		// For each job
 		foreach ($jobs as $job)
 		{
 			// For each propery of the job
-			for ($pI = 0; $pI < count($properties); $pI++)
+			for ($pI = 0; $pI < numberOfElements($properties); $pI++)
 			{
 				// If this property is present in the job object
 				if (property_exists($job, $properties[$pI]))

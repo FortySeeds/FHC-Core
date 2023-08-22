@@ -128,7 +128,7 @@ require_once('../../../include/phrasen.class.php');
 	}
 
 	$arrAPPMENUE=array();
-	for ($i=0;$i<count($xml['APP']);$i++)
+	for ($i=0;$i<numberOfElements($xml['APP']);$i++)
 	{
 		// Applikation und Link lesen					
 		$cAPPName=trim((isset($xml['APP'][$i]['NAME'])?$xml['APP'][$i]['NAME']:''));
@@ -176,7 +176,7 @@ require_once('../../../include/phrasen.class.php');
 					}
 
 					$arrLevel=explode('\\',$cAPPLocation);	
-					if (is_array($arrLevel) && count($arrLevel)<1)
+					if (is_array($arrLevel) && numberOfElements($arrLevel)<1)
 					{
 						$arrLevel=explode('/',$cAPPLocation);	
 					}
@@ -199,7 +199,7 @@ require_once('../../../include/phrasen.class.php');
 	} // Ende XML Verarbeiten
 	
 	// Plausib ob Daten ermittelt werden konnten fuer die HTML Liste
-	if (!is_array($arrAPPMENUE) || count($arrAPPMENUE)<1)
+	if (!is_array($arrAPPMENUE) || numberOfElements($arrAPPMENUE)<1)
 	{
 		die('Keine Daten gefunden.');
 	}

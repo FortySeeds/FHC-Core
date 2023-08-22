@@ -719,7 +719,7 @@ class RecurrenceIterator implements \Iterator {
          * If we have overridden events left in the queue, but our counter is
          * running out, we should grab one of those.
          */
-        if (!is_null($overriddenEvent) && !is_null($this->count) && count($this->overriddenEvents) - $this->handledOverridden >= ($this->count - $this->counter)) {
+        if (!is_null($overriddenEvent) && !is_null($this->count) && numberOfElements($this->overriddenEvents) - $this->handledOverridden >= ($this->count - $this->counter)) {
 
             $this->currentOverriddenEvent = $overriddenEvent;
             $this->currentDate = clone $overriddenDate;
@@ -1054,7 +1054,7 @@ class RecurrenceIterator implements \Iterator {
                 } else {
 
                     // if it was negative we count from the end of the array
-                    $byDayResults[] = $dayHits[count($dayHits) + $offset];
+                    $byDayResults[] = $dayHits[numberOfElements($dayHits) + $offset];
                 }
             } else {
                 // There was no counter (first, second, last wednesdays), so we
@@ -1104,7 +1104,7 @@ class RecurrenceIterator implements \Iterator {
         foreach($this->bySetPos as $setPos) {
 
             if ($setPos<0) {
-                $setPos = count($result)-($setPos+1);
+                $setPos = numberOfElements($result)-($setPos+1);
             }
             if (isset($result[$setPos-1])) {
                 $filteredResult[] = $result[$setPos-1];

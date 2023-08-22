@@ -1110,7 +1110,7 @@ class lehrveranstaltung extends basis_db
 	 */
 	public function loadArray($ids)
 	{
-		if (count($ids) == 0)
+		if (numberOfElements($ids) == 0)
 			return true;
 
 		$ids = $this->db_implode4SQL($ids);
@@ -1354,7 +1354,7 @@ class lehrveranstaltung extends basis_db
 				$childs[$row->studienplan_lehrveranstaltung_id]->childs = $this->getLehrveranstaltungTreeChilds($row->studienplan_lehrveranstaltung_id);
 			}
 		}
-		if(count($childs) > 0)
+		if(numberOfElements($childs) > 0)
 		{
 			return true;
 		}
@@ -1370,7 +1370,7 @@ class lehrveranstaltung extends basis_db
 	public function cleanResult()
 	{
 		$values = array();
-		if (count($this->lehrveranstaltungen) > 0)
+		if (numberOfElements($this->lehrveranstaltungen) > 0)
 		{
 			foreach ($this->lehrveranstaltungen as $lv)
 			{
@@ -1436,7 +1436,7 @@ class lehrveranstaltung extends basis_db
 	protected function cleanTreeResult($tree)
 	{
 		$values = array();
-		if (count($tree) > 0)
+		if (numberOfElements($tree) > 0)
 		{
 			foreach ($tree as $lv)
 			{
@@ -1478,7 +1478,7 @@ class lehrveranstaltung extends basis_db
 				$obj->lehrauftrag = $lv->lehrauftrag;
 				$obj->lehre = $lv->lehre;
 				$obj->children = array();
-				if(count($lv->childs) > 0)
+				if(numberOfElements($lv->childs) > 0)
 				{
 					$obj->children = $this->cleanTreeResult($lv->childs);
 				}
@@ -1637,7 +1637,7 @@ class lehrveranstaltung extends basis_db
             return false;
         }
 
-        if((!is_array($studienplan_ids)) && (count($studienplan_ids) < 1))
+        if((!is_array($studienplan_ids)) && (numberOfElements($studienplan_ids) < 1))
 		{
             $this->errormsg = 'Es muss ein Array von Studienplan_IDs mit mindestens einem Element übergeben werden.';
 			return false;

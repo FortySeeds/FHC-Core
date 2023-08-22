@@ -425,7 +425,7 @@ class studienplan extends basis_db
 	{
 		$data = array();
 
-		if(count($this->result)>0)
+		if(numberOfElements($this->result)>0)
 		{
 			foreach($this->result as $row)
 			{

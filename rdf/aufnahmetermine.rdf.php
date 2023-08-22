@@ -137,7 +137,7 @@ if($prestudent_id!='')
 		$row->endpunkte_exkl_gebiete = round($endpunkte_exkl_gebiete, 2);
 		$row->typ = $typ;
 	}
-	if(count($stsem_arr) > 0)
+	if(numberOfElements($stsem_arr) > 0)
 	{
 		$studiensemester = new studiensemester();
 		$youngest_rt_stsem = $studiensemester->getYoungestFromArray($stsem_arr);

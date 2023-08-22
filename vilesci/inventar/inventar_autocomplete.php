@@ -122,7 +122,7 @@
 				exit(' |'.$db->errormsg."\n");
 			
 			$result=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				$item['seriennummer']=html_entity_decode($oRresult[$i]->seriennummer);
 				$item['beschreibung']=is_null($oRresult[$i]->beschreibung) || empty($oRresult[$i]->beschreibung) || $oRresult[$i]->beschreibung=='NULL' || $oRresult[$i]->beschreibung=='null'?'':html_entity_decode($oRresult[$i]->beschreibung);
@@ -150,7 +150,7 @@
 				exit(' |'.$db->errormsg."\n");
 
 			$result=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				$item['hersteller']=html_entity_decode($oRresult[$i]->hersteller);
 				$result[]=$item;
@@ -175,7 +175,7 @@
 			$pSql='';
 			if (!$oRresult=$db->SQL($pArt,$pDistinct,$pFields,$pTable,$pWhere,$pOrder,$pLimit,$pSql))
 				exit(' |'.$db->errormsg."\n");
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 				echo html_entity_decode($oRresult[$i]->seriennummer).'|'. (is_null($oRresult[$i]->beschreibung) || empty($oRresult[$i]->beschreibung) || $oRresult[$i]->beschreibung=='NULL' || $oRresult[$i]->beschreibung=='null'?'':html_entity_decode($oRresult[$i]->beschreibung))."\n";
 			break;
 
@@ -197,7 +197,7 @@
 				exit(' |'.$db->errormsg."\n");
 
 			$result=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				$item['inventarnummer']=html_entity_decode($oRresult[$i]->inventarnummer);
 				$item['beschreibung']=is_null($oRresult[$i]->beschreibung) || empty($oRresult[$i]->beschreibung) || $oRresult[$i]->beschreibung=='NULL' || $oRresult[$i]->beschreibung=='null'?'':html_entity_decode(mb_str_replace("\n","",$oRresult[$i]->beschreibung));
@@ -225,7 +225,7 @@
 				exit(' |'.$db->errormsg."\n");
 
 			$result=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				$item['ort_kurzbz']=html_entity_decode($oRresult[$i]->ort_kurzbz);
 				$item['bezeichnung']=is_null($oRresult[$i]->bezeichnung) || empty($oRresult[$i]->bezeichnung) || $oRresult[$i]->bezeichnung=='NULL' || $oRresult[$i]->bezeichnung=='null'?'':html_entity_decode($oRresult[$i]->bezeichnung);
@@ -257,7 +257,7 @@
 				exit(' |'.$db->errormsg."\n");
 
 			$result=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				$item['ort_kurzbz']=html_entity_decode($oRresult[$i]->ort_kurzbz);
 				$item['bezeichnung']=is_null($oRresult[$i]->bezeichnung) || empty($oRresult[$i]->bezeichnung) || $oRresult[$i]->bezeichnung=='NULL' || $oRresult[$i]->bezeichnung=='null'?'':html_entity_decode($oRresult[$i]->bezeichnung);
@@ -334,7 +334,7 @@
 				exit(' |'.$db->errormsg."\n");
 
 			$result=array();
-			for ($i=0;$i<count($oRresult);$i++)
+			for ($i=0;$i<numberOfElements($oRresult);$i++)
 			{
 				$item['person_id']=html_entity_decode($oRresult[$i]->person_id);
 				$item['anrede']=trim($oRresult[$i]->anrede);
@@ -364,7 +364,7 @@
 				exit($oOrganisationseinheit->errormsg."\n");
 			
 			$result=array();
-			for ($i=0;$i<count($oOrganisationseinheit->result);$i++)
+			for ($i=0;$i<numberOfElements($oOrganisationseinheit->result);$i++)
 			{
 				if ($aktiv && ($oOrganisationseinheit->result[$i]->aktiv==false || $oOrganisationseinheit->result[$i]->aktiv=='f'))
 					break;

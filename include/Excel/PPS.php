@@ -201,11 +201,11 @@ class OLE_PPS extends PEAR
     */
     function _savePpsSetPnt(&$pps_array)
     {
-        $pps_array[count($pps_array)] = &$this;
-        $this->No = count($pps_array) - 1;
+        $pps_array[numberOfElements($pps_array)] = &$this;
+        $this->No = numberOfElements($pps_array) - 1;
         $this->PrevPps = 0xFFFFFFFF;
         $this->NextPps = 0xFFFFFFFF;
-        if (count($this->children) > 0) {
+        if (numberOfElements($this->children) > 0) {
             $this->DirPps = $this->children[0]->_savePpsSetPnt($pps_array);
         }
         else {

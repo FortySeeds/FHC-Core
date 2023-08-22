@@ -233,7 +233,7 @@ class PDO extends AbstractBackend {
 
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return (count($result)>0?$result[0]:false);
+        return (numberOfElements($result)>0?$result[0]:false);
 
     }
 

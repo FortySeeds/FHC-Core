@@ -274,7 +274,7 @@ if($work=='loadAnwesenheit')
 
 			echo '<h2>Lehrveranstaltung: '.$lehrveranstaltung->bezeichnung.' ('.$datum_obj->formatDatum($datum,'d.m.Y').' - '.$einheiten.' Einheiten)</h2>';
 
-			if(count($aw_arr)>0)
+			if(numberOfElements($aw_arr)>0)
 			{
 				echo '<span class="error">Achtung - diese Liste wurde bereits erfasst!</span>';
 			}

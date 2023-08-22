@@ -584,7 +584,7 @@ class lehreinheit extends basis_db
 			if (is_numeric($this->unr))
 				$sql_query.=" AND unr!=".$this->db_add_param($this->unr)." AND (1=2 ";
 
-			for($anz=0;$anz<count($this->studiengang_kz);$anz++)
+			for($anz=0;$anz<numberOfElements($this->studiengang_kz);$anz++)
 			{
 				// Direkte Gruppen kollidieren nicht
 				$direktgruppe = false;

@@ -131,11 +131,11 @@ foreach($stsem_obj->studiensemester as $row_stsem)
 	echo '<td>'.$row_stsem->studiensemester_kurzbz.'</td>';
 	
 	$statistik->get_prestudenten($studiengang_kz, $row_stsem->studiensemester_kurzbz, $ausbildungssemester);
-	$anf=count($statistik->statistik_obj);
+	$anf=numberOfElements($statistik->statistik_obj);
 	echo '<td align="right">'.$anf.'</td>';
 	
 	$statistik->get_DropOut($studiengang_kz, $row_stsem->studiensemester_kurzbz, $ausbildungssemester);
-	$dropout=count($statistik->statistik_obj);
+	$dropout=numberOfElements($statistik->statistik_obj);
 	echo '<td align="right">'.$dropout.'</td>';
 	if ($anf>0)
 		$prozent=round((100*$dropout/$anf),2);

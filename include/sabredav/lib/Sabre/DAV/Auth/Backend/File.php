@@ -47,7 +47,7 @@ class File extends AbstractDigest {
 
         foreach(file($filename,FILE_IGNORE_NEW_LINES) as $line) {
 
-            if (substr_count($line, ":") !== 2)
+            if (substr_numberOfElements($line, ":") !== 2)
                 throw new DAV\Exception('Malformed htdigest file. Every line should contain 2 colons');
 
             list($username,$realm,$A1) = explode(':',$line);

@@ -636,8 +636,8 @@ class gebiet extends basis_db
 					FROM (
 							 SELECT gebiet_id,
 									level,
-									count(DISTINCT punkte),
-									CASE WHEN count(DISTINCT punkte) > 1 THEN FALSE ELSE TRUE END AS uniquepoints
+									COUNT(DISTINCT punkte),
+									CASE WHEN COUNT(DISTINCT punkte) > 1 THEN FALSE ELSE TRUE END AS uniquepoints
 							 FROM (
 									  SELECT tbl_frage.gebiet_id,
 											 tbl_frage.level,

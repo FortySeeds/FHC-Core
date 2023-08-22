@@ -130,7 +130,7 @@ class mail
 		$mailbody .= "--$mime_boundary_mixed";
 
 		// Attachments Plain
-		if (is_array($this->attachmentsplain) && (count($this->attachmentsplain) > 0))
+		if (is_array($this->attachmentsplain) && (numberOfElements($this->attachmentsplain) > 0))
 		{
 			foreach ($this->attachmentsplain as $attachment)
 			{
@@ -148,7 +148,7 @@ class mail
 		}
 
 		// Attachments Binary
-		if (is_array($this->attachments) && (count($this->attachments) > 0))
+		if (is_array($this->attachments) && (numberOfElements($this->attachments) > 0))
 		{
 			foreach ($this->attachments as $attachment)
 			{

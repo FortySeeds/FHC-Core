@@ -91,7 +91,7 @@ END:VCALENDAR
 
         $vObject = VObject\Reader::read($body);
 
-        $this->assertEquals(1, count($vObject->VEVENT));
+        $this->assertEquals(1, numberOfElements($vObject->VEVENT));
 
     }
 }

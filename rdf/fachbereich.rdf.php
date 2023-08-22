@@ -42,7 +42,7 @@ $fb = $rechte->getFbKz();
 
 $qry = "SELECT * FROM public.tbl_fachbereich";
 
-if(count($fb)>0 && !in_array('0',$fb))
+if(numberOfElements($fb)>0 && !in_array('0',$fb))
 {
 	$in='';
 	foreach($fb as $fbbz)

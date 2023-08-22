@@ -331,7 +331,7 @@ class zeitwunsch extends basis_db
 		// SUB-Select fuer LVAs
 		$sql_query_leid='';
 		$sql_query_le='SELECT DISTINCT mitarbeiter_uid FROM campus.vw_lehreinheit WHERE ';
-		for ($i=0;$i<count($le_id);$i++)
+		for ($i=0;$i<numberOfElements($le_id);$i++)
 			$sql_query_leid.=" OR lehreinheit_id=".$this->db_add_param($le_id[$i], FHC_INTEGER);
 		$sql_query_leid=mb_substr($sql_query_leid,3);
 		$sql_query_le.=$sql_query_leid;

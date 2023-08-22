@@ -331,7 +331,7 @@ if (!defined('CIS_DOKUMENTE_SELFSERVICE') || CIS_DOKUMENTE_SELFSERVICE)
 						border-radius: .25rem;">'.$p->t('tools/warnungDruckDigitaleSignatur').'</td>';
 	echo '</tr></table>';
 
-	if($akte->getArchiv($student_studiengang->person_id, null, true) && count($akte->result)>0)
+	if($akte->getArchiv($student_studiengang->person_id, null, true) && numberOfElements($akte->result)>0)
 	{
 		echo '
 		<table class="tablesorter2" style="width:auto;">

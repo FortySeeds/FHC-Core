@@ -62,7 +62,7 @@ array_multisort($nachname, SORT_ASC, $vorname, SORT_ASC, $mitarbeiterDAO->result
 
 $spalte = array('anrede','titelpre', 'vorname', 'vornamen', 'nachname', 'titelpost','gebdatum','svnr','ersatzkennzeichen',
 	'aktiv','personalnummer', 'kurzbz','fixangestellt','lektor','uid');
-$anzSpalten = count($spalte);
+$anzSpalten = numberOfElements($spalte);
 
 // Creating a workbook
 $workbook = new Spreadsheet_Excel_Writer();

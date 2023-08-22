@@ -136,7 +136,7 @@ if(isset($_POST['filter']))
 	$stsem_obj->getAll();
 	if($std_obj->getTab($filter, 'nachname, vorname'))
 	{
-		if(is_array($std_obj->result) && count($std_obj->result)>0)
+		if(is_array($std_obj->result) && numberOfElements($std_obj->result)>0)
 		{
 			echo '<table class="liste">';
 			echo '<tr>';

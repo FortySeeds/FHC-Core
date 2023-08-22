@@ -272,7 +272,7 @@ $stsemToShow = $stsem_obj->jump($aktornext,2);
 
 if(!in_array($stsemToShow,$stsem_arr))
 {
-	for($i=count($stsem_arr);$i<50;$i++)
+	for($i=numberOfElements($stsem_arr);$i<50;$i++)
 	{
 		if(!$stsem_arr[$i]=$stsem->getNextFrom($studiensemester_prev))
 		{
@@ -461,7 +461,7 @@ function drawTree($tree, $depth)
 			if(!$positiv)
 			{
 				//echo '<span class="error">'.$p->t('studienplan/negativ').'</span>';
-				if(count($kompatibleLVs) > 0)
+				if(numberOfElements($kompatibleLVs) > 0)
 				{
 					checkKompatibleLvs($kompatibleLVs, $student, $row_tree, $noten_arr, $note_pruef_arr, $p, $uid, true);
 				}
@@ -493,7 +493,7 @@ function drawTree($tree, $depth)
 			}
 		}
 		//check if compatible course has grade
-		elseif(count($kompatibleLVs) > 0)
+		elseif(numberOfElements($kompatibleLVs) > 0)
 		{
 			checkKompatibleLvs($kompatibleLVs, $student, $row_tree, $noten_arr, $note_pruef_arr, $p, $uid);
 		}
@@ -537,14 +537,14 @@ function drawTree($tree, $depth)
 					$tdinhalt .= '<span class="error">'.$note_pruef_arr[$noten_arr[$row_tree->lehrveranstaltung_id][$stsem]]->anmerkung.'</span>';
 				$found=true;
 			}
-			elseif(count($kompatibleLVs) > 0)
+			elseif(numberOfElements($kompatibleLVs) > 0)
 			{
                 $i = 0;
-				while(!$found && $i < count($kompatibleLVs))
+				while(!$found && $i < numberOfElements($kompatibleLVs))
                 {
                     foreach($kompatibleLVs as $komp)
                     {
-                        if(count($anrechnung->result))
+                        if(numberOfElements($anrechnung->result))
                         {
 							foreach($anrechnung->result as $row)
 							{
@@ -679,11 +679,11 @@ function checkKompatibleLvs($kompatibleLVs, $student, $row_tree, $noten_arr, $no
 	$found = false;
 	$i = 0;
 
-	while(!$found && $i < count($kompatibleLVs))
+	while(!$found && $i < numberOfElements($kompatibleLVs))
 	{
 		foreach($kompatibleLVs as $komp)
 		{
-			if(count($anrechnung->result))
+			if(numberOfElements($anrechnung->result))
 			{
 				foreach($anrechnung->result as $row)
 				{

@@ -119,7 +119,7 @@ foreach($stunden as $ort=>$row_orte)
 				$lektoren_uidarr =array_unique($row_lv['lektoren_uids']);
 
 				echo '<br><div style="float:right">';
-				if(count($lektoren_uidarr)==1)
+				if(numberOfElements($lektoren_uidarr)==1)
 				{
 					$benutzer = new benutzer();
 					$benutzer->load($lektoren_uidarr[0]);

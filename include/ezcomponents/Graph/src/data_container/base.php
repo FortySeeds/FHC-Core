@@ -213,13 +213,13 @@ class ezcGraphChartDataContainer implements ArrayAccess, Iterator, Countable
      * Returns the number of datasets in the row.
      *
      * This method is part of the Countable interface to allow the usage of
-     * PHP's count() function to check how many datasets exist.
+     * PHP's numberOfElements() function to check how many datasets exist.
      *
      * @return int Number of datasets.
      */
-    public function count()
+    public function numberOfElements()
     {
-        return count( $this->data );
+        return numberOfElements( $this->data );
     }
 }
 ?>

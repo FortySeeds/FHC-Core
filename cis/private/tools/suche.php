@@ -108,7 +108,7 @@ if (defined('LOG_CONTENT') && LOG_CONTENT==true)
 //Easter Egg
 $easteregg = array ('antwort','leben','universum','rest','answer','universe','life','everything');
 $easteregg_intersect = array_intersect(array_map('strtolower',$searchItems), $easteregg);
-if (count($easteregg_intersect)==3)
+if (numberOfElements($easteregg_intersect)==3)
 {
 	echo '<table width="100%"><tr><td align="center"><br><br><br><p style="align:center; font-size: 2000%;"><strong>42</strong></p></td></tr></table>';
 	exit;
@@ -131,7 +131,7 @@ function searchPerson($searchItems)
 	//search only active and Mitarbeiter with positive Personalnr
 	$bn->search($searchItems, 21, true, true);
 
-	if(count($bn->result)>0)
+	if(numberOfElements($bn->result)>0)
 	{
 		echo '<h2 style="padding-bottom: 10px;">',$p->t('global/personen'),'</h2>';
 		echo '
@@ -147,7 +147,7 @@ function searchPerson($searchItems)
 			}
 		);
 		</script>';
-		if(count($bn->result)>20)
+		if(numberOfElements($bn->result)>20)
 		{
 			echo '<p style="color:red;">'.$p->t("tools/esWurdenMehrAlsXPersonenGefunden").'</p>';
 		}
@@ -280,7 +280,7 @@ function searchOE($searchItems)
 			$oe->result[] = new organisationseinheit($row->oe_kurzbz);
 	}
 
-	if(is_array($oe->result) && count($oe->result)>0)
+	if(is_array($oe->result) && numberOfElements($oe->result)>0)
 	{
 		echo '<h2 style="padding-bottom: 10px;">',$p->t('global/organisationseinheiten'),'</h2>';
 		echo '
@@ -308,7 +308,7 @@ function searchOE($searchItems)
 				$benutzerfunktion->getOeFunktionen($row->oe_kurzbz,'ass,Leitung,stvLtg,oezuordnung','now()','now()');
 				$oebezeichnung = new organisationseinheit();
 				$oebezeichnung->load($row->oe_kurzbz);
-				if (count($benutzerfunktion->result) > 0)
+				if (numberOfElements($benutzerfunktion->result) > 0)
 				{
 					echo '<h3>',$row->organisationseinheittyp_kurzbz,' ',$oebezeichnung->bezeichnung,'</h3>';
 					echo '<table class="tablesorter" id="t'.$row->oe_kurzbz.'">
@@ -420,7 +420,7 @@ function searchOrt($search)
 	else
 		$raumres=false;
 
-	if(count($ort->result)>0)
+	if(numberOfElements($ort->result)>0)
 	{
 		echo '<h2 style="padding-bottom: 10px;">',$p->t('lvplan/ort'),'</h2>';
 		echo '
@@ -496,7 +496,7 @@ function searchDms($searchItems)
 	$dms = new dms();
 	$dms->searchLastVersion($searchstring, 41);
 
-	if(count($dms->result)>0)
+	if(numberOfElements($dms->result)>0)
 	{
 		echo '<h2 style="padding-bottom: 10px;">'.$p->t("tools/dokumente").'</h2>';
 		echo '
@@ -512,7 +512,7 @@ function searchDms($searchItems)
 			}
 		);
 		</script>';
-		if(count($dms->result)>40)
+		if(numberOfElements($dms->result)>40)
 		{
 			echo '<p style="color:red;">'.$p->t("tools/esWurdenMehrAlsXDokumenteGefunden").'</p>';
 		}
@@ -571,10 +571,10 @@ function searchContent($searchItems)
 	$cms->search($searchItems, 21);
 	$content_id_arr = array();
 
-	if(count($cms->result) > 0)
+	if(numberOfElements($cms->result) > 0)
 	{
 		echo '<h2 style="padding-bottom: 10px;">',$p->t('tools/content'),'</h2>';
-		if(count($cms->result) > 20)
+		if(numberOfElements($cms->result) > 20)
 		{
 			echo '<p style="color:red;">'.$p->t("tools/esWurdenMehrAlsXInhalteGefunden").'</p>';
 		}

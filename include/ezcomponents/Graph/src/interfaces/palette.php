@@ -190,10 +190,10 @@ abstract class ezcGraphPalette
                 return ( $this->$propertyName = $this->checkColor( $this->$propertyName ) );
             
             case 'dataSetColor':
-                $this->colorIndex = ( ( $this->colorIndex + 1 ) % count( $this->dataSetColor ) );
+                $this->colorIndex = ( ( $this->colorIndex + 1 ) % numberOfElements( $this->dataSetColor ) );
                 return $this->checkColor( $this->dataSetColor[ $this->colorIndex ] );
             case 'dataSetSymbol':
-                $this->symbolIndex = ( ( $this->symbolIndex + 1 ) % count( $this->dataSetSymbol ) );
+                $this->symbolIndex = ( ( $this->symbolIndex + 1 ) % numberOfElements( $this->dataSetSymbol ) );
                 return $this->dataSetSymbol[ $this->symbolIndex ];
 
             case 'fontName':

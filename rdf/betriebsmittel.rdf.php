@@ -98,7 +98,7 @@ elseif($datum!='')
 {
 	$betriebsmittel->getVerplanbar($datum, $stunde);
 
-	if(isset($betriebsmittel->result) && count($betriebsmittel->result)>0)
+	if(isset($betriebsmittel->result) && numberOfElements($betriebsmittel->result)>0)
 	{
 		foreach ($betriebsmittel->result as $row)
 			draw_rdf($row);

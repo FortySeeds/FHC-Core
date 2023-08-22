@@ -28,7 +28,7 @@ class CalendarTest extends \PHPUnit_Framework_TestCase {
         $this->backend = TestUtil::getBackend();
 
         $this->calendars = $this->backend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(2, count($this->calendars));
+        $this->assertEquals(2, numberOfElements($this->calendars));
         $this->calendar = new Calendar($this->backend, $this->calendars[0]);
 
 
@@ -103,7 +103,7 @@ class CalendarTest extends \PHPUnit_Framework_TestCase {
     function testGetChildren() {
 
         $children = $this->calendar->getChildren();
-        $this->assertEquals(1,count($children));
+        $this->assertEquals(1,numberOfElements($children));
 
         $this->assertTrue($children[0] instanceof CalendarObject);
 
@@ -178,7 +178,7 @@ class CalendarTest extends \PHPUnit_Framework_TestCase {
         $this->calendar->delete();
 
         $calendars = $this->backend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(1, count($calendars));
+        $this->assertEquals(1, numberOfElements($calendars));
     }
 
     function testGetOwner() {

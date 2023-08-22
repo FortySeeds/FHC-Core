@@ -59,8 +59,8 @@ class ezcBaseFileCopyRecursiveTest extends ezcTestCase
         );
 
         $this->assertEquals( 
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dir1' ) ),
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dir1' ) ),
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
         );
 
         $this->assertSame(
@@ -99,8 +99,8 @@ class ezcBaseFileCopyRecursiveTest extends ezcTestCase
         );
 
         $this->assertEquals( 
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dir1' ) ),
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dir1' ) ),
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
         );
 
         $this->assertSame(
@@ -139,8 +139,8 @@ class ezcBaseFileCopyRecursiveTest extends ezcTestCase
         );
 
         $this->assertEquals( 
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dir2' ) ),
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dir2' ) ),
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
         );
     }
 
@@ -154,7 +154,7 @@ class ezcBaseFileCopyRecursiveTest extends ezcTestCase
 
         $this->assertEquals( 
             0,
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
         );
 
         $this->assertTrue(
@@ -172,7 +172,7 @@ class ezcBaseFileCopyRecursiveTest extends ezcTestCase
 
         $this->assertEquals( 
             3,
-            count( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
+            numberOfElements( ezcBaseFile::findRecursive( $this->tempDir . '/dest' ) ) 
         );
     }
 

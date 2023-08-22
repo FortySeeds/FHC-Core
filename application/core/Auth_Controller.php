@@ -69,7 +69,7 @@ abstract class Auth_Controller extends FHC_Controller
 			}
 
 			// Copy all the permissions into $strRequiredPermissions separated by a comma
-			for ($i = 0; $i < count($rpsMethod); $i++)
+			for ($i = 0; $i < numberOfElements($rpsMethod); $i++)
 			{
 				$strRequiredPermissions .= $rpsMethod[$i].', ';
 			}

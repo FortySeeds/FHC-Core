@@ -242,7 +242,7 @@ class anwesenheit extends basis_db
 					(SELECT stundensatz FROM lehre.tbl_lehreinheitmitarbeiter WHERE lehreinheit_id=".$this->db_add_param($lehreinheit_id)."
 					AND mitarbeiter_uid=".$this->db_add_param($mitarbeiter_uid).") as stundensatz
 				FROM
-					(SELECT datum, count(distinct stunde) as einheiten FROM lehre.tbl_stundenplan
+					(SELECT datum, numberOfElements(distinct stunde) as einheiten FROM lehre.tbl_stundenplan
 					 WHERE
 						lehreinheit_id=".$this->db_add_param($lehreinheit_id)."
 						AND mitarbeiter_uid=".$this->db_add_param($mitarbeiter_uid)."
@@ -486,7 +486,7 @@ class anwesenheit extends basis_db
 				(
 					SELECT
 						vorname, nachname, wahlname, lehrveranstaltung_id, bezeichnung, gruppe, student_uid,
-						count(stundenplan_id) as gesamt,
+						numberOfElements(stundenplan_id) as gesamt,
 						case when anwesend.summe is null then 0 else anwesend.summe end as anwesend,
 						case when nichtanwesend.summe is null then 0 else nichtanwesend.summe end as nichtanwesend
 					FROM

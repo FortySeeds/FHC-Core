@@ -154,7 +154,7 @@ if(isset($_POST['show']))
 		while($row = $db->db_fetch_object($result))
 			$lehreinheiten[]=$row->lehreinheit_id;
 
-		if(count($lehreinheiten)>0)
+		if(numberOfElements($lehreinheiten)>0)
 		{
 			$les = $db->implode4SQL($lehreinheiten);
 			if($inkl_studenten)
@@ -241,7 +241,7 @@ if(isset($_POST['show']))
 
 	//Zusammenfassen
 	$mails = array_unique($mails);
-	echo '<br>Anzahl der Empfänger: ',count($mails);
+	echo '<br>Anzahl der Empfänger: ',numberOfElements($mails);
 
 	echo '<br /><br /><a href="#MailSenden" onclick="splitmailto(mails, \'bcc\'); return false;">E-Mail öffnen</a>';
 	echo "

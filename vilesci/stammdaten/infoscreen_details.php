@@ -229,7 +229,7 @@ $datum_obj = new datum();
 		$infoscreen->exklusiv = $exklusiv;
 
 		$infoscreen_ids=explode(',',$my_infoscreen_id);
-		if (count($infoscreen_ids)>1)
+		if (numberOfElements($infoscreen_ids)>1)
 		{
 			$infoscreen->new = true;
 			$infoscreen->insertamum = date('Y-m-d H:i:s');

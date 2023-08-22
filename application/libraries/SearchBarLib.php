@@ -219,7 +219,7 @@ class SearchBarLib
 				$ou->leaders = array();
 
 				// Loop through the found leaders for this organisation unit
-				for ($i = 0; $i < count($ou->leader_uid); $i++)
+				for ($i = 0; $i < numberOfElements($ou->leader_uid); $i++)
 				{
 					// If a leader exists for this organisationunit and has a name :D
 					if (!isEmptyString($ou->leader_uid[$i]) && !isEmptyString($ou->leader_name[$i]))

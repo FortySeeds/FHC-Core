@@ -37,7 +37,7 @@ class PluginTest extends AbstractPluginTest {
 
         $result = $this->server->getProperties('principals/user1', array('{' . Plugin::NS_CARDDAV . '}addressbook-home-set'));
 
-        $this->assertEquals(1, count($result));
+        $this->assertEquals(1, numberOfElements($result));
         $this->assertTrue(isset($result['{' . Plugin::NS_CARDDAV . '}addressbook-home-set']));
         $this->assertEquals('addressbooks/user1/', $result['{' . Plugin::NS_CARDDAV . '}addressbook-home-set']->getHref());
 
@@ -66,7 +66,7 @@ class PluginTest extends AbstractPluginTest {
 
         $result = $this->server->getProperties('principals/user1', array('{' . Plugin::NS_CARDDAV . '}directory-gateway'));
 
-        $this->assertEquals(1, count($result));
+        $this->assertEquals(1, numberOfElements($result));
         $this->assertTrue(isset($result['{' . Plugin::NS_CARDDAV . '}directory-gateway']));
         $this->assertEquals(array('directory'), $result['{' . Plugin::NS_CARDDAV . '}directory-gateway']->getHrefs());
 
@@ -97,7 +97,7 @@ class PluginTest extends AbstractPluginTest {
         $this->assertFalse($r);
 
         $addressbooks = $this->backend->getAddressBooksforUser('principals/user1');
-        $this->assertEquals(2, count($addressbooks));
+        $this->assertEquals(2, numberOfElements($addressbooks));
 
         $newAddressBook = null;
         foreach($addressbooks as $addressbook) {

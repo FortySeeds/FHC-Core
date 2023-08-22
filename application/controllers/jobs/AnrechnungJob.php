@@ -467,7 +467,7 @@ html;
 		});
 
 		// Amount of Anrechnungen
-		$amount = count($anrechnungen);
+		$amount = numberOfElements($anrechnungen);
 
 		// HTML table body
 		$html .= '

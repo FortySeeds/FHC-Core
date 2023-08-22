@@ -56,7 +56,7 @@ $mob_arr=array();
 foreach($mobprog->result as $rowmob)
 	$mob_arr[$rowmob->mobilitaetsprogramm_code]=$rowmob->kurzbz;
 
-if(count($mobilitaet->result)>0)
+if(numberOfElements($mobilitaet->result)>0)
 {
 	foreach($mobilitaet->result as $row)
 	{

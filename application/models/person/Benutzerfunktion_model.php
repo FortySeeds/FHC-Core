@@ -92,7 +92,7 @@ class Benutzerfunktion_model extends DB_Model
 		{
 			$query .= " AND funktion_kurzbz = '".$funktion_kurzbz."'";
 		}
-		elseif (is_array($funktion_kurzbz) && count($funktion_kurzbz) > 0)
+		elseif (is_array($funktion_kurzbz) && numberOfElements($funktion_kurzbz) > 0)
 		{
 			$funktionstr = "'".implode("', '", $funktion_kurzbz)."'";
 			$query .= " AND funktion_kurzbz IN (".$funktionstr.")";

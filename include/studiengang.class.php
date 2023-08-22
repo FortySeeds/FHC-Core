@@ -376,7 +376,7 @@ class studiengang extends basis_db
 	 */
 	public function loadArray($kennzahlen, $order=null, $aktiv=true)
 	{
-		if(count($kennzahlen)==0)
+		if(numberOfElements($kennzahlen)==0)
 			return true;
 
 		$kennzahlen = $this->implode4SQL($kennzahlen);

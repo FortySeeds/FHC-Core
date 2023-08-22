@@ -73,7 +73,7 @@ $db = new basis_db();
 $stg = new studiengang();
 $stg->getStudiengaengeFromOe($oe_kurzbz);
 $stg_arr = array();
-if (count($stg->result) > 0)
+if (numberOfElements($stg->result) > 0)
 {
 	foreach ($stg->result as $row)
 	{
@@ -105,7 +105,7 @@ $qry_stg = "SELECT distinct studiengang_kz, typ, kurzbz
 				) as foo
 				JOIN public.tbl_studiengang USING (studiengang_kz)
 				";
-if (count($stg_arr) > 0)
+if (numberOfElements($stg_arr) > 0)
 	$qry_stg .= " WHERE studiengang_kz in (".$db->db_implode4SQL($stg_arr).")";
 
 	$qry_stg .= " ORDER BY typ, kurzbz";
@@ -673,7 +673,7 @@ if ($result_stg = $db->db_query($qry_stg))
 				studiensemester_kurzbz = ".$db->db_add_param($semester_aktuell)." AND
 				stunden > 0";
 
-	if (count($stg_arr) > 0)
+	if (numberOfElements($stg_arr) > 0)
 		$qry .= " AND tbl_lehrveranstaltung.studiengang_kz IN(".$db->db_implode4SQL($stg_arr).")";
 
 	$qry .= "

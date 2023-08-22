@@ -1007,7 +1007,7 @@ if (defined('LVPLAN_HORDE_SYNC') && LVPLAN_HORDE_SYNC === true)
 	// geaenderte User in Textfile schreiben
 	$users = array_unique($users);
 
-	if (count($users) > 0)
+	if (numberOfElements($users) > 0)
 	{
 		if ($fp = fopen($uidfile, 'a'))
 		{

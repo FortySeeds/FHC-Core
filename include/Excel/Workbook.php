@@ -271,13 +271,13 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
             $this->_url_format->_BIFF_version = $version;
             $this->_parser->_BIFF_version = $version;
 
-            $total_worksheets = count($this->_worksheets);
+            $total_worksheets = numberOfElements($this->_worksheets);
             // change version for all worksheets too
             for ($i = 0; $i < $total_worksheets; $i++) {
                 $this->_worksheets[$i]->_BIFF_version = $version;
             }
 
-            $total_formats = count($this->_formats);
+            $total_formats = numberOfElements($this->_formats);
             // change version for all formats too
             for ($i = 0; $i < $total_formats; $i++) {
                 $this->_formats[$i]->_BIFF_version = $version;
@@ -309,7 +309,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
     */
     function &addWorksheet($name = '')
     {
-        $index     = count($this->_worksheets);
+        $index     = numberOfElements($this->_worksheets);
         $sheetname = $this->_sheetname;
 
         if ($name == '') {
@@ -325,7 +325,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         }
 
         // Check that the worksheet name doesn't already exist: a fatal Excel error.
-        $total_worksheets = count($this->_worksheets);
+        $total_worksheets = numberOfElements($this->_worksheets);
         for ($i = 0; $i < $total_worksheets; $i++) {
             if ($this->_worksheets[$i]->getName() == $name) {
                 return $this->raiseError("Worksheet '$name' already exists");
@@ -496,7 +496,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
 
         // Calculate the number of selected worksheet tabs and call the finalization
         // methods for each worksheet
-        $total_worksheets = count($this->_worksheets);
+        $total_worksheets = numberOfElements($this->_worksheets);
         for ($i = 0; $i < $total_worksheets; $i++) {
             if ($this->_worksheets[$i]->selected) {
                 $this->_selected++;
@@ -588,7 +588,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         }
         $OLE->append($this->_data);
 
-        $total_worksheets = count($this->_worksheets);
+        $total_worksheets = numberOfElements($this->_worksheets);
         for ($i = 0; $i < $total_worksheets; $i++) {
             while ($tmp = $this->_worksheets[$i]->getData()) {
                 $OLE->append($tmp);
@@ -632,7 +632,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
             // add the lenght of SUPBOOK, EXTERNSHEET and NAME records
             //$offset += 8; // FIXME: calculate real value when storing the records
         }
-        $total_worksheets = count($this->_worksheets);
+        $total_worksheets = numberOfElements($this->_worksheets);
         // add the length of the BOUNDSHEET records
         for ($i = 0; $i < $total_worksheets; $i++) {
             $offset += $boundsheet_length + strlen($this->_worksheets[$i]->name);
@@ -673,7 +673,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         $key = $format->getFontKey(); // The default font from _tmp_format
         $fonts[$key] = 0;             // Index of the default font
 
-        $total_formats = count($this->_formats);
+        $total_formats = numberOfElements($this->_formats);
         for ($i = 0; $i < $total_formats; $i++) {
             $key = $this->_formats[$i]->getFontKey();
             if (isset($fonts[$key])) {
@@ -704,7 +704,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
 
         // Iterate through the XF objects and write a FORMAT record if it isn't a
         // built-in format type and if the FORMAT string hasn't already been used.
-        $total_formats = count($this->_formats);
+        $total_formats = numberOfElements($this->_formats);
         for ($i = 0; $i < $total_formats; $i++) {
             $num_format = $this->_formats[$i]->_num_format;
 
@@ -758,7 +758,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         $this->_append($xf);
 
         // User defined XFs
-        $total_formats = count($this->_formats);
+        $total_formats = numberOfElements($this->_formats);
         for ($i = 0; $i < $total_formats; $i++) {
             $xf = $this->_formats[$i]->getXf('cell');
             $this->_append($xf);
@@ -784,7 +784,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
     function _storeExterns()
     {
         // Create EXTERNCOUNT with number of worksheets
-        $this->_storeExterncount(count($this->_worksheets));
+        $this->_storeExterncount(numberOfElements($this->_worksheets));
 
         // Create EXTERNSHEET for each worksheet
         foreach ($this->_sheetnames as $sheetname) {
@@ -800,7 +800,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
     function _storeNames()
     {
         // Create the print area NAME records
-        $total_worksheets = count($this->_worksheets);
+        $total_worksheets = numberOfElements($this->_worksheets);
         for ($i = 0; $i < $total_worksheets; $i++) {
             // Write a Name record if the print area has been defined
             if (isset($this->_worksheets[$i]->print_rowmin)) {
@@ -816,7 +816,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         }
 
         // Create the print title NAME records
-        $total_worksheets = count($this->_worksheets);
+        $total_worksheets = numberOfElements($this->_worksheets);
         for ($i = 0; $i < $total_worksheets; $i++) {
             $rowmin = $this->_worksheets[$i]->title_rowmin;
             $rowmax = $this->_worksheets[$i]->title_rowmax;
@@ -959,7 +959,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         $length    = 0x0004;   // Bytes to follow
 
         $header    = pack("vv", $record, $length);
-        $data      = pack("vv", count($this->_worksheets), 0x0104);
+        $data      = pack("vv", numberOfElements($this->_worksheets), 0x0104);
         $this->_append($header . $data);
     }
 
@@ -972,7 +972,7 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
     */
     function _storeExternsheetBiff8()
     {
-        $total_references = count($this->_parser->_references);
+        $total_references = numberOfElements($this->_parser->_references);
         $record   = 0x0017;                     // Record identifier
         $length   = 2 + 6 * $total_references;  // Number of bytes to follow
 
@@ -1274,8 +1274,8 @@ class Spreadsheet_Excel_Writer_Workbook extends Spreadsheet_Excel_Writer_BIFFwri
         $aref            = $this->_palette;
 
         $record          = 0x0092;                 // Record identifier
-        $length          = 2 + 4 * count($aref);   // Number of bytes to follow
-        $ccv             =         count($aref);   // Number of RGB values to follow
+        $length          = 2 + 4 * numberOfElements($aref);   // Number of bytes to follow
+        $ccv             =         numberOfElements($aref);   // Number of RGB values to follow
         $data = '';                                // The RGB data
 
         // Pack the RGB data

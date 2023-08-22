@@ -83,7 +83,7 @@ class UDFWidget extends HTMLWidget
 	 */
 	private function _checkParameters($args)
 	{
-		if (!is_array($args) || (is_array($args) && count($args) == 0))
+		if (!is_array($args) || (is_array($args) && numberOfElements($args) == 0))
 		{
 			show_error('Second parameter of the widget call must be a NOT empty associative array');
 		}

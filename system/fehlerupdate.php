@@ -321,7 +321,7 @@ $fehlerArr = array(
 );
 
 // Loop through the filters array
-for ($fehlerCounter = 0; $fehlerCounter < count($fehlerArr); $fehlerCounter++)
+for ($fehlerCounter = 0; $fehlerCounter < numberOfElements($fehlerArr); $fehlerCounter++)
 {
 	$fehler = $fehlerArr[$fehlerCounter]; // single fehler definition
 

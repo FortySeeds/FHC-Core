@@ -102,7 +102,7 @@ class PhrasesLib
 				// Textile parser
 				$textileParser = new \Netcarver\Textile\Parser();
 
-				for ($i = 0; $i < count($result->retval); $i++)
+				for ($i = 0; $i < numberOfElements($result->retval); $i++)
 				{
 					// If no <p> tags required
 					if ($blockTags == 'no')
@@ -178,7 +178,7 @@ class PhrasesLib
 		if (is_array($this->_phrases))
 		{
 			// Loops through the _phrases property
-			for ($i = 0; $i < count($this->_phrases); $i++)
+			for ($i = 0; $i < numberOfElements($this->_phrases); $i++)
 			{
 				$_phrase = $this->_phrases[$i]; // single phrase
 
@@ -215,13 +215,13 @@ class PhrasesLib
 	private function _extend_construct($params)
 	{
 		// Checks if the $params is an array with at least one element
-		if (is_array($params) && count($params) > 0)
+		if (is_array($params) && numberOfElements($params) > 0)
 		{
 			$parameters = $params[0];	// temporary variable
 			$isIndexArray = false;		//flag for indexed array
 
 			// If there are parameters
-			if (is_array($parameters) && count($parameters) > 0)
+			if (is_array($parameters) && numberOfElements($parameters) > 0)
 			{
 				$categories = $parameters[0]; // categories is always the first parameter
 				if (!is_array($categories)) // if it is not an array, then convert into one
@@ -230,10 +230,10 @@ class PhrasesLib
 				}
 
 				// Retrieves the language of the logged user
-				$language = getUserLanguage(count($parameters) == 2 ? $parameters[1] : null);
+				$language = getUserLanguage(numberOfElements($parameters) == 2 ? $parameters[1] : null);
 
 				// If only categories is not an empty array then loads phrases
-				if (count($categories) > 0) $this->_setPhrases($categories, $language);
+				if (numberOfElements($categories) > 0) $this->_setPhrases($categories, $language);
 			}
 		}
 	}

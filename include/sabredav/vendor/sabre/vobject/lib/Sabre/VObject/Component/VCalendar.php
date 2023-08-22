@@ -150,7 +150,7 @@ class VCalendar extends VObject\Document {
         $warnings = array();
 
         $version = $this->select('VERSION');
-        if (count($version)!==1) {
+        if (numberOfElements($version)!==1) {
             $warnings[] = array(
                 'level' => 1,
                 'message' => 'The VERSION property must appear in the VCALENDAR component exactly 1 time',
@@ -166,21 +166,21 @@ class VCalendar extends VObject\Document {
             }
         }
         $version = $this->select('PRODID');
-        if (count($version)!==1) {
+        if (numberOfElements($version)!==1) {
             $warnings[] = array(
                 'level' => 2,
                 'message' => 'The PRODID property must appear in the VCALENDAR component exactly 1 time',
                 'node' => $this,
             );
         }
-        if (count($this->CALSCALE) > 1) {
+        if (numberOfElements($this->CALSCALE) > 1) {
             $warnings[] = array(
                 'level' => 2,
                 'message' => 'The CALSCALE property must not be specified more than once.',
                 'node' => $this,
             );
         }
-        if (count($this->METHOD) > 1) {
+        if (numberOfElements($this->METHOD) > 1) {
             $warnings[] = array(
                 'level' => 2,
                 'message' => 'The METHOD property must not be specified more than once.',

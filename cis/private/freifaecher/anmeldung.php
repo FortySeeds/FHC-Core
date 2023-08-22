@@ -122,7 +122,7 @@ echo '<br />';
 $lv_obj = new lehrveranstaltung();
 if ($lv_obj->load_lva('0', null, null, true, null, 'bezeichnung'))
 {
-	$anz = count($lv_obj->lehrveranstaltungen);
+	$anz = numberOfElements($lv_obj->lehrveranstaltungen);
 
 	echo "<form method='POST'>";
 	$i = 0;

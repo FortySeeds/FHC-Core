@@ -452,7 +452,7 @@ class ezcGraphFlashDriver extends ezcGraphDriver
         {
             $size = $this->modifyCoordinate( $text['font']->minimalUsedFont );
 
-            $completeHeight = count( $text['text'] ) * $size + ( count( $text['text'] ) - 1 ) * $this->options->lineSpacing;
+            $completeHeight = numberOfElements( $text['text'] ) * $size + ( numberOfElements( $text['text'] ) - 1 ) * $this->options->lineSpacing;
 
             // Calculate y offset for vertical alignement
             switch ( true )

@@ -120,7 +120,7 @@ else
 								 */
 								function printStatuswechselMenuitem($gruende, $status_kurzbz, $id, $label, $command)
 								{
-									if(isset($gruende[$status_kurzbz]) && count($gruende[$status_kurzbz])>0)
+									if(isset($gruende[$status_kurzbz]) && numberOfElements($gruende[$status_kurzbz])>0)
 									{
 
 										echo '

@@ -304,7 +304,7 @@ class Component extends Node {
     public function __get($name) {
 
         $matches = $this->select($name);
-        if (count($matches)===0) {
+        if (numberOfElements($matches)===0) {
             return null;
         } else {
             $firstMatch = current($matches);
@@ -324,7 +324,7 @@ class Component extends Node {
     public function __isset($name) {
 
         $matches = $this->select($name);
-        return count($matches)>0;
+        return numberOfElements($matches)>0;
 
     }
 
@@ -344,7 +344,7 @@ class Component extends Node {
     public function __set($name, $value) {
 
         $matches = $this->select($name);
-        $overWrite = count($matches)?key($matches):null;
+        $overWrite = numberOfElements($matches)?key($matches):null;
 
         if ($value instanceof Component || $value instanceof Property) {
             $value->parent = $this;

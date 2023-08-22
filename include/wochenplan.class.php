@@ -784,7 +784,7 @@ class wochenplan extends basis_db
 					{
 						// Unterrichtsnummer (Kollision?)
 						$unr=array_unique($unr);
-						$kollision+=count($unr);
+						$kollision+=numberOfElements($unr);
 
 						// Lektoren
 						if ($this->type!='lektor')
@@ -897,12 +897,12 @@ class wochenplan extends basis_db
 					{
 						// mehrere Einheiten innerhalb einer Stunde sollen getrennt aufgelistet werden
 						$uEinheiten=array();
-						for ($n=0;$n<count($unr);$n++)
+						for ($n=0;$n<numberOfElements($unr);$n++)
 						{
 							$unrIndex=$this->searchForId($unr[$n], $uEinheiten);
 							if ($unrIndex===false)
 							{
-								$unrIndex=count($uEinheiten);
+								$unrIndex=numberOfElements($uEinheiten);
 								$uEinheiten[$unrIndex]['unr']=$unr[$n];
 								$uEinheiten[$unrIndex]['lehrfach']=$lehrfach[$n];
 								if (isset($this->std_plan[$i][$j][$n]->farbe))
@@ -1091,7 +1091,7 @@ class wochenplan extends basis_db
 
 				//Spezialgruppen aus den Studiengaengen mit erweiterten Reservierungsberechtigung holen
 				$stgs = $rechte->getStgKz('lehre/reservierung');
-				if (count($stgs)>0)
+				if (numberOfElements($stgs)>0)
 				{
 					$in='';
 					foreach($stgs as $stg)
@@ -1326,14 +1326,14 @@ class wochenplan extends basis_db
 
 					// Unterrichtsnummer (Kollision?)
 					$a_unr=array_unique($a_unr);
-					$kollision+=count($a_unr);
+					$kollision+=numberOfElements($a_unr);
 					//Kollisionspruefung Studentenebene
 					if ($kollision_student=='true')
 					{
 						$kollision=0;
 						$studiensemester = getStudiensemesterFromDatum(date('Y-m-d',$datum));
 
-						$qry = "SELECT datum, stunde, student_uid, count(student_uid) AS anzahl
+						$qry = "SELECT datum, stunde, student_uid, COUNT(student_uid) AS anzahl
 								FROM (
 									SELECT sub_stpl_uid.unr, sub_stpl_uid.datum, sub_stpl_uid.stunde, sub_stpl_uid.student_uid
 									FROM (  SELECT stpl.unr, stpl.datum, stpl.stunde, tbl_benutzergruppe.uid AS student_uid
@@ -1352,9 +1352,9 @@ class wochenplan extends basis_db
 								) as a
 								WHERE datum='".date('Y-m-d',$datum)."' AND stunde=".$this->db_add_param($j)."
 								GROUP BY datum, stunde, student_uid
-								HAVING count(student_uid)>1 ";
+								HAVING COUNT(student_uid)>1 ";
 
-								if (count($a_unr)>0)
+								if (numberOfElements($a_unr)>0)
 								{
 									// Nur die Eintraege als kollision anzeigen, die auch aktuell im Tempus sichtbar sind
 									// Dazu werden die UNRs der betroffenen Studierenden zuerst ein ein Array gruppiert und danach
@@ -1393,10 +1393,10 @@ class wochenplan extends basis_db
 								if(isset($a_lvb[$unr]))
 									$lvb[$a++]=$a_lvb[$unr];
 							}
-							for ($a=0;$a<count($lvb)-1;$a++)
-								for ($b=0;$b<count($lvb[$a]);$b++)
-									for ($c=$a+1;$c<count($lvb);$c++)
-										for ($d=0;$d<count($lvb[$c]);$d++)
+							for ($a=0;$a<numberOfElements($lvb)-1;$a++)
+								for ($b=0;$b<numberOfElements($lvb[$a]);$b++)
+									for ($c=$a+1;$c<numberOfElements($lvb);$c++)
+										for ($d=0;$d<numberOfElements($lvb[$c]);$d++)
 										{
 											$s1=mb_substr($lvb[$a][$b],0,1);
 											$s2=mb_substr($lvb[$c][$d],0,1);
@@ -1564,7 +1564,7 @@ class wochenplan extends basis_db
 
 						// Blinken oder nicht ?
 						if (isset($kollisionsmeldungen[$unr])
-						|| (isset($kollisionsmeldung) && count($kollisionsmeldungen, COUNT_RECURSIVE)==0 && $kollision>0))
+						|| (isset($kollisionsmeldung) && numberOfElements($kollisionsmeldungen, COUNT_RECURSIVE)==0 && $kollision>0))
 						{
 							$blink_ein='<html:blink>';
 							$blink_aus='</html:blink>';
@@ -1623,7 +1623,7 @@ class wochenplan extends basis_db
 						$betriebsmittel = new betriebsmittel();
 						if ($betriebsmittel->getBetriebsmittelStundenplan($stundenplan_ids))
 						{
-							if (count($betriebsmittel->result)>0)
+							if (numberOfElements($betriebsmittel->result)>0)
 							{
 								$ressourceinfo='';
 								foreach($betriebsmittel->result as $row)
@@ -2059,7 +2059,7 @@ class wochenplan extends basis_db
 		// Blockung eindeutig?
 		$blck=$block[0];
 		$block=array_unique($block);
-		if (count($block)==1)
+		if (numberOfElements($block)==1)
 			$block=$blck;
 		else
 		{
@@ -2072,7 +2072,7 @@ class wochenplan extends basis_db
 		$offenestunden=array_unique($offenestunden);
 		if ($type=='lva_single_search')
 			$offenestunden=$block;
-		elseif (count($offenestunden)==1)
+		elseif (numberOfElements($offenestunden)==1)
 			$offenestunden=$os;
 		else
 		{
@@ -2083,7 +2083,7 @@ class wochenplan extends basis_db
 		// Wochenrythmus eindeutig?
 		$wr=$wochenrythmus[0];
 		$wochenrythmus=array_unique($wochenrythmus);
-		if (count($wochenrythmus)==1)
+		if (numberOfElements($wochenrythmus)==1)
 			$wr=$wr;
 		else
 		{
@@ -2385,7 +2385,7 @@ class wochenplan extends basis_db
 							if ($lehrstunde->grp!=null && $lehrstunde->grp!='0' && $lehrstunde->grp!='')
 								$lvb.=$lehrstunde->grp;
 						}
-						if (count($lehrstunde->gruppe_kurzbz)>0)
+						if (numberOfElements($lehrstunde->gruppe_kurzbz)>0)
 							$lvb=$lehrstunde->gruppe_kurzbz;
 						$lehrverband[]=$lvb;
 						// Lehrfach
@@ -2402,7 +2402,7 @@ class wochenplan extends basis_db
 					$unr=array_unique($unr);
 					if (!isset($kollision))
 						$kollision=0;
-					$kollision+=count($unr);
+					$kollision+=numberOfElements($unr);
 
 					// Lektoren
 					if ($this->type!='lektor')
@@ -2429,7 +2429,7 @@ class wochenplan extends basis_db
 					$row = $this->db_fetch_object($this->stunde, $k);
 					$start_time=$row->beginn;
 
-					for ($idx=0;$idx<count($this->std_plan[$i][$j]);$idx++)
+					for ($idx=0;$idx<numberOfElements($this->std_plan[$i][$j]);$idx++)
 					{
 						if (!isset($this->std_plan[$i][$j][$idx]))
 						{
@@ -2509,7 +2509,7 @@ class wochenplan extends basis_db
 
 						//Wenn im selben Raum mehrere Lektoren sind bzw mehrere Gruppen
 						//dann werden diese zusammengruppiert und als ein Eintrag angezeigt
-						for ($idx1=0;$idx1<count($this->std_plan[$i][$j]);$idx1++)
+						for ($idx1=0;$idx1<numberOfElements($this->std_plan[$i][$j]);$idx1++)
 						{
 							if ($idx!=$idx1)
 							{

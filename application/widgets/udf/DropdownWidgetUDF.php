@@ -20,14 +20,14 @@ class DropdownWidgetUDF extends DropdownWidget
 			// - An array with two elements OR
 			// - A string or a number OR
 			// - An object with two properties: id and description
-			if ((is_array($parameter) && count($parameter) == 2)
+			if ((is_array($parameter) && numberOfElements($parameter) == 2)
 				|| (is_string($parameter) || is_numeric($parameter))
 				|| (is_object($parameter) && isset($parameter->{DropdownWidget::ID_FIELD})
 					&& isset($parameter->{DropdownWidget::DESCRIPTION_FIELD})))
 			{
 				$newElement = new stdClass(); // New single element
 				// If the single element is an array of two element
-				if (is_array($parameter) && count($parameter) == 2)
+				if (is_array($parameter) && numberOfElements($parameter) == 2)
 				{
 					$newElement->{DropdownWidget::ID_FIELD} = $parameter[0]; //
 					$newElement->{DropdownWidget::DESCRIPTION_FIELD} = $parameter[1]; //

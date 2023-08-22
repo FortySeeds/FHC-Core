@@ -267,7 +267,7 @@ class jahresplan extends basis_db
 		{
 			$qry.=" AND veranstaltungskategorie_kurzbz=".$this->db_add_param($this->veranstaltungskategorie_kurzbz)." ";
 		}
-		elseif (is_array($this->veranstaltungskategorie_kurzbz) && count($this->veranstaltungskategorie_kurzbz)>0 )
+		elseif (is_array($this->veranstaltungskategorie_kurzbz) && numberOfElements($this->veranstaltungskategorie_kurzbz)>0 )
 		{
 		$qry.=" AND veranstaltungskategorie_kurzbz in (".$this->db_implode4SQL($this->veranstaltungskategorie_kurzbz).") ";
 		}
@@ -592,7 +592,7 @@ ZONE at time zone 'CEST' ) as \"ende_timestamp\" ";
 			}
 			$qry.=" AND ".$this->schemaSQL.".tbl_veranstaltung.veranstaltung_id=".$this->db_add_param($this->veranstaltung_id)." ";
 		}
-		elseif (is_array($this->veranstaltung_id) && count($this->veranstaltung_id)>0 )
+		elseif (is_array($this->veranstaltung_id) && numberOfElements($this->veranstaltung_id)>0 )
 		{
 			$qry.=" AND ".$this->schemaSQL.".tbl_veranstaltung.veranstaltung_id in (".$this->db_implode4SQL($this->veranstaltung_id).") ";
 		}
@@ -602,7 +602,7 @@ ZONE at time zone 'CEST' ) as \"ende_timestamp\" ";
 			{
 				$qry.=" AND ".$this->schemaSQL.".tbl_veranstaltungskategorie.veranstaltungskategorie_kurzbz=".$this->db_add_param($this->veranstaltungskategorie_kurzbz)." ";
 			}
-			elseif (is_array($this->veranstaltungskategorie_kurzbz) && count($this->veranstaltungskategorie_kurzbz)>0 )
+			elseif (is_array($this->veranstaltungskategorie_kurzbz) && numberOfElements($this->veranstaltungskategorie_kurzbz)>0 )
 			{
 				$qry.=" AND ".$this->schemaSQL.".tbl_veranstaltungskategorie.veranstaltungskategorie_kurzbz in (".$this->db_implode4SQL($this->veranstaltungskategorie_kurzbz).") ";
 			}
@@ -842,13 +842,13 @@ ZONE at time zone 'CEST' ) as \"ende_timestamp\" ";
 		// Suche nach einer einzigen reservierung_id
 		if (!is_array($this->reservierung_id) && !empty($this->reservierung_id) )
 			$qry.=" AND ".$this->schemaSQL.".tbl_reservierung.reservierung_id=".$this->db_add_param($this->reservierung_id)." ";
-		elseif (is_array($this->reservierung_id) && count($this->reservierung_id)>0 )
+		elseif (is_array($this->reservierung_id) && numberOfElements($this->reservierung_id)>0 )
 			$qry.=" AND ".$this->schemaSQL.".tbl_reservierung.reservierung_id in (".$this->db_implode4SQL($this->reservierung_id).") ";
 
 		// Suche nach einer einzigen Veranstaltung_id
 		if (!is_array($this->veranstaltung_id) && !empty($this->veranstaltung_id) )
 			$qry.=" AND ".$this->schemaSQL.".tbl_reservierung.veranstaltung_id=".$this->db_add_param($this->veranstaltung_id)." ";
-		elseif (is_array($this->veranstaltung_id) && count($this->veranstaltung_id)>0 )
+		elseif (is_array($this->veranstaltung_id) && numberOfElements($this->veranstaltung_id)>0 )
 			$qry.=" AND ".$this->schemaSQL.".tbl_reservierung.veranstaltung_id in (".$this->db_implode4SQL($this->veranstaltung_id).") ";
 
 		if (!empty($this->startDatum) && empty($this->endeDatum) )

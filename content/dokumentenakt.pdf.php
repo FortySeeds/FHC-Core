@@ -177,7 +177,7 @@ foreach($prestudent_ids as $pid)
 				 */
 				 $fullFilename = "";
 				$explodedTitle = explode(".", $row->dateiname);
-				$type = $explodedTitle[count($explodedTitle)-1];
+				$type = $explodedTitle[numberOfElements($explodedTitle)-1];
 
 				if(
 					 $type == "jpg"
@@ -468,7 +468,7 @@ foreach($prestudent_ids as $pid)
 /*
  * generate the merged PDF
  */
-if(count($errors) == 0 || $force)
+if(numberOfElements($errors) == 0 || $force)
 {
 	$finishedPdf = $tmpDir . "/Dokumentenakt.pdf";
 	//$finishedPdf = "/Dokumentenakt.pdf";

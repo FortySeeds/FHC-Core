@@ -220,7 +220,7 @@ class ezcGraphPieChart extends ezcGraphChart
      */
     protected function renderElements( $width, $height )
     {
-        if ( !count( $this->data ) )
+        if ( !numberOfElements( $this->data ) )
         {
             throw new ezcGraphNoDataException();
         }

@@ -146,7 +146,7 @@ $this->load->view(
 											<tr>
 												<th class="col-xs-4"><?php echo $this->p->t('lehre', 'lektorInnen'); ?></th>
 												<td colspan="3">
-													<?php $len = count($antragData->lektoren) - 1 ?>
+													<?php $len = numberOfElements($antragData->lektoren) - 1 ?>
 													<?php foreach ($antragData->lektoren as $key => $lektor): ?>
 														<?php echo $lektor->vorname . ' ' . $lektor->nachname;
 														echo $key === $len ? '' : ', ' ?>

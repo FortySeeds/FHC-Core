@@ -51,7 +51,7 @@ class ezcGraphArrayDataSet extends ezcGraphDataSet
             $this->data[$key] = $value;
         }
 
-        if ( !count( $this->data ) )
+        if ( !numberOfElements( $this->data ) )
         {
             throw new ezcGraphInvalidDataException( 'Data sets should contain some values.' );
         }
@@ -62,9 +62,9 @@ class ezcGraphArrayDataSet extends ezcGraphDataSet
      * 
      * @return int
      */
-    public function count()
+    public function numberOfElements()
     {
-        return count( $this->data );
+        return numberOfElements( $this->data );
     }
 }
 

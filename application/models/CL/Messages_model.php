@@ -724,9 +724,9 @@ class Messages_model extends CI_Model
 	 */
 	private function _addOeToPrestudents(&$msgVarsData, $prestudentsData)
 	{
-		for ($i = 0; $i < count(getData($msgVarsData)); $i++)
+		for ($i = 0; $i < numberOfElements(getData($msgVarsData)); $i++)
 		{
-			for ($p = 0; $p < count(getData($prestudentsData)); $p++)
+			for ($p = 0; $p < numberOfElements(getData($prestudentsData)); $p++)
 			{
 				if (getData($prestudentsData)[$p]->prestudent_id == getData($msgVarsData)[$i]->prestudent_id)
 				{

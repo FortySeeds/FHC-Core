@@ -1529,7 +1529,7 @@ class mitarbeiter extends benutzer
 	 */
 	public function getMitarbeiterArray($uid_arr)
 	{
-		if(count($uid_arr)==0)
+		if(numberOfElements($uid_arr)==0)
 			return true;
 
 		$hasUDF = false;

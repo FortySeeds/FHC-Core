@@ -251,7 +251,7 @@ class ezcGraphRadarChart extends ezcGraphChart
         );
 
         // We do not differentiate between display types in radar charts.
-        $nr = $count = count( $this->data );
+        $nr = $count = numberOfElements( $this->data );
 
         // Draw axis at major steps of virtual axis
         $steps = $this->elements['rotationAxis']->getSteps();
@@ -263,7 +263,7 @@ class ezcGraphRadarChart extends ezcGraphChart
             $this->drawRotatedAxis( $this->elements['axis'], $boundings, $center, $step->position, $lastStepPosition );
             $lastStepPosition = $step->position;
 
-            if ( count( $step->childs ) )
+            if ( numberOfElements( $step->childs ) )
             {
                 foreach ( $step->childs as $childStep )
                 {
@@ -354,7 +354,7 @@ class ezcGraphRadarChart extends ezcGraphChart
      */
     protected function renderElements( $width, $height )
     {
-        if ( !count( $this->data ) )
+        if ( !numberOfElements( $this->data ) )
         {
             throw new ezcGraphNoDataException();
         }

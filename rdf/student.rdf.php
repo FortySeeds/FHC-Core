@@ -1133,13 +1133,13 @@ else
 
 			$lv=new lehrveranstaltung();
 			$lv->load_lva_student($student->uid);
-			if(count($lv->lehrveranstaltungen)>0)
+			if(numberOfElements($lv->lehrveranstaltungen)>0)
 			{
 				$lv_studiengang_kz=$lv->lehrveranstaltungen[0]->studiengang_kz;
 				//Wenn die LV an der ersten Stelle ein Freifach (Stg 0) ist, nimm die naechste sofern eine vorhanden
 				if($lv_studiengang_kz==0)
 				{
-					for ($i = 0; $i < count($lv->lehrveranstaltungen); $i++)
+					for ($i = 0; $i < numberOfElements($lv->lehrveranstaltungen); $i++)
 					{
 						$lv_studiengang_kz=$lv->lehrveranstaltungen[$i]->studiengang_kz;
 						if ($lv_studiengang_kz!=0)

@@ -76,7 +76,7 @@ class Person_model extends DB_Model
 			);
 			if (hasData($result))
 			{
-				if (count($result->retval) == 1 && $result->retval[0]->svnr == $person['svnr'])
+				if (numberOfElements($result->retval) == 1 && $result->retval[0]->svnr == $person['svnr'])
 				{
 					$person['svnr'] = $person['svnr'] . 'v1';
 				}

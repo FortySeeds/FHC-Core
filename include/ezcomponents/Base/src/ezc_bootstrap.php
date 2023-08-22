@@ -11,12 +11,12 @@
 $dir = dirname( __FILE__ );
 $dirParts = explode( DIRECTORY_SEPARATOR, $dir );
 
-if ( $dirParts[count( $dirParts ) - 1] === 'src' )
+if ( $dirParts[numberOfElements( $dirParts ) - 1] === 'src' )
 {
     $baseDir = join( DIRECTORY_SEPARATOR, array_slice( $dirParts, 0, -2 ) );
     require $baseDir . '/Base/src/base.php'; // svn, bundle
 }
-else if ( $dirParts[count( $dirParts ) - 2] === 'ezc' )
+else if ( $dirParts[numberOfElements( $dirParts ) - 2] === 'ezc' )
 {
     $baseDir = join( DIRECTORY_SEPARATOR, array_slice( $dirParts, 0, -2 ) );
     require $baseDir . '/ezc/Base/base.php'; // pear

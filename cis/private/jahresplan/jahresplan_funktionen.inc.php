@@ -104,7 +104,7 @@ global $p;
 	if (!defined('constZeitKalenderPopUp_zeit')) define('constZeitKalenderPopUp_zeit','%H:%M' );
 
 	// Plausib Veranstaltungsdaten vorhanden
-	if ((!is_array($veranstaltung) && !is_object($veranstaltung)) || count($veranstaltung)<1 )
+	if ((!is_array($veranstaltung) && !is_object($veranstaltung)) || numberOfElements($veranstaltung)<1 )
 	{
 		return $p->t("eventkalender/keineVeranstaltungGefunden");
 	}
@@ -157,7 +157,7 @@ global $p;
 		$checkReservierung=null;
 
 		$sort_res=array();
-		for ($iTmpZehler=0;$iTmpZehler<count($res);$iTmpZehler++)
+		for ($iTmpZehler=0;$iTmpZehler<numberOfElements($res);$iTmpZehler++)
 		{
 			$readReservierung=(isset($res[$iTmpZehler]->ort_kurzbz)?$res[$iTmpZehler]->ort_kurzbz:$res[$iTmpZehler]->reservierung_ort_kurzbz).(isset($res[$iTmpZehler]->titel)?$res[$iTmpZehler]->titel:$res[$iTmpZehler]->reservierung_titel);
 			if (!isset($sort_res[$readReservierung]))
@@ -245,7 +245,7 @@ function jahresplan_veranstaltung_zusammenfassen($res,$iZehler)
 	reset($res);
 	$checkReservierung=(isset($res[$iZehler]->ort_kurzbz)?$res[$iZehler]->ort_kurzbz:$res[$iZehler]->reservierung_ort_kurzbz).(isset($res[$iZehler]->titel)?$res[$iZehler]->titel:$res[$iZehler]->reservierung_titel);
 	$gefReservierung=$res[$iZehler];
-	for ($iTmpZehler=$iZehler;$iTmpZehler<count($res);$iTmpZehler++)
+	for ($iTmpZehler=$iZehler;$iTmpZehler<numberOfElements($res);$iTmpZehler++)
 	{
 		$readReservierung=(isset($res[$iTmpZehler]->ort_kurzbz)?$res[$iTmpZehler]->ort_kurzbz:$res[$iTmpZehler]->reservierung_ort_kurzbz).(isset($res[$iTmpZehler]->titel)?$res[$iTmpZehler]->titel:$res[$iTmpZehler]->reservierung_titel);
 		if ($checkReservierung==$readReservierung)
@@ -286,7 +286,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 		reset($veranstaltung);
 		// Daten in Work Array uebertragen
 		$veranstaltung_tabelle=$veranstaltung;
-  		for ($iTmpZehler=0;$iTmpZehler<count($veranstaltung);$iTmpZehler++)
+  		for ($iTmpZehler=0;$iTmpZehler<numberOfElements($veranstaltung);$iTmpZehler++)
 		{
 			//  Moderator,Bild-Icon ermitteln und Leerzeichen aus Textfelder entfernen
 			$veranstaltung_tabelle[$iTmpZehler]=jahresplan_funk_veranstaltung_extend($veranstaltung_tabelle[$iTmpZehler]);
@@ -299,7 +299,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 	$iTmpMinMonate=$veranstaltung_kalender[$Jahr]["VerarbeitenMonate"][0];
 	$iTmpMinTage=1;
 
-	$iTmpMaxMonate=$veranstaltung_kalender[$Jahr]["VerarbeitenMonate"][count($veranstaltung_kalender[$Jahr]["VerarbeitenMonate"])-1];
+	$iTmpMaxMonate=$veranstaltung_kalender[$Jahr]["VerarbeitenMonate"][numberOfElements($veranstaltung_kalender[$Jahr]["VerarbeitenMonate"])-1];
 	$iTmpMaxTage=strftime("%d",mktime(0, 0, 0,($iTmpMaxMonate + 1), 0, $Jahr));
 
 	// Kalenderanzeige Erzeugen
@@ -316,7 +316,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 		// Monatsheader	- Ausgabeinformationen aufbereiten
 		if (isset($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat]))
 		{
-			$iTmpAnzahlDaten=count($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat]).' '.$p->t("eventkalender/veranstaltungen");
+			$iTmpAnzahlDaten=numberOfElements($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat]).' '.$p->t("eventkalender/veranstaltungen");
 		}
 		else
 		{
@@ -329,7 +329,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 
 		// Monatsheader - ein, ausblenden der Monatsansicht
 		if (!empty($Monat)
-		|| count($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat])>0)
+		|| numberOfElements($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat])>0)
 		{
 			$cTmpStyleTableOn="<span class=\"cursor_hand\" title=\"ausblenden ".$iTmpMonat."\"  onclick=\"show_layer('anzahlMonat".$iTmpMonat."');hide_layer('showMonat".$iTmpMonat."');hide_layer('showMonatOn".$iTmpMonat."');show_layer('showMonatOff".$iTmpMonat."');\" id=\"showMonatOn".$iTmpMonat."\"><span ><img title=".$p->t('eventkalender/schliessen')." src='../../../skin/images/bullet_arrow_down.png' alt='close' border='0'></span>&nbsp;</span>";
 			$cTmpStyleTableOff="<span class=\"cursor_hand\" title=\"anzeigen ".$iTmpMonat."\"  onclick=\"hide_layer('anzahlMonat".$iTmpMonat."');show_layer('showMonat".$iTmpMonat."');hide_layer('showMonatOff".$iTmpMonat."');show_layer('showMonatOn".$iTmpMonat."');\" style=\"display:none;\" id=\"showMonatOff".$iTmpMonat."\"><span ><img title=".$p->t('eventkalender/oeffnen')." src='../../../skin/images/bullet_arrow_right.png' alt='open' border='0'></span>&nbsp;</span>";
@@ -347,7 +347,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 		}
 
 		// Monatsanzeige - nicht aktuelle werden ausgeblendet
-		if (!empty($Monat) || count($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat])>0)
+		if (!empty($Monat) || numberOfElements($veranstaltung_kalender[$Jahr]['Monat'][$iTmpMonat])>0)
 		{
 			$showHTML.='<tr><td id="showMonat'.$iTmpMonat.'">';
 		}
@@ -373,9 +373,9 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 		$alleKWausblenden="";
 
 		$iTmpMinKW=(isset($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][0])?$veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][0]:1);
-		$iTmpMaxKW=(isset($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat])?$veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][count($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat])-1]:1);
+		$iTmpMaxKW=(isset($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat])?$veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][numberOfElements($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat])-1]:1);
 
-	  	for ($iTmpWochenIndex=0;$iTmpWochenIndex<count($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat]);$iTmpWochenIndex++)
+	  	for ($iTmpWochenIndex=0;$iTmpWochenIndex<numberOfElements($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat]);$iTmpWochenIndex++)
 		{
 
 			if (!isset($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][$iTmpWochenIndex]))
@@ -419,7 +419,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 
 			$showHTML.='<td class="kalender_woche_on_of_container">
 					<table cellpadding="0" cellspacing="0"><tr>';
-					if (count($veranstaltung_kalender[$Jahr][$iTmpMonat]['Woche'][$iTmpMonat][$iTmpWoche])>0
+					if (numberOfElements($veranstaltung_kalender[$Jahr][$iTmpMonat]['Woche'][$iTmpMonat][$iTmpWoche])>0
 					&& ( empty($Monat) || (!empty($Monat) && $iTmpMonat==$Monat && $iTmpMonat!=$nowMonat && $nowWeek!=$iTmpWoche)
 					  || ($iTmpMonat==$nowMonat && $nowWeek==$iTmpWoche) ))
 					{
@@ -466,7 +466,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 				// Tagesdatum - Header
 				if ($cTmpPruef1!=$cTmpPruef2) // Nicht mehr im Aktuellen Monat
 					$showHTML.='<div class="kalender_woche_tag_falscher_monat">';
-				elseif (count($iTmpStartTagErgebniss)<1)
+				elseif (numberOfElements($iTmpStartTagErgebniss)<1)
 					$showHTML.='<div class="kalender_woche_tag_ohne_termin">';
 				else
 					$showHTML.='<div class="kalender_woche_tag_mit_termin" onclick="hide_layer(\'on_'.$iTmpMonat.$iTmpWoche.'\');show_layer(\'off_'.$iTmpMonat.$iTmpWoche.'\');'.$cTmpStyleTableOn.'">';
@@ -474,7 +474,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 				$showHTML.='</div>';
 
 				// Keine Veranstaltungensdaten je Tag
-				if (count($veranstaltung_kalender[$Jahr][$iTmpMonat]['Woche'][$iTmpMonat][$iTmpWoche])>0
+				if (numberOfElements($veranstaltung_kalender[$Jahr][$iTmpMonat]['Woche'][$iTmpMonat][$iTmpWoche])>0
 				&& ( empty($Monat) || (!empty($Monat) && $iTmpMonat==$Monat && $iTmpMonat!=$nowMonat && $nowWeek!=$iTmpWoche)
 				  || ($iTmpMonat==$nowMonat && $nowWeek==$iTmpWoche) ) )
 					$showHTML.='<div class="kalender_tages_container_on" id="week_'.$iTmpMonat.$iTmpWoche.$iTmpTag.'">';
@@ -496,7 +496,7 @@ function jahresplan_veranstaltungskategorie_kalenderanzeige($veranstaltung,$wart
 
 
 				// Veranstaltungen je Tag
-			  	for ($iTmpVeranstaltung=0;$iTmpVeranstaltung<count($iTmpStartTagErgebniss);$iTmpVeranstaltung++)
+			  	for ($iTmpVeranstaltung=0;$iTmpVeranstaltung<numberOfElements($iTmpStartTagErgebniss);$iTmpVeranstaltung++)
 				{
 
 
@@ -704,12 +704,12 @@ function jahresplan_veranstaltungskategorie_kalendererzeugen($veranstaltung_tabe
 		$veranstaltung_next=$veranstaltung_tabelle;
 
 
-		if (count($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat])<4)
+		if (numberOfElements($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat])<4)
 		{
 			die('Es wurden keine Wochen gefunden? '.__FILE__.' Parameter Line: '.__LINE__);
 		}
 
-	  	for ($iTmpWochenIndex=0;$iTmpWochenIndex<count($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat]);$iTmpWochenIndex++)
+	  	for ($iTmpWochenIndex=0;$iTmpWochenIndex<numberOfElements($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat]);$iTmpWochenIndex++)
 		{
 
 			if (!isset($veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][$iTmpWochenIndex]))
@@ -720,7 +720,7 @@ function jahresplan_veranstaltungskategorie_kalendererzeugen($veranstaltung_tabe
 			$iTmpWoche=$veranstaltung_kalender[$Jahr]['VerarbeitenWochen'][$iTmpMonat][$iTmpWochenIndex];
 
 			// Keine weitere Vearbeitungen mehr noetig
-			if (!is_array($veranstaltung_next) || count($veranstaltung_next)<1)
+			if (!is_array($veranstaltung_next) || numberOfElements($veranstaltung_next)<1)
 				continue;
 
 			for ($iTmpTag=0;$iTmpTag<7;$iTmpTag++)
@@ -733,7 +733,7 @@ function jahresplan_veranstaltungskategorie_kalendererzeugen($veranstaltung_tabe
 				$iTmpZw_jjjjmmtt=date('Ymd',$iTmpInitDay);
 
 				// Keine weitere Vearbeitungen mehr noetig
-				if (!is_array($veranstaltung_next) || count($veranstaltung_next)<1)
+				if (!is_array($veranstaltung_next) || numberOfElements($veranstaltung_next)<1)
 					continue;
 
 				// Daten zur Verarbeitung bereitstellen
@@ -742,7 +742,7 @@ function jahresplan_veranstaltungskategorie_kalendererzeugen($veranstaltung_tabe
 				$veranstaltung_next=array();
 
 				reset($veranstaltung);
-			  	for ($iTmpVeranstaltung=0;$iTmpVeranstaltung<count($veranstaltung);$iTmpVeranstaltung++)
+			  	for ($iTmpVeranstaltung=0;$iTmpVeranstaltung<numberOfElements($veranstaltung);$iTmpVeranstaltung++)
 				{
 					// Datum ist OK fuer weitere verarbeitung
 					$veranstaltung_next[]=$veranstaltung[$iTmpVeranstaltung];
@@ -787,7 +787,7 @@ global $p;
 	if (!defined('constZeileVeranstaltungszeit')) define('constZeileVeranstaltungszeit','%H:%M' );
 
 	// Pruefen ob Daten vorhanden sind zum anzeigen
-	if (!is_array($veranstaltung) || count($veranstaltung)<1 || !isset($veranstaltung[0]) || !isset($veranstaltung[0]->veranstaltung_id) || empty($veranstaltung[0]->veranstaltung_id) )
+	if (!is_array($veranstaltung) || numberOfElements($veranstaltung)<1 || !isset($veranstaltung[0]) || !isset($veranstaltung[0]->veranstaltung_id) || empty($veranstaltung[0]->veranstaltung_id) )
 		return $p->t("eventkalender/keineVeranstaltungen") ;
 
 	// Daten in Work Array uebertragen
@@ -805,7 +805,7 @@ global $p;
 	$showHTML.='<table>';
 
 	reset($veranstaltung_tabelle);
-	for ($iTmpZehler=0;$iTmpZehler<count($veranstaltung_tabelle);$iTmpZehler++)
+	for ($iTmpZehler=0;$iTmpZehler<numberOfElements($veranstaltung_tabelle);$iTmpZehler++)
 	{
 		//  Moderator,Bild-Icon ermitteln und Leerzeichen aus Textfelder entfernen
 		$veranstaltung_tabelle[$iTmpZehler]=jahresplan_funk_veranstaltung_extend($veranstaltung_tabelle[$iTmpZehler]);
@@ -967,7 +967,7 @@ function jahresplan_funk_veranstaltung_extend($veranstaltung)
 	}
 
 	// Plausib ob es sich um ein Veranstaltungsobjekt handelt
-	if (!is_object($veranstaltung) || count($veranstaltung)<1 )
+	if (!is_object($veranstaltung) || numberOfElements($veranstaltung)<1 )
 		return $veranstaltung;
 
 	// Check Space in Textfelder

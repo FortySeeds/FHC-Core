@@ -546,7 +546,7 @@ class Plugin extends DAV\ServerPlugin {
             }
 
             // Conditions were met, we'll also need to check if all the locks are gone
-            if (count($locks)) {
+            if (numberOfElements($locks)) {
 
                 reset($locks);
 
@@ -598,7 +598,7 @@ class Plugin extends DAV\ServerPlugin {
                 ),
             );
 
-            if (!$condition['uri'] && count($conditions)) $conditions[count($conditions)-1]['tokens'][] = array(
+            if (!$condition['uri'] && numberOfElements($conditions)) $conditions[numberOfElements($conditions)-1]['tokens'][] = array(
                 $match['not']?0:1,
                 $match['token'],
                 isset($match['etag'])?$match['etag']:''
@@ -639,7 +639,7 @@ class Plugin extends DAV\ServerPlugin {
         $lockInfo->owner = (string)$children->owner;
 
         $lockInfo->token = DAV\UUIDUtil::getUUID();
-        $lockInfo->scope = count($xml->xpath('d:lockscope/d:exclusive'))>0 ? LockInfo::EXCLUSIVE : LockInfo::SHARED;
+        $lockInfo->scope = numberOfElements($xml->xpath('d:lockscope/d:exclusive'))>0 ? LockInfo::EXCLUSIVE : LockInfo::SHARED;
 
         return $lockInfo;
 

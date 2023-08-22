@@ -984,7 +984,7 @@ if ($pr_all->getPruefungenLV($lvid, "Termin2", $stsem))
 		}
 	}
 }
-$summe_t2 = count($studpruef_arr);
+$summe_t2 = numberOfElements($studpruef_arr);
 
 $studpruef_arr_t3 = array();
 $pr_all = new Pruefung();
@@ -1000,7 +1000,7 @@ if ($pr_all->getPruefungenLV($lvid, "Termin3", $stsem))
 		}
 	}
 }
-$summe_t3 = count($studpruef_arr_t3);
+$summe_t3 = numberOfElements($studpruef_arr_t3);
 
 $studpruef_komm = array();
 $pr_komm = new Pruefung();
@@ -1016,7 +1016,7 @@ if ($pr_komm->getPruefungenLV($lvid, "kommPruef", $stsem))
 		}
 	}
 }
-$summe_komm = count($studpruef_komm);
+$summe_komm = numberOfElements($studpruef_komm);
 
 // Studentenliste
 
@@ -1179,7 +1179,7 @@ if (defined("CIS_GESAMTNOTE_PRUEFUNG_MOODLE_LE_NOTE") && CIS_GESAMTNOTE_PRUEFUNG
 	$addon_obj = new addon();
 	if ($addon_obj->loadAddons())
 	{
-		if (count($addon_obj->result) > 0)
+		if (numberOfElements($addon_obj->result) > 0)
 		{
 			foreach ($addon_obj->result as $row)
 			{

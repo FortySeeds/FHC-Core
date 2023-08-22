@@ -776,7 +776,7 @@ if($result = $db->db_query($qry))
 }
 
 //liste aller zeitsperren ausgeben
-if(count($zeit->result)>0)
+if(numberOfElements($zeit->result)>0)
 {
 	$content_table.= '<table><tr class="liste"><th>'.$p->t('global/bezeichnung').'</th><th>'.$p->t('zeitsperre/grund').'</th><th>'.$p->t('global/von').'</th><th>'.$p->t('global/bis').'</th><th>'.$p->t('urlaubstool/vertretung').'</th><th>'.$p->t('urlaubstool/erreichbarkeit').'</th><th>'.$p->t('zeitsperre/freigegeben').'</th><th colspan="2"></th></tr>';
 	$i=0;

@@ -679,13 +679,13 @@ function meine_uid_informationen($db,$uid,$user="")
 	if ($db)
 		$user_array=personen_id_read_mitarbeiter_oder_student($db,$user->person_id);
 
-	if (isset($user_array) && is_array($user_array) && count($user_array)>1)
+	if (isset($user_array) && is_array($user_array) && numberOfElements($user_array)>1)
 	{
 			$html_user_daten.='<table class="persoenlichedaten">';
 				$html_user_daten.='<tr>';
 
 				reset($user_array);
-				for ($i=0;$i<count($user_array);$i++)
+				for ($i=0;$i<numberOfElements($user_array);$i++)
 				{
 					$user_array[$i]->uid=trim($user_array[$i]->uid);
 
@@ -709,7 +709,7 @@ function meine_uid_informationen($db,$uid,$user="")
 
 			$html_user_daten_detail.='<hr>';
 			reset($user_array);
-			for ($i=0;$i<count($user_array);$i++)
+			for ($i=0;$i<numberOfElements($user_array);$i++)
 				$html_user_daten_detail.=($i>0?'<hr>':'').meine_uid_informationen_detail($db,$user_array[$i]->uid,$i);
 	}
 	else
@@ -1063,7 +1063,7 @@ function alle_uid_stundenplan_informationen($db,$uid,$user_array="")
 //	Stundenplanaufbau
 // ------------------------------------------------------------------------------------------
 	reset($row_stunde);
-	for ($i=0;$i<count($row_stunde);$i++)
+	for ($i=0;$i<numberOfElements($row_stunde);$i++)
 	{
 	// Zeile je Stundeneinteilung
 		$html_liste_raum.='<tr>';
@@ -1220,7 +1220,7 @@ function alle_raum_informationen($db,$raumtyp_kurzbz,$ort_kurzbz, $standort_id)
 		$row_raum[]=$tmp_row_raum;
 	}
 
-	if (count($row_raum_aktiv)<1)
+	if (numberOfElements($row_raum_aktiv)<1)
 		$row_raum_aktiv=$row_raum[0];
 
 	// --------------------------------------------------------------
@@ -1263,7 +1263,7 @@ function alle_raum_informationen($db,$raumtyp_kurzbz,$ort_kurzbz, $standort_id)
 	$html_liste_raum.='<table class="raum_auswahlliste">';
 	$html_liste_raum.='<tr>';
 	reset($row_raum);
-	for ($i=0;$i<count($row_raum);$i++)
+	for ($i=0;$i<numberOfElements($row_raum);$i++)
 	{
 
 		// Default
@@ -1370,7 +1370,7 @@ function alle_raum_informationen($db,$raumtyp_kurzbz,$ort_kurzbz, $standort_id)
 	}
 
 	// zur Stundentabelle die Rauminformationen lesen
-	for ($i=0;$i<count($row_stunde);$i++)
+	for ($i=0;$i<numberOfElements($row_stunde);$i++)
 	{
 		$row=$row_stunde[$i];
 
@@ -1389,7 +1389,7 @@ function alle_raum_informationen($db,$raumtyp_kurzbz,$ort_kurzbz, $standort_id)
 
 		reset($row_raum_plan);
 		$gef_raum_einteilung=array();
-		for ($ii=0;$ii<count($row_raum_plan);$ii++)
+		for ($ii=0;$ii<numberOfElements($row_raum_plan);$ii++)
 		{
 			if ($row->stunde!=$row_raum_plan[$ii]->stunde)
 			{
@@ -1661,10 +1661,10 @@ function html_output_liste_raumtypen($row_ort)
 {
 	global $standort_id;
 	$html_liste_orte='';
-	if (!is_array($row_ort) || count($row_ort)<1)
+	if (!is_array($row_ort) || numberOfElements($row_ort)<1)
 		return $html_liste_orte;
 
-	for ($i=0;$i<count($row_ort);$i++)
+	for ($i=0;$i<numberOfElements($row_ort);$i++)
 	{
 		$html_liste_orte.='<tr>';
 			$html_liste_orte.='<td>';

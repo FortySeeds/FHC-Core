@@ -78,7 +78,7 @@ class Ampel_model extends DB_Model
 
 		if ($result)
 		{
-			if (count($result->retval) > 0)
+			if (numberOfElements($result->retval) > 0)
 			{
 				return true;
 			}

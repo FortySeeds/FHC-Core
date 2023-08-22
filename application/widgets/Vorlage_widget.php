@@ -117,7 +117,7 @@ class Vorlage_widget extends DropdownWidget
 					// If it's the first vorlage copy it
 					if (!hasData($vorlage))
 					{
-						for ($j = 0; $j < count(getData($tmpVorlage)); $j++)
+						for ($j = 0; $j < numberOfElements(getData($tmpVorlage)); $j++)
 						{
 							if (getData($tmpVorlage)[$j]->id != '')
 							{
@@ -127,12 +127,12 @@ class Vorlage_widget extends DropdownWidget
 					}
 					else // checks for duplicates, if it's not already present push it into the array getData($vorlage)
 					{
-						for ($j = 0; $j < count(getData($tmpVorlage)); $j++)
+						for ($j = 0; $j < numberOfElements(getData($tmpVorlage)); $j++)
 						{
 							$found = false;
 							$currentTmpVorlageData = null;
 
-							for ($i = 0; $i < count(getData($vorlage)); $i++)
+							for ($i = 0; $i < numberOfElements(getData($vorlage)); $i++)
 							{
 								$currentTmpVorlageData = getData($tmpVorlage)[$j];
 

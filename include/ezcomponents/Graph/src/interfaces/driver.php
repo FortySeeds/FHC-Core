@@ -103,7 +103,7 @@ abstract class ezcGraphDriver
      */
     protected function reducePolygonSize( array $points, $size )
     {
-        $pointCount = count( $points );
+        $pointCount = numberOfElements( $points );
 
         // Build normalized vectors between polygon edge points
         $vectors = array();
@@ -502,7 +502,7 @@ abstract class ezcGraphDriver
             // Check if line is too long
             if ( $boundings->width > $width )
             {
-                if ( count( $selectedLine ) == 1 )
+                if ( numberOfElements( $selectedLine ) == 1 )
                 {
                     // Return false if one single word does not fit into one line
                     // Scale down font size to fit this word in one line
@@ -617,7 +617,7 @@ abstract class ezcGraphDriver
             // Try to use as many words as possible
             $hit = reset( $tokens );
 
-            for ( $i = 2; $i < count( $tokens ); ++$i )
+            for ( $i = 2; $i < numberOfElements( $tokens ); ++$i )
             {
                 $string = implode( ' ', array_slice( $tokens, 0, $i ) ) . 
                     $postfix;

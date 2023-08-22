@@ -158,7 +158,7 @@ else
 		    echo "<anzahl_fahrten>".$anzahl_fahrten[0]."</anzahl_fahrten>";
 		    echo "<preis_je_fahrt>".$anzahl_fahrten[5]."</preis_je_fahrt>";
 		    echo "<abfahrt>";
-		    for($i = 7; $i < count($anzahl_fahrten); $i++)
+		    for($i = 7; $i < numberOfElements($anzahl_fahrten); $i++)
 		    {
 			echo $anzahl_fahrten[$i]." ";
 		    }    

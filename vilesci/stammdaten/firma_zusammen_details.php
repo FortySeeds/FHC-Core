@@ -341,7 +341,7 @@ function voransicht($firmendaten)
 
 	//Überprüfung auf doppelte Organisationseinheiten
 	$firmaorganisationseinheit_check=array();
-	for ($i=0;$i<count($firmaorganisationseinheit);$i++)
+	for ($i=0;$i<numberOfElements($firmaorganisationseinheit);$i++)
 	{
 		$firmaorganisationseinheit_obj->result[$i] = new firma();
 		if($firmaorganisationseinheit_obj->result[$i]->load_firmaorganisationseinheit($firmaorganisationseinheit[$i]))
@@ -357,11 +357,11 @@ function voransicht($firmendaten)
 		}
 	}		
 	
-	if (is_array($standort) && count($standort))
+	if (is_array($standort) && numberOfElements($standort))
 	{
 		// Array mit Standort als Key fuer Kontrolle der Adressen ob der Standort noch gueltig ist oder neu zugeordnet wird
 		$standort_check=array();
-		for ($i=0;$i<count($standort);$i++)
+		for ($i=0;$i<numberOfElements($standort);$i++)
 			$standort_check[$standort[$i]]=$standort[$i];
 			
 		// Pruefen ob Kontakte noch einen alten Standort zugewiessen ist	
@@ -369,7 +369,7 @@ function voransicht($firmendaten)
 	
 	// Pruefen ob Kontakte noch einen alten Standort zugewiessen ist	
 	$kontakt_ok=array();
-	if (is_array($kontakt) && count($kontakt))
+	if (is_array($kontakt) && numberOfElements($kontakt))
 	{
 		foreach ($kontakt as $key => $val)
 		{
@@ -379,7 +379,7 @@ function voransicht($firmendaten)
 				$standort_id=$standort[0];
 			elseif (!isset($standort_check[$standort_id]))
 				continue;	
-			for ($ii=0;$ii<count($val);$ii++)
+			for ($ii=0;$ii<numberOfElements($val);$ii++)
 			{
 				$kontakt_ok[$standort_id][]=$val[$ii];	
 				if ($standort_id==$key)
@@ -393,7 +393,7 @@ function voransicht($firmendaten)
 		
 	// Pruefen ob personfunktionstandorte noch einen alten Standort zugewiessen ist	
 	$personfunktionstandort_ok=array();
-	if (is_array($personfunktionstandort) && count($personfunktionstandort))
+	if (is_array($personfunktionstandort) && numberOfElements($personfunktionstandort))
 	{
 		foreach ($personfunktionstandort as $key => $val)
 		{
@@ -402,7 +402,7 @@ function voransicht($firmendaten)
 				$standort_id=$standort[0];
 			elseif (!isset($standort_check[$standort_id]))
 				continue;	
-			for ($ii=0;$ii<count($val);$ii++)
+			for ($ii=0;$ii<numberOfElements($val);$ii++)
 			{
 				$personfunktionstandort_ok[$standort_id][]=$val[$ii];	
 				if ($standort_id==$key)
@@ -413,12 +413,12 @@ function voransicht($firmendaten)
 		$personfunktionstandort_ok=null;
 	}
 
-	if (is_array($firmaorganisationseinheit) && count($firmaorganisationseinheit))
+	if (is_array($firmaorganisationseinheit) && numberOfElements($firmaorganisationseinheit))
 	{
 		// Array mit Standort als Key fuer Kontrolle der Adressen ob der Standort noch gueltig ist oder neu zugeordnet wird
 		$firmaorganisationseinheit_check=array();
 		$firmaorganisationseinheit_ok=array();
-		for ($i=0;$i<count($firmaorganisationseinheit);$i++)
+		for ($i=0;$i<numberOfElements($firmaorganisationseinheit);$i++)
 		{
 		
 			$firmaorganisationseinheit_obj->result[$i] = new firma();
@@ -476,7 +476,7 @@ function voransicht($firmendaten)
 		."</td></tr>";
 	echo '</table>';
 
-	if (!is_array($standort) || !count($standort))
+	if (!is_array($standort) || !numberOfElements($standort))
 		echo '<font color="red">Achtung! Keinen Standort gefunden ! - Verarbeiten wird nicht m&ouml;glich sein</font><br>';
 	else
 	{
@@ -493,7 +493,7 @@ function voransicht($firmendaten)
 				echo $standort_obj->errormsg.'<br>';
 					
 			// Kontakt zum Standort
-			if (!isset($kontakt[$key]) || !is_array($kontakt[$key]) || !count($kontakt[$key]))
+			if (!isset($kontakt[$key]) || !is_array($kontakt[$key]) || !numberOfElements($kontakt[$key]))
 			{
 				echo '<font color="red">Keine Kontakte zum Standort !</font><br>';
 			}	
@@ -515,7 +515,7 @@ function voransicht($firmendaten)
 			}	 
 
 			// Personfunktionstandort zum Standort
-			if (!isset($personfunktionstandort[$key]) || !is_array($personfunktionstandort[$key]) || !count($personfunktionstandort[$key]))
+			if (!isset($personfunktionstandort[$key]) || !is_array($personfunktionstandort[$key]) || !numberOfElements($personfunktionstandort[$key]))
 			{
 				echo '<font color="red">Keine Personen mit Funktionen zum Standort !</font><br>';
 			}	
@@ -546,7 +546,7 @@ function voransicht($firmendaten)
 			<legend style="background-color:#e3ffe1;">Organisationseinheit zur Firma  '.$firma->name.'</legend>';
 					
 					 
-	if (isset($firmaorganisationseinheit) && is_array($firmaorganisationseinheit) && count($firmaorganisationseinheit) ) 
+	if (isset($firmaorganisationseinheit) && is_array($firmaorganisationseinheit) && numberOfElements($firmaorganisationseinheit) ) 
 	{
 		$i=0;
 		foreach ($firmaorganisationseinheit as $key => $val)
@@ -596,7 +596,7 @@ function zusammenlegen($firmendaten)
 
 	//Überprüfung auf doppelte Organisationseinheiten
 	$firmaorganisationseinheit_check=array();
-	for ($i=0;$i<count($firmaorganisationseinheit);$i++)
+	for ($i=0;$i<numberOfElements($firmaorganisationseinheit);$i++)
 	{
 		$firmaorganisationseinheit_obj->result[$i] = new firma();
 		if($firmaorganisationseinheit_obj->result[$i]->load_firmaorganisationseinheit($firmaorganisationseinheit[$i]))
@@ -633,11 +633,11 @@ function zusammenlegen($firmendaten)
 	}
 	
 	$standort_check=array();
-	if (is_array($standort) && count($standort))
+	if (is_array($standort) && numberOfElements($standort))
 	{
 		// Array mit Standort als Key fuer Kontrolle der Adressen ob der Standort noch gueltig ist oder neu zugeordnet wird
 		$standort_check=array();
-		for ($i=0;$i<count($standort);$i++)
+		for ($i=0;$i<numberOfElements($standort);$i++)
 		{
 			$standort_check[$standort[$i]]=$standort[$i];
 			$standorte_vorhanden[$standort[$i]]='X';
@@ -676,7 +676,7 @@ function zusammenlegen($firmendaten)
 	// Pruefen ob Kontakte noch einen alten Standort zugewiessen ist	
 	$kontakt_check=array();
 	$kontakt_ok=array();
-	if (is_array($kontakt) && count($kontakt))
+	if (is_array($kontakt) && numberOfElements($kontakt))
 	{
 		foreach ($kontakt as $key => $val)
 		{
@@ -687,7 +687,7 @@ function zusammenlegen($firmendaten)
 			elseif (!isset($standort_check[$standort_id]))
 				continue;	
 				
-			for ($ii=0;$ii<count($val);$ii++)
+			for ($ii=0;$ii<numberOfElements($val);$ii++)
 			{
 				$kontakt_check[$val[$ii]]=$val[$ii];
 				$kontakt_ok[$standort_id][]=$val[$ii];	
@@ -718,7 +718,7 @@ function zusammenlegen($firmendaten)
 	// Pruefen ob personfunktionstandorte noch einen alten Standort zugewiessen ist	
 	$personfunktionstandort_check=array();
 	$personfunktionstandort_ok=array();
-	if (is_array($personfunktionstandort) && count($personfunktionstandort))
+	if (is_array($personfunktionstandort) && numberOfElements($personfunktionstandort))
 	{
 		foreach ($personfunktionstandort as $key => $val)
 		{
@@ -730,7 +730,7 @@ function zusammenlegen($firmendaten)
 				continue;	
 			
 			
-			for ($ii=0;$ii<count($val);$ii++)
+			for ($ii=0;$ii<numberOfElements($val);$ii++)
 			{
 				$personfunktionstandort_check[$val[$ii]]=$val[$ii];
 				$personfunktionstandort_ok[$standort_id][]=$val[$ii];	
@@ -760,7 +760,7 @@ function zusammenlegen($firmendaten)
 	}
 	
 	// Welche Kontakte werden entfernt
-	if (is_array($standorte_vorhanden) && count($standorte_vorhanden))
+	if (is_array($standorte_vorhanden) && numberOfElements($standorte_vorhanden))
 	{
 		reset($standorte_vorhanden);
 		// Array mit Standort als Key fuer Kontrolle der Adressen ob der Standort noch gueltig ist oder neu zugeordnet wird
@@ -825,7 +825,7 @@ function zusammenlegen($firmendaten)
 		return false;
 	}	
 	
-	if (isset($firmaorganisationseinheit) && is_array($firmaorganisationseinheit) && count($firmaorganisationseinheit) ) 
+	if (isset($firmaorganisationseinheit) && is_array($firmaorganisationseinheit) && numberOfElements($firmaorganisationseinheit) ) 
 	{
 		$i=0;
 		foreach ($firmaorganisationseinheit as $key => $firma_organisationseinheit_id)
@@ -1005,7 +1005,7 @@ function getFirmaUndStandorte($firma_id_geloescht,$firma_id_bleibt)
 	if ($standort_obj->result)
 	{
 		$geloescht->standorte=$standort_obj->result;
-		for ($i=0;$i<count($geloescht->standorte);$i++)
+		for ($i=0;$i<numberOfElements($geloescht->standorte);$i++)
 		{
 			// Adresse zum Standort
 			$adresse_obj = new adresse();
@@ -1053,7 +1053,7 @@ function getFirmaUndStandorte($firma_id_geloescht,$firma_id_bleibt)
 	if ($standort_obj->result)
 	{
 		$bleibt->standorte=$standort_obj->result;
-		for ($i=0;$i<count($bleibt->standorte);$i++)
+		for ($i=0;$i<numberOfElements($bleibt->standorte);$i++)
 		{
 			// Adresse zum Standort
 			$adresse_obj = new adresse();

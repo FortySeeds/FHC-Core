@@ -80,7 +80,7 @@ if (isset($_REQUEST["xmlformat"]) && $_REQUEST["xmlformat"] == "xml")
 				$projekt_fortschritt += $phase->getFortschritt($phase->projektphase_id); 
 		}
 			
-		$anzahlPhasen = count($projektphasenStatusbericht->result);
+		$anzahlPhasen = numberOfElements($projektphasenStatusbericht->result);
 		$anzahlPhasen = ($anzahlPhasen == 0)? 1 : $anzahlPhasen;
 			
 		$projekt_fortschritt = $projekt_fortschritt /  $anzahlPhasen; 

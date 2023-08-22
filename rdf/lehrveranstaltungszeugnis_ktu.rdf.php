@@ -160,7 +160,7 @@ if (isset($_REQUEST["xmlformat"]) && $_REQUEST["xmlformat"] == "xml")
 	
 	$lehreinheit=new lehreinheit();
 	$lehreinheit->load_lehreinheiten($lehrveranstaltung_id, $studiensemester_kurzbz);
-	if(count($lehreinheit->lehreinheiten)>=1)
+	if(numberOfElements($lehreinheit->lehreinheiten)>=1)
 	{
 		$lehrfach_id=$lehreinheit->lehreinheiten[0]->lehrfach_id;
 	}
@@ -337,7 +337,7 @@ if (isset($_REQUEST["xmlformat"]) && $_REQUEST["xmlformat"] == "xml")
 
 		$xml .= "<studienverpflichtung>";
 		$lehrveranstaltung_id_kompatibel = "";
-		if(count($anrechnung->result) === 1)
+		if(numberOfElements($anrechnung->result) === 1)
 		{
 		    $lehrveranstaltung_id_kompatibel = $anrechnung->result[0]->lehrveranstaltung_id;
 		    $xml .= $anrechnung->result[0]->lehrveranstaltung_bez;

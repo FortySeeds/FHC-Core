@@ -80,7 +80,7 @@ if ($stsem != '')
 {
 	$stgs = $rechte->getStgKz();
 
-	if (count($stgs) == 0)
+	if (numberOfElements($stgs) == 0)
 		$stgwhere = '';
 	else
 	{

@@ -165,7 +165,7 @@ class UserCalendarsTest extends \PHPUnit_Framework_TestCase {
         $result = $this->usercalendars->createExtendedCollection('newcalendar', array('{DAV:}collection', '{urn:ietf:params:xml:ns:caldav}calendar'), array());
         $this->assertNull($result);
         $cals = $this->backend->getCalendarsForUser('principals/user1');
-        $this->assertEquals(3,count($cals));
+        $this->assertEquals(3,numberOfElements($cals));
 
     }
 

@@ -87,7 +87,7 @@ class File_Find
         }
 
         @closedir ($dh);
-        return count($matches) > 0 ? $matches : null;
+        return numberOfElements($matches) > 0 ? $matches : null;
     }
 
     /**
@@ -107,7 +107,7 @@ class File_Find
     {
         $this->_dirs = array($directory);
 
-        while (count($this->_dirs)) {
+        while (numberOfElements($this->_dirs)) {
             $dir = array_pop($this->_dirs);
             File_Find::_build($dir);
             array_push($this->directories, $dir);

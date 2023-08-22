@@ -77,11 +77,11 @@ if(isset($_POST['action']) && $_POST['action']=='start')
 	$coodle_termine = new coodle();
 	$coodle_termine->getTermine($coodle_id);
 	// Die Terminoption "keine Auswahl wird immer benötigt. Deshalb > 1
-	if(count($coodle_termine->result) > 1)
+	if(numberOfElements($coodle_termine->result) > 1)
 	{
 		$coodle_ressource = new coodle();
 		$coodle_ressource->getRessourcen($coodle_id);
-		if(count($coodle_ressource->result) > 0)
+		if(numberOfElements($coodle_ressource->result) > 0)
 		{
 			// Status aendern
 			$coodle->coodle_status_kurzbz='laufend';

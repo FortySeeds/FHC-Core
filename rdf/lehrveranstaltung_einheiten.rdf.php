@@ -215,7 +215,7 @@ else
 	}
 	$qry='';
 
-	if(count($stp_ids)>0)
+	if(numberOfElements($stp_ids)>0)
 	{
 		// Alle Lehrveranstaltungen die lt Studienplan zugeordnet sind
 		$qry.= "SELECT lehrveranstaltung_id, kurzbz as lv_kurzbz, tbl_lehrveranstaltung.bezeichnung as lv_bezeichnung, bezeichnung_english as lv_bezeichnung_english, studiengang_kz,
@@ -259,7 +259,7 @@ else
 		$qry.=" AND semester=".$db->db_add_param($sem);
 	if($orgform!='')
 		$qry.=" AND (orgform_kurzbz=".$db->db_add_param($orgform)." OR orgform_kurzbz is null)";
-	if(count($stp_ids)>0)
+	if(numberOfElements($stp_ids)>0)
 	{
 		// Ohne die vom Studienplan, da diese sonst doppelt sind
 		$qry.=" AND NOT EXISTS (SELECT 1 FROM lehre.tbl_studienplan_lehrveranstaltung where studienplan_id in (".$db->db_implode4SQL($stp_ids).")

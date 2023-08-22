@@ -198,7 +198,7 @@ class service extends basis_db
 		else
 			$zeit = "";
 
-		$qry = "	SELECT tbl_service.*, count(tbl_zeitaufzeichnung.service_id)
+		$qry = "	SELECT tbl_service.*, COUNT(tbl_zeitaufzeichnung.service_id)
 					FROM campus.tbl_zeitaufzeichnung
 					JOIN public.tbl_service USING (service_id)
 					WHERE tbl_zeitaufzeichnung.uid=".$this->db_add_param($user)."

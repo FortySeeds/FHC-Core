@@ -170,7 +170,7 @@ if(!$is_lector)
 			echo $stg_obj->errormsg;
 
 		// Sortieren nach Kuerzel	
-		if (!is_object($stg_obj->result) &&  count($stg_obj->result)>0)
+		if (!is_object($stg_obj->result) &&  numberOfElements($stg_obj->result)>0)
 		{
 			$tw_arr=array();
 			$nicht_tw_arr=array();	

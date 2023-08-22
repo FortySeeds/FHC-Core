@@ -217,7 +217,7 @@ class mantis extends basis_db
 			$this->issue_resolution->id = $result->resolution->id;
 			$this->issue_resolution->name = $result->resolution->name;
 			$this->issue_tags = new stdclass();
-			$anzTags = count($result->tags);
+			$anzTags = numberOfElements($result->tags);
 			$i = 1;
 			foreach($result->tags as $r)
 			{

@@ -649,7 +649,7 @@ if (!$ansicht && (!defined('CIS_PROFIL_BETRIEBSMITTEL_ANZEIGEN') || CIS_PROFIL_B
 
 	if ($oBetriebsmittelperson->getBetriebsmittelPerson($user->person_id))
 	{
-		if (is_array($oBetriebsmittelperson->result) && count($oBetriebsmittelperson->result) > 0)
+		if (is_array($oBetriebsmittelperson->result) && numberOfElements($oBetriebsmittelperson->result) > 0)
 		{
 			echo '<b>'.$p->t('profil/entlehnteBetriebsmittel').'</b>
 					<table class="tablesorter" id="t2">
@@ -661,7 +661,7 @@ if (!$ansicht && (!defined('CIS_PROFIL_BETRIEBSMITTEL_ANZEIGEN') || CIS_PROFIL_B
 						</tr>
 					</thead><tbody>';
 
-			for ($i = 0;$i < count($oBetriebsmittelperson->result);$i++)
+			for ($i = 0;$i < numberOfElements($oBetriebsmittelperson->result);$i++)
 			{
 				if (empty($oBetriebsmittelperson->result[$i]->retouram) )
 				{
@@ -691,7 +691,7 @@ if (!$ansicht && (!defined('CIS_PROFIL_BETRIEBSMITTEL_ANZEIGEN') || CIS_PROFIL_B
 	// Zutrittsgruppen
 	$gruppe = new gruppe();
 	$gruppe->loadZutrittsgruppen($uid);
-	if (count($gruppe->result) > 0)
+	if (numberOfElements($gruppe->result) > 0)
 	{
 		echo '<b>Zutrittsgruppen</b>
 		<table id="tableZutritt" class="tablesorter">
@@ -735,7 +735,7 @@ foreach($addon->aktive_addons as $ad)
 		$menu=array();
 		include(DOC_ROOT.'/addons/'.$ad.'/cis/profil_array.php');
 
-		if (count($menu) > 0)
+		if (numberOfElements($menu) > 0)
 		{
 			foreach($menu as $entry)
 			{

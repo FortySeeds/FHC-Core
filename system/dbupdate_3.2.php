@@ -577,7 +577,7 @@ function recursiveDrop($db, &$allviews, $lastcount)
 
 function drop_all_views_recursively($db, &$allviews)
 {
-	return recursiveDrop($db, $allviews, count($allviews));
+	return recursiveDrop($db, $allviews, numberOfElements($allviews));
 }
 
 
@@ -656,7 +656,7 @@ function recursiveCreate($db, &$allviews, $lastcount)
 
 function create_all_views_recursively($db, &$allviews)
 {
-	return recursiveCreate($db, $allviews, count($allviews));
+	return recursiveCreate($db, $allviews, numberOfElements($allviews));
 }
 
 

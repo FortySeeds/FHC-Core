@@ -110,7 +110,7 @@ $format_right->setAlign('right');
 $spalte=0;
 $zeile=0;
 
-if (is_null($resultBetriebsmittel) || !is_array($resultBetriebsmittel) || count($resultBetriebsmittel)<1)
+if (is_null($resultBetriebsmittel) || !is_array($resultBetriebsmittel) || numberOfElements($resultBetriebsmittel)<1)
 	return false;
 
 $worksheet->write($zeile,$spalte,'Inv.nr.',$format_bold);
@@ -142,7 +142,7 @@ $maxlength[$spalte]=16;
 $worksheet->write($zeile,++$spalte,'Person',$format_bold);
 $maxlength[$spalte]=20;
 
-for ($pos=0;$pos<count($resultBetriebsmittel);$pos++)
+for ($pos=0;$pos<numberOfElements($resultBetriebsmittel);$pos++)
 {
 	$zeile++;
 	$spalte=0;

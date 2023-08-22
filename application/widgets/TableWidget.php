@@ -148,7 +148,7 @@ class TableWidget extends Widget
 		// Parameter is used to add extra columns to the dataset
 		if (isset($args[TableWidgetLib::ADDITIONAL_COLUMNS])
 			&& is_array($args[TableWidgetLib::ADDITIONAL_COLUMNS])
-			&& count($args[TableWidgetLib::ADDITIONAL_COLUMNS]) > 0)
+			&& numberOfElements($args[TableWidgetLib::ADDITIONAL_COLUMNS]) > 0)
 		{
 			$this->_additionalColumns = $args[TableWidgetLib::ADDITIONAL_COLUMNS];
 		}
@@ -156,7 +156,7 @@ class TableWidget extends Widget
 		// Parameter is used to add use aliases for the columns fo the dataset
 		if (isset($args[TableWidgetLib::COLUMNS_ALIASES])
 			&& is_array($args[TableWidgetLib::COLUMNS_ALIASES])
-			&& count($args[TableWidgetLib::COLUMNS_ALIASES]) > 0)
+			&& numberOfElements($args[TableWidgetLib::COLUMNS_ALIASES]) > 0)
 		{
 			$this->_columnsAliases = $args[TableWidgetLib::COLUMNS_ALIASES];
 		}
@@ -214,7 +214,7 @@ class TableWidget extends Widget
 	private function _checkParameters($args)
 	{
 		// If no options are given to this widget...
-		if (!is_array($args) || (is_array($args) && count($args) == 0))
+		if (!is_array($args) || (is_array($args) && numberOfElements($args) == 0))
 		{
 			show_error('Second parameter of the widget call must be a NOT empty associative array');
 		}
@@ -297,7 +297,7 @@ class TableWidget extends Widget
 
 					// Set the new dataset and its attributes in the session
 					$this->tablewidgetlib->setSessionElement(TableWidgetLib::SESSION_METADATA, $this->tablewidgetlib->getExecutedQueryMetaData());
-					$this->tablewidgetlib->setSessionElement(TableWidgetLib::SESSION_ROW_NUMBER, count($dataset->retval));
+					$this->tablewidgetlib->setSessionElement(TableWidgetLib::SESSION_ROW_NUMBER, numberOfElements($dataset->retval));
 					$this->tablewidgetlib->setSessionElement(TableWidgetLib::SESSION_DATASET, $dataset->retval);
 				}
 			}
@@ -326,7 +326,7 @@ class TableWidget extends Widget
 						TableWidgetLib::SESSION_ADDITIONAL_COLUMNS => $this->_additionalColumns, // additional columns
 						TableWidgetLib::SESSION_CHECKBOXES => $this->_checkboxes, // the name of the field used to build the checkboxes column
 						TableWidgetLib::SESSION_METADATA => $this->tablewidgetlib->getExecutedQueryMetaData(), // the metadata of the dataset
-						TableWidgetLib::SESSION_ROW_NUMBER => count($dataset->retval), // the number of loaded rows by this table
+						TableWidgetLib::SESSION_ROW_NUMBER => numberOfElements($dataset->retval), // the number of loaded rows by this table
 						TableWidgetLib::SESSION_DATASET => $dataset->retval, // the entire dataset
 						TableWidgetLib::SESSION_DATASET_RELOAD => false, // if the dataset must be reloaded, not needed the first time
 						TableWidgetLib::SESSION_DATASET_REPRESENTATION => $this->_datasetRepresentation, // the choosen dataset representation
@@ -353,7 +353,7 @@ class TableWidget extends Widget
 		if (hasData($rawDataset) && is_array($rawDataset->retval))
 		{
 			// For each row of the data set
-			for ($rowCounter = 0; $rowCounter < count($rawDataset->retval); $rowCounter++)
+			for ($rowCounter = 0; $rowCounter < numberOfElements($rawDataset->retval); $rowCounter++)
 			{
 				// Calls the methods to mark and to format a row
 				// NOTE: keep this order! the markRow function given as parameter is supposing to work

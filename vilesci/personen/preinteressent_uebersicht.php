@@ -364,7 +364,7 @@ if(!empty ($_GET))
 $stg_obj = new studiengang();
 $stg_obj->getAll('typ, kurzbz', false);
 
-echo 'Anzahl: '.(!empty($_GET)?count($preinteressent->result):'0');
+echo 'Anzahl: '.(!empty($_GET)?numberOfElements($preinteressent->result):'0');
 echo '</div>'; // Fixiertes Div mit den Filtern
 echo '<br><br><br><br><br><br><br>';
 

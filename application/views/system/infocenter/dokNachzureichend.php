@@ -1,4 +1,4 @@
-<?php if (count($dokumente_nachgereicht) > 0): ?>
+<?php if (numberOfElements($dokumente_nachgereicht) > 0): ?>
 	<br/>
 	<p><?php echo  ucfirst($this->p->t('infocenter','nachzureichendeDokumente')) ?></p>
 	<table id="nachgdoctable" class="table table-bordered">

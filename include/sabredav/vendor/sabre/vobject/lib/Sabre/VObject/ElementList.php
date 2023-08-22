@@ -105,9 +105,9 @@ class ElementList implements \Iterator, \Countable, \ArrayAccess {
      *
      * @return int
      */
-    public function count() {
+    public function numberOfElements() {
 
-        return count($this->elements);
+        return numberOfElements($this->elements);
 
     }
 

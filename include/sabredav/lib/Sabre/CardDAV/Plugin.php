@@ -414,7 +414,7 @@ class Plugin extends DAV\ServerPlugin {
 
             $validNodes[] = $node;
 
-            if ($query->limit && $query->limit <= count($validNodes)) {
+            if ($query->limit && $query->limit <= numberOfElements($validNodes)) {
                 // We hit the maximum number of items, we can stop now.
                 break;
             }
@@ -487,7 +487,7 @@ class Plugin extends DAV\ServerPlugin {
                     $results[] = $this->validateTextMatches($texts, $filter['text-matches'], $filter['test']);
                 }
 
-                if (count($results)===1) {
+                if (numberOfElements($results)===1) {
                     $success = $results[0];
                 } else {
                     if ($filter['test'] === 'anyof') {

@@ -189,7 +189,7 @@ function getStgContent($studiengang_kz, $semester, $sprache)
 	$stgl = $stg_oe_obj->getLeitung($studiengang_kz);
     //$xml.='<stg_header><![CDATA['.$p->t('global/studiengangsmanagement').']]></stg_header>';
 	$xml.='<stg_ltg_name><![CDATA['.$p->t('global/studiengangsleitung').']]></stg_ltg_name>';
-	if(count($stgl)>0)
+	if(numberOfElements($stgl)>0)
     {
 		foreach ($stgl as $uid) 
 	    {

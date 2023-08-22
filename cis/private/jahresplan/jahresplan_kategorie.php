@@ -208,7 +208,7 @@
 			
 		<?php 
 			 // Zaehler = -1 fuer die Neuanlage  	
-			 for ($iTmpZehler=-1;$iTmpZehler<count($veranstaltungskategorie);$iTmpZehler++) { 
+			 for ($iTmpZehler=-1;$iTmpZehler<numberOfElements($veranstaltungskategorie);$iTmpZehler++) { 
 				// Create IMG  
 				if (isset($veranstaltungskategorie[$iTmpZehler]) && $veranstaltungskategorie[$iTmpZehler]->bild)
 				{

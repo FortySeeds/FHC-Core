@@ -734,7 +734,7 @@ if ($testende)
 				$empfaenger = 'info.bif@technikum-wien.at';
 			}
 			$empfaengerArray[] = $empfaenger;
-			$anzahl = count($OrgFormPrestudent[$orgForm]);
+			$anzahl = numberOfElements($OrgFormPrestudent[$orgForm]);
 			$stg = new studiengang($studiengang_kz);
 			$mailtext = '<html>
 							<head>	
@@ -1143,7 +1143,7 @@ function sortByField($multArray, $sortField, $desc = true)
 	}
 
 	$maIndex = array_keys($multArray);
-	$maSize = count($multArray) - 1;
+	$maSize = numberOfElements($multArray) - 1;
 
 	for ($i = 0; $i < $maSize; $i++)
 	{
@@ -2058,7 +2058,7 @@ if (isset($_REQUEST['format']) && $_REQUEST['format'] == 'xls')
 		$worksheet->setColumn($i, $i, $breite);
 	}
 
-	if (isset($erg_kat) && count($erg_kat) > 0)
+	if (isset($erg_kat) && numberOfElements($erg_kat) > 0)
 	{
 		// Creating second worksheet
 		$worksheet2 =& $workbook->addWorksheet("Persoenlichkeit");
@@ -3091,7 +3091,7 @@ else
 	if ($reihungstest != '')
 	{
 		$disabledTestende = false;
-		if (count($reihungstest) == 1)
+		if (numberOfElements($reihungstest) == 1)
 		{
 			$rt_id_val = $reihungstest[0];
 			$disabledZuteilen = false;
@@ -3130,7 +3130,7 @@ else
 	echo '<button type="button" class="btn btn-primary btn-xs" onclick="sendMail()" id="mailSendButton">Mail an alle senden</button>';
 	echo '<button type="button" class="btn btn-primary btn-xs" onclick="checkAllWithResult()" id="checkAllResButton">Alle mit Ergebnis markieren</button>';
 	echo '<button type="button" class="btn btn-primary btn-xs" id="showUebertragenOptionsButton">Punkte ins FAS übertragen...</button>';
-	if ((isset($_POST['reihungstest']) && count($_POST['reihungstest']) == 1) || (isset($_GET['reihungstest']) && $_GET['reihungstest'] != ''))
+	if ((isset($_POST['reihungstest']) && numberOfElements($_POST['reihungstest']) == 1) || (isset($_GET['reihungstest']) && $_GET['reihungstest'] != ''))
 	{
 		if (isset($_POST['reihungstest']))
 		{
@@ -3170,7 +3170,7 @@ else
 	$displayWarning = false;
 	$displayInfo = false;
 	$frsch_rt_id = '';
-	if (isset($reihungstest) && is_array($reihungstest) && count($reihungstest) == 1)
+	if (isset($reihungstest) && is_array($reihungstest) && numberOfElements($reihungstest) == 1)
 	{
 		$frsch_rt_id = $reihungstest[0];
 		if (isset($rtest[$frsch_rt_id]))

@@ -278,7 +278,7 @@ class PDO extends AbstractBackend {
 
             // Removing unused statuscodes for cleanliness
             foreach($result as $status=>$properties) {
-                if (is_array($properties) && count($properties)===0) unset($result[$status]);
+                if (is_array($properties) && numberOfElements($properties)===0) unset($result[$status]);
             }
 
             return $result;
@@ -627,7 +627,7 @@ class PDO extends AbstractBackend {
         }
 
         // Figuring out if there's a component filter
-        if (count($filters['comp-filters']) > 0 && !$filters['comp-filters'][0]['is-not-defined']) {
+        if (numberOfElements($filters['comp-filters']) > 0 && !$filters['comp-filters'][0]['is-not-defined']) {
             $componentType = $filters['comp-filters'][0]['name'];
 
             // Checking if we need post-filters

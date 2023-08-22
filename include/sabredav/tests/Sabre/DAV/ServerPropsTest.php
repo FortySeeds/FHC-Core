@@ -85,7 +85,7 @@ class ServerPropsTest extends AbstractServer {
         $this->assertEquals('/',(string)$data,'href element should have been /');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:resourcetype');
-        $this->assertEquals(1,count($data));
+        $this->assertEquals(1,numberOfElements($data));
 
     }
 
@@ -105,22 +105,22 @@ class ServerPropsTest extends AbstractServer {
         $xml->registerXPathNamespace('d','urn:DAV');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supportedlock/d:lockentry');
-        $this->assertEquals(2,count($data),'We expected two \'d:lockentry\' tags');
+        $this->assertEquals(2,numberOfElements($data),'We expected two \'d:lockentry\' tags');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supportedlock/d:lockentry/d:lockscope');
-        $this->assertEquals(2,count($data),'We expected two \'d:lockscope\' tags');
+        $this->assertEquals(2,numberOfElements($data),'We expected two \'d:lockscope\' tags');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supportedlock/d:lockentry/d:locktype');
-        $this->assertEquals(2,count($data),'We expected two \'d:locktype\' tags');
+        $this->assertEquals(2,numberOfElements($data),'We expected two \'d:locktype\' tags');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supportedlock/d:lockentry/d:lockscope/d:shared');
-        $this->assertEquals(1,count($data),'We expected a \'d:shared\' tag');
+        $this->assertEquals(1,numberOfElements($data),'We expected a \'d:shared\' tag');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supportedlock/d:lockentry/d:lockscope/d:exclusive');
-        $this->assertEquals(1,count($data),'We expected a \'d:exclusive\' tag');
+        $this->assertEquals(1,numberOfElements($data),'We expected a \'d:exclusive\' tag');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:supportedlock/d:lockentry/d:locktype/d:write');
-        $this->assertEquals(2,count($data),'We expected two \'d:write\' tags');
+        $this->assertEquals(2,numberOfElements($data),'We expected two \'d:write\' tags');
     }
 
     function testLockDiscovery() {
@@ -139,7 +139,7 @@ class ServerPropsTest extends AbstractServer {
         $xml->registerXPathNamespace('d','urn:DAV');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop/d:lockdiscovery');
-        $this->assertEquals(1,count($data),'We expected a \'d:lockdiscovery\' tag');
+        $this->assertEquals(1,numberOfElements($data),'We expected a \'d:lockdiscovery\' tag');
 
     }
 
@@ -165,11 +165,11 @@ class ServerPropsTest extends AbstractServer {
             '/d:multistatus/d:response/d:propstat/d:prop/d:macaroni',
         );
         foreach($pathTests as $test) {
-            $this->assertTrue(count($xml->xpath($test))==true,'We expected the ' . $test . ' element to appear in the response, we got: ' . $body);
+            $this->assertTrue(numberOfElements($xml->xpath($test))==true,'We expected the ' . $test . ' element to appear in the response, we got: ' . $body);
         }
 
         $val = $xml->xpath('/d:multistatus/d:response/d:propstat/d:status');
-        $this->assertEquals(1,count($val),$body);
+        $this->assertEquals(1,numberOfElements($val),$body);
         $this->assertEquals('HTTP/1.1 404 Not Found',(string)$val[0]);
 
     }
@@ -338,13 +338,13 @@ class ServerPropsTest extends AbstractServer {
         $xml->registerXPathNamespace('bla','http://www.rooftopsolutions.nl/testnamespace');
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:prop');
-        $this->assertEquals(1,count($data),'We expected one \'d:prop\' element. Response body: ' . $body);
+        $this->assertEquals(1,numberOfElements($data),'We expected one \'d:prop\' element. Response body: ' . $body);
 
         $data = $xml->xpath('//bla:someprop');
-        $this->assertEquals(1,count($data),'We expected one \'s:someprop\' element. Response body: ' . $body);
+        $this->assertEquals(1,numberOfElements($data),'We expected one \'s:someprop\' element. Response body: ' . $body);
 
         $data = $xml->xpath('/d:multistatus/d:response/d:propstat/d:status');
-        $this->assertEquals(1,count($data),'We expected one \'s:status\' element. Response body: ' . $body);
+        $this->assertEquals(1,numberOfElements($data),'We expected one \'s:status\' element. Response body: ' . $body);
 
         $this->assertEquals('HTTP/1.1 200 OK',(string)$data[0]);
 
@@ -372,7 +372,7 @@ class ServerPropsTest extends AbstractServer {
 
         $xpath='//bla:someprop';
         $result = $xml->xpath($xpath);
-        $this->assertEquals(1,count($result),'We couldn\'t find our new property in the response. Full response body:' . "\n" . $body);
+        $this->assertEquals(1,numberOfElements($result),'We couldn\'t find our new property in the response. Full response body:' . "\n" . $body);
         $this->assertEquals('somevalue',(string)$result[0],'We couldn\'t find our new property in the response. Full response body:' . "\n" . $body);
 
     }

@@ -741,7 +741,7 @@ class dokument extends basis_db
 	 */
 	public function getBeschreibungenDokumente($studiengangs_kz, $dokument_kurzbz)
 	{
-		if(count($studiengangs_kz)==0)
+		if(numberOfElements($studiengangs_kz)==0)
 			return true;
 		$sprache = new sprache();
 		$dokumentbeschreibung_mehrsprachig = $sprache->getSprachQuery('dokumentbeschreibung_mehrsprachig');

@@ -973,8 +973,8 @@ class ArrayDiffFormatter extends DiffFormatter {
 				}
 				break;
 			case 'copy':
-				$oldline += count($edit->orig);
-				$newline += count($edit->orig);
+				$oldline += numberOfElements($edit->orig);
+				$newline += numberOfElements($edit->orig);
 		}
 		return $retval;
 	}

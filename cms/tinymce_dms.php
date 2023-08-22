@@ -625,7 +625,7 @@ else
 	{
 		$count = new dms();
 		$count->search($searchstring);
-		$anzahl = count($count->result); // Falsches Ergebnis falls keine Berechtigung für eine Kategorie besteht
+		$anzahl = numberOfElements($count->result); // Falsches Ergebnis falls keine Berechtigung für eine Kategorie besteht
 		$dms->search($searchstring, $dpp, $page);
 		$suche = true;
 
@@ -1048,7 +1048,7 @@ else
 				</form>
 				<br>';
 		$files = scandir(IMPORT_PATH);
-		$files_count = count($files) - 2; // Minus zwei wegen "." und ".."
+		$files_count = numberOfElements($files) - 2; // Minus zwei wegen "." und ".."
 		if ($files_count > 0 && $rechte->isberechtigt('basis/dms', $kategorie->kategorie_oe_kurzbz, 'sui'))
 			drawFilesFromImport();
 		echo '</div>';
@@ -1236,14 +1236,14 @@ function drawKategorieMenue($rows)
 			// Suchen, ob eine Sperre fuer diese Kategorie vorhanden ist
 			$groups = $dms->getLockGroups($row->kategorie_kurzbz);
 			$locked = '';
-			if (count($groups) > 0)
+			if (numberOfElements($groups) > 0)
 			{
 				$locked = '<img src="../skin/images/login.gif" height="12px" title="Zugriff nur für Mitglieder folgender Gruppen:';
 				foreach ($groups as $group)
 					$locked .= " $group ";
 				$locked .= '"/>';
 			}
-			if (count($dms->result) > 0)
+			if (numberOfElements($dms->result) > 0)
 			{
 				echo '
 				<li>
@@ -1262,7 +1262,7 @@ function drawKategorieMenue($rows)
 		}
 		else
 		{
-			if (count($dms->result) > 0)
+			if (numberOfElements($dms->result) > 0)
 				drawKategorieMenue($dms->result);
 		}
 	}
@@ -1279,7 +1279,7 @@ function drawFilesList($rows)
 	global $mimetypes, $suche, $rechte;
 	$dms = new dms();
 
-	if (count($rows) > 0)
+	if (numberOfElements($rows) > 0)
 	{
 		echo '
 		<script>

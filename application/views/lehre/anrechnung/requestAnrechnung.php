@@ -144,7 +144,7 @@ $this->load->view(
 											<tr>
 												<th><?php echo ucfirst($this->p->t('lehre', 'lektorInnen')); ?></th>
 												<td>
-													<?php $len = count($antragData->lektoren) - 1 ?>
+													<?php $len = numberOfElements($antragData->lektoren) - 1 ?>
 													<?php foreach ($antragData->lektoren as $key => $lektor): ?>
 														<?php echo $lektor->vorname . ' ' . $lektor->nachname;
 														echo $key === $len ? '' : ', ' ?>

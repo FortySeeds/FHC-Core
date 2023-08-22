@@ -71,7 +71,7 @@ function generateCSSsInclude($CSSs)
 	{
 		$tmpCSSs = is_array($CSSs) ? $CSSs : array($CSSs);
 
-		for ($tmpCSSsCounter = 0; $tmpCSSsCounter < count($tmpCSSs); $tmpCSSsCounter++)
+		for ($tmpCSSsCounter = 0; $tmpCSSsCounter < numberOfElements($tmpCSSs); $tmpCSSsCounter++)
 		{
 			$toPrint = sprintf($cssLink, base_url($tmpCSSs[$tmpCSSsCounter]).$cachetoken).PHP_EOL;
 
@@ -138,7 +138,7 @@ function generateJSsInclude($JSs)
 	{
 		$tmpJSs = is_array($JSs) ? $JSs : array($JSs);
 
-		for ($tmpJSsCounter = 0; $tmpJSsCounter < count($tmpJSs); $tmpJSsCounter++)
+		for ($tmpJSsCounter = 0; $tmpJSsCounter < numberOfElements($tmpJSs); $tmpJSsCounter++)
 		{
 			$toPrint = sprintf($jsInclude, base_url($tmpJSs[$tmpJSsCounter].$cachetoken)).PHP_EOL;
 
@@ -163,7 +163,7 @@ function generateJSModulesInclude($JSModules)
 	{
 		$tmpJSs = is_array($JSModules) ? $JSModules : array($JSModules);
 
-		for ($tmpJSsCounter = 0; $tmpJSsCounter < count($tmpJSs); $tmpJSsCounter++)
+		for ($tmpJSsCounter = 0; $tmpJSsCounter < numberOfElements($tmpJSs); $tmpJSsCounter++)
 		{
 			$toPrint = sprintf($jsInclude, base_url($tmpJSs[$tmpJSsCounter].$cachetoken)).PHP_EOL;
 

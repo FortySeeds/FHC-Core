@@ -980,9 +980,9 @@ $projekt = new projekt();
 
 if ($projekt->getProjekteMitarbeiter($user, true))
 {
-	//if(count($projekt->result)>0)
+	//if(numberOfElements($projekt->result)>0)
 	//{
-		$anzprojekte = count($projekt->result);
+		$anzprojekte = numberOfElements($projekt->result);
 		echo "<table width='100%'>
 				<tr>
 					<td>
@@ -1224,7 +1224,7 @@ if ($projekt->getProjekteMitarbeiter($user, true))
 		echo '</SELECT><!--<input type="button" value="'.$p->t("zeitaufzeichnung/uebersicht").'" onclick="loaduebersicht();">-->';
 
 		//Projektphase
-		$showprojphases = isset($projektphasen) && is_array($projektphasen) && count($projektphasen) > 0 && $projektfound;
+		$showprojphases = isset($projektphasen) && is_array($projektphasen) && numberOfElements($projektphasen) > 0 && $projektfound;
 		$hiddentext = $showprojphases ? "" : " style='display:none'";
 
 		echo
@@ -1485,7 +1485,7 @@ if ($projekt->getProjekteMitarbeiter($user, true))
 		$dr->getDienstreisenUser($user, 180);
 		$dr_arr = $dr->result;
 
-		if(count($za->result)>0)
+		if(numberOfElements($za->result)>0)
 		{
 			//Uebersichtstabelle
 			$woche=date('W');

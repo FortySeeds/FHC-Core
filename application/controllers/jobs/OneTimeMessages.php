@@ -114,7 +114,7 @@ class OneTimeMessages extends JOB_Controller
 				);
 			}
 
-			$this->logInfo('Total amount of prestudents: '.count($prestudentIdsArray));
+			$this->logInfo('Total amount of prestudents: '.numberOfElements($prestudentIdsArray));
 		}
 
 		$this->logInfo('Send message to applicants still waiting end');

@@ -49,7 +49,7 @@ class Dokumentprestudent_model extends DB_Model
 	{
 		$result = null;
 
-		if (is_numeric($prestudent_id) && is_array($dokument_kurzbz) && count($dokument_kurzbz) > 0)
+		if (is_numeric($prestudent_id) && is_array($dokument_kurzbz) && numberOfElements($dokument_kurzbz) > 0)
 		{
 			$query = 'INSERT INTO public.tbl_dokumentprestudent (dokument_kurzbz, prestudent_id, insertamum) (
 						SELECT d.dokument_kurzbz,

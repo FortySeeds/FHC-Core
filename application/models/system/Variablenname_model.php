@@ -67,7 +67,7 @@ class Variablenname_model extends DB_Model
 						{
 							$dyndefault = getData($dyndefault);
 
-							if (count($dyndefault) === 1)
+							if (numberOfElements($dyndefault) === 1)
 							{
 								foreach ($dyndefault[0] as $value)
 								{

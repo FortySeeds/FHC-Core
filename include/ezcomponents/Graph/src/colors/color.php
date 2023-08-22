@@ -108,7 +108,7 @@ class ezcGraphColor extends ezcBaseOptions
         }
         
         // Set missing values to zero
-        for ( ++$nr; $nr < count( $keys ); ++$nr )
+        for ( ++$nr; $nr < numberOfElements( $keys ); ++$nr )
         {
             $key = $keys[$nr];
             $color->$key = 0;
@@ -139,7 +139,7 @@ class ezcGraphColor extends ezcBaseOptions
         }
         
         // Set missing values to zero
-        for ( $nr; $nr < count( $keys ); ++$nr )
+        for ( $nr; $nr < numberOfElements( $keys ); ++$nr )
         {
             $key = $keys[$nr];
             $color->$key = 0;
@@ -170,7 +170,7 @@ class ezcGraphColor extends ezcBaseOptions
         }
         
         // Set missing values to zero
-        for ( $nr; $nr < count( $keys ); ++$nr )
+        for ( $nr; $nr < numberOfElements( $keys ); ++$nr )
         {
             $key = $keys[$nr];
             $color->$key = 0;

@@ -1366,7 +1366,7 @@ class dms extends basis_db
 		$this->result = array();
 		$groups = $this->getLockGroups($kategorie_kurzbz);
 
-		if(count($groups)>0)
+		if(numberOfElements($groups)>0)
 		{
 			$qry = "SELECT 1 FROM public.tbl_benutzergruppe
 					WHERE tbl_benutzergruppe.uid=".$this->db_add_param($user).

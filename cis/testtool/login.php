@@ -579,7 +579,7 @@ elseif (isset($prestudent_id))
 		$ps_arr = new Prestudent();
 		$ps_arr->getActualInteressenten($prestudent_id, false, 'b');
 
-		if (count($ps_arr->result) > 0)
+		if (numberOfElements($ps_arr->result) > 0)
 		{
 			// Jeweils letzten Status ermitteln (ob Interessent oder Abgewiesener)
 			foreach ($ps_arr->result as $ps_obj)

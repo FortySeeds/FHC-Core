@@ -262,7 +262,7 @@ if(isset($_GET['speichern']) && isset($_GET['wtag']))
 		$wtag=$_GET['wtag'];
 		$akette[0]=$wtag[0];
 		$ekette[0]=$wtag[0];
-		for($i=1, $j=0; $i<count($wtag); $i++)
+		for($i=1, $j=0; $i<numberOfElements($wtag); $i++)
 		{
 			//ketten bilden
 			if($wtag[$i]==date("Y-m-d", strtotime("+1 Day", strtotime($wtag[$i-1]))))
@@ -279,7 +279,7 @@ if(isset($_GET['speichern']) && isset($_GET['wtag']))
 
 		//Prüfen, ob eine Zeitaufzeichnung vorhanden ist und ggf Abbrechen
 		$error = false;
-		for ($i = 0; $i < count($akette); $i++)
+		for ($i = 0; $i < numberOfElements($akette); $i++)
 		{
 			$za = new zeitaufzeichnung();
 			$vonDatum = new DateTime($akette[$i]);
@@ -296,7 +296,7 @@ if(isset($_GET['speichern']) && isset($_GET['wtag']))
 
 		//Prüfen ob eine ganztägige Zeitsperre eingetragen ist und ggf abbrechen
 		$daysToCheck = array();
-		for ($i = 0; $i < count($akette); $i++)
+		for ($i = 0; $i < numberOfElements($akette); $i++)
 		{
 			$zeitsperre = new zeitsperre();
 			$vonDatum = new DateTime($akette[$i]);
@@ -334,7 +334,7 @@ if(isset($_GET['speichern']) && isset($_GET['wtag']))
 
 	if(!$error)
 	{
-		for($i=0; $i<count($akette); $i++)
+		for($i=0; $i<numberOfElements($akette); $i++)
 		{
 			$zeitsperre = new zeitsperre();
 
@@ -396,7 +396,7 @@ if(isset($_GET['speichern']) && isset($_GET['wtag']))
 				// $message = $p->t('urlaubstool/diesIstEineAutomatischeMail')."\n".
 				// 		   $p->t('urlaubstool/xHatNeuenUrlaubEingetragen',array($benutzer->nachname,$benutzer->vorname)).":\n";
 
-				for($i=0; $i<count($akette); $i++)
+				for($i=0; $i<numberOfElements($akette); $i++)
 				{
 					$von = date("d.m.Y", strtotime($akette[$i]));
 					$bis = date("d.m.Y", strtotime($ekette[$i]));

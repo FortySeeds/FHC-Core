@@ -88,7 +88,7 @@ else
 //var_dump($berechtigung);
 array_unique($berechtigt_studiengang);
 $stg_kz_query='';
-if (count($berechtigt_studiengang)>0)
+if (numberOfElements($berechtigt_studiengang)>0)
 {
 	if ($berechtigt_studiengang[0]!='')
 	{

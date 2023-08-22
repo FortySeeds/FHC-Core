@@ -366,12 +366,12 @@ class UDF extends basis_db
 		$titles = array();
 		$in = '';
 
-		for($i = 0; $i < count($udfDefinitions); $i++)
+		for($i = 0; $i < numberOfElements($udfDefinitions); $i++)
 		{
 			$udfDefinition = $udfDefinitions[$i];
 			$in .= '\''.$udfDefinition['title'].'\'';
 
-			if ($i < count($udfDefinitions) - 1) $in .= ', ';
+			if ($i < numberOfElements($udfDefinitions) - 1) $in .= ', ';
 		}
 
 		if ($in != '')
@@ -389,7 +389,7 @@ class UDF extends basis_db
 			{
 				while ($row = $this->db_fetch_assoc())
 				{
-					for($i = 0; $i < count($udfDefinitions); $i++)
+					for($i = 0; $i < numberOfElements($udfDefinitions); $i++)
 					{
 						$udfDefinition = $udfDefinitions[$i];
 						if ($udfDefinition['title'] == $row['phrase'])

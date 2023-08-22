@@ -238,7 +238,7 @@ class dokument_export
 			exec("zip $tempname_zip styles.xml");
 
 		// bilder hinzufuegen
-		if(count($this->images)>0)
+		if(numberOfElements($this->images)>0)
 		{
 			// Unterordner fuer die Bilder erstellen
 			mkdir('Pictures');
@@ -409,7 +409,7 @@ class dokument_export
 		if(file_exists("out.zip"))
 			unlink('out.zip');
 
-		if(count($this->images)>0)
+		if(numberOfElements($this->images)>0)
 		{
 			unlink('META-INF/manifest.xml');
 

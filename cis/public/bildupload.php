@@ -53,7 +53,7 @@ if(!isset($_SESSION['prestudent/user']) && !isset($_SESSION['incoming/user']))
 function resize($filename, $width, $height)
 {
 	$ext = explode('.',$_FILES['bild']['name']);
-	$ext = strtolower($ext[count($ext)-1]);
+	$ext = strtolower($ext[numberOfElements($ext)-1]);
 
 	// Hoehe und Breite neu berechnen
 	list($width_orig, $height_orig) = getimagesize($filename);
@@ -101,7 +101,7 @@ if(isset($_POST['submitbild']))
 	{
 		//Extension herausfiltern
     	$ext = explode('.',$_FILES['bild']['name']);
-        $ext = mb_strtolower($ext[count($ext)-1]);
+        $ext = mb_strtolower($ext[numberOfElements($ext)-1]);
 
         $width=101;
 		$height=130;
@@ -123,7 +123,7 @@ if(isset($_POST['submitbild']))
 			
 			if($akte->getAkten($_GET['person_id'], 'Lichtbil'))
 			{
-				if(count($akte->result)>0)
+				if(numberOfElements($akte->result)>0)
 				{
 					$akte = $akte->result[0];
 					$akte->new = false;

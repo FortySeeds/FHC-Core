@@ -371,19 +371,19 @@ class ezcGraphRenderer2d
         );
 
         $pieChartHeight = min(
-            $radius * 2 + $radius / max( 1, count ( $this->pieSegmentLabels[0] ), count( $this->pieSegmentLabels[1] ) ) * 4,
+            $radius * 2 + $radius / max( 1, count ( $this->pieSegmentLabels[0] ), numberOfElements( $this->pieSegmentLabels[1] ) ) * 4,
             $boundings->height
         );
         $pieChartYPosition = $boundings->y0 + ( ( $boundings->height ) - $pieChartHeight ) / 2;
 
         // Calculate maximum height of labels
         $labelHeight = min(
-            ( count( $this->pieSegmentLabels[0] )
-                ? $pieChartHeight / count( $this->pieSegmentLabels[0] )
+            ( numberOfElements( $this->pieSegmentLabels[0] )
+                ? $pieChartHeight / numberOfElements( $this->pieSegmentLabels[0] )
                 : $pieChartHeight
             ),
-            ( count( $this->pieSegmentLabels[1] )
-                ? $pieChartHeight / count( $this->pieSegmentLabels[1] )
+            ( numberOfElements( $this->pieSegmentLabels[1] )
+                ? $pieChartHeight / numberOfElements( $this->pieSegmentLabels[1] )
                 : $pieChartHeight
             ),
             ( $pieChartHeight ) * $this->options->maxLabelHeight
@@ -394,7 +394,7 @@ class ezcGraphRenderer2d
         foreach ( $this->pieSegmentLabels as $side => $labelPart )
         {
             $minHeight = $pieChartYPosition;
-            $toShare = $pieChartHeight - count( $labelPart ) * $labelHeight;
+            $toShare = $pieChartHeight - numberOfElements( $labelPart ) * $labelHeight;
 
             // Sort to draw topmost label first
             ksort( $labelPart );
@@ -1018,13 +1018,13 @@ class ezcGraphRenderer2d
         {
             $labelWidth = $boundings->width;
             $labelHeight = min( 
-                ( $boundings->height ) / count( $labels ) - $legend->spacing, 
+                ( $boundings->height ) / numberOfElements( $labels ) - $legend->spacing, 
                 $legend->symbolSize + 2 * $legend->padding
             );
         }
         else
         {
-            $labelWidth = ( $boundings->width ) / count( $labels ) - $legend->spacing;
+            $labelWidth = ( $boundings->width ) / numberOfElements( $labels ) - $legend->spacing;
             $labelHeight = min(
                 $boundings->height,
                 $legend->symbolSize + 2 * $legend->padding

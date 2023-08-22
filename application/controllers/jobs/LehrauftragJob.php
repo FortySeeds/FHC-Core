@@ -353,7 +353,7 @@ class LehrauftragJob extends JOB_Controller
 		// Loop through 'container' of studiensemester
 		foreach ($data_arr as $data)
 		{
-			$data_len = count($data) - 1;
+			$data_len = numberOfElements($data) - 1;
 
 			// Loop through 'container' of organisational units
 			for ($i = 0; $i < $data_len; $i++)

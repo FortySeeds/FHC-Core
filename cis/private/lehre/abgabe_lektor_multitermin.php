@@ -112,7 +112,7 @@ if(isset($_POST["schick"]))
 {
 	$termine=explode(";",$irgendwas);
 	//var_dump($termine);
-	for($j=0;$j<count($termine)-1;$j++)
+	for($j=0;$j<numberOfElements($termine)-1;$j++)
 	{
 		$qrychk="SELECT * FROM campus.tbl_paabgabe
 			WHERE projektarbeit_id=".$db->db_add_param($termine[$j])."

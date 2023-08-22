@@ -238,7 +238,7 @@ require_once(dirname(__FILE__).'/../addon.class.php');
 $addon_obj = new addon();
 if($addon_obj->loadAddons())
 {
-	if(count($addon_obj->result)>0)
+	if(numberOfElements($addon_obj->result)>0)
 	{
 		$menu['Addons']=array
 		(

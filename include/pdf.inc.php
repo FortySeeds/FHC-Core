@@ -172,7 +172,7 @@ class PDF extends FPDF
 	        $this->SetLineWidth(1.5);
 	        $this->Line($l,$t,$l,$lh);
 	        $n=0;
-	        $maxcol=count($this->tablewidths)-1;
+	        $maxcol=numberOfElements($this->tablewidths)-1;
 	        foreach($this->tablewidths AS $width)
 	        {
 	            $l += $width;

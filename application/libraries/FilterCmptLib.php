@@ -209,7 +209,7 @@ class FilterCmptLib
 					{
 						// Set the new dataset and its attributes in the session
 						$this->_setSessionElement(FilterCmptLib::SESSION_METADATA, $this->_ci->FiltersModel->getExecutedQueryMetaData());
-						$this->_setSessionElement(FilterCmptLib::SESSION_ROW_NUMBER, count($dataset->retval));
+						$this->_setSessionElement(FilterCmptLib::SESSION_ROW_NUMBER, numberOfElements($dataset->retval));
 						$this->_setSessionElement(FilterCmptLib::SESSION_DATASET, $dataset->retval);
 					}
 				}
@@ -254,7 +254,7 @@ class FilterCmptLib
 							FilterCmptLib::SESSION_SELECTED_FIELDS => $this->_getColumnsNames($parsedFilterJson->columns), // all the selected fields
 							FilterCmptLib::SESSION_FILTERS => $parsedFilterJson->filters, // all the filters used to filter the dataset
 							FilterCmptLib::SESSION_METADATA => $this->_ci->FiltersModel->getExecutedQueryMetaData(), // the metadata of the dataset
-							FilterCmptLib::SESSION_ROW_NUMBER => count($dataset->retval), // the number of loaded rows by this filter
+							FilterCmptLib::SESSION_ROW_NUMBER => numberOfElements($dataset->retval), // the number of loaded rows by this filter
 							FilterCmptLib::SESSION_DATASET => $dataset->retval, // the entire dataset
 							FilterCmptLib::SESSION_DATASET_RELOAD => false, // if the dataset must be reloaded, not needed the first time
 							FilterCmptLib::SESSION_SIDE_MENU => $this->_generateFilterMenu($this->_app, $this->_datasetName)
@@ -457,7 +457,7 @@ class FilterCmptLib
 		// Generates the "column" property
 		$jsonDeifinition->columns = array();
 		$selectedFields = $this->_getSessionElement(self::SESSION_SELECTED_FIELDS); // retrieved the selected fields
-		for ($i = 0; $i < count($selectedFields); $i++)
+		for ($i = 0; $i < numberOfElements($selectedFields); $i++)
 		{
 			// Each element is an object with a property called "name"
 			$jsonDeifinition->columns[$i] = new stdClass();
@@ -661,7 +661,7 @@ class FilterCmptLib
 	private function _checkPHPParameters($filterCmptArray)
 	{
 		// If no options are given to this component...
-		if (!is_array($filterCmptArray) || (is_array($filterCmptArray) && count($filterCmptArray) == 0))
+		if (!is_array($filterCmptArray) || (is_array($filterCmptArray) && numberOfElements($filterCmptArray) == 0))
 		{
 			$this->_setSession(error('No parameters provided'));
 			return false;
@@ -869,7 +869,7 @@ class FilterCmptLib
 	{
 		$pos = false;
 
-		for($i = 0; $i < count($filters); $i++)
+		for($i = 0; $i < numberOfElements($filters); $i++)
 		{
 			if ($filters[$i]->name == $filterName)
 			{
@@ -1089,7 +1089,7 @@ class FilterCmptLib
 			$where = ''; // starts building the SQL where clause
 
 			// Loops through the given applied filters
-			for ($filtersCounter = 0; $filtersCounter < count($filters); $filtersCounter++)
+			for ($filtersCounter = 0; $filtersCounter < numberOfElements($filters); $filtersCounter++)
 			{
 				$filterDefinition = $filters[$filtersCounter]; // definition of one filter
 

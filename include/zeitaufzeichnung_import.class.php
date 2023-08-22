@@ -144,7 +144,7 @@ class zeitaufzeichnung_import {
 			throw new Exception($this->p->t("global/fehlerBeimSpeichernDerDaten") . ": Fehler beim Überprüfen der Zeitsperren");
 		}
 
-		if (count($zs->result) !== 0) {
+		if (numberOfElements($zs->result) !== 0) {
 			$zsdate = new DateTime($day);
 			$zsdate = $zsdate->format('d.m.Y');
 			throw new Exception($this->p->t("global/fehlerBeimSpeichernDerDaten") . ": " . $this->p->t("zeitaufzeichnung/zeitsperreVorhanden", [$zsdate, $zs->result[0]->zeitsperretyp_kurzbz]));

@@ -56,13 +56,13 @@ class ICSExportPluginTest extends \PHPUnit_Framework_TestCase {
 
         $obj = VObject\Reader::read($s->httpResponse->body);
 
-        $this->assertEquals(5,count($obj->children()));
-        $this->assertEquals(1,count($obj->VERSION));
-        $this->assertEquals(1,count($obj->CALSCALE));
-        $this->assertEquals(1,count($obj->PRODID));
+        $this->assertEquals(5,numberOfElements($obj->children()));
+        $this->assertEquals(1,numberOfElements($obj->VERSION));
+        $this->assertEquals(1,numberOfElements($obj->CALSCALE));
+        $this->assertEquals(1,numberOfElements($obj->PRODID));
         $this->assertTrue(strpos((string)$obj->PRODID, DAV\Version::VERSION)!==false);
-        $this->assertEquals(1,count($obj->VTIMEZONE));
-        $this->assertEquals(1,count($obj->VEVENT));
+        $this->assertEquals(1,numberOfElements($obj->VTIMEZONE));
+        $this->assertEquals(1,numberOfElements($obj->VEVENT));
 
     }
     function testBeforeMethodNoVersion() {
@@ -104,13 +104,13 @@ class ICSExportPluginTest extends \PHPUnit_Framework_TestCase {
 
         $obj = VObject\Reader::read($s->httpResponse->body);
 
-        $this->assertEquals(5,count($obj->children()));
-        $this->assertEquals(1,count($obj->VERSION));
-        $this->assertEquals(1,count($obj->CALSCALE));
-        $this->assertEquals(1,count($obj->PRODID));
+        $this->assertEquals(5,numberOfElements($obj->children()));
+        $this->assertEquals(1,numberOfElements($obj->VERSION));
+        $this->assertEquals(1,numberOfElements($obj->CALSCALE));
+        $this->assertEquals(1,numberOfElements($obj->PRODID));
         $this->assertFalse(strpos((string)$obj->PRODID, DAV\Version::VERSION)!==false);
-        $this->assertEquals(1,count($obj->VTIMEZONE));
-        $this->assertEquals(1,count($obj->VEVENT));
+        $this->assertEquals(1,numberOfElements($obj->VTIMEZONE));
+        $this->assertEquals(1,numberOfElements($obj->VEVENT));
 
     }
 
@@ -216,12 +216,12 @@ class ICSExportPluginTest extends \PHPUnit_Framework_TestCase {
 
         $obj = VObject\Reader::read($s->httpResponse->body);
 
-        $this->assertEquals(5,count($obj->children()));
-        $this->assertEquals(1,count($obj->VERSION));
-        $this->assertEquals(1,count($obj->CALSCALE));
-        $this->assertEquals(1,count($obj->PRODID));
-        $this->assertEquals(1,count($obj->VTIMEZONE));
-        $this->assertEquals(1,count($obj->VEVENT));
+        $this->assertEquals(5,numberOfElements($obj->children()));
+        $this->assertEquals(1,numberOfElements($obj->VERSION));
+        $this->assertEquals(1,numberOfElements($obj->CALSCALE));
+        $this->assertEquals(1,numberOfElements($obj->PRODID));
+        $this->assertEquals(1,numberOfElements($obj->VTIMEZONE));
+        $this->assertEquals(1,numberOfElements($obj->VEVENT));
 
     }
 }

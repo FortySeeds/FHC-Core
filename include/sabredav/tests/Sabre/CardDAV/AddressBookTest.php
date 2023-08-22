@@ -54,7 +54,7 @@ class AddressBookTest extends \PHPUnit_Framework_TestCase {
     function testGetChildren() {
 
         $cards = $this->ab->getChildren();
-        $this->assertEquals(2, count($cards));
+        $this->assertEquals(2, numberOfElements($cards));
 
         $this->assertEquals('card1', $cards[0]->getName());
         $this->assertEquals('card2', $cards[1]->getName());

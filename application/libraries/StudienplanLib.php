@@ -42,7 +42,7 @@ class StudienplanLib
 						'semester' => $row->semester
 					);
 					$childs = $this->getChildElements($row->studienplan_lehrveranstaltung_id);
-					if(is_array($childs) && count($childs) > 0)
+					if(is_array($childs) && numberOfElements($childs) > 0)
 						$treeitem['childs'] = $childs;
 					$tree[] = $treeitem;
 				}

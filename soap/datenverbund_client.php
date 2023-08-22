@@ -379,7 +379,7 @@ if (isset($_REQUEST['submit']))
 
 			if(ErrorHandler::isSuccess($data) && ErrorHandler::hasData($data))
 			{
-				if(isset($data->retval->data) && is_array($data->retval->data) && count($data->retval->data)>0)
+				if(isset($data->retval->data) && is_array($data->retval->data) && numberOfElements($data->retval->data)>0)
 				{
 					echo '<br><b>Daten gefunden:</b> ';
 					var_dump($data->retval);
@@ -399,7 +399,7 @@ if (isset($_REQUEST['submit']))
 
 			if(ErrorHandler::isSuccess($data) && ErrorHandler::hasData($data))
 			{
-				if(isset($data->retval->data) && is_array($data->retval->data) && count($data->retval->data)>0)
+				if(isset($data->retval->data) && is_array($data->retval->data) && numberOfElements($data->retval->data)>0)
 				{
 					echo '<br><b>Daten gefunden:</b> ';
 					var_dump($data->retval);
@@ -419,7 +419,7 @@ if (isset($_REQUEST['submit']))
 
 			if(ErrorHandler::isSuccess($data) && ErrorHandler::hasData($data))
 			{
-				if(isset($data->retval->data) && is_array($data->retval->data) && count($data->retval->data)>0)
+				if(isset($data->retval->data) && is_array($data->retval->data) && numberOfElements($data->retval->data)>0)
 				{
 					echo '<br><b>Daten gefunden:</b> ';
 					var_dump($data->retval);

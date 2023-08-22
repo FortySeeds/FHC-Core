@@ -132,7 +132,7 @@ if ($lvid != '')
 			echo "<script>
 				function openMail()
 				{";
-			if (count($mailto) > 1)
+			if (numberOfElements($mailto) > 1)
 				echo "alert('Aufgrund der großen Anzahl an Empfängern, muss die Nachricht auf mehrere E-Mails aufgeteilt werden!');";
 			foreach ($mailto as $val)
 				echo "window.location.href='mailto:".$val."';\n";

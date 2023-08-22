@@ -462,12 +462,12 @@ class ExtensionsLib
 						// Checks parameter dependencies of the extension.json
 						if (isset($extensionJson->dependencies)
 							&& is_array($extensionJson->dependencies)
-							&& count($extensionJson->dependencies) > 0)
+							&& numberOfElements($extensionJson->dependencies) > 0)
 						{
 							// Gets the required dependencies
 							$result = $this->_ci->ExtensionsModel->getDependencies($extensionJson->dependencies);
 							// If they are matcheds
-							if (hasData($result) && count($result->retval) == count($extensionJson->dependencies))
+							if (hasData($result) && numberOfElements($result->retval) == numberOfElements($extensionJson->dependencies))
 							{
 								if (isset($extensionJson->dependencies))
 								{

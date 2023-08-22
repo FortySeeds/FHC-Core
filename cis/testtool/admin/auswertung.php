@@ -91,7 +91,7 @@ function sortByField($multArray,$sortField,$desc=true)
 		return array();
 
 	$maIndex=array_keys($multArray);
-	$maSize=count($multArray)-1;
+	$maSize=numberOfElements($multArray)-1;
 
 	for($i=0; $i < $maSize ; $i++)
 	{
@@ -574,7 +574,7 @@ if(isset($_REQUEST['format']) && $_REQUEST['format']=='xls')
 	foreach($maxlength as $i=>$breite)
 		$worksheet->setColumn($i, $i, $breite);
 
-	if(isset($erg_kat) && count($erg_kat)>0)
+	if(isset($erg_kat) && numberOfElements($erg_kat)>0)
 	{
 	// Creating second worksheet
 	$worksheet2 =& $workbook->addWorksheet("Persoenlichkeit");

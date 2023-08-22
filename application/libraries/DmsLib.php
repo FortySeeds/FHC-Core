@@ -559,7 +559,7 @@ class DmsLib
 
 		if (hasData($result) && $no_file == null)
 		{
-			for ($i = 0; $i < count(getData($result)); $i++)
+			for ($i = 0; $i < numberOfElements(getData($result)); $i++)
 			{
 				$resultFS = $this->_ci->DmsFSModel->readBase64(getData($result)[$i]->filename);
 				if (isError($resultFS)) return $resultFS; // if an error occurred return it
@@ -757,7 +757,7 @@ class DmsLib
 			if (isSuccess($result))
 			{
 				// Delete all entries in tbl_akte
-				for ($i = 0; $i < count(getData($result)); $i++)
+				for ($i = 0; $i < numberOfElements(getData($result)); $i++)
 				{
 					$this->_ci->AkteModel->delete(getData($result)[$i]->akte_id);
 				}
@@ -795,7 +795,7 @@ class DmsLib
 			if (isSuccess($result))
 			{
 				// Remove all files related to this person and dms
-				for ($i = 0; $i < count(getData($resultFileNames)); $i++)
+				for ($i = 0; $i < numberOfElements(getData($resultFileNames)); $i++)
 				{
 					$this->_ci->DmsFSModel->removeBase64(getData($resultFileNames)[$i]->filename);
 				}

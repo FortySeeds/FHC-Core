@@ -88,7 +88,7 @@ class UserAddressBooksTest extends \PHPUnit_Framework_TestCase {
     function testGetChildren() {
 
         $children = $this->s->getChildren();
-        $this->assertEquals(1, count($children));
+        $this->assertEquals(1, numberOfElements($children));
         $this->assertInstanceOf('Sabre\\CardDAV\\AddressBook', $children[0]);
         $this->assertEquals('book1', $children[0]->getName());
 

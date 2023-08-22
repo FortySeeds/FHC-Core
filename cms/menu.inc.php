@@ -71,7 +71,7 @@ function drawSubmenu1($content_id)
 	global $childsobject;
 	global $contentobjects;
 
-	if(isset($childsobject[$content_id]) && count($childsobject[$content_id])>0)
+	if(isset($childsobject[$content_id]) && numberOfElements($childsobject[$content_id])>0)
 	{
 		// jeden Untermenuepunkt durchlaufen
 		foreach($childsobject[$content_id] as $entry)
@@ -115,7 +115,7 @@ function drawEntry($item)
 			return;
 	}
 
-	if(isset($childsobject[$item->content_id]) && count($childsobject[$item->content_id])>0)
+	if(isset($childsobject[$item->content_id]) && numberOfElements($childsobject[$item->content_id])>0)
 	{
 		echo "\n<li>";
 		// Eintrag hat Untermenue -> Aufklappbar machen

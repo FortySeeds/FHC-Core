@@ -149,7 +149,7 @@ class AppdatenTest extends PHPUnit_Framework_TestCase
 		$appdaten = new appdaten();
 		$apps = $appdaten->getAllByApp('TestApp1');
 		$this->assertTrue(is_array($apps));
-		$this->assertEquals(count($apps), 5);
+		$this->assertEquals(numberOfElements($apps), 5);
 		$this->assertEquals($apps[2]->version, 3);
 		$this->assertEquals($apps[4]->bezeichnung, '2014/15');
 		$this->assertEquals($apps[4]->version, 2);

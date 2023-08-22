@@ -185,7 +185,7 @@ class ezcGraphChartElementLabeledAxis extends ezcGraphChartElementAxis
             }
         }
 
-        $labelCount = count( $this->labels ) - 1;
+        $labelCount = numberOfElements( $this->labels ) - 1;
 
         if ( $labelCount === 0 )
         {
@@ -371,7 +371,7 @@ class ezcGraphChartElementLabeledAxis extends ezcGraphChartElementAxis
             {
                 case ezcGraph::LEFT:
                 case ezcGraph::TOP:
-                    if ( count( $this->labels ) > 1 )
+                    if ( numberOfElements( $this->labels ) > 1 )
                     {
                         return (float) $key / ( count ( $this->labels ) - 1 );
                     }
@@ -381,7 +381,7 @@ class ezcGraphChartElementLabeledAxis extends ezcGraphChartElementAxis
                     }
                 case ezcGraph::BOTTOM:
                 case ezcGraph::RIGHT:
-                    if ( count( $this->labels ) > 1 )
+                    if ( numberOfElements( $this->labels ) > 1 )
                     {
                         return (float) 1 - $key / ( count ( $this->labels ) - 1 );
                     }
@@ -410,7 +410,7 @@ class ezcGraphChartElementLabeledAxis extends ezcGraphChartElementAxis
      */
     public function getMajorStepCount()
     {
-        return max( count( $this->displayedLabels ) - 1, 1 );
+        return max( numberOfElements( $this->displayedLabels ) - 1, 1 );
     }
 
     /**

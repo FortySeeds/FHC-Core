@@ -47,7 +47,7 @@ class VCard extends VObject\Component {
         $warnings = array();
 
         $version = $this->select('VERSION');
-        if (count($version)!==1) {
+        if (numberOfElements($version)!==1) {
             $warnings[] = array(
                 'level' => 1,
                 'message' => 'The VERSION property must appear in the VCARD component exactly 1 time',
@@ -71,13 +71,13 @@ class VCard extends VObject\Component {
 
         }
         $fn = $this->select('FN');
-        if (count($fn)!==1) {
+        if (numberOfElements($fn)!==1) {
             $warnings[] = array(
                 'level' => 1,
                 'message' => 'The FN property must appear in the VCARD component exactly 1 time',
                 'node' => $this,
             );
-            if (($options & self::REPAIR) && count($fn) === 0) {
+            if (($options & self::REPAIR) && numberOfElements($fn) === 0) {
                 // We're going to try to see if we can use the contents of the
                 // N property.
                 if (isset($this->N)) {

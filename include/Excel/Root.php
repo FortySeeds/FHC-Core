@@ -154,7 +154,7 @@ class OLE_PPS_Root extends OLE_PPS
         list($iSBDcnt, $iBBcnt, $iPPScnt) = array(0,0,0);
         $iSmallLen = 0;
         $iSBcnt = 0;
-        for ($i = 0; $i < count($raList); $i++) {
+        for ($i = 0; $i < numberOfElements($raList); $i++) {
             if($raList[$i]->Type == OLE_PPS_TYPE_FILE) {
                 $raList[$i]->Size = $raList[$i]->_DataLen();
                 if($raList[$i]->Size < OLE_DATA_SIZE_SMALL) {
@@ -172,7 +172,7 @@ class OLE_PPS_Root extends OLE_PPS
         $iSBDcnt = floor($iSBcnt / $iSlCnt) + (($iSBcnt % $iSlCnt)? 1:0);
         $iBBcnt +=  (floor($iSmallLen / $this->_BIG_BLOCK_SIZE) +
                       (( $iSmallLen % $this->_BIG_BLOCK_SIZE)? 1: 0));
-        $iCnt = count($raList);
+        $iCnt = numberOfElements($raList);
         $iBdCnt = $this->_BIG_BLOCK_SIZE / OLE_PPS_SIZE;
         $iPPScnt = (floor($iCnt/$iBdCnt) + (($iCnt % $iBdCnt)? 1: 0));
 
@@ -289,7 +289,7 @@ class OLE_PPS_Root extends OLE_PPS
         $FILE = $this->_FILEH_;
 
         // cycle through PPS's
-        for ($i = 0; $i < count($raList); $i++)
+        for ($i = 0; $i < numberOfElements($raList); $i++)
         {
             if($raList[$i]->Type != OLE_PPS_TYPE_DIR)
             {
@@ -347,7 +347,7 @@ class OLE_PPS_Root extends OLE_PPS
         $FILE = $this->_FILEH_;
         $iSmBlk = 0;
 
-        for ($i = 0; $i < count($raList); $i++)
+        for ($i = 0; $i < numberOfElements($raList); $i++)
         {
             // Make SBD, small data string
             if ($raList[$i]->Type == OLE_PPS_TYPE_FILE)
@@ -407,11 +407,11 @@ class OLE_PPS_Root extends OLE_PPS
     function _savePps(&$raList)
     {
         // Save each PPS WK
-        for ($i = 0; $i < count($raList); $i++) {
+        for ($i = 0; $i < numberOfElements($raList); $i++) {
             fwrite($this->_FILEH_, $raList[$i]->_getPpsWk());
         }
         // Adjust for Block
-        $iCnt = count($raList);
+        $iCnt = numberOfElements($raList);
         $iBCnt = $this->_BIG_BLOCK_SIZE / OLE_PPS_SIZE;
         if ($iCnt % $iBCnt)
         {

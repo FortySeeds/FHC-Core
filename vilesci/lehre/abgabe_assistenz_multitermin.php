@@ -109,7 +109,7 @@ if(!$rechte->isBerechtigt('admin', $stg_kz, 'suid') && !$rechte->isBerechtigt('a
 	die('Sie haben keine Berechtigung für diesen Studiengang');
 
 $datum_obj = new datum();
-for ($x=0;$x<count($paabgabetyp_kurzbz);$x++)
+for ($x=0;$x<numberOfElements($paabgabetyp_kurzbz);$x++)
 {
 	$fixtermin[$x] = (isset($fixtermin[$x])&&!empty($fixtermin[$x])?1:0);
 	if(isset($datum[$x])&&!empty($datum[$x]))
@@ -141,12 +141,12 @@ if(isset($_POST["schick"]) && $error=='')
 	$termine=explode(";",$irgendwas);
 	//var_dump($termine);
 
-	for($j=0;$j<count($termine)-1;$j++)
+	for($j=0;$j<numberOfElements($termine)-1;$j++)
 	{
 		//schleife projektarbeit_id
 		$mailtermine_st='';
 		$mailtermine_lk='';
-		for ($x=0;$x<count($paabgabetyp_kurzbz);$x++)
+		for ($x=0;$x<numberOfElements($paabgabetyp_kurzbz);$x++)
 		{
 			//schleife termine
 			$qrychk="SELECT * FROM campus.tbl_paabgabe
@@ -346,7 +346,7 @@ $htmlstr='';
 		$htmlstr .= '<form action="'.htmlspecialchars($_SERVER['PHP_SELF']).'" method="POST" name="multitermin">';
 		$htmlstr .= "<tr></tr>\n";
 		$htmlstr .= "<tr><td>fix</td><td>Datum</td><td>Abgabetyp</td><td>Kurzbeschreibung der Abgabe</td></tr>\n";
-		for ($x=0;$x<count($paabgabetyp_kurzbz);$x++)
+		for ($x=0;$x<numberOfElements($paabgabetyp_kurzbz);$x++)
 		{
 			if(!isset($datum[$x])||empty($datum[$x]))
 			{

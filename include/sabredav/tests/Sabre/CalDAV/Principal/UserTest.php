@@ -83,7 +83,7 @@ class UserTest extends \PHPUnit_Framework_TestCase {
 
         $u = $this->getInstance();
         $children = $u->getChildren();
-        $this->assertEquals(2, count($children));
+        $this->assertEquals(2, numberOfElements($children));
         $this->assertInstanceOf('Sabre\\CalDAV\\Principal\\ProxyRead', $children[0]);
         $this->assertInstanceOf('Sabre\\CalDAV\\Principal\\ProxyWrite', $children[1]);
 

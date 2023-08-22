@@ -68,7 +68,7 @@ class Prestudentstatus extends CLI_Controller
 							$row_status->orgform_kurzbz,
 							$row_status->sprache);
 
-					if(isSuccess($studienplan) && count($studienplan->retval) == 1)
+					if(isSuccess($studienplan) && numberOfElements($studienplan->retval) == 1)
 					{
 						$this->PrestudentstatusModel->resetQuery();
 						$pk_arr = array('ausbildungssemester' => $row_status->ausbildungssemester,

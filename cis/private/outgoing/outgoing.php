@@ -639,7 +639,7 @@ else
         $akte->getAktenOutgoing($benutzer->person_id);
 
 
-        if(count($akte->result)>0)
+        if(numberOfElements($akte->result)>0)
         {
         echo'<table id="myTableFiles" class="tablesorter">
             <thead>

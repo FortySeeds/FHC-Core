@@ -164,11 +164,11 @@ foreach($data as $lehreinheit_id => $value)
 		echo "\n			<bezeichnung><![CDATA[".$tag[0]->lvbez."]]></bezeichnung>";
 		echo "\n			<barcode><![CDATA[".ean13($convertableString)."]]></barcode>";
 		echo "\n			<kuerzel><![CDATA[".$tag[0]->lvnr."]]></kuerzel>";
-		echo "\n			<einheiten><![CDATA[".count($tag)."]]></einheiten>";
+		echo "\n			<einheiten><![CDATA[".numberOfElements($tag)."]]></einheiten>";
 		echo "\n			<ort><![CDATA[".$tag[0]->ort_kurzbz."]]></ort>";
 		echo "\n			<datum><![CDATA[".date('d.m.Y', strtotime($tag[0]->datum))."]]></datum>";
 		echo "\n			<beginn><![CDATA[".mb_substr($tag[0]->beginn, 0, 5)."]]></beginn>";
-		echo "\n			<ende><![CDATA[".mb_substr($tag[count($tag) - 1]->ende, 0, 5)."]]></ende>";
+		echo "\n			<ende><![CDATA[".mb_substr($tag[numberOfElements($tag) - 1]->ende, 0, 5)."]]></ende>";
 		echo "\n		</lehreinheit>";
 
 		// Ausgabe der Vortragenden

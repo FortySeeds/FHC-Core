@@ -37,7 +37,7 @@ class Kontakt_model extends DB_Model
 				$parametersArray['kontakttyp'] = $kontakttyp;
 			}
 
-			if (count($parametersArray) > 0)
+			if (numberOfElements($parametersArray) > 0)
 			{
 				$result = $this->loadWhere($parametersArray);
 			}

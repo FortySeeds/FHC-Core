@@ -577,7 +577,7 @@ class projektphase extends basis_db
 		$task = new projekttask();
 
 		$task->getProjekttasks($phase_id,null,'offen');
-		if(count($task->result)==0)
+		if(numberOfElements($task->result)==0)
 			return true;
 		else
 			return false;

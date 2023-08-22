@@ -175,7 +175,7 @@ else
 
 	echo '<h1>Kostenstellen - Berechtigungen</h1>';
 
-	if(count($kst_array)==0)
+	if(numberOfElements($kst_array)==0)
 		die('Sie benoetigen eine Kostenstellenberechtigung um diese Seite anzuzeigen');
 
 	$kst = new wawi_kostenstelle();

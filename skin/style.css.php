@@ -45,7 +45,7 @@ function jahresplan_check_mobile() {
   	'PlayBook','Kindle','Kindle Fire', 'Windows Phone'
   );
   // PrÃƒÂ¼fen der Browserkennung
-  for ($i=0; $i<count($agents); $i++) {
+  for ($i=0; $i<numberOfElements($agents); $i++) {
     if(isset($_SERVER["HTTP_USER_AGENT"]) && strpos($_SERVER["HTTP_USER_AGENT"], $agents[$i]) !== false)
       return true;
   }
