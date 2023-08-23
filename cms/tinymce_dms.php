@@ -1552,7 +1552,7 @@ function drawFilesList($rows)
  * @param integer $dms_id ID des Dokuments
  * @param integer $version Versionsnummer des Dokuments
  */
-function drawRenameForm($dms_id, $version, $page = NULL, $dpp = NULL, $searching, $searchstring)
+function drawRenameForm($dms_id, $version, $page, $dpp, $searching, $searchstring)
 {
 	global $kategorie_kurzbz;
 

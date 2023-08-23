@@ -1854,7 +1854,7 @@ function printTableHeadings($fieldheadings, $za_simple = false){
  * @param bool $za_simple Zeitaufzeichnung lang (für Infrastrukturmitarbeiter) oder kurz (simple)
  * @param $uid Id des Users für CSV-Filenamen "zeitaufzeichnung_uid"
  */
-function exportAsCSV($data, $delimiter = ',', $fieldheadings, $za_simple = false, $uid)
+function exportAsCSV($data, $delimiter, $fieldheadings, $za_simple, $uid)
 {
 
 	$filename = "zeitaufzeichnung_".$uid.".csv";

@@ -13,8 +13,7 @@ switch ( $dirParts[numberOfElements( $dirParts ) - 3] )
  * 
  * @param string $className 
  */
-function __autoload( $className )
-{
+spl_autoload_register (function ( $className ) {
     ezcBase::autoload( $className );
-}
+});
 ?>

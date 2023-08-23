@@ -115,7 +115,7 @@ class basis_db extends db
 		}
 	}
 
-	public function db_result($result = null, $i,$item)
+	public function db_result($result, $i, $item)
 	{
 		if(is_null($result))
 		{
@@ -164,7 +164,7 @@ class basis_db extends db
 			return pg_affected_rows($result);
 	}
 
-	public function db_result_seek($result=null, $offset)
+	public function db_result_seek($result, $offset)
 	{
 		if(is_null($result))
 			return pg_result_seek($this->db_result, $offset);
@@ -191,7 +191,7 @@ class basis_db extends db
 	/**
 	 * Liefert den Feldnamen mit index i
 	 */
-	public function db_field_name($result=null, $i)
+	public function db_field_name($result, $i)
 	{
 		if(is_null($result))
 			return pg_field_name($this->db_result, $i);

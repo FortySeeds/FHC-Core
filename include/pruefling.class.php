@@ -357,7 +357,7 @@ class pruefling extends basis_db
 	 * @param $gewichtung_studiengang_kz Wenn diese studiengang_kz übergeben wird, wird das Ergebnis entsprechend des Gewichtungsschemas des Studienganges gewichtet
 	 * @return Endpunkte des Reihungstests oder False wenn keine Punkte vorhanden
 	 */
-	public function getReihungstestErgebnisPerson($person_id, $punkte=false, $reihungstest_id, $has_excluded_gebiete = false, $studiengang_kz = null, $gewichtung_studiengang_kz = null)
+	public function getReihungstestErgebnisPerson($person_id, $punkte, $reihungstest_id, $has_excluded_gebiete = false, $studiengang_kz = null, $gewichtung_studiengang_kz = null)
 	{
 		if(is_numeric($reihungstest_id))
 		{

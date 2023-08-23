@@ -241,7 +241,7 @@ class mail
 	 * $name	Anzeigename des Files
 	 * $ContentID ContentID für inline-embedding (diese muss im script im tag <img src="cid:ContentID"> angegeben werden)
 	 */
-	public function addEmbeddedImage ($image, $type, $name = '', $ContentID)
+	public function addEmbeddedImage ($image, $type, $name, $ContentID)
 	{
 		$image_string = file_get_contents($image);
 		if (!$image_string)

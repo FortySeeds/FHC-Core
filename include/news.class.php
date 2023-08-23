@@ -69,7 +69,7 @@ class news extends basis_db
 	 * @param $maxnews Limit
 	 * @param $mischen Sollen die allgemeinen News auch gemischt mit den anderen angezeigt werden
 	 */
-	public function getnews($maxalter, $studiengang_kz, $semester, $all=false, $fachbereich_kurzbz=null, $maxnews, $mischen=true)
+	public function getnews($maxalter, $studiengang_kz, $semester, $all, $fachbereich_kurzbz, $maxnews, $mischen = true)
 	{
 		$qry = "SELECT * FROM campus.tbl_news WHERE true";
 		if(trim($maxalter)!='0')

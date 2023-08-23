@@ -327,7 +327,7 @@ class lehreinheitmitarbeiter extends basis_db
 	 * @param $uid
 	 * @return true wenn die Zuteilung existiert sonst false
 	 */
-	public function existsLV($lehrveranstaltung_id, $studiensemester_kurzbz=NULL,  $uid)
+	public function existsLV($lehrveranstaltung_id, $studiensemester_kurzbz, $uid)
 	{
 		if(!is_numeric($lehrveranstaltung_id))
 		{
