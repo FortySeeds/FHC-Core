@@ -66,9 +66,9 @@ foreach ($stg_obj->result as $row)
 {
 	if($row->studiengang_kz == $stg_kz)
 		$selected='selected="selected"';
-	else 
+	else
 		$selected='';
-	
+
 	echo '	<OPTION value="'.$row->studiengang_kz.'" '.$selected.'>'.$row->kuerzel.'('.$row->kurzbzlang.')</OPTION>';
 }
 echo '
@@ -84,15 +84,15 @@ foreach ($gebiet_obj->result as $row)
 {
 	if($row->gebiet_id == $gebiet_id)
 		$selected='selected="selected"';
-	else 
+	else
 		$selected='';
-	
+
 	echo '	<OPTION value="'.$row->gebiet_id.'" '.$selected.'>'.$row->bezeichnung.' - '.$row->kurzbz.'</OPTION>';
 }
 echo '
 			</SELECT>
 		</td>
-		
+
 		<td><input type="submit" name="show" value="Anzeigen"></td>
 
 		</tr>
@@ -101,23 +101,23 @@ echo '
 if(isset($_GET['show']))
 {
 	$qry = "SELECT * FROM (
-			SELECT 
+			SELECT
 				distinct on(tbl_frage.frage_id) *, tbl_gebiet.kurzbz as gebiet
-			FROM 
+			FROM
 				testtool.tbl_frage ";
 	if($stg_kz!='')
 		$qry.="	JOIN testtool.tbl_ablauf USING(gebiet_id) ";
 
 		$qry.="	JOIN testtool.tbl_frage_sprache USING(frage_id)
 				JOIN testtool.tbl_gebiet USING(gebiet_id)
-			WHERE 
+			WHERE
 				demo=false";
 	if($stg_kz!='')
 		$qry.=" AND studiengang_kz='".addslashes($stg_kz)."'";
 	if($gebiet_id!='')
 		$qry.=" AND gebiet_id='".addslashes($gebiet_id)."'";
 	$qry.=") as a ORDER BY gebiet_id, nummer";
-	
+
 	if($result = $db->db_query($qry))
 	{
 		if($db->db_num_rows($result)>0)
@@ -147,13 +147,13 @@ if(isset($_GET['show']))
 							<th>Level</th>
 							<th>Frage</th>
 							<th colspan="3" title="Anzahl der Personen die diese Frage gestellt bekommen haben">Gesamt (m/w)</th>
-							<th colspan="30">Nummer | Punkte | Gesamt | Männlich | Weiblich</th>
+							<th colspan="30">Nummer | Punkte | Gesamt | % | Männlich | Weiblich</th>
 						</tr>';
 			}
-		}		
-		else 
+		}
+		else
 			echo '<br>Keine Detaildaten vorhanden';
-			
+
 		$i=0;
 		while($row = $db->db_fetch_object($result))
 		{
@@ -166,20 +166,20 @@ if(isset($_GET['show']))
 				<td>'.$row->level.'</td>
 				<td>'.strip_tags($row->text).'</td>';
 			//Anzahl Antworten gesamt
-			$qry = "SELECT 
+			$qry = "SELECT
 						COUNT(*) as anzahl 
-					FROM 
-						testtool.tbl_pruefling_frage 
+					FROM
+						testtool.tbl_pruefling_frage
 						JOIN testtool.tbl_pruefling USING(pruefling_id)
 					WHERE
 						frage_id=$row->frage_id";
 			if($stg_kz!='')
 				$qry.=" AND studiengang_kz='".addslashes($stg_kz)."'";
 			//Anzahl Antworten männlich
-			$qry_m = "SELECT 
+			$qry_m = "SELECT
 						COUNT(*) as anzahl_m
-					FROM 
-						testtool.tbl_pruefling_frage 
+					FROM
+						testtool.tbl_pruefling_frage
 						JOIN testtool.vw_pruefling USING (pruefling_id)
 					WHERE
 						frage_id=$row->frage_id
@@ -188,10 +188,10 @@ if(isset($_GET['show']))
 			if($stg_kz!='')
 				$qry_m.=" AND studiengang_kz='".addslashes($stg_kz)."'";
 			//Anzahl Antworten weiblich
-			$qry_w = "SELECT 
-						COUNT(*) as anzahl_w 
-					FROM 
-						testtool.tbl_pruefling_frage 
+			$qry_w = "SELECT
+						COUNT(*) as anzahl_w
+					FROM
+						testtool.tbl_pruefling_frage
 						JOIN testtool.vw_pruefling USING (pruefling_id)
 					WHERE
 						frage_id=$row->frage_id
@@ -199,26 +199,26 @@ if(isset($_GET['show']))
 						geschlecht='w'";
 			if($stg_kz!='')
 				$qry_w.=" AND studiengang_kz='".addslashes($stg_kz)."'";
-			
+
 			//Anzahl Antworten je Vorschlag gesamt
 			$qry_vorschlag = "
-				SELECT 
+				SELECT
 					vorschlag_id, nummer, punkte, COUNT(*) as anzahl_vorschlag, ($qry) as anzahl_gesamt, ($qry_m) as anzahl_gesamt_m, ($qry_w) as anzahl_gesamt_w,
 					(SELECT text FROM testtool.tbl_vorschlag_sprache WHERE vorschlag_id=tbl_vorschlag.vorschlag_id AND sprache='German' LIMIT 1) as text
-				FROM 
-					testtool.tbl_vorschlag 
+				FROM
+					testtool.tbl_vorschlag
 					JOIN testtool.tbl_antwort USING(vorschlag_id)
 					JOIN testtool.tbl_pruefling USING(pruefling_id)
-				WHERE 
+				WHERE
 					frage_id='$row->frage_id' ";
 			if($stg_kz!='')
 				$qry_vorschlag.=" AND studiengang_kz='".addslashes($stg_kz)."'";
-			
+
 			$qry_vorschlag.="
 				GROUP BY
 					vorschlag_id, nummer, punkte
 				ORDER BY punkte DESC, vorschlag_id";
-			
+
 			//echo $qry_vorschlag.'<br>';
 			$hlp2='';
 			$gesamt = 0;
@@ -229,30 +229,38 @@ if(isset($_GET['show']))
 				while($row_vorschlag = $db->db_fetch_object($result_vorschlag))
 				{
 					$qry_geschlecht = "	SELECT COUNT(*) AS anz_m
-										FROM testtool.tbl_vorschlag 
-										JOIN testtool.tbl_antwort USING(vorschlag_id) 
-										JOIN testtool.vw_pruefling USING(pruefling_id) 
+										FROM testtool.tbl_vorschlag
+										JOIN testtool.tbl_antwort USING(vorschlag_id)
+										JOIN testtool.vw_pruefling USING(pruefling_id)
 										WHERE geschlecht='m'
 										AND frage_id='$row->frage_id' ";
 							if($stg_kz!='')
 								$qry_geschlecht.=" AND studiengang_kz=".addslashes($stg_kz)."";
-								
+
 					$qry_geschlecht.="	AND vorschlag_id='".addslashes($row_vorschlag->vorschlag_id)."'";
-					
+
 					$result_geschlecht = $db->db_query($qry_geschlecht);
 					$row_geschlecht = $db->db_fetch_object($result_geschlecht);
-					
+
 					$anz_m = $row_geschlecht->anz_m;
 					$anz_w = $row_vorschlag->anzahl_vorschlag-$row_geschlecht->anz_m;
-					
+					if ($row_vorschlag->anzahl_gesamt == 0)
+						$anzahl_gesamt = 1;
+					else
+						$anzahl_gesamt = $row_vorschlag->anzahl_gesamt;
+
+					$vorschlag_prozent = round(100 * $row_vorschlag->anzahl_vorschlag / $anzahl_gesamt, 1);
+					$vorschlag_prozent = number_format($vorschlag_prozent,1,',','');
+
 					$hlp2.= '
 						<td style="border-left: 1px solid black; padding-left:2px;"><b>'.$row_vorschlag->nummer.'</b></td>
 						<!--<td style="padding-left:2px;">'.$row_vorschlag->text.'</td>-->
 						<td>'.number_format($row_vorschlag->punkte,2).'</td>
 						<td><b>'.$row_vorschlag->anzahl_vorschlag.'</b></td>
+						<td><b>'.$vorschlag_prozent.'%</b></td>
 						<td style="color:blue;"><b>'.$anz_m.'</b></td>
 						<td style="color:magenta;"><b>'.$anz_w.'</b></td>';
-					
+
 					$gesamt = $row_vorschlag->anzahl_gesamt;
 					$gesamt_m = $row_vorschlag->anzahl_gesamt_m;
 					$gesamt_w = $row_vorschlag->anzahl_gesamt_w;
@@ -263,7 +271,7 @@ if(isset($_GET['show']))
 		}
 		echo '</table>';
 	}
-	else 
+	else
 		echo 'Keine Detailauswertung vorhanden';
 }
 ?>

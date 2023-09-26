@@ -46,35 +46,36 @@ $rechte->getBerechtigungen($user);
 
 if(!$rechte->isBerechtigt('basis/testtool',null,'s'))
 	die('Sie haben keine Berechtigung für diese Seite');
-	
+
 $frage_id = (isset($_GET['frage_id'])?$_GET['frage_id']:'');
 $sprache = (isset($_GET['sprache'])?$_GET['sprache']:'German');
 $db = new basis_db();
 
 if($frage_id!='' && is_numeric($frage_id))
 {
-	$qry = "SELECT 
+	$qry = "SELECT
 				*,
 				tbl_frage_sprache.text as frage_text,
 				tbl_frage_sprache.audio as frage_audio,
 				tbl_frage_sprache.bild as frage_bild,
+				tbl_vorschlag.nummer as vorschlag_nummer,
 				tbl_vorschlag_sprache.text as vorschlag_text,
 				tbl_vorschlag_sprache.audio as vorschlag_audio,
 				tbl_vorschlag_sprache.bild as vorschlag_bild,
 				tbl_frage.level,
 				/*(SELECT COUNT(*) FROM testtool.tbl_antwort WHERE vorschlag_id=tbl_vorschlag.vorschlag_id) as anzahl,*/
 				(SELECT COUNT(*) FROM testtool.tbl_pruefling_frage WHERE frage_id='$frage_id') as gesamt_anzahl
-			FROM 
-				testtool.tbl_frage 
-				JOIN testtool.tbl_frage_sprache USING(frage_id) 
-				JOIN testtool.tbl_vorschlag USING(frage_id) 
+			FROM
+				testtool.tbl_frage
+				JOIN testtool.tbl_frage_sprache USING(frage_id)
+				JOIN testtool.tbl_vorschlag USING(frage_id)
 				JOIN testtool.tbl_vorschlag_sprache USING(vorschlag_id)
 			WHERE
 				tbl_frage_sprache.sprache='".addslashes($sprache)."' AND
 				tbl_vorschlag_sprache.sprache='".addslashes($sprache)."' AND
 				frage_id='$frage_id'
 			ORDER BY punkte DESC, vorschlag_id";
-		
+
 	if($result = $db->db_query($qry))
 	{
 		$first=true;
@@ -103,14 +104,16 @@ if($frage_id!='' && is_numeric($frage_id))
 				}
 				if($row->frage_bild!='')
 					echo "<img class='testtoolfrage' src='../bild.php?src=frage&amp;frage_id=$frage_id&amp;sprache=".$sprache."' /><br/><br/>\n";
-	
+
 				echo '</center><br /><br />';
 			}
-			
+
 			//Vorschlaege
+			echo '<center>Nummer: '.$row->vorschlag_nummer.'</center><br>';
 			echo '<center><div style="width: 90%; padding: 5px; background-color: #eee;border: 1px solid black">';
 			//echo "<b>Vorschlag $i: </b>";
 			$first=false;
+
 			echo $row->vorschlag_text;
 			if($row->vorschlag_audio!='')
 			{

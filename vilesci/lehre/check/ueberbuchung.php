@@ -20,7 +20,7 @@
  *          Rudolf Hangl 		< rudolf.hangl@technikum-wien.at >
  *          Gerald Simane-Sequens 	< gerald.simane-sequens@technikum-wien.at >
  */
-   
+
 /*
  * Prueft im Stundenplan ob die Personen in den zugeteilten Räumen Platz haben
  */
@@ -50,31 +50,47 @@ echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="stylesheet" href="../../../skin/vilesci.css" type="text/css" />
 	<link rel="stylesheet" href="../../../skin/jquery.css" type="text/css"/>
-	<link rel="stylesheet" type="text/css" href="../../../skin/jquery-ui-1.9.2.custom.min.css">
-<script type="text/javascript" src="../../../vendor/jquery/jquery1/jquery-1.12.4.min.js"></script>
-<script type="text/javascript" src="../../../vendor/christianbach/tablesorter/jquery.tablesorter.min.js"></script>
+	<link href="../../../skin/jquery-ui-1.9.2.custom.min.css" rel="stylesheet" type="text/css">';
+
+	include('../../../include/meta/jquery.php');
+	include('../../../include/meta/jquery-tablesorter.php');
+
+echo '
 <script type="text/javascript" src="../../../vendor/components/jqueryui/jquery-ui.min.js"></script>
 <script type="text/javascript" src="../../../include/js/jquery.ui.datepicker.translation.js"></script>
-<script type="text/javascript" src="../../../vendor/jquery/sizzle/sizzle.js"></script>	
-	<link rel="stylesheet" href="../../../skin/tablesort.css" type="text/css"/>
-	<script src="../../../include/js/tablesort/table.js" type="text/javascript"></script>
-	
-	<script type="text/javascript">	
-		$(document).ready(function() 
-			{ 
-			    $("#t1").tablesorter(
+<script type="text/javascript" src="../../../vendor/jquery/sizzle/sizzle.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function()
+			{
+				$("#t1").tablesorter(
 				{
-					 headers:
-				       {  
-				         0 : { sorter: "isoDate"  },
-				       }, 
+					headers:
+					{
+						0 : { sorter: "isoDate"  },
+					},
 					sortList: [[0,0],[1,0]],
-					widgets: [\'zebra\']
-				}); 
-			} 
+					widgets: ["zebra","filter"]
+				});
+
+				$( ".datepicker_datum" ).datepicker(
+				{
+					changeMonth: true,
+					changeYear: true,
+					dateFormat: "yy-mm-dd",
+					showOn: "focus"
+				});
+			}
 		);
 		</script>
 </head>
+<style>
+table.tablesorter tbody td
+{
+	padding: 2px;
+}
+</style>
 <body>
 <h2>LV-Plan Überbuchungen - '.$db_stpl_table.'</h2>
 ';
@@ -85,7 +101,7 @@ if($beginn=='' || $ende=='')
 	$stsem_obj = new studiensemester();
 	$stsem_akt = $stsem_obj->getaktorNext();
 	$stsem_obj->load($stsem_akt);
-	
+
 	//$beginn = $stsem_obj->start;
 	$beginn = date("Y-m-d");
 	//$ende = $stsem_obj->ende;
@@ -93,21 +109,21 @@ if($beginn=='' || $ende=='')
 	$dontloadcontent=true;
 }
 
-echo " Beginn <INPUT type='text' size='10' id='beginn' name='beginn' value='$beginn'>";
-echo " Ende <INPUT type='text' size='10' id='ende' name='ende' value='$ende'>";
+echo " Beginn <INPUT class='datepicker_datum' type='text' size='10' id='beginn' name='beginn' value='$beginn'>";
+echo " Ende <INPUT class='datepicker_datum' type='text' size='10' id='ende' name='ende' value='$ende'>";
 
 $stg = new studiengang();
 $stg->getAll('typ, kurzbzlang', true);
 
 echo ' Studiengang <SELECT name="stg_kz">';
 echo '<option value="">-- Alle --</option>';
-foreach ($stg->result as $row) 
+foreach ($stg->result as $row)
 {
 	if($stg_kz==$row->studiengang_kz)
 		$selected='selected';
-	else 
+	else
 		$selected='';
-	
+
 	echo '<option value="'.$row->studiengang_kz.'" '.$selected.'>'.$row->kuerzel.'</option>';
 }
 echo '</SELECT>';
@@ -118,7 +134,7 @@ echo '</form>';
 if($dontloadcontent)
 	exit;
 
-	
+
 $ort_obj = new ort();
 $ort_obj->getAll();
 $ort = array();
@@ -128,7 +144,7 @@ foreach ($ort_obj->result as $row)
 	$ort[$row->ort_kurzbz] = new stdClass(); // Prevents the warning "Creating default object from empty value"
 	$ort[$row->ort_kurzbz]->max_person = $row->max_person;
 }
-$qry = "SELECT DISTINCT vw_".$db_stpl_table.".unr,datum, stunde, ort_kurzbz, studiensemester_kurzbz, vw_".$db_stpl_table.".studiengang_kz, vw_".$db_stpl_table.".semester, verband, gruppe, gruppe_kurzbz, UPPER(stg_typ || stg_kurzbz) as stg_kurzbz, lehrfach, lehrfach_bez 
+$qry = "SELECT DISTINCT vw_".$db_stpl_table.".unr,datum, stunde, ort_kurzbz, studiensemester_kurzbz, vw_".$db_stpl_table.".studiengang_kz, vw_".$db_stpl_table.".semester, verband, gruppe, gruppe_kurzbz, UPPER(stg_typ || stg_kurzbz) as stg_kurzbz, lehrfach, lehrfach_bez, lehrform
 		FROM lehre.vw_".$db_stpl_table." JOIN lehre.tbl_lehreinheit USING(lehreinheit_id) JOIN lehre.tbl_lehrveranstaltung ON(tbl_lehreinheit.lehrveranstaltung_id=tbl_lehrveranstaltung.lehrveranstaltung_id)
 		WHERE datum>='".addslashes($beginn)."' AND datum<='".addslashes($ende)."'";
 if($stg_kz!='')
@@ -140,11 +156,12 @@ echo '<table class="tablesorter" id="t1">
 		<thead>
 		<tr>
 			<th class="table-sortable:date">Datum</th>
-			
+
 			<th>Ort</th>
 			<th>Studierende aktuell (Plätze maximal)</th>
 			<th>Gruppen (Studierende aktuell)</th>
-			<th>Lehrfach</th>
+			<th>Lehrveranstaltung</th>
+			<th>Lehrform</th>
 		</tr>
 		</thead>
 		<tbody>';
@@ -156,6 +173,7 @@ $lastort=0;
 $anzahl_studenten=0;
 $lehrfach='';
 $lehrfach_bez='';
+$lehrform='';
 $arr=array();
 
 function getAnzahl($studiengang_kz, $semester, $verband, $gruppe, $gruppe_kurzbz, $studiensemester_kurzbz)
@@ -163,7 +181,7 @@ function getAnzahl($studiengang_kz, $semester, $verband, $gruppe, $gruppe_kurzbz
 	global $db;
 	if($gruppe_kurzbz=='')
 	{
-		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_studentlehrverband 
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_studentlehrverband
 				WHERE studiensemester_kurzbz='".addslashes($studiensemester_kurzbz)."'
 				AND studiengang_kz='".addslashes($studiengang_kz)."' AND
 				semester='".addslashes($semester)."'";
@@ -171,11 +189,11 @@ function getAnzahl($studiengang_kz, $semester, $verband, $gruppe, $gruppe_kurzbz
 			$qry.=" AND trim(verband)=trim('".addslashes($verband)."')";
 		if(trim($gruppe)!='')
 			$qry.=" AND trim(gruppe)=trim('".addslashes($gruppe)."')";
-		
+
 	}
-	else 
+	else
 	{
-		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_benutzergruppe 
+		$qry = "SELECT COUNT(*) as anzahl FROM public.tbl_benutzergruppe
 				WHERE studiensemester_kurzbz='".addslashes($studiensemester_kurzbz)."'
 				AND gruppe_kurzbz='".addslashes($gruppe_kurzbz)."'";
 	}
@@ -192,14 +210,14 @@ if($result = $db->db_query($qry))
 {
 	while($row = $db->db_fetch_object($result))
 	{
-		if($lastdatum==$row->datum && $laststunde==$row->stunde && $lastort==$row->ort_kurzbz && $lehrfach==$row->lehrfach && $lehrfach_bez==$row->lehrfach_bez)
+		if($lastdatum==$row->datum && $laststunde==$row->stunde && $lastort==$row->ort_kurzbz && $lehrfach==$row->lehrfach && $lehrfach_bez==$row->lehrfach_bez && $lehrform==$row->lehrform)
 		{
 			//Solange alles gleich ist zusammenzaehlen
-			$anzahl = getAnzahl($row->studiengang_kz, $row->semester, $row->verband, $row->gruppe, $row->gruppe_kurzbz, $row->studiensemester_kurzbz);		
+			$anzahl = getAnzahl($row->studiengang_kz, $row->semester, $row->verband, $row->gruppe, $row->gruppe_kurzbz, $row->studiensemester_kurzbz);
 			$anzahl_studenten += $anzahl;
 			$gruppen .=($row->gruppe_kurzbz==''?$row->stg_kurzbz.$row->semester.$row->verband.$row->gruppe:$row->gruppe_kurzbz)." ($anzahl), ";
 		}
-		else 
+		else
 		{
 			if($lastdatum!=0)
 			{
@@ -210,7 +228,7 @@ if($result = $db->db_query($qry))
 				{
 					//$diff = $anzahl_studenten-$ort[$lastort]->max_person;
 					$diffprozent = ($ort[$lastort]->max_person)/100*10;
-					
+
 					$style='';
 					if((($ort[$lastort]->max_person+$diffprozent)-$anzahl_studenten)<0)
 						$style='style="background-color: FCC850;"';
@@ -222,13 +240,19 @@ if($result = $db->db_query($qry))
 						$style='style="background-color: a00404; color: d3d3d3"';
 
 					//echo "<tr><td>$lastdatum</td><td>$laststunde</td><td>$lastort</td><td $style>$anzahl_studenten (".$ort[$lastort]->max_person.")</td><td>$gruppen</td><td>$lehrfach - $lehrfach_bez</td></tr>";
-					$arr[]="<tr><td>$lastdatum</td><td>$lastort</td><td $style>$anzahl_studenten (".$ort[$lastort]->max_person.")</td><td>$gruppen</td><td>$lehrfach - $lehrfach_bez</td></tr>";
-					
+					$arr[]="<tr>
+								<td>$lastdatum</td>
+								<td>$lastort</td>
+								<td $style>$anzahl_studenten (".$ort[$lastort]->max_person.")</td>
+								<td>$gruppen</td>
+								<td>$lehrfach - $lehrfach_bez</td>
+								<td>$lehrform</td></tr>";
+
 				}
 				$anzahl_studenten=0;
 				$gruppen='';
 			}
-			
+
 			$anzahl = getAnzahl($row->studiengang_kz, $row->semester, $row->verband, $row->gruppe, $row->gruppe_kurzbz, $row->studiensemester_kurzbz);
 			$anzahl_studenten += $anzahl;
 			$gruppen .=($row->gruppe_kurzbz==''?$row->stg_kurzbz.$row->semester.$row->verband.$row->gruppe:$row->gruppe_kurzbz)." ($anzahl), ";
@@ -238,9 +262,10 @@ if($result = $db->db_query($qry))
 		$lastort = $row->ort_kurzbz;
 		$lehrfach = $row->lehrfach;
 		$lehrfach_bez = $row->lehrfach_bez;
+		$lehrform = $row->lehrform;
 	}
 }
-else 
+else
 {
 	echo "Fehler:".$qry;
 }
