@@ -24,6 +24,7 @@
  * Klasse Sprache
  */
 require_once(dirname(__FILE__).'/basis_db.class.php');
+require_once(dirname(__FILE__).'/functions.inc.php');
 
 class sprache extends basis_db
 {
