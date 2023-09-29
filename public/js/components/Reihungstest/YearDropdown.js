@@ -20,7 +20,11 @@ export const YearDropdown = {
 				const res = await CoreRESTClient.get('components/Reihungstest/Reihungstest/getYear');
 				if (CoreRESTClient.isSuccess(res.data))
 				{
+
 					let data = CoreRESTClient.getData(res.data);
+					//TODO: Testzweck fuer Demo
+					data.unshift({studiensemester_kurzbz: 'WS2022'});
+
 					this.options = data;
 					this.selectedOption = data[0].studiensemester_kurzbz;
 					this.$emit("yearChanged", this.selectedOption);
