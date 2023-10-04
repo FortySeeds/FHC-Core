@@ -356,7 +356,7 @@ class datum
 	 */
 	public function formatDatum($datum, $format='Y-m-d H:i:s', $strict=false)
 	{
-		if(trim($datum)=='')
+		if(is_null($datum) || trim($datum)=='')
 			return '';
 
 		$ts='';

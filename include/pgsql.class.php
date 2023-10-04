@@ -230,7 +230,7 @@ class basis_db extends db
 	 */
 	public function db_escape($var)
 	{
-		return pg_escape_string($var);
+		return pg_escape_string(basis_db::$db_conn, $var);
 	}
 
 	/**
