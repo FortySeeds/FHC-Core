@@ -1854,7 +1854,9 @@ class wochenplan extends basis_db
 		{
 			for ($s=$min_stunde;$s<=$max_stunde;$s++)
 			{
-				@$raster[$t][$s]->ort=array();
+				if (!isset($raster[$t][$s]))
+					$raster[$t][$s] = new stdClass();
+				$raster[$t][$s]->ort=array();
 				$raster[$t][$s]->kollision=false;
 			}
 		}
@@ -2171,7 +2173,9 @@ class wochenplan extends basis_db
 		for ($t=1;$t<=TAGE_PRO_WOCHE;$t++)
 			for ($s=$min_stunde;$s<=$max_stunde;$s++)
 			{
-				@$raster[$t][$s]->ort=array();
+				if (!isset($raster[$t][$s]))
+					$raster[$t][$s] = new stdClass();
+				$raster[$t][$s]->ort=array();
 				$raster[$t][$s]->kollision=false;
 			}
 		do
@@ -2181,9 +2185,8 @@ class wochenplan extends basis_db
 			{
 				for ($s=$min_stunde;$s<=$max_stunde;$s++)
 				{
-					if (isset($raster[$t][$s]))
-						unset($raster[$t][$s]);
-					@$raster[$t][$s]->ort=array();
+					$raster[$t][$s] = new stdClass();
+					$raster[$t][$s]->ort=array();
 					$raster[$t][$s]->kollision=false;
 				}
 			}
@@ -2309,7 +2312,9 @@ class wochenplan extends basis_db
 					else
 					{
 						// Wenn sich die Verplanung mit der Blockung nicht mehr ausgeht, dann keine Raeume vorschlagen
-						@$this->std_plan[$t][$s][0]->frei_orte=array();
+						if (!isset($this->std_plan[$t][$s][0]))
+							$this->std_plan[$t][$s][0] = new stdClass();
+						$this->std_plan[$t][$s][0]->frei_orte=array();
 					}
 				}
 			}
