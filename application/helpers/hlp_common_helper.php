@@ -18,6 +18,8 @@
 
 if (! defined('BASEPATH')) exit('No direct script access allowed');
 
+use \DateTime as DateTime;
+
 // ------------------------------------------------------------------------
 // Collection of utility functions for general purpose
 // ------------------------------------------------------------------------
@@ -419,6 +421,21 @@ if (!function_exists('numberOfElements'))
 		if (is_array($countable) || $countable instanceof Countable) return count($countable);
 	
 		return 0; // otherwise returns 0
+	}
+}
+
+/**
+ * check if String can be converted to a date
+ */
+function isValidDate($dateString)
+{
+	try
+	{
+		return (new DateTime($dateString)) !== false;
+	}
+	catch(Exception $e)
+	{
+		return false;
 	}
 }
 
