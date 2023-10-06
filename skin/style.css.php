@@ -7,6 +7,7 @@
 	else
 		$path='../';
 	require ($path.'config/cis.config.inc.php');
+	require ($path.'include/functions.inc.php');	
 
 	//die($_SERVER["HTTP_USER_AGENT"]);
 
