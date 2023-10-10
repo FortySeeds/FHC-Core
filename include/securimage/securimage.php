@@ -1259,7 +1259,7 @@ class Securimage
                 $x *= $this->iscale;
                 $y *= $this->iscale;
                 if ($x >= 0 && $x < $width2 && $y >= 0 && $y < $height2) {
-                    $c = imagecolorat($this->tmpimg, $x, $y);
+                    $c = imagecolorat($this->tmpimg, (int)$x, (int)$y);
                 }
                 if ($c != $bgCol) { // only copy pixels of letters to preserve any background image
                     imagesetpixel($this->im, $ix, $iy, $c);
@@ -1280,7 +1280,7 @@ class Securimage
 
             $theta = ($this->frand() - 0.5) * M_PI * 0.7;
             $w = $this->image_width;
-            $len = mt_rand($w * 0.4, $w * 0.7);
+            $len = mt_rand((int)($w * 0.4), (int)($w * 0.7));
             $lwid = mt_rand(0, 2);
 
             $k = $this->frand() * 0.6 + 0.2;
@@ -1300,7 +1300,7 @@ class Securimage
             for ($i = 0; $i < $n; ++ $i) {
                 $x = $x0 + $i * $dx + $amp * $dy * sin($k * $i * $step + $phi);
                 $y = $y0 + $i * $dy - $amp * $dx * sin($k * $i * $step + $phi);
-                imagefilledrectangle($this->im, $x, $y, $x + $lwid, $y + $lwid, $this->gdlinecolor);
+                imagefilledrectangle($this->im, (int)$x, (int)$y, (int)($x + $lwid), (int)($y + $lwid), $this->gdlinecolor);
             }
         }
     }

@@ -243,37 +243,37 @@ class studienordnung extends basis_db
 //		}
 
 		//Gesamtlaenge pruefen
-		if(mb_strlen($this->version)>256)
+		if(mb_strlen($this->version ?? '')>256)
 		{
 			$this->errormsg = 'Version darf nicht länger als 256 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->bezeichnung)>512)
+		if(mb_strlen($this->bezeichnung ?? '')>512)
 		{
 			$this->errormsg = 'Bezeichnung darf nicht länger als 512 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->gueltigvon)>16)
+		if(mb_strlen($this->gueltigvon ?? '')>16)
 		{
 			$this->errormsg = 'Gueltig Von darf nicht laenger als 16 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->gueltigbis)>16)
+		if(mb_strlen($this->gueltigbis ?? '')>16)
 		{
 			$this->errormsg = 'Gueltig Bis darf nicht laenger als 16 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->studiengangbezeichnung)>256)
+		if(mb_strlen($this->studiengangbezeichnung ?? '')>256)
 		{
 			$this->errormsg = 'Studiengangbezeichnung darf nicht länger als 256 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->studiengangbezeichnung_englisch)>256)
+		if(mb_strlen($this->studiengangbezeichnung_englisch ?? '')>256)
 		{
 			$this->errormsg = 'Studiengangbezeichnung Englisch darf nicht länger als 256 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->studiengangkurzbzlang)>8)
+		if(mb_strlen($this->studiengangkurzbzlang ?? '')>8)
 		{
 			$this->errormsg = 'Studiengangkurzbzlang darf nicht länger als 8 Zeichen sein';
 			return false;
