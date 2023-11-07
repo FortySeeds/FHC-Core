@@ -919,7 +919,7 @@ if (isset($_REQUEST['uid']) || isset($_REQUEST['funktion_kurzbz']))
 									name='dataset[$b->benutzerberechtigung_id][anmerkung]'
 									class='input_anmerkung $inaktiv_class' 
 									value='".$b->anmerkung."' 
-									title='".$db->convert_html_chars(mb_eregi_replace('\r'," ",$b->anmerkung))."' 
+									title='".$db->convert_html_chars(mb_eregi_replace('\r'," ",$b->anmerkung ?? ''))."' 
 									data-toggle='tooltip' 
 									data-html='true' 
 									data-placement='auto'

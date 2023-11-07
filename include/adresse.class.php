@@ -245,38 +245,38 @@ class adresse extends basis_db
 			return false;
 		}
 		//Gesamtlaenge pruefen
-		if(mb_strlen($this->name)>255)
+		if(mb_strlen($this->name ?? '')>255)
 		{
 			$this->errormsg = 'Name darf nicht länger als 255 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->strasse)>255)
+		if(mb_strlen($this->strasse ?? '')>255)
 		{
 			$this->errormsg = 'Strasse darf nicht länger als 255 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->plz)>16)
+		if(mb_strlen($this->plz ?? '')>16)
 		{
 			$this->errormsg = 'Plz darf nicht länger als 16 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->ort)>255)
+		if(mb_strlen($this->ort ?? '')>255)
 		{
 			$this->errormsg = 'Ort darf nicht länger als 255 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->nation)>3)
+		if(mb_strlen($this->nation ?? '')>3)
 		{
 			$this->errormsg = 'Nation darf nicht länger als 3 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->gemeinde)>255)
+		if(mb_strlen($this->gemeinde ?? '')>255)
 		{
 			$this->errormsg = 'Gemeinde darf nicht länger als 255 Zeichen sein';
 			return false;
 		}
 
-		if(mb_strlen($this->co_name)>64)
+		if(mb_strlen($this->co_name ?? '')>64)
 		{
 			$this->errormsg = 'Gemeinde darf nicht länger als 64 Zeichen sein';
 			return false;

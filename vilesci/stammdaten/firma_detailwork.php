@@ -119,7 +119,7 @@ function getOrtDropDown($postleitzahl, $gemeindename)
 	$return='';
 	$ort = (isset($_REQUEST['ort'])?$_REQUEST['ort']:'');
 	$qry = "SELECT distinct ortschaftsname FROM bis.tbl_gemeinde
-			WHERE plz='".addslashes($postleitzahl)."' AND name='".addslashes($gemeindename)."'";
+			WHERE plz=".$db->db_add_param($postleitzahl)." AND name=".$db->db_add_param($gemeindename);
 	$return.='<SELECT id="ort_combo" name="ort_combo">';
 	if(is_numeric($postleitzahl) && $postleitzahl<10000)
 	{

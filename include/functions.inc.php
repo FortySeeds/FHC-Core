@@ -572,9 +572,9 @@ function StringCut($str='',$len=0,$checkWortumbruch=false,$fortsetzungszeichen='
 
 	// ist der String nicht laenger als die gewuenschte Lange kann hier beendet werden
 	if ($utf8)
-		$vLen=mb_strlen($str);
+		$vLen=mb_strlen($str ?? '');
 	else
-		$vLen=strlen($str);
+		$vLen=strlen($str ?? '');
 
 	// String ist nicht laenger als die gewuenschte leange - kpl.String retour senden
 	if ($len>=$vLen)
@@ -630,9 +630,9 @@ function StringCut($str='',$len=0,$checkWortumbruch=false,$fortsetzungszeichen='
 function check_utf8($str="")
 {
 	$cStr=$str;
-	if (strlen($cStr)>3590)
+	if (strlen($cStr ?? '')>3590)
 	{
-		$cStr=substr($cStr,0,3590);
+		$cStr=substr($cStr ?? '',0,3590);
 	}
      $stati=@preg_match("/^(
          [\x09\x0A\x0D\x20-\x7E]            # ASCII
@@ -643,7 +643,7 @@ function check_utf8($str="")
        |  \xF0[\x90-\xBF][\x80-\xBF]{2}     # planes 1-3
        | [\xF1-\xF3][\x80-\xBF]{3}          # planes 4-15
        |  \xF4[\x80-\x8F][\x80-\xBF]{2}     # plane 16
-      )*$/x",$cStr);
+      )*$/x",$cStr ?? '');
 
 	  return $stati;
 }

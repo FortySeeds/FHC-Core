@@ -143,17 +143,17 @@ class firma extends basis_db
 	protected function validate()
 	{
 		//Gesamtlaenge pruefen
-		if(mb_strlen($this->name)>128)
+		if(mb_strlen($this->name ?? '')>128)
 		{
 			$this->errormsg = 'Name darf nicht länger als 128 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->anmerkung)>256)
+		if(mb_strlen($this->anmerkung ?? '')>256)
 		{
 			$this->errormsg = 'Anmerkung darf nicht länger als 256 Zeichen sein';
 			return false;
 		}
-		if(mb_strlen($this->lieferbedingungen)>256)
+		if(mb_strlen($this->lieferbedingungen ?? '')>256)
 		{
 			$this->errormsg = 'Lieferbedingungen darf nicht länger als 256 Zeichen sein';
 			return false;
