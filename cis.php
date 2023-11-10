@@ -191,7 +191,7 @@ switch (ENVIRONMENT)
  *
  */
 	// $assign_to_config['name_of_config_item'] = 'value of config item';
-$assign_to_config['index_page'] = 'cis.php';
+//$assign_to_config['index_page'] = 'cis.php'; // 2023-11-10 ma0080 commented to remove ci_router from url because apache mod_rewrite is used
 $assign_to_config['base_url'] = APP_ROOT;
 
 
