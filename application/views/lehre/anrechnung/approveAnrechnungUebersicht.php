@@ -1,11 +1,8 @@
 <?php
-$this->load->view(
-	'templates/FHC-Header',
-	array(
+$includesArray= array(
 		'title' => $this->p->t('anrechnung', 'anrechnungenGenehmigen'),
 		'jquery3' => true,
 		'jqueryui1' => true,
-		'bootstrap3' => true,
 		'fontawesome4' => true,
 		'tabulator4' => true,
 		'ajaxlib' => true,
@@ -83,8 +80,12 @@ $this->load->view(
 			'public/js/bootstrapper.js',
 			'public/js/lehre/anrechnung/approveAnrechnungUebersicht.js'
 		)
-	)
-);
+        );
+
+        $this->load->view(
+            'templates/CISHTML-Header',
+            $includesArray
+        );
 ?>
 
 <div id="page-wrapper">
@@ -250,4 +251,9 @@ $this->load->view(
     </div>
 </div>
 
-<?php $this->load->view('templates/FHC-Footer'); ?>
+<?php
+$this->load->view(
+	'templates/CISHTML-Footer',
+	$includesArray
+);
+

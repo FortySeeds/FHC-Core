@@ -133,6 +133,15 @@ class Content_model extends DB_Model
 						"childs": []
 					},
 					{
+						"content_id": 1000005,
+						"template_kurzbz": "redirect",
+						"titel": "Studium",
+						"content": "<content><url><![CDATA[' . site_url('/Cis/Studium') . ']]></url><target><![CDATA[]]></target></content>",
+						"menu_open": false,
+						"aktiv": true,
+						"childs": []
+					},
+					{
 						"content_id": 1000006,
 						"template_kurzbz": "redirect",
 						"titel": "Studierendenstatus",

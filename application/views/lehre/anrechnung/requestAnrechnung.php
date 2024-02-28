@@ -1,58 +1,59 @@
 <?php
 const HERKUNFT_DER_KENNTNISSE_MAX_LENGTH = 125;
 
-$this->load->view(
-	'templates/FHC-Header',
-	array(
-		'title' => $this->p->t('anrechnung', 'antragStellen'),
-		'jquery3' => true,
-		'jqueryui1' => true,
-		'bootstrap3' => true,
-		'fontawesome4' => true,
-		'ajaxlib' => true,
-		'dialoglib' => true,
-		'phrases' => array(
-			'global' => array(
-				'anerkennungNachgewiesenerKenntnisse',
-				'antragStellen',
-                'antragWurdeGestellt',
-                'antragBereitsGestellt',
-				'bearbeitungGesperrt'
-			),
-			'ui' => array(
-				'hilfeZuDieserSeite',
-				'hochladen',
-                'inBearbeitung',
-                'neu',
-				'maxZeichen',
-                'errorBestaetigungFehlt',
-				'systemfehler',
-                'errorDokumentZuGross'
-			),
-			'anrechnung' => array(
-				'deadlineUeberschritten',
-				'benotungDerLV',
-                'anrechnungEctsTextBeiUeberschreitung',
-                'anrechnungEctsTooltipTextBeiUeberschreitung'
-			),
-			'person' => array(
-				'student',
-				'personenkennzeichen'
-			),
-			'lehre' => array(
-				'studiensemester',
-				'studiengang',
-				'lehrveranstaltung',
-				'ects',
-				'lektor',
-			)
+$sitesettings = array(
+	'title' => $this->p->t('anrechnung', 'antragStellen'),
+	'jquery3' => true,
+	'jqueryui1' => true,
+	'fontawesome4' => true,
+	'ajaxlib' => true,
+	'dialoglib' => true,
+	'phrases' => array(
+		'global' => array(
+			'anerkennungNachgewiesenerKenntnisse',
+			'antragStellen',
+			'antragWurdeGestellt',
+			'antragBereitsGestellt',
+			'bearbeitungGesperrt'
 		),
-		'customJSs' => array(
-			'public/js/bootstrapper.js',
-			'public/js/lehre/anrechnung/requestAnrechnung.js'
-
+		'ui' => array(
+			'hilfeZuDieserSeite',
+			'hochladen',
+			'inBearbeitung',
+			'neu',
+			'maxZeichen',
+			'errorBestaetigungFehlt',
+			'systemfehler',
+			'errorDokumentZuGross'
+		),
+		'anrechnung' => array(
+			'deadlineUeberschritten',
+			'benotungDerLV',
+			'anrechnungEctsTextBeiUeberschreitung',
+			'anrechnungEctsTooltipTextBeiUeberschreitung'
+		),
+		'person' => array(
+			'student',
+			'personenkennzeichen'
+		),
+		'lehre' => array(
+			'studiensemester',
+			'studiengang',
+			'lehrveranstaltung',
+			'ects',
+			'lektor',
 		)
+	),
+	'customJSs' => array(
+		'public/js/bootstrapper.js',
+		'public/js/lehre/anrechnung/requestAnrechnung.js'
+
 	)
+	);
+
+$this->load->view(
+	'templates/CISHTML-Header',
+	$sitesettings
 );
 ?>
 
@@ -293,4 +294,8 @@ $this->load->view(
     </div>
 </div>
 
-<?php $this->load->view('templates/FHC-Footer'); ?>
+<?php
+$this->load->view(
+	'templates/CISHTML-Footer',
+	$sitesettings
+);

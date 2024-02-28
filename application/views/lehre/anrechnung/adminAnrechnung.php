@@ -3,7 +3,6 @@ $includesArray = array(
     'title' => $this->p->t('anrechnung', 'anrechnungenVerwalten'),
     'jquery3' => true,
     'jqueryui1' => true,
-    'bootstrap3' => true,
     'fontawesome6' => true,
     'ajaxlib' => true,
     'dialoglib' => true,
@@ -51,8 +50,10 @@ $includesArray = array(
         'public/css/sbadmin2/tablesort_bootstrap.css'
     )
 );
-
-$this->load->view('templates/FHC-Header', $includesArray);
+$this->load->view(
+	'templates/CISHTML-Header',
+	$includesArray
+);
 ?>
 
 <div id="wrapper">
@@ -133,5 +134,8 @@ $this->load->view('templates/FHC-Header', $includesArray);
     </div>
 </div>
 
-<?php $this->load->view('templates/FHC-Footer', $includesArray); ?>
-
+<?php
+$this->load->view(
+	'templates/CISHTML-Footer',
+	$includesArray
+);
