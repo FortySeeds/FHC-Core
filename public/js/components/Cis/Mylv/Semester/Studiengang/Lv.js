@@ -44,6 +44,15 @@ export default {
 		}
 	},
 	methods: {
+		RequestAnrechnungLink:function(lehrveranstaltung_id,semester){
+            if(lehrveranstaltung_id || semester){
+                return FHC_JS_DATA_STORAGE_OBJECT.app_root 
+                + FHC_JS_DATA_STORAGE_OBJECT.ci_router
+                + `/lehre/anrechnung/requestAnrechnung?studiensemester=${semester}&lv_id=${lehrveranstaltung_id}`;
+            }else{
+                return null;
+            }
+        },
 		openPruefungen() {
 			if (!this.pruefungen) {
 				this.pruefungen = true;
@@ -71,7 +80,8 @@ export default {
 			}
 		}
 	},
-	template: `<div class="mylv-semester-studiengang-lv card">
+	template: /*html*/`
+	<div class="mylv-semester-studiengang-lv card">
 		<div v-if="module" class="card-header">
 			{{module}}
 		</div>
@@ -87,6 +97,10 @@ export default {
 				<div v-if="lvinfo" class="col text-end">
 					<a class="card-link" href="#" @click.prevent="openInfos">
 						<i class="fa fa-info-circle" aria-hidden="true"></i>
+					</a>
+					<a class="ms-2 btn btn-outline-primary btn-sm" :href="RequestAnrechnungLink(lehrveranstaltung_id,studien_semester)" >
+						Anrechnungen
+						
 					</a>
 				</div>
 			</div>

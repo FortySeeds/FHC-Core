@@ -1,9 +1,7 @@
 <?php
 const HERKUNFT_DER_KENNTNISSE_MAX_LENGTH = 125;
 
-$this->load->view(
-	'templates/FHC-Header',
-	array(
+$includesArray=[
 		'title' => $this->p->t('anrechnung', 'antragStellen'),
 		'jquery3' => true,
 		'jqueryui1' => true,
@@ -52,8 +50,8 @@ $this->load->view(
 			'public/js/lehre/anrechnung/requestAnrechnung.js'
 
 		)
-	)
-);
+		];
+		$this->load->view('templates/CISHTML-Header', $includesArray);
 ?>
 
 <style>
@@ -293,4 +291,4 @@ $this->load->view(
     </div>
 </div>
 
-<?php $this->load->view('templates/FHC-Footer'); ?>
+<?php $this->load->view('templates/CISHTML-Footer', $includesArray); ?>
