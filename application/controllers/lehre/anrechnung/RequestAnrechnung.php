@@ -81,10 +81,10 @@ class requestAnrechnung extends Auth_Controller
 		
 		// Check if application deadline is expired
 		$is_expired = $this->_isExpired($studiensemester_kurzbz);
-		
+		$is_expired=false;
 		// Check if Lehrveranstaltung was already graded with application blocking grades
 		$is_blocked = self::_LVhasBlockingGrades($studiensemester_kurzbz, $lehrveranstaltung_id);
-		
+		$is_blocked=false;
 		// Get Anrechung data
 		$anrechnungData = $this->anrechnunglib->getAnrechnungDataByLv($lehrveranstaltung_id, $studiensemester_kurzbz, $prestudent_id);
 
@@ -149,10 +149,10 @@ class requestAnrechnung extends Auth_Controller
 		}
 		
 		// Exit if application is not for actual studysemester
-		if (!self::_applicationIsForActualSS($studiensemester_kurzbz))
+		/* if (!self::_applicationIsForActualSS($studiensemester_kurzbz))
 		{
 			return $this->outputJsonError($this->p->t('anrechnung', 'antragNurImAktSS'));
-		}
+		} */
 		
 		// Upload document
 		$result = self::_uploadFile();

@@ -15,18 +15,19 @@ const AnrechnungMenuApp = Vue.createApp({
         lehrveranstaltungFun: function(id){
             console.log(`clicked on id: ${id}`);
         },
-    },
-    computed:{
-        RequestAnrechnungLink:function(){
-            if(this.selectedLehrveranstaltung || this.selectedSemester){
+        RequestAnrechnungLink:function(lehrveranstaltung_id,semester){
+            if(lehrveranstaltung_id || semester){
                 return FHC_JS_DATA_STORAGE_OBJECT.app_root 
                 + FHC_JS_DATA_STORAGE_OBJECT.ci_router
-                + `/lehre/anrechnung/requestAnrechnung?studiensemester=${this.selectedSemester}&lv_id=${this.selectedLehrveranstaltung}`;
+                + `/lehre/anrechnung/requestAnrechnung?studiensemester=${semester}&lv_id=${lehrveranstaltung_id}`;
             }else{
                 return null;
             }
         },
     },
+    
+        
+    
     mounted(){
 
     },
@@ -58,7 +59,7 @@ template: /*html*/`
 <!--<pre>{{JSON.stringify(aktuelleLehrveranstaltungen,null,2)}}</pre>-->
 <div class="row mb-2">
 <div class="col-6">
-<p>{{selectedSemester?selectedSemester:'none'}}</p>
+<p>Semester</p>
 <select v-model="selectedSemester" class="form-select" aria-label="Default select example">
   <option selected :value="null"></option>
   <option v-for="sem in semester" :value="sem">{{sem}}</option>
@@ -66,7 +67,7 @@ template: /*html*/`
 </select>
 </div>
 <div class="col-6">
-<p>{{selectedLehrveranstaltung? selectedLehrveranstaltung :'none'}}</p>
+<p>Lehrveranstaltung</p>
 <select v-model="selectedLehrveranstaltung" class="form-select" aria-label="Default select example">
   <option selected :value="null"></option>
   <option v-for="lehrveranstaltung in lehrveranstaltungen" :value="lehrveranstaltung.lehrveranstaltung_id">{{lehrveranstaltung.bezeichnung}}</option>
@@ -76,14 +77,15 @@ template: /*html*/`
 </div>
 <div class="row mb-2">
 <div class="col">
+<h4 class="my-3">Aktuelle Lehrveranstaltungen ({{aktuelleLehrveranstaltungen.aktuelleSemester}}):</h4>
 <ul class="list-group">
-  <li role="button" @click="lehrveranstaltungFun(lehrveranstaltung.lehrveranstaltung_id)" v-for="lehrveranstaltung in aktuelleLehrveranstaltungen" class="list-group-item">{{lehrveranstaltung.bezeichnung}}</li>
+  <a :href="RequestAnrechnungLink(lehrveranstaltung.lehrveranstaltung_id, aktuelleLehrveranstaltungen.aktuelleSemester)" role="button" @click="lehrveranstaltungFun(lehrveranstaltung.lehrveranstaltung_id)" v-for="lehrveranstaltung in aktuelleLehrveranstaltungen.lehrveranstaltungen" class="list-group-item">{{lehrveranstaltung.bezeichnung}}</a>
   
 </ul>
 </div>
 </div>
 <!--https://cis.technikum-wien.at/index.ci.php/lehre/anrechnung/RequestAnrechnung?studiensemester=SS2024&lv_id=40262&fhc_controller_id=65ddb744356e5-->
-<a :href="RequestAnrechnungLink" class="mt-2 btn btn-outline-primary">Anrechnungs Übersicht</a>
+<a :href="RequestAnrechnungLink(selectedLehrveranstaltung,selectedSemester)" class="mt-2 btn btn-outline-primary">Anrechnungs Übersicht</a>
 </div>
 
 

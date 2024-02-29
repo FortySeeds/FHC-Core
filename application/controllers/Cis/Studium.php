@@ -48,7 +48,8 @@ class Studium extends Auth_Controller
         if(!isset($semester)){
             return;
         }
-        $lehrveranstaltung_res = $this->LehrveranstaltungModel->getLvsByStudent('io22m029',$semester);
+        //io22m029
+        $lehrveranstaltung_res = $this->LehrveranstaltungModel->getLvsByStudent($this->uid,$semester);
         if (isError($lehrveranstaltung_res)) {
             show_error("was not able to load lehrveranstaltungen for uid: " . $this->uid);
         }
@@ -70,46 +71,36 @@ class Studium extends Auth_Controller
         //TODO: change static student_uid by actual uid
         //TODO: change static semester with $aktSemester
         $aktSemester = $this->SemesterModel->getAkt();
-        $lehrveranstaltungArray = [];
+        
        
         if(isError($aktSemester)){
             show_error("was not able to query the current semester");
         }
         $aktSemester = hasData($aktSemester) ? getData($aktSemester)[0] : null;
         $aktSemester = $aktSemester->studiensemester_kurzbz;
-        
-        $lehrveranstaltung_res = $this->LehrveranstaltungModel->getLvsByStudent('io22m029','WS2023');
+        //io22m029
+        $lehrveranstaltung_res = $this->LehrveranstaltungModel->getLvsByStudent($this->uid,'WS2023');
         if (isError($lehrveranstaltung_res)) {
             show_error("was not able to load lehrveranstaltungen for uid: " . $this->uid);
         }
         $lehrveranstaltung_res = hasData($lehrveranstaltung_res) ? getData($lehrveranstaltung_res) : null;
         $lehrveranstaltung_res = array_map(function($lehrveranstaltung){
-            return $lehrveranstaltung->lehrform_kurzbz;
+            $obj = new stdClass();
+            $obj->lehrveranstaltung_id = $lehrveranstaltung->lehrveranstaltung_id;
+            $obj->bezeichnung = $lehrveranstaltung->bezeichnung;
+            return $obj;
         },$lehrveranstaltung_res);
-        echo json_encode($lehrveranstaltung_res);
+
+        //TODO: "aktuelleSemester"=>$aktSemester
+        echo json_encode(["lehrveranstaltungen"=>$lehrveranstaltung_res, "aktuelleSemester"=>'WS2023' ]);
        
-        /* foreach($lehrveranstaltung_res as $lehrveranstaltung){
-            $lehrVerObj= new stdClass();
-            $lehrVerObj->lehrveranstaltung_bezeichnung= $lehrveranstaltung->bezeichnung;
-            $lehrVerObj->lehrveranstaltung_id= $lehrveranstaltung->lehrveranstaltung_id;
-            $lehrVerObj->lehreinheiten= array_map(function($einheit){
-                
-                $einheitObj = new stdClass();   
-                $einheitObj->lehreinheit_id = $einheit->lehreinheit_id;
-                $einheitObj->lehrform_kurzbz = $einheit->lehrform_kurzbz;
-                return $einheitObj;
-            },$this->LehreinheitModel->getLesForLv($lehrveranstaltung->lehrveranstaltung_id,'WS2023')) ;
-            array_push($lehrveranstaltungArray, $lehrVerObj);
-        }
-        echo json_encode($lehrveranstaltungArray);
-        */
- 
     }
 
     public function getSemesterOfStudent(){
         $this->LehrverbandModel->addSelect('studiensemester_kurzbz');
         //TODO: change static uid to actual uid
-        $semester_res = $this->LehrverbandModel->loadWhere(['student_uid'=>'io22m029']);
+        //io22m029
+        $semester_res = $this->LehrverbandModel->loadWhere(['student_uid'=>$this->uid]);
         
         if(isError($semester_res)){
             show_error("was not able to load the semester for the uid ".$this->uid);
