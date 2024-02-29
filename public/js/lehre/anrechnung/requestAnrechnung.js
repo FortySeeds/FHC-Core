@@ -181,7 +181,7 @@ var requestAnrechnung = {
 
             // Show sperre panel
             $('#requestAnrechnung-sperre')
-                .removeClass('hidden')
+                .removeClass('visually-hidden')
                 .html(function(){
                     let sperregrund = FHC_PhrasesLib.t('global', 'bearbeitungGesperrt') + ': ';
 

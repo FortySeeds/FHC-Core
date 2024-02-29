@@ -1,11 +1,13 @@
 <?php
 const HERKUNFT_DER_KENNTNISSE_MAX_LENGTH = 125;
+const NEW_BOOTSTRAP = true;
 
 $includesArray=[
 		'title' => $this->p->t('anrechnung', 'antragStellen'),
 		'jquery3' => true,
 		'jqueryui1' => true,
-		'bootstrap3' => true,
+		'bootstrap3' => !NEW_BOOTSTRAP,
+		'bootstrap5' => NEW_BOOTSTRAP,
 		'fontawesome4' => true,
 		'ajaxlib' => true,
 		'dialoglib' => true,
@@ -74,7 +76,7 @@ $includesArray=[
 		<!-- end header-->
 		
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-8">
 				<!-- Antragsdaten, Dokument Upload, Notiz-->
 				<div class="row">
 					<div class="col-lg-12">
@@ -216,7 +218,7 @@ $includesArray=[
 											   title="<?php echo $this->p->t('ui', 'uploadTooltipText'); ?>">
 												<i class="fa fa-lg fa-question-circle-o" aria-hidden="true"></i>
 											</span>
-											<a class="pull-right <?php echo !empty($anrechnungData->dms_id) ? '' : 'hidden' ?>"
+											<a class="pull-right <?php echo !empty($anrechnungData->dms_id) ? '' : 'visually-hidden' ?>"
 											   id="requestAnrechnung-downloadDocLink"
 											   href="<?php echo current_url() . '/download?dms_id=' . $anrechnungData->dms_id; ?>"
 											   target="_blank"><?php echo htmlentities($anrechnungData->dokumentname) ?>
@@ -271,7 +273,7 @@ $includesArray=[
 				</div>
 				<br><br><br><br>
             </div>
-            <div class="col-xs-4">
+            <div class="col-4">
 				 <!-- Status panel -->
                 <div class="alert text-center" id="requestAnrechnung-status">Status: <b><span class="text-uppercase" id="requestAnrechnung-status_kurzbz"
                              data-status_kurzbz="<?php echo $anrechnungData->status_kurzbz ?>">
@@ -279,7 +281,7 @@ $includesArray=[
                         </span></b>
 				</div>
 				<!-- Sperregrund panel (hidden by default) -->
-				<div class="alert alert-danger text-center hidden" id="requestAnrechnung-sperre"
+				<div class="alert alert-danger text-center visually-hidden" id="requestAnrechnung-sperre"
 					 data-anrechnung_id="<?php echo empty($anrechnungData->anrechnung_id) ? '' : $anrechnungData->anrechnung_id; ?>"
 					 data-expired="<?php echo json_encode($is_expired); ?>"
 					 data-blocked="<?php echo json_encode($is_blocked) ?>">
