@@ -1,8 +1,11 @@
 <?php
-$includesArray = array(
+$this->load->view(
+	'templates/FHC-Header',
+	array(
 		'title' => $this->p->t('anrechnung', 'neueAnrechnung'),
 		'jquery3' => true,
 		'jqueryui1' => true,
+		'bootstrap3' => true,
 		'fontawesome4' => true,
 		'ajaxlib' => true,
 		'dialoglib' => true,
@@ -31,11 +34,7 @@ $includesArray = array(
 		'customCSSs' => array(
 				'public/css/lehre/anrechnung.css'
 		)
-		);
-
-$this->load->view(
-	'templates/CISHTML-Header',
-	$includesArray
+	)
 );
 ?>
 
@@ -171,8 +170,4 @@ $this->load->view(
 </div>
 </div>
 
-<?php
-$this->load->view(
-	'templates/CISHTML-Footer',
-	$includesArray
-);
+<?php $this->load->view('templates/FHC-Footer'); ?>
