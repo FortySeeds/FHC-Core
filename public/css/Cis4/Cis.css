@@ -1,11 +1,16 @@
-/* variables */
+/* basic */
 @import '../components/searchbar.css';
+html {
+  font-size: 0.875em;
+}
+
+/* variables */
 :root {
   --fhc-cis-primary: #00649c;
   --fhc-cis-header-px: 1rem;
   --fhc-cis-header-py: .5rem;
-  --fhc-cis-main-px: 1rem;
-  --fhc-cis-main-py: 1rem;
+  --fhc-cis-main-px: 1.5rem;
+  --fhc-cis-main-py: 1.5rem;
   --fhc-cis-menu-lvl-1-bg: #00649c;
   --fhc-cis-menu-lvl-1-color: #fff;
   --fhc-cis-menu-lvl-1-bg-hover: #005585;
@@ -29,7 +34,7 @@
 }
 @media (min-width: 992px) {
   :root {
-    --fhc-cis-menu-width: 300px;
+    --fhc-cis-menu-width: 250px;
     --fhc-cis-header-height: 60px;
     --fhc-cis-menu-bg: #72777A;
   }
@@ -40,10 +45,6 @@
     --fhc-cis-header-height: 40px;
     --fhc-cis-menu-bg: #343a40;
   }
-}
-
-html {
-	font-size: .875em;
 }
 
 /* buttons */
@@ -187,6 +188,10 @@ html {
   display: none;
 }
 
+#cis-main {
+  padding: var(--fhc-cis-main-py) var(--fhc-cis-main-px);
+}
+
 /* desktop */
 @media (min-width: 992px) {
   body {
@@ -280,9 +285,6 @@ html {
 }
 /* mobile */
 @media (max-width: 991.98px) {
-  #cis-main {
-    padding-left: var(--fhc-cis-main-px);
-  }
   #cis-main > :first-child {
     margin-top: var(--fhc-cis-header-height);
   }
