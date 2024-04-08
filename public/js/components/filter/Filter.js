@@ -65,6 +65,7 @@ export const CoreFilterCmpt = {
 		newBtnClass: [String, Array, Object],
 		newBtnDisabled: Boolean,
 		newBtnLabel: String,
+		uniqueId: String,
 		// TODO soll im master kommen?
 		idField: String,
 		parentIdField: String
@@ -184,7 +185,6 @@ export const CoreFilterCmpt = {
 	methods: {
 		reloadTable() {
 			if (this.tableOnly)
-				// TODO check, vorher reload() gewesen
 				this.tabulator.setData();
 			else
 				this.getFilter();
@@ -313,7 +313,6 @@ export const CoreFilterCmpt = {
 				this.filterName = data.filterName;
 				this.dataset = data.dataset;
 				this.datasetMetadata = data.datasetMetadata;
-
 				this.fields = data.fields;
 				this.selectedFields = data.selectedFields;
 				this.notSelectedFields = this.fields.filter(x => this.selectedFields.indexOf(x) === -1);
@@ -453,6 +452,9 @@ export const CoreFilterCmpt = {
 			// Always needed parameters
 			apiFunctionParameters.filterUniqueId = FHC_JS_DATA_STORAGE_OBJECT.called_path + "/" + FHC_JS_DATA_STORAGE_OBJECT.called_method;
 			apiFunctionParameters.filterType = this.filterType;
+
+			if (this.uniqueId)
+				apiFunctionParameters.filterUniqueId += '_' + this.uniqueId;
 
 			// Assign parameters to the FetchCmpt binded properties
 			this.fetchCmptApiFunctionParams = apiFunctionParameters;
