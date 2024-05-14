@@ -583,7 +583,7 @@ export const CoreFilterCmpt = {
 
 		<div class="row" v-if="title != null && title != ''">
 			<div class="col-lg-12">
-				<h3 class="page-header mt-1 mb-4">
+				<h3 class="page-header">
 					{{ title }}
 				</h3>
 			</div>
