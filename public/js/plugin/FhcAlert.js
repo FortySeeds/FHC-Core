@@ -133,8 +133,8 @@ const helperApp = Vue.createApp({
 		helperAppContainer.parentElement.removeChild(helperAppContainer);
 	},
 	template: `
-	<pv-toast ref="toast" base-z-index="99999"></pv-toast>
-	<pv-toast ref="alert" base-z-index="99999" position="center">
+	<pv-toast ref="toast" class="fhc-alert" :base-z-index="99999"></pv-toast>
+	<pv-toast ref="alert" class="fhc-alert" :base-z-index="99999" position="center">
 		<template #message="slotProps">
 			<i class="fa fa-circle-exclamation fa-2xl mt-3"></i>
 			<div class="p-toast-message-text">
@@ -161,7 +161,7 @@ const helperApp = Vue.createApp({
 					</a>
 				</div>
 				<div ref="messageCard" :id="'fhcAlertCollapseMessageCard' + slotProps.message.id" class="collapse mt-3">
-					<div class="card card-body text-body small" style="white-space: pre-wrap">
+					<div class="card card-body text-body small">
 						{{slotProps.message.detail}}
 					</div>
 				</div>
@@ -250,6 +250,10 @@ export default {
 				// Error is array of strings
 				if (Array.isArray(error) && error.every(err => typeof err === 'string'))
 					return error.every($fhcAlert.alertSystemError);
+
+				// Error has been handled already
+				if (error.hasOwnProperty('handled') && error.handled)
+					return;
 				
 				// Error is object
 				if (typeof error === 'object' && error !== null) {
@@ -295,9 +299,6 @@ export default {
 							if (msg.hasOwnProperty('data') && msg.data.hasOwnProperty('retval')) {
 								$fhcAlert.alertWarning(JSON.stringify(msg.data.retval));
 							} else {
-								console.log('FhcAlert systemError');
-								console.log(msg);
-								console.log(JSON.stringify(msg));
 								$fhcAlert.alertSystemError(JSON.stringify(msg));
 							}
 						});
