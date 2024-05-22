@@ -26059,6 +26059,1610 @@ array(
 			)
 		)
 	),
+
+	// FHC-CORE-ANWESENHEITEN BEGIN
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwesend',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'anwesend',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'attending',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'abwesend',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'abwesend',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'absent',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigt',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'entschuldigt',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'excused',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungAbgelehnt',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung abgelehnt',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'excuse note declined',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungAngenommen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung akzeptiert',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'excuse note accepted',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungOffen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung offen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'excuse note open',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwesenheiten',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheiten',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendances',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigungen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Excuse Notes',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'codeEingeben',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Code eingeben',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Enter Code',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'codeSenden',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Code senden',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Send Code',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwesenheitenverwaltung',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitenverwaltung',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendance Management',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'bitteZugangscodeEingeben',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Bitte Zugangscode eingeben.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Please enter an access code.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'code',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Zugangscode',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Access code',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'eintragErfolgreich',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Eintrag erfolgreich!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Entry successful!',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'wurdeRegistriert',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'wurde registriert',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'has been registered.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'neueAnwKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Neue Anwesenheitskontrolle starten',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Start a new attendance check',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'endAnwKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitskontrolle beenden',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'end attendance check',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungsmanagementStudiengangsassistenz',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigungsmanagement Studiengangsassistenz',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Excuse note management for degree program assistants',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'digitalesAnwManagement',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Digitales Anwesenheitsmanagement',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Digital attendance management',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungAkzeptieren',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung akzeptieren',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Accept excuse note',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungAblehnen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung ablehnen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Decline excuse note',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungLöschen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung löschen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Delete excuse note',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungHochladen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung hochladen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Upload excuse note',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungLöschenErfolg',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung erfolgreich gelöscht!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Successfully deleted excuse note',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'foto',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Foto',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Picture',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'summe',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Summe',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Sum',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorStartAnwKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim dem Versuch eine neue Anwesenheitskontrolle zu starten',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error when trying to start a new attendance check',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorAnwStartAndEndSet',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Beginn und Ende der Anwesenheitskontrolle müssen gesetzt sein!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The start and end of the attendance check must be set!',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwKontrolleBeendet',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitskontrolle erfolgreich beendet',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendance check successfully finished',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeleteQRCode',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch den QR Code zu löschen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Something went wrong with deleting the QR Code',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'deleteAnwKontrolleConfirmation',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitskontrolle erfolgreich gelöscht',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendance check successfully deleted',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'deleteAnwKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitskontrolle löschen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Delete attendance check',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'noAnwKontrolleFoundToDelete',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Anwesenheitskontrolle gefunden zu löschen!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No attendance check found to delete!',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeletingAnwKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim Löschen der Anwesenheitskontrolle!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error deleting an attendance check!',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorValidateTimes',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Das Enddatum muss nach dem Startdatum liegen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The end date must be after the start date.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'zugangscode',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Zugangscode',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Access code',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwUserDeleteSuccess',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitseinträge erfolgreich gelöscht.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendances deleted successfully',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorAnwUserDelete',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch Anwesenheitseinträge zu löschen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error deleting Attendances',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwUserUpdateSuccess',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheitseinträge erfolgreich aktualisiert.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendances updated successfully.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorAnwUserUpdate',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch Anwesenheitseinträge zu aktualisieren.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error updating Attendances',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorLoadingAnwesenheiten',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch Anwesenheitsdaten zu laden.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error loading attendancy data.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'warningEnterVonZeit',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Bitte von Zeit eingeben',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Please enter a from time',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'warningEnterBisZeit',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Bitte bis Zeit eingeben',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Please enter a by time',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'warningChooseFile',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Bitte Datei auswählen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Please choose a file',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungUploaded',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung hochgeladen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Excuse note uploaded',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorEntschuldigungUpload',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch eine Entschuldigung hochzuladen!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error uploading an excuse note!',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'addEntschuldigung',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung hinzufügen!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Add excuse note',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'noDataAvailable',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Daten verfügbar',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No data available',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'noExistingKontrolleFound',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Anwesenheitskontrolle gefunden.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No existing attendance check found.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDegeneratingQRCode',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim degenerieren des QRCode',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error degenerating QRCode',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorSavingNewQRCode',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim anlegen eines neuen QRCode',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error saving a new QRCode',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeleteKontrolleKeineLEAnDatum',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Anwesenheitskontrolle gefunden für LV-Teil {le_id} am {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No attendance check found for teaching unit {le_id} on {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeleteUserAnwEntriesAnDatum',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim Löschen der User Anwesenheiten für LV-Teil {le_id} am {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error deleting User Anwesenheiten for teaching unit {le_id} on {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeleteKontrolleEntryAnDatum',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler beim Löschen der Anwesenheitskontrolle für LV-Teil {le_id} am {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error deleting attendance check for teaching unit {le_id} on {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'successDeleteKontrolleEntryAnDatum',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Löschen der Anwesenheitskontrolle für LV-Teil {le_id} am {day}.{month}.{year} erfolgreich.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Success deleting attendance check for teaching unit {le_id} on {day}.{month}.{year}.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'wrongParameters',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Falsche Parameterübergabe',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Wrong parameters tranferred',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorInvalidCode',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Ungültiger Zugangscode eingegeben.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Wrong access code entered.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorCodeLinkedToInvalidKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Zugangscode hat eine fehlerhafte Anwesenheitskontrolle hinterlegt.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Access code is linked to an invalid attendance check.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorCodeLinkedToInvalidLE',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Zugangscode hat einen fehlerhaften LV-Teil hinterlegt.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Access code is linked to an invalid teaching unit.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorLEhasNoStudentsAttending',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'LV-Teil des Zugangscodes hat keine Teilnehmer hinterlegt.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Teaching unit linked to access code has no participants.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorNotParticipantOfLE',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Sie sind nicht als Teilnehmer der LV-Teil eingetragen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'You are not registered as a participant in the teaching unit.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorNoUserEntriesForAttendanceCheckFound',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Anwesenheitseinträge gefunden für den LV-Teil an diesem Datum.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No attendance entries found for the teaching unit on this date.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorUpdateUserEntry',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Eintrag der Anwesenheit fehlgeschlagen, bitte wenden Sie sich an den Unterrichtenden.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendance entry failed, please contact the instructor.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorPersonStudentIDMismatch',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehlerhafte Verbindung von Person und Student ID',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Person und Student ID Mismatch.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'successDeleteEnschuldigung',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung erfolgreich gelöscht.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Successfully deleted excuse note.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorCalculatingAnwQuota',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei der Berechnung der Anwesenheitenquote.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error calculating attendancy quota.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeleteSingleAnwUserEntry',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch den Anwesenheitseintrag zu löschen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error trying to delete the attendancy entry.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorDeleteMultipleAnwUserEntry',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch die Anwesenheitseinträge zu löschen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error trying to delete the attendancy entries.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorNoSTGassigned',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Studiengänge zugewiesen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No study programs assigned.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorUpdateEntschuldigung',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehler bei dem Versuch Entschuldigungsstatus zu verändern.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Error when trying to change excuse note status.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'successUpdateEntschuldigung',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigungsstatus erfolgreich aktualisiert.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Excuse note status successfully updated.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'lehreinheitConfig',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'LV-Teil auswählen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Configurate teaching unit',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'keineAnwkontrolleMöglichWeilLEFehlt',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Keine Anwesenheitskontrolle möglich weil ihnen im System keine LV-Teile für diese Lehrveranstaltung zugewiesen sind.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'No attendance check possible because no teaching units are assigned to you in the system for this course.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwByLva',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheiten für {lva}',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendancies for {lva}',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwByStg',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheiten für {stg}',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendancies for {stg}',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'anwByLe',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Anwesenheiten für {le}',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Attendancies for {le}',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'leLaden',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'LV-Teil laden',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Load teaching unit',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorCodeSentInTimeOutsideKontrolle',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Der Zugangscode wurde außerhalb der Kontrollzeiten gesendet.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The access code has been sent outside the time of the attendance check.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorNoRightsToChangeData',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Fehlende Berechtigung um den Datenstand zu verändern.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Missing authorization rights to change data.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorCodeTooOld',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Der Zugangscode ist zeitlich abgelaufen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'The access code has expired.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	)
+
+	// FHC-CORE-ANWESENHEITEN END
 );
 
 
