@@ -195,16 +195,16 @@ export const CoreFilterCmpt = {
 			}
 			// Define a default tabulator options in case it was not provided
 			let tabulatorOptions = {...{
-				height: 500,
-				layout: "fitDataStretch",
-				movableColumns: true,
-				columnDefaults:{
-					tooltip: true,
-				},
-				placeholder,
-				reactiveData: true,
-				persistence: true
-			}, ...(this.tabulatorOptions || {})};
+					height: 500,
+					layout: "fitDataStretch",
+					movableColumns: true,
+					columnDefaults:{
+						tooltip: true,
+					},
+					placeholder,
+					reactiveData: true,
+					persistence: true
+				}, ...(this.tabulatorOptions || {})};
 
 			if (!this.tableOnly) {
 				tabulatorOptions.data = this.filteredData;
@@ -583,7 +583,7 @@ export const CoreFilterCmpt = {
 
 		<div class="row" v-if="title != null && title != ''">
 			<div class="col-lg-12">
-				<h3 class="page-header">
+				<h3 class="page-header mt-1 mb-4">
 					{{ title }}
 				</h3>
 			</div>
@@ -645,4 +645,3 @@ export const CoreFilterCmpt = {
 		<div ref="table" :id="'filterTableDataset' + idExtra" class="filter-table-dataset"></div>
 	`
 };
-
