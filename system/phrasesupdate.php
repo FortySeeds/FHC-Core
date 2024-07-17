@@ -25144,7 +25144,27 @@ array(
 	array(
 		'app' => 'anwesenheiten',
 		'category' => 'global',
-		'phrase' => 'entschuldigungAngenommen',
+		'phrase' => 'abgelehnt',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Abgelehnt',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'declined',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungAkzeptiert',
 		'insertvon' => 'system',
 		'phrases' => array(
 			array(
@@ -25164,6 +25184,26 @@ array(
 	array(
 		'app' => 'anwesenheiten',
 		'category' => 'global',
+		'phrase' => 'akzeptiert',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Akzeptiert',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'accepted',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
 		'phrase' => 'entschuldigungOffen',
 		'insertvon' => 'system',
 		'phrases' => array(
@@ -25175,7 +25215,27 @@ array(
 			),
 			array(
 				'sprache' => 'English',
-				'text' => 'excuse note open',
+				'text' => 'excuse note status open',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'hochgeladen',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Hochgeladen',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'uploaded',
 				'description' => '',
 				'insertvon' => 'system'
 			)
@@ -25404,18 +25464,18 @@ array(
 	array(
 		'app' => 'anwesenheiten',
 		'category' => 'global',
-		'phrase' => 'entschuldigungsmanagementStudiengangsassistenz',
+		'phrase' => 'entschuldigungsmanagement',
 		'insertvon' => 'system',
 		'phrases' => array(
 			array(
 				'sprache' => 'German',
-				'text' => 'Entschuldigungsmanagement Studiengangsassistenz',
+				'text' => 'Entschuldigungsmanagement',
 				'description' => '',
 				'insertvon' => 'system'
 			),
 			array(
 				'sprache' => 'English',
-				'text' => 'Excuse note management for degree program assistants',
+				'text' => 'Excuse note management',
 				'description' => '',
 				'insertvon' => 'system'
 			)
@@ -25436,6 +25496,26 @@ array(
 			array(
 				'sprache' => 'English',
 				'text' => 'Digital attendance management',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'entschuldigungAutoEmailBetreff',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Entschuldigung zur Befreiung der Anwesenheitspflicht: Neues Dokument wurde hochgeladen.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Excuse note for digital attendances - a new document has been uploaded.',
 				'description' => '',
 				'insertvon' => 'system'
 			)
@@ -26289,7 +26369,7 @@ array(
 		'phrases' => array(
 			array(
 				'sprache' => 'German',
-				'text' => 'Sie sind nicht als Teilnehmer der LV-Teil eingetragen.',
+				'text' => 'Sie sind nicht als Teilnehmer des LV-Teil eingetragen.',
 				'description' => '',
 				'insertvon' => 'system'
 			),
@@ -26961,7 +27041,26 @@ array(
 			)
 		)
 	),
-	// FHC-CORE-ANWESENHEITEN END
+	array(
+		'app' => 'anwesenheiten',
+		'category' => 'global',
+		'phrase' => 'errorInvalidFiletype',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Ungültiges Dateiformat!',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Invalid Filetype!',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
 	array(
 		'app' => 'core',
 		'category' => 'global',
