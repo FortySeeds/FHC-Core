@@ -2665,6 +2665,26 @@ $phrases = array(
 	array(
 		'app' => 'core',
 		'category' => 'person',
+		'phrase' => 'unruly',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Unerwünscht',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Unruly',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'person',
 		'phrase' => 'error_noBenutzer',
 		'insertvon' => 'system',
 		'phrases' => array(
@@ -5316,6 +5336,26 @@ The invoice will be sent to you again. <u><strong>The amount is only to be trans
 			array(
 				'sprache' => 'English',
 				'text' => 'University of Applied Sciences Technikum Wien',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'infocenter',
+		'category' => 'infocenter',
+		'phrase' => 'unrulyPersonFound',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Unerwünschte Person wurde gefunden',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Unruly Person detected',
 				'description' => '',
 				'insertvon' => 'system'
 			)
@@ -20793,6 +20833,46 @@ array(
 	array(
 		'app' => 'core',
 		'category' => 'studierendenantrag',
+		'phrase' => 'antrag_unruly',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Unerwünscht',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Unruly',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'studierendenantrag',
+		'phrase' => 'antrag_unruly_updated',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Unerwünschte Person Status wurde aktualisiert.',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Unruly person status has been updated.',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'studierendenantrag',
 		'phrase' => 'antrag_dateianhaenge',
 		'insertvon' => 'system',
 		'phrases' => array(
@@ -23134,6 +23214,26 @@ array(
 	array(
 		'app' => 'core',
 		'category' => 'studierendenantrag',
+		'phrase' => 'textLong_unruly',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Person ist unerwünscht',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Person is unruly',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'studierendenantrag',
 		'phrase' => 'dropdown_nichtGezahlt',
 		'insertvon' => 'system',
 		'phrases' => array(
@@ -23446,6 +23546,26 @@ array(
 			array(
 				'sprache' => 'English',
 				'text' => 'Last updated',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	),
+	array(
+		'app' => 'core',
+		'category' => 'studierendenantrag',
+		'phrase' => 'mark_person_as_unruly',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'Person ist unerwünscht',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'Person is unruly.',
 				'description' => '',
 				'insertvon' => 'system'
 			)

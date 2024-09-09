@@ -18,7 +18,8 @@ export default {
 	],
 	props: {
 		prestudentId: Number,
-		studierendenantragId: Number
+		studierendenantragId: Number,
+		unruly: Boolean
 	},
 	data() {
 		return {
@@ -26,7 +27,8 @@ export default {
 			saving: false,
 			formData: {
 				grund: ''
-			}
+			},
+			unrulyInternal: this.unruly
 		}
 	},
 	computed: {
@@ -106,7 +108,7 @@ export default {
 			this.formData.grund = event.target.value
 				? this.$p.t('studierendenantrag', event.target.value)
 				: '';
-		},
+		}
 	},
 	created() {
 		this.uuid = _uuid++;
@@ -172,6 +174,8 @@ export default {
 							<option value="textLong_plageat">{{$p.t('studierendenantrag', 'dropdown_plageat')}}
 							</option>					
 							<option value="textLong_MissingZgv">{{$p.t('studierendenantrag', 'dropdown_MissingZgv')}}
+							</option>	
+							<option value="textLong_unruly">{{$p.t('studierendenantrag', 'mark_person_as_unruly')}}
 							</option>						
 						</select>	
 					</div>

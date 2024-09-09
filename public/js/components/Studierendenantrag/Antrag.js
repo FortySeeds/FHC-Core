@@ -21,7 +21,8 @@ export default {
 		studierendenantragId: Number,
 		infoArray: Array,
 		statusMsg: String,
-		statusSeverity: String
+		statusSeverity: String,
+		unruly: Boolean
 	},
 	data() {
 		return {
@@ -36,6 +37,9 @@ export default {
 			return this.$p.t('studierendenantrag/info_' + this.antragType + '_' + this.status);
 		}
 	},
+	mounted() {
+		console.log(this)
+	},
 	template: `
 	<div class="studierendenantrag-antrag card">
 		<div class="card-header">
@@ -49,6 +53,7 @@ export default {
 			v-model:status="status"
 			:prestudent-id="prestudentId"
 			:studierendenantrag-id="studierendenantragId"
+			:unruly="unruly"
 			@setInfos="$emit('update:infoArray', $event)"
 			@setStatus="$emit('update:statusMsg', $event.msg);$emit('update:statusSeverity', $event.severity)"
 			>
