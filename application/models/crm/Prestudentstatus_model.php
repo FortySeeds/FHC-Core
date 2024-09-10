@@ -572,12 +572,12 @@ class Prestudentstatus_model extends DB_Model
 		$this->addOrder('tbl_prestudentstatus.datum', 'DESC');
 		$this->addOrder('tbl_prestudentstatus.insertamum', 'DESC');
 		$this->addOrder('tbl_prestudentstatus.ext_id', 'DESC');
-		
+
 		$this->addLimit(1);
 
 		$this->db->where('prestudent_id', $prestudent_id);
 		$this->db->where('status_kurzbz', self::STATUS_STUDENT);
-		
+
 		$sql = $this->db->get_compiled_select($this->dbTable);
 
 		$this->addJoin('lehre.tbl_studienplan plan', 'studienplan_id', 'LEFT');
