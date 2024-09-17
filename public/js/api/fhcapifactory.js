@@ -23,7 +23,7 @@ import studstatus from "./studstatus.js";
 import stv from "./stv.js";
 import notiz from "./notiz.js";
 import betriebsmittel from "./betriebsmittel.js";
-import unrulyperson from "./unrulyperson.js";
+import checkperson from "./checkperson.js";
 
 export default {
     search,
@@ -32,7 +32,7 @@ export default {
     filter,
     studstatus,
     betriebsmittel,
-    unrulyperson,
+    checkperson,
     stv,
     notiz
 };
