@@ -23414,7 +23414,7 @@ array(
 	array(
 		'app' => 'core',
 		'category' => 'studierendenantrag',
-		'phrase' => 'mark_person_as_unruly',
+		'phrase' => 'dropdown_unruly',
 		'insertvon' => 'system',
 		'phrases' => array(
 			array(
@@ -32846,6 +32846,28 @@ array(
 			)
 		)
 	),
+	// Betriebsmittel end
+	array(
+		'app' => 'core',
+		'category' => 'uhstat',
+		'phrase' => 'unbekannt',
+		'insertvon' => 'system',
+		'phrases' => array(
+			array(
+				'sprache' => 'German',
+				'text' => 'unbekannt',
+				'description' => '',
+				'insertvon' => 'system'
+			),
+			array(
+				'sprache' => 'English',
+				'text' => 'unknown',
+				'description' => '',
+				'insertvon' => 'system'
+			)
+		)
+	)
+
 );
 
 
