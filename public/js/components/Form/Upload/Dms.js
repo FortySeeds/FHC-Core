@@ -86,11 +86,10 @@ export default {
 			this.$emit('update:modelValue', dt.files);
 		}
 	},
-
 	template: `
 	<div class="form-upload-dms">
-		<input ref="upload" class="form-control" :class="inputClass" :id="id" :name="name" :multiple="multiple" type="file" @change="addFiles">
-		<ul v-if="modelValue.length && multiple && !noList" class="list-unstyled m-0">
+		<input ref="upload" class="form-control" :accept="accept" :class="inputClass" :id="id" :name="name" :multiple="multiple" type="file" @change="addFiles">
+		<ul v-if="modelValue.length && multiple && !noList" :accept="accept" class="list-unstyled m-0">
 			<dms-item
 				v-for="(file, index) in modelValue"
 				:key="index"
