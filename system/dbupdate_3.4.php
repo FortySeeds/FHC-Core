@@ -61,6 +61,8 @@ require_once('dbupdate_3.4/33683_digitale_anwesenheitsliste_und_entschuldigungsm
 require_once('dbupdate_3.4/40717_lv_faktor.php');
 require_once('dbupdate_3.4/41150_oe-pfad_db_view.php');
 require_once('dbupdate_3.4/44031_stv_favorites.php');
+require_once('dbupdate_3.4/37620_reihungslisten.php');
+
 
 // *** Pruefung und hinzufuegen der neuen Attribute und Tabellen
 echo '<H2>Pruefe Tabellen und Attribute!</H2>';
