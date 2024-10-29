@@ -28393,7 +28393,7 @@ array(
 	array(
 		'app' => 'anwesenheiten',
 		'category' => 'global',
-		'phrase' => 'tooltipStudentAssistenz',
+		'phrase' => 'tooltipAssistenz',
 		'insertvon' => 'system',
 		'phrases' => array(
 			array(
