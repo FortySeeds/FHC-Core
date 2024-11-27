@@ -18,8 +18,7 @@ export default {
 	],
 	props: {
 		prestudentId: Number,
-		studierendenantragId: Number,
-		unruly: Boolean
+		studierendenantragId: Number
 	},
 	data() {
 		return {
@@ -28,7 +27,7 @@ export default {
 			formData: {
 				grund: ''
 			},
-			unrulyInternal: this.unruly
+			unrulyInternal: false
 		}
 	},
 	computed: {
@@ -81,7 +80,7 @@ export default {
 				.then(result => {
 
 					if(this.unrulyInternal) {
-						this.$fhcApi.factory.unrulyperson.updatePersonUnrulyStatus(this.data.person_id, true).then(
+						this.$fhcApi.factory.checkperson.updatePersonUnrulyStatus(this.data.person_id, true).then(
 							(res)=> {
 								if(res?.meta?.status === "success") {
 									this.$fhcAlert.alertSuccess(this.$p.t('studierendenantrag', 'antrag_unruly_updated'))
@@ -125,7 +124,7 @@ export default {
 	},
 	watch: {
 		'formData.grund'(newVal) {
-			this.unrulyInternal = (newVal === this.$p.t('studierendenantrag', 'mark_person_as_unruly'))
+			this.unrulyInternal = (newVal === this.$p.t('studierendenantrag', 'textLong_unruly'))
 		}
 	},
 	template: `
@@ -190,8 +189,10 @@ export default {
 							</option>					
 							<option value="textLong_MissingZgv">{{$p.t('studierendenantrag', 'dropdown_MissingZgv')}}
 							</option>	
-							<option value="textLong_unruly">{{$p.t('studierendenantrag', 'mark_person_as_unruly')}}
-							</option>						
+<!--
+							<option value="textLong_unruly">{{$p.t('studierendenantrag', 'dropdown_unruly')}}
+							</option>
+-->
 						</select>	
 					</div>
 					<form-input

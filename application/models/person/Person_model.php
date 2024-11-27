@@ -290,19 +290,34 @@ class Person_model extends DB_Model
 		return success($result->vorname. ' '. $result->nachname);
 	}
 
+	/**
+	 * Get first name of given uid. (Vorname Nachname)
+	 * @param $uid
+	 * @return array
+	 */
+	public function getFirstName($uid)
+	{
+		$result = getData($this->getByUid($uid))[0];
+		if (!$result) {
+			show_error('Failed loading person');
+		}
+
+		return success($result->vorname);
+	}
+
 	public function checkDuplicate($person_id)
 	{
 		$qry = "SELECT person_id
 				FROM public.tbl_prestudent p
-				JOIN 
+				JOIN
 				(
 					SELECT DISTINCT ON(prestudent_id) *
 					FROM public.tbl_prestudentstatus
-					WHERE prestudent_id IN 
+					WHERE prestudent_id IN
 						(
-							SELECT prestudent_id 
-							FROM public.tbl_prestudent 
-							WHERE person_id IN 
+							SELECT prestudent_id
+							FROM public.tbl_prestudent
+							WHERE person_id IN
 							(
 								SELECT p2.person_id
 								FROM public.tbl_person p
@@ -316,8 +331,8 @@ class Person_model extends DB_Model
 					ORDER BY prestudent_id, datum DESC, insertamum DESC
 				) ps USING(prestudent_id)
 				JOIN public.tbl_status USING(status_kurzbz)
-				WHERE status_kurzbz = 'Interessent' 
-				AND studiengang_kz IN 
+				WHERE status_kurzbz = 'Interessent'
+				AND studiengang_kz IN
 				(
 					SELECT studiengang_kz
 					FROM public.tbl_prestudent p
@@ -377,7 +392,7 @@ class Person_model extends DB_Model
 
 	public function checkUnruly($vorname, $nachname, $gebdatum)
 	{
-		$qry = "SELECT *
+		$qry = "SELECT person_id, vorname, nachname, gebdatum, unruly
 				FROM tbl_person
 				WHERE tbl_person.vorname = ? 
 					AND tbl_person.nachname = ? 
@@ -385,6 +400,15 @@ class Person_model extends DB_Model
 					AND tbl_person.unruly = TRUE;";
 
 		return $this->execQuery($qry, [$vorname, $nachname, $gebdatum]);
+	}
+
+	public function checkUnrulyWhere($where, $paramsArray)
+	{
+		$qry =  'SELECT *
+				FROM tbl_person p
+				WHERE '.$where.';';
+
+		return $this->execQuery($qry, $paramsArray);
 	}
 
 	public function updateUnruly($person_id, $unruly)

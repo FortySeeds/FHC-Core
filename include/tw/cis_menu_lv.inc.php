@@ -241,13 +241,18 @@ function checkZeilenUmbruch()
 	}
 
 	// Digitale Anwesenheiten
-	if(CIS_LEHRVERANSTALTUNG_ANWESENHEIT_ANZEIGEN && $angemeldet)
+	// $lv->studiengang_kz == 257 -> only show the extension for studiengang BIF - Bachelor Informatik 
+	if(defined('CIS_LEHRVERANSTALTUNG_ANWESENHEIT_ANZEIGEN') && CIS_LEHRVERANSTALTUNG_ANWESENHEIT_ANZEIGEN && $angemeldet
+			&& $lv->studiengang_kz == 257 && ($rechte->isBerechtigt('extension/anw_ent_admin')
+				|| $rechte->isBerechtigt('extension/anwesenheit_lektor')
+				|| $rechte->isBerechtigt('extension/anwesenheit_student')
+				|| $rechte->isBerechtigt('extension/anwesenheit_admin')))
 	{
 
 		$link='';
 		$text='';
 
-		$link= APP_ROOT."index.ci.php/extensions/FHC-Core-Anwesenheiten/?stg_kz=$studiengang_kz&sem=$semester&lvid=$lvid&sem_kurzbz=$angezeigtes_stsem&nav=false";
+		$link= APP_ROOT."index.ci.php/extensions/FHC-Core-Anwesenheiten/?stg_kz=$studiengang_kz&sem=$semester&lvid=$lvid&sem_kurzbz=$angezeigtes_stsem";
 
 		$menu[]=array
 		(
