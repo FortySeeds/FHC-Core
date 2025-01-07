@@ -12,6 +12,7 @@ composer.phar
 
 .htaccess
 .htaccessbak
+.htpasswd
 
 application/config/development/
 application/config/extensions/

@@ -67,7 +67,10 @@ class authentication extends auth
 			|| $username=='lektor2'
 			|| $username=='lektor3'
 			|| $username == 'aufnahme'))
+		{
+			$_SERVER['PHP_AUTH_USER']=$username;
 			return true;
+		}
 		else
 			return false;
 	}
